@@ -11,6 +11,7 @@ namespace AG.Gameplay.Actions
 		//--------------------------------
 
 		private Animator _animator;
+		private Flags _flags;
 
 		//--------------------------------
 
@@ -24,6 +25,7 @@ namespace AG.Gameplay.Actions
 		protected void Awake()
 		{
 			_animator = Root.Get<Animator>();
+			_flags = Root.Get<Flags>();
 		}
 
 		void Update()
@@ -54,7 +56,7 @@ namespace AG.Gameplay.Actions
 
 			action.StartAction(parameters);
 
-			Root.RaiseFlags(action.Flags);
+			_flags.RaiseFlags(action.Flags);
 
 			_runningActions.Add(action);
 		}
@@ -69,7 +71,7 @@ namespace AG.Gameplay.Actions
 
 			action.OnActionFinished();
 
-			Root.LowerFlags(action.Flags);
+			_flags.LowerFlags(action.Flags);
 		}
 
 		private bool CheckCanPlayAction(BaseAction action)
@@ -89,12 +91,24 @@ namespace AG.Gameplay.Actions
 			return true;
 		}
 
-		public void ResetComponent()
+		public void OnBeforeGetFromPool()
+		{
+		}
+
+		public void OnAfterGetFromPool()
+		{
+		}
+
+		public void OnReturnToPool()
 		{
 			foreach (BaseAction action in _runningActions)
 			{
-				action.ResetComponent();
+				action.InterruptAction();
 			}
+		}
+
+		public void OnDestroyFromPool()
+		{
 		}
 	}
 }

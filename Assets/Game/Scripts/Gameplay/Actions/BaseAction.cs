@@ -15,7 +15,7 @@ namespace AG.Gameplay.Actions
 		[LabelText(SdfIconType.CheckCircle, IconColor = "green")] Finished
 	}
 
-	public abstract class BaseAction : SubComponent, IPooledComponent
+	public abstract class BaseAction : SubComponent
 	{
 		[SerializeField] private List<FlagSO> _flags;
 
@@ -31,10 +31,6 @@ namespace AG.Gameplay.Actions
 		[GUIColor("@_status==ActionStatus.Running?\"green\" : \"white\"")]
 		private ActionStatus _status;
 		
-		[ShowInInspector, ReadOnly, FoldoutGroup("Debug"), PropertyOrder(999)]
-		private bool _isListeningAnimationEvents;
-		private Transform _rootTransform;
-
 		//--------------------------------
 		public Animator Animator => _animator;
 		public List<FlagSO> Flags => _flags;
@@ -68,8 +64,6 @@ namespace AG.Gameplay.Actions
 			//Debug.Log($"Start {_typeName}");
 			Status = ActionStatus.Running;
 
-			_isListeningAnimationEvents = true;
-
 			DoStartAction(parameters);
 		}
 
@@ -82,7 +76,6 @@ namespace AG.Gameplay.Actions
 
 			return DoUpdateAction();
 		}
-
 
 		[FoldoutGroup("Debug/Buttons"), PropertyOrder(1001)]
 		public void OnActionFinished()
@@ -97,28 +90,21 @@ namespace AG.Gameplay.Actions
 		public void InterruptAction()
 		{
 			DoInterruptAction();
+			
+			Status = ActionStatus.None;
 		}
-		
+
 		protected abstract void DoStartAction(object parameters);
-
-
 		protected abstract ActionStatus DoUpdateAction();
-
 		protected abstract void DoOnActionFinished();
-
 		protected abstract void DoInterruptAction();
 
-		//------------------------------------
+		//------------- DEBUG UTILITIES -----------------------
 
 		[Button("Start"), FoldoutGroup("Debug/Buttons"), PropertyOrder(1000)]
 		private void DebugStartAction()
 		{
 			_actionPlayer.PlayAction(this);
 		}
-
-		protected abstract void OnBeforeGetFromPool();
-		protected abstract void OnAfterGetFromPool();
-		protected abstract void OnReturnToPool();
-		protected abstract void OnDestroyFromPool();
 	}
 }
