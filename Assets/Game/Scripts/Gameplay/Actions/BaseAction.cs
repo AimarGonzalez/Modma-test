@@ -19,21 +19,31 @@ namespace AG.Gameplay.Actions
 	{
 		[SerializeField] private List<FlagSO> _flags;
 
-		//--------------------------------
+		// ------------ Private fields -----------------
 
 		private string _typeName;
 
 		private ActionPlayer _actionPlayer;
 		[ShowInInspector, ReadOnly, FoldoutGroup("Debug"), PropertyOrder(999)]
 		private Animator _animator;
-		
+
 		[ShowInInspector, PropertyOrder(-1)]
-		[GUIColor("@_status==ActionStatus.Running?\"green\" : \"white\"")]
+		[GUIColor("$" + nameof(StatusColor))]
 		private ActionStatus _status;
-		
-		//--------------------------------
+
+		private Color StatusColor => _status switch
+		{
+			ActionStatus.None => Color.white,
+			ActionStatus.Running => Color.green,
+			ActionStatus.Finished => Color.purple,
+			_ => Color.white
+		};
+
+		// ----------- Public properties ----------------
+
 		public Animator Animator => _animator;
 		public List<FlagSO> Flags => _flags;
+
 
 		public ActionStatus Status
 		{
@@ -47,7 +57,7 @@ namespace AG.Gameplay.Actions
 
 			CacheComponents();
 		}
-		
+
 		private void CacheComponents()
 		{
 			_animator ??= Root.Get<Animator>();
@@ -90,7 +100,7 @@ namespace AG.Gameplay.Actions
 		public void InterruptAction()
 		{
 			DoInterruptAction();
-			
+
 			Status = ActionStatus.None;
 		}
 

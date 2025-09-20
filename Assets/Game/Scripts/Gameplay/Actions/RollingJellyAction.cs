@@ -1,38 +1,52 @@
+using MoreMountains.Feedbacks;
+using SharedLib.ExtensionMethods;
+using System.Threading.Tasks;
+using UnityEngine;
+
 namespace AG.Gameplay.Actions
 {
-    public class RollingJellyAction : BaseAction
-    {
-        //----- Inspector fields -------------------
+	public class RollingJellyAction : BaseAction
+	{
+		//----- Inspector fields -------------------
 
-       
-        // TODO ADD FEEDBACK field
+		[SerializeField]
+		private MMF_Player _feedbacks;
 
-        //----- External dependencies ----------------
+		// TODO ADD FEEDBACK field
+
+		//----- External dependencies ----------------
 
 
-        //----- Internal variables -------------------
+		//----- Internal variables -------------------
 
-        protected override void Awake()
-        {
-        }
+		protected override void Awake()
+		{
+		}
 
-        //--------------------------------
+		//--------------------------------
 
-        protected override void DoStartAction(object parameters)
-        {
-        }
+		protected override void DoStartAction(object parameters)
+		{
+			StartActionAsync().RunAsync();
+		}
 
-        protected override ActionStatus DoUpdateAction()
-        {
-            return Status;
-        }
+		private async Task StartActionAsync()
+		{
+			await _feedbacks.PlayFeedbacksTask();
+			Status = ActionStatus.Finished;
+		}
 
-        protected override void DoOnActionFinished()
-        {
-        }
+		protected override ActionStatus DoUpdateAction()
+		{
+			return Status;
+		}
 
-        protected override void DoInterruptAction()
-        {
-        }
-    }
+		protected override void DoOnActionFinished()
+		{
+		}
+
+		protected override void DoInterruptAction()
+		{
+		}
+	}
 }
