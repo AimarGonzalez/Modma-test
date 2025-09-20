@@ -8,7 +8,7 @@ using VContainer;
 namespace AG.Gameplay.Combat
 {
 	[DefaultExecutionOrder(-4000)]
-	public class GameplayWorld : MonoBehaviour
+	public class ArenaWorld : MonoBehaviour
 	{
 
 		private Character _player;
