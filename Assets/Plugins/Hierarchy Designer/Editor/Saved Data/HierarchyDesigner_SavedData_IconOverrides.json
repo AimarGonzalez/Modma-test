@@ -1,0 +1,29 @@
+{
+    "items": [
+        {
+            "globalId": "GlobalObjectId_V1-2-f3daf06ff72b97243af01b2b79a4ef4e-1946600636-0",
+            "source": "builtin",
+            "value": "d_CapsuleCollider Icon"
+        },
+        {
+            "globalId": "GlobalObjectId_V1-2-f3daf06ff72b97243af01b2b79a4ef4e-447307369-0",
+            "source": "builtin",
+            "value": "d_Animator Icon"
+        },
+        {
+            "globalId": "GlobalObjectId_V1-2-f3daf06ff72b97243af01b2b79a4ef4e-1564761262-0",
+            "source": "builtin",
+            "value": "d_PlayButton@2x"
+        },
+        {
+            "globalId": "GlobalObjectId_V1-2-f3daf06ff72b97243af01b2b79a4ef4e-854068991-0",
+            "source": "builtin",
+            "value": "d_ParticleSystem Icon"
+        },
+        {
+            "globalId": "GlobalObjectId_V1-2-f3daf06ff72b97243af01b2b79a4ef4e-65547003-0",
+            "source": "builtin",
+            "value": "d_iconemptygravatar"
+        }
+    ]
+}
