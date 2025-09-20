@@ -1,0 +1,88 @@
+{
+	"files.exclude": {
+		"**/.DS_Store": true,
+		"**/.git": true,
+		"**/.gitmodules": true,
+		"**/.vs": true,
+		"**/.vsconfig": true,
+		"**/*.3ds": true,
+		"**/*.3DS": true,
+		"**/*.asset": true,
+		"**/*.booproj": true,
+		"**/*.cubemap": true,
+		"**/*.dll": true,
+		"**/*.exe": true,
+		"**/*.fbx": true,
+		"**/*.FBX": true,
+		"**/*.flare": true,
+		"**/*.gif": true,
+		"**/*.ico": true,
+		"**/*.lxo": true,
+		"**/*.LXO": true,
+		"**/*.ma": true,
+		"**/*.MA": true,
+		"**/*.mat": true,
+		"**/*.meta": true,
+		"**/*.mid": true,
+		"**/*.midi": true,
+		"**/*.obj": true,
+		"**/*.OBJ": true,
+		"**/*.pdf": true,
+		"**/*.pidb": true,
+		"**/*.prefab": true,
+		"**/*.psd": true,
+		"**/*.suo": true,
+		"**/*.tga": true,
+		"**/*.tif": true,
+		"**/*.tiff": true,
+		"**/*.unity": true,
+		"**/*.unityproj": true,
+		"**/*.user": true,
+		"**/*.userprefs": true,
+		"**/*.wav": true,
+		"build/": true,
+		"Build/": true,
+		"library/": true,
+		"Library/": true,
+		"logs/": true,
+		"Logs/": true,
+		"obj/": true,
+		"Obj/": true,
+		"ProjectSettings/": true,
+		"temp/": true,
+		"Temp/": true,
+		"UserSettings/": true
+	},
+	"dotnet.defaultSolution": "Forest Royale.sln",
+	"editor.tokenColorCustomizations": {
+		"[JetBrains*]": {
+			"textMateRules": [
+				{
+					"scope": "entity.name.variable.field.cs",
+					"settings": {
+						"foreground": "#001884"
+					}
+				},
+				{
+					"scope": "constant.numeric",
+					"settings": {
+						"foreground": "#AB2F6B"
+					}
+				}
+			]
+		}
+	},
+	"workbench.colorCustomizations": {
+		"[JetBrains*]": {
+			"editor.background": "#F1F0ED",
+			"tab.activeBackground": "#e86ece",
+			"tab.unfocusedActiveBackground": "#f7bcec",
+			"tab.activeForeground": "#000000",
+			"tab.inactiveBackground": "#dcdcdc",
+			"tab.inactiveForeground": "#000000",
+			"tab.selectedBackground": "#001884",
+			"editor.lineHighlightBackground": "#ffffff", // Background color of the current line
+		}
+	},
+	"dotnet.preferCSharpExtension": true
+}
