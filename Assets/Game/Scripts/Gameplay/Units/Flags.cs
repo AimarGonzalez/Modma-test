@@ -6,7 +6,7 @@ using UnityEngine;
 namespace AG.Gameplay
 {
     [Serializable]
-    public class Flags
+    public class Flags : MonoBehaviour
     {
         [ReadOnly, ShowInInspector]
         private Dictionary<FlagSO, int> _flags = new();
