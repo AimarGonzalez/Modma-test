@@ -1,25 +1,24 @@
-using SharedLib.ComponentCache;
-
+﻿using SharedLib.ComponentCache;
+using System;
 using UnityEngine;
 
 namespace SharedLib.StateMachines
 {
-	public abstract class StateSubComponent : SubComponent, IState
+	public abstract class StateSubComponent<T, TStateMachine> : SubComponent, IState<T, TStateMachine>  where T : struct, Enum
 	{
-
 		// ------------- Inspector fields -------------
 		[SerializeField]
-		private StateId _stateId;
+		private T _stateId;
 
 
 		// ------------- Private fields ----------------
-		private StateMachine _stateMachine;
+		private TStateMachine _stateMachine;
 
 		// ------------- Public properties -------------
-		protected StateMachine StateMachine => _stateMachine;
+		protected TStateMachine StateMachine => _stateMachine;
 
-		StateId IState.StateId => _stateId;
-		void IState.InitState(StateMachine stateMachine)
+		public T StateId => _stateId;
+		public void InitState(TStateMachine stateMachine)
 		{
 			_stateMachine = stateMachine;
 		}
@@ -29,4 +28,3 @@ namespace SharedLib.StateMachines
 		public abstract IState.Status UpdateState();
 	}
 }
-

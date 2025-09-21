@@ -6,15 +6,16 @@ using UnityEngine;
 
 namespace AG.Gameplay.Units.Components
 {
-	public enum EnemyState
-	{
-		Idle,
-		Moving,
-		Attacking
-	}
 	
-	public class EnemyCombatState : StateSubComponent
+	public class CobatCombatState : StateSubComponent
 	{
+		public enum CombatState
+		{
+			Idle,
+			Moving,
+			Attacking
+		}
+		
 		// ------------- Inspector fields -------------
 		
 		[SerializeField]
@@ -35,10 +36,10 @@ namespace AG.Gameplay.Units.Components
 		//-------------- Private fields --------------
 
 		[ShowInInspector, ReadOnly]
-		private EnemyState _subState;
+		private CombatState _combatState;
 
 		private bool IsBlockedByActions => _flags.IsAnyFlagActive(_blockingFlags);
-		public EnemyState State  => _subState;
+		public CombatState State  => _combatState;
 
 
 		protected void Awake()
@@ -64,15 +65,15 @@ namespace AG.Gameplay.Units.Components
 				return IState.Status.Running;
 			}
 
-			switch (_subState)
+			switch (_combatState)
 			{
-				case EnemyState.Idle:
-					SetSubState(EnemyState.Moving);
+				case CombatState.Idle:
+					SetSubState(CombatState.Moving);
 					break;
-				case EnemyState.Moving:
+				case CombatState.Moving:
 					Move();
 					break;
-				case EnemyState.Attacking:
+				case CombatState.Attacking:
 					Attack();
 					break;
 			}
@@ -80,9 +81,9 @@ namespace AG.Gameplay.Units.Components
 			return IState.Status.Running;
 		}
 
-		private void SetSubState(EnemyState state)
+		private void SetSubState(CombatState state)
 		{
-			_subState = state;
+			_combatState = state;
 		}
 
 		private void Move()
@@ -92,7 +93,7 @@ namespace AG.Gameplay.Units.Components
 
 		private void OnMoveFinished()
 		{
-			SetSubState(EnemyState.Attacking);
+			SetSubState(CombatState.Attacking);
 		}
 
 		private void Attack()
@@ -102,7 +103,7 @@ namespace AG.Gameplay.Units.Components
 
 		private void OnAttackFinished()
 		{
-			SetSubState(EnemyState.Moving);
+			SetSubState(CombatState.Moving);
 		}
 
 		private void OnHitReceivedHandler(Character source, float damage)

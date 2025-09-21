@@ -4,7 +4,7 @@ using System;
 
 namespace SharedLib.StateMachines
 {
-	public interface IState<TStateId> where TStateId : struct, Enum
+	public interface IState<TId, TStateMachine> where TId : struct, Enum
 	{
 		public enum Status
 		{
@@ -12,8 +12,8 @@ namespace SharedLib.StateMachines
 			Finished
 		}
 
-		TStateId StateId { get; }
-		void InitState(StateMachine<TStateId> stateMachine);
+		TId StateId { get; }
+		void InitState(TStateMachine stateMachine);
 		void EnterState();
 		void ExitState();
 		IState.Status UpdateState();

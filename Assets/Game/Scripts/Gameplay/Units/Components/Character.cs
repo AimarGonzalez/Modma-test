@@ -151,19 +151,24 @@ namespace AG.Gameplay.Characters
 		[Button("Spawn", ButtonSizes.Large), PropertyOrder(DebugUI.Order)]
 		public void Spawn()
 		{
-			_stateMachine.SetState(_characterStates.SpawningState);
+			SetState(_characterStates.SpawningState);
 		}
 
 		[Button("Cinematic", ButtonSizes.Large), PropertyOrder(DebugUI.Order)]
 		public void Cinematic()
 		{
-			_stateMachine.SetState(_characterStates.CinematicState);
+			SetState(_characterStates.CinematicState);
 		}
 
 		[Button("Fight", ButtonSizes.Large)]
 		public void Fight()
 		{
-			_stateMachine.SetState(_characterStates.CombatState);
+			SetState(_characterStates.CombatState);
+		}
+
+		public void SetState(StateId id)
+		{
+			_stateMachine.SetState(id);
 		}
 
 		void IPooledComponent.OnReturnToPool()

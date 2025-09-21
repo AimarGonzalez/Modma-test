@@ -4,26 +4,27 @@ using UnityEngine;
 
 namespace SharedLib.StateMachines
 {
-	public class StateMachine<TId> where TId : struct, Enum
+	public class StateMachine<TId, TState> where TId : struct, Enum where TState : IState<TId, StateMachine<TId, TState>>
 	{
 		// ------------- Events -------------
 		public event Action<TId, TId> OnStateTransition;
 		public event Action<TId> OnStateFinishedWithoutTransition;
 
 		// ------------- Private fields -------------
-		private IState<TId> _currentState;
-		private IState<TId> _previousState;
+		
+		private TState _currentState;
+		private TState _previousState;
 		private TId _currentStateId;
 		private TId _previousStateId;
 
 		// ------------- Public properties -------------
-		public IState<TId> CurrentState => _currentState;
+		public TState CurrentState => _currentState;
 		public TId CurrentStateId => _currentStateId;
 		public TId PreviousStateId => _previousStateId;
 
-		private Dictionary<TId, IState<TId>> _statesMap = new();
+		private Dictionary<TId, TState> _statesMap = new();
 
-		public void AddState(IState<TId> state)
+		public void AddState(TState state)
 		{
 			_statesMap[state.StateId] = state;
 
@@ -37,7 +38,7 @@ namespace SharedLib.StateMachines
 
 		public void SetState(TId nextStateId)
 		{
-			if (!_statesMap.TryGetValue(nextStateId, out IState<TId> nextState))
+			if (!_statesMap.TryGetValue(nextStateId, out TState nextState))
 			{
 				Debug.LogError($"State {nextStateId} not found");
 				return;
@@ -46,7 +47,7 @@ namespace SharedLib.StateMachines
 			SetState(nextState);
 		}
 
-		public void SetState(IState<TId> nextState)
+		public void SetState(TState nextState)
 		{
 			_previousState = _currentState;
 			_previousStateId = _currentStateId;
