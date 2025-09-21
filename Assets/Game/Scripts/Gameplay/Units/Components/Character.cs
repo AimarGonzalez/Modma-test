@@ -66,15 +66,15 @@ namespace AG.Gameplay.Characters
 		// ------------- DEGUG BOX -------------
 
 		[SerializeField]
-		[BoxGroup("Debug Panel"), PropertyOrder(9999)]
+		[FoldoutGroup("Debug Panel"), PropertyOrder(9999)]
 		private bool _showDebugPanel = true;
 
 		[SerializeField]
-		[BoxGroup("Debug Panel"), PropertyOrder(9999)]
+		[FoldoutGroup("Debug Panel"), PropertyOrder(9999)]
 		private GUIUtils.PanelPlacement _panelPosition;
 
 		[SerializeField]
-		[BoxGroup("Debug Panel"), PropertyOrder(9999)]
+		[FoldoutGroup("Debug Panel"), PropertyOrder(9999)]
 		private float _panelMargin;
 
 		// ------------- Dependencies -------------
@@ -148,19 +148,19 @@ namespace AG.Gameplay.Characters
 			Subscribe();
 		}
 
-		[Button("Spawn", ButtonSizes.Large), PropertyOrder(DebugUI.Order)]
+		[Button("Spawn", ButtonSizes.Large), ResponsiveButtonGroup("Actions"), PropertyOrder(DebugUI.Order)]
 		public void Spawn()
 		{
 			SetState(_characterStates.SpawningState);
 		}
 
-		[Button("Cinematic", ButtonSizes.Large), PropertyOrder(DebugUI.Order)]
+		[Button("Cinematic", ButtonSizes.Large), ResponsiveButtonGroup("Actions"), PropertyOrder(DebugUI.Order)]
 		public void Cinematic()
 		{
 			SetState(_characterStates.CinematicState);
 		}
 
-		[Button("Fight", ButtonSizes.Large)]
+		[Button("Fight", ButtonSizes.Large), PropertyOrder(DebugUI.Order)]
 		public void Fight()
 		{
 			SetState(_characterStates.CombatState);
@@ -259,13 +259,6 @@ namespace AG.Gameplay.Characters
 		}
 
 #if UNITY_EDITOR
-		[Button("DEPRECATED - ForceInitializeCharacter")]
-		[BoxGroup(DebugUI.Group), PropertyOrder(DebugUI.Order - 1)]
-		private void ForceInitializeCharacter()
-		{
-			//ForceAwakeSubComponents();
-		}
-
 		/*
 		private void ForceAwakeSubComponents()
 		{

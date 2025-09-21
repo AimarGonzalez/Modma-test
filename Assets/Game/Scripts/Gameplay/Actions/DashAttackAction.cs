@@ -1,6 +1,7 @@
 using AG.Gameplay.Characters;
 using AG.Gameplay.Characters.BodyLocations;
 using MoreMountains.Feedbacks;
+using MoreMountains.Tools;
 using SharedLib.ComponentCache;
 using SharedLib.Physics;
 using Sirenix.OdinInspector;
@@ -20,7 +21,7 @@ namespace AG.Gameplay.Actions
 		private float _damage;
 
 		[SerializeField]
-		private TagHandle _targetTag;
+		private LayerMask _damagedLayers;
 
 		[SerializeField, InlineEditor]
 		private MMF_Player _feedbacks;
@@ -62,7 +63,7 @@ namespace AG.Gameplay.Actions
 
 		private void OnTriggerEnter(Collider other)
 		{
-			if (!other.gameObject.CompareTag(_targetTag))
+			if (!_damagedLayers.MMContains(other.gameObject))
 			{
 				return;
 			}

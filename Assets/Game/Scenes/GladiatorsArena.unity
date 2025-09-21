@@ -875,7 +875,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Modma::AG.Gameplay.Actions.ContactAttackAction
   _actionId: {fileID: 11400000, guid: 84321f7283a17eb49b1474b568082b24, type: 2}
-  _flags: []
+  _flags:
+  - {fileID: 11400000, guid: de186457c472144428270ef8fb948635, type: 2}
   _speed: 1
   _damage: 50
   _feedbacks: {fileID: 948278281}
@@ -892,7 +893,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Modma::AG.Gameplay.Actions.MoveAction
   _actionId: {fileID: 11400000, guid: cdbf156641d806f40a440baf96d2ee7e, type: 2}
-  _flags: []
+  _flags:
+  - {fileID: 11400000, guid: de186457c472144428270ef8fb948635, type: 2}
   _speed: 1
   _feedbacks: {fileID: 1007594575}
 --- !u!1 &330585543
@@ -8549,6 +8551,18 @@ PrefabInstance:
       value: 8731366364805857572
       objectReference: {fileID: 0}
     - target: {fileID: 8785804434831735779, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
+      propertyPath: _characterStates.CombatState
+      value: 
+      objectReference: {fileID: 11400000, guid: 36187a2c5524c4644a1da2831f362a96, type: 2}
+    - target: {fileID: 8785804434831735779, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
+      propertyPath: _characterStates.SpawningState
+      value: 
+      objectReference: {fileID: 11400000, guid: 0693616360858164e9a86ac226bdbf2e, type: 2}
+    - target: {fileID: 8785804434831735779, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
+      propertyPath: _characterStates.CinematicState
+      value: 
+      objectReference: {fileID: 11400000, guid: a4bea5adc3c1f50448de5b12e584349a, type: 2}
+    - target: {fileID: 8785804434831735779, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
       propertyPath: 'managedReferences[8731366364805857571]'
       value: Modma Boat
       objectReference: {fileID: 0}
@@ -8600,6 +8614,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1007594574}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 296139959842371101, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 738429516526013983}
+    - targetCorrespondingSourceObject: {fileID: 296139959842371101, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 738429516526013982}
     - targetCorrespondingSourceObject: {fileID: 2499852475271423627, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
       insertIndex: -1
       addedObject: {fileID: 284195630}
@@ -8607,6 +8627,42 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 284195629}
   m_SourcePrefab: {fileID: 100100000, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
+--- !u!1 &738429516526013981 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 296139959842371101, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
+  m_PrefabInstance: {fileID: 738429516526013980}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &738429516526013982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738429516526013981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bb82248078faa8419dd97471afac98b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Modma::AG.Gameplay.Units.Components.CobatCombatState
+  _stateId: {fileID: 11400000, guid: 36187a2c5524c4644a1da2831f362a96, type: 2}
+  _moveActionId: {fileID: 11400000, guid: cdbf156641d806f40a440baf96d2ee7e, type: 2}
+  _attackActionId: {fileID: 11400000, guid: 84321f7283a17eb49b1474b568082b24, type: 2}
+  _blockingFlags:
+  - {fileID: 11400000, guid: de186457c472144428270ef8fb948635, type: 2}
+--- !u!114 &738429516526013983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738429516526013981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd6673beee14c1a4b94fc389a82c1604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Modma::AG.Gameplay.Units.Components.SpawningState
+  _stateId: {fileID: 11400000, guid: 0693616360858164e9a86ac226bdbf2e, type: 2}
+  _spawnningFeedbacks: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

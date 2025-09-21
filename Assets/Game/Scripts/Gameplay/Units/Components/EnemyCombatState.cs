@@ -7,7 +7,7 @@ using UnityEngine;
 namespace AG.Gameplay.Units.Components
 {
 	
-	public class CobatCombatState : StateSubComponent
+	public class EnemyCombatState : StateSubComponent
 	{
 		public enum CombatState
 		{

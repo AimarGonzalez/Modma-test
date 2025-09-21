@@ -30,7 +30,7 @@ namespace AG.Gameplay.Actions
 		[ShowInInspector, ReadOnly, FoldoutGroup("Debug"), PropertyOrder(999)]
 		private Animator _animator;
 
-		[ShowInInspector, PropertyOrder(-1)]
+		[ShowInInspector, PropertyOrder(-1), HideInEditorMode]
 		[GUIColor("$" + nameof(StatusColor))]
 		private ActionStatus _status;
 
