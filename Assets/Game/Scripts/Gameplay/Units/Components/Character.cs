@@ -8,7 +8,9 @@ using SharedLib.ComponentCache;
 using SharedLib.Physics;
 using SharedLib.StateMachines;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
@@ -87,7 +89,8 @@ namespace AG.Gameplay.Characters
 
 		// ------------- Components --------------------
 
-		private ColliderListener _colliderListener;
+		private ColliderListener[] _colliderListeners;
+		private IDebugPanelDrawer[] _debugPanelDrawers;
 
 		// ------------- Public properties -------------
 
@@ -111,7 +114,7 @@ namespace AG.Gameplay.Characters
 
 		// ------------- Private fields -------------
 
-		private StateMachine _stateMachine;
+		private readonly StateMachine _stateMachine = new();
 
 
 		protected void Awake()
@@ -125,7 +128,8 @@ namespace AG.Gameplay.Characters
 			PlayModeAutoInject();
 #endif
 
-			_colliderListener = Root.Get<ColliderListener>();
+			_colliderListeners = Root.GetAll<ColliderListener>().ToArray();
+			_debugPanelDrawers = Root.GetAll<IDebugPanelDrawer>().ToArray();
 
 			IState[] states = Root.GetAll<IState>().ToArray();
 			foreach (IState state in states)
@@ -182,14 +186,20 @@ namespace AG.Gameplay.Characters
 
 		private void Subscribe()
 		{
-			_colliderListener.OnMouseDownEvent += OnMouseDown;
+			foreach (var colliderListener in _colliderListeners)
+			{
+				colliderListener.OnMouseDownEvent += OnMouseDown;
+			}
 			_stateMachine.OnStateFinishedWithoutTransition += OnStateFinishedWithoutTransition;
 			_stateMachine.OnStateTransition += OnStateTransition;
 		}
 
 		private void Unsubscribe()
 		{
-			_colliderListener.OnMouseDownEvent -= OnMouseDown;
+			foreach (var colliderListener in _colliderListeners)
+			{
+				colliderListener.OnMouseDownEvent -= OnMouseDown;
+			}
 			_stateMachine.OnStateFinishedWithoutTransition -= OnStateFinishedWithoutTransition;
 			_stateMachine.OnStateTransition -= OnStateTransition;
 		}
@@ -248,12 +258,17 @@ namespace AG.Gameplay.Characters
 				return;
 			}
 
-			GUIUtils.Property[] properties;
-			properties = new[] {
+			List<GUIUtils.Property> properties;
+			properties = new() {
 				new GUIUtils.Property ("Name", name),
-				new GUIUtils.Property ("Target", "None"),
-				new GUIUtils.Property ("Flags", "todo")
+				new GUIUtils.Property ("State", _stateMachine.CurrentStateId?.name ?? "no-state"),
 			};
+
+
+			foreach (IDebugPanelDrawer drawer in _debugPanelDrawers)
+			{
+				drawer.AddDebugProperties(properties);
+			}
 
 			GUIUtils.DrawDebugPanel(properties, transform, _panelPosition, _panelMargin, () => _showDebugPanel = false);
 		}

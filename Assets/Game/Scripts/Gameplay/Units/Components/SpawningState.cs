@@ -16,7 +16,7 @@ namespace AG.Gameplay.Units.Components
 
 		private IState.Status _status = IState.Status.Running;
 
-		public override void EnterState()
+		public override void OnEnterState()
 		{
 			_spawnningFeedbacks.PlayFeedbacks();
 
@@ -33,7 +33,7 @@ namespace AG.Gameplay.Units.Components
 			return _status;
 		}
 
-		public override void ExitState()
+		public override void OnExitState()
 		{
 			_spawnningFeedbacks.Events.OnComplete.RemoveListener(OnSpawnningFeedbacksComplete);
 		}

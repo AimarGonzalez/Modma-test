@@ -17,6 +17,7 @@ namespace SharedLib.StateMachines
 
 		// ------------- Public properties -------------
 		protected StateMachine StateMachine => _stateMachine;
+		protected bool IsCurrentState => _stateMachine.CurrentState == this;
 
 		StateId IState.StateId => _stateId;
 		void IState.InitState(StateMachine stateMachine)
@@ -24,8 +25,8 @@ namespace SharedLib.StateMachines
 			_stateMachine = stateMachine;
 		}
 
-		public abstract void EnterState();
-		public abstract void ExitState();
+		public abstract void OnEnterState();
+		public abstract void OnExitState();
 		public abstract IState.Status UpdateState();
 	}
 }

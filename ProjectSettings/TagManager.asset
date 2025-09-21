@@ -11,11 +11,11 @@ TagManager:
   - Terrain
   - Water
   - UI
-  - Characters
-  - Projectiles
+  - Player
+  - Enemy
   - FXOnTop
-  - 
-  - 
+  - DamageForPlayer
+  - DamageForEnemy
   - 
   - 
   - 

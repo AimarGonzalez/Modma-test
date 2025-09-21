@@ -12,8 +12,8 @@ namespace SharedLib.StateMachines
 
 		StateId StateId { get; }
 		void InitState(StateMachine stateMachine);
-		void EnterState();
-		void ExitState();
-		IState.Status UpdateState();
+		void OnEnterState();
+		void OnExitState();
+		Status UpdateState();
 	}
 }

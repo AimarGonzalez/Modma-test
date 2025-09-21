@@ -9,12 +9,11 @@ namespace AG.Gameplay.Actions
 		//----- Inspector fields -------------------
 
 		[Title("Move settings")]
-		[SerializeField]
-		private float _speed = 1f;
-
 		[SerializeField, InlineEditor]
-		private MMF_Player _feedbacks;
+		private MMF_Player _feedback;
 
+		[SerializeField]
+		private float _feedbackSpeedMultiplier = 1f;
 		//----- Components ----------------
 
 
@@ -28,20 +27,20 @@ namespace AG.Gameplay.Actions
 		{
 			Subscribe();
 
-			_feedbacks.DurationMultiplier = 1 / Mathf.Max(_speed, 0.001f);
-			_feedbacks.Initialization();
+			_feedback.DurationMultiplier = 1 / Mathf.Max(_feedbackSpeedMultiplier, 0.001f);
+			_feedback.Initialization();
 
-			_feedbacks.PlayFeedbacks();
+			_feedback.PlayFeedbacks();
 		}
 
 		private void Subscribe()
 		{
-			_feedbacks.Events.OnComplete.AddListener(OnFeedbacksComplete);
+			_feedback.Events.OnComplete.AddListener(OnFeedbacksComplete);
 		}
 
 		private void Unsubscribe()
 		{
-			_feedbacks.Events.OnComplete.RemoveListener(OnFeedbacksComplete);
+			_feedback.Events.OnComplete.RemoveListener(OnFeedbacksComplete);
 		}
 
 		private void OnFeedbacksComplete()
@@ -61,7 +60,7 @@ namespace AG.Gameplay.Actions
 
 		protected override void DoInterruptAction()
 		{
-			_feedbacks.StopFeedbacks();
+			_feedback.StopFeedbacks();
 			DoOnActionFinished();
 		}
 	}

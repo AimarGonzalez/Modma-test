@@ -48,9 +48,9 @@ namespace SharedLib.StateMachines
 		{
 			_previousState = _currentState;
 
-			_previousState?.ExitState();
+			_previousState?.OnExitState();
 			_currentState = nextState;
-			_currentState.EnterState();
+			_currentState.OnEnterState();
 
 			OnStateTransition?.Invoke(_previousState?.StateId, nextState.StateId);
 		}

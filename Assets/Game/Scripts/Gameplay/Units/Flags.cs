@@ -1,12 +1,14 @@
+using AG.Core.UI;
 using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using System.Linq;
 using UnityEngine;
 
 namespace AG.Gameplay
 {
     [Serializable]
-    public class Flags : MonoBehaviour
+    public class Flags : MonoBehaviour, IDebugPanelDrawer
     {
         [ReadOnly, ShowInInspector]
         private Dictionary<FlagSO, int> _flags = new();
@@ -61,6 +63,11 @@ namespace AG.Gameplay
         public void Reset()
         {
             _flags.Clear();
+        }
+
+        public void AddDebugProperties(List<GUIUtils.Property> properties)
+        {
+            properties.Add(new ("Flags", $"[{string.Join(", ", _flags.Keys.Select(flag => flag.name))}]"));
         }
     }
 }

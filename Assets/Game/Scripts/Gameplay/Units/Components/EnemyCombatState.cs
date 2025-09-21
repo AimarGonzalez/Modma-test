@@ -1,13 +1,15 @@
+using AG.Core.UI;
 using AG.Gameplay.Actions;
 using AG.Gameplay.Characters;
 using SharedLib.StateMachines;
 using Sirenix.OdinInspector;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace AG.Gameplay.Units.Components
 {
-	
-	public class EnemyCombatState : StateSubComponent
+
+	public class EnemyCombatState : StateSubComponent, IDebugPanelDrawer
 	{
 		public enum CombatState
 		{
@@ -15,15 +17,15 @@ namespace AG.Gameplay.Units.Components
 			Moving,
 			Attacking
 		}
-		
+
 		// ------------- Inspector fields -------------
-		
+
 		[SerializeField]
 		private ActionId _moveActionId;
 
 		[SerializeField]
 		private ActionId _attackActionId;
-		
+
 		[SerializeField]
 		private FlagSO[] _blockingFlags;
 
@@ -39,7 +41,7 @@ namespace AG.Gameplay.Units.Components
 		private CombatState _combatState;
 
 		private bool IsBlockedByActions => _flags.IsAnyFlagActive(_blockingFlags);
-		public CombatState State  => _combatState;
+		public CombatState State => _combatState;
 
 
 		protected void Awake()
@@ -48,12 +50,12 @@ namespace AG.Gameplay.Units.Components
 			_flags = Root.Get<Flags>();
 			_actionPlayer = Root.Get<ActionPlayer>();
 		}
-		
-		public override void EnterState()
+
+		public override void OnEnterState()
 		{
 			_character.OnHitReceived += OnHitReceivedHandler;
 		}
-		public override void ExitState()
+		public override void OnExitState()
 		{
 			_character.OnHitReceived -= OnHitReceivedHandler;
 		}
@@ -77,7 +79,7 @@ namespace AG.Gameplay.Units.Components
 					Attack();
 					break;
 			}
-			
+
 			return IState.Status.Running;
 		}
 
@@ -109,6 +111,16 @@ namespace AG.Gameplay.Units.Components
 		private void OnHitReceivedHandler(Character source, float damage)
 		{
 			_character.Health -= damage;
+		}
+
+		public void AddDebugProperties(List<GUIUtils.Property> properties)
+		{
+			if (!IsCurrentState)
+			{
+				return;
+			}
+
+			properties.Add(new("Combat State", _combatState.ToString()));
 		}
 	}
 }

@@ -1,5 +1,7 @@
-﻿using SharedLib.ComponentCache;
+﻿using AG.Core.UI;
+using SharedLib.ComponentCache;
 using Sirenix.OdinInspector;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -7,15 +9,18 @@ namespace AG.Gameplay.Characters.BodyLocations
 {
 	// Provides Radius based on geometry, and updates the radius of its collider accordingly.
 	// Provides a VerticalCenter to be used for projectiles.
-	public class Body : SubComponent
+	public class Body : SubComponent, IDebugPanelDrawer
 	{
 		// ------------- Inspector fields -------------
 		[SerializeField]
 		private float _radiusOffset;
 
+		[SerializeField]
+		private MeshRenderer[] _subSetOfMeshRenderers;
+
 		// ------------- Private fields -------------
 		private CapsuleCollider _capsuleCollider;
-		private MeshRenderer[] _subSetOfMeshRenderers;
+
 
 		[ShowInInspector]
 		private Vector3 _verticalCenter;
@@ -33,7 +38,7 @@ namespace AG.Gameplay.Characters.BodyLocations
 
 		protected void Awake()
 		{
-			_capsuleCollider = Root.Get<CapsuleCollider>(required: false);
+			_capsuleCollider = GetComponent<CapsuleCollider>();
 
 			_bounds = CalculateAggregateBounds();
 			_radius = Mathf.Max(_bounds.size.x, _bounds.size.z) / 2 + _radiusOffset;
@@ -85,10 +90,15 @@ namespace AG.Gameplay.Characters.BodyLocations
 
 		private void OnValidate()
 		{
-			if(_capsuleCollider)
+			if (_capsuleCollider)
 			{
 				_capsuleCollider.radius = _radius;
 			}
+		}
+
+		public void AddDebugProperties(List<GUIUtils.Property> properties)
+		{
+			properties.Add(new("Body.Radius", Radius.ToString()));
 		}
 	}
 }

@@ -1,11 +1,12 @@
-﻿using UnityEditor;
+﻿using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace AG.Core.UI
 {
 	public static class HandleGUIUtils
 	{
-		public static void DrawDebugPanel(GUIUtils.Property[] properties, Transform transform, GUIUtils.PanelPlacement panelPlacement)
+		public static void DrawDebugPanel(List<GUIUtils.Property> properties, Transform transform, GUIUtils.PanelPlacement panelPlacement)
 		{
 			GUIStyle panelStyle = GuiStylesCatalog.DebugPanelStyle;
 
@@ -19,7 +20,7 @@ namespace AG.Core.UI
 
 				GUI.Box(rect, GUIContent.none, panelStyle);
 
-				for (int i = 0; i < properties.Length; i++)
+				for (int i = 0; i < properties.Count; i++)
 				{
 					GUIUtils.DrawTextField(i, properties[i], rect, panelStyle, labelWidth, valueWidth);
 				}

@@ -85,9 +85,10 @@ namespace SharedLib.ComponentCache
 		{
 			if (_componentDictionary.TryGetValue(typeof(T), out object entry))
 			{
-				if (entry is List<object>)
+				if (entry is List<object> entries)
 				{
 					Debug.LogError($"Get<{typeof(T).Name}> called when multiple components of the type exist!");
+					return (T)entries[0];
 				}
 
 				return (T)entry;

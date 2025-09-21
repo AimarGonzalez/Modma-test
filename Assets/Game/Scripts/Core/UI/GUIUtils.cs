@@ -270,7 +270,7 @@ namespace AG.Core.UI
 			}
 		}
 
-		public static (Vector2 size, float labelWidth, float valueWidth) CalcPanelSize(GUIStyle panelStyle, GUIUtils.Property[] properties)
+		public static (Vector2 size, float labelWidth, float valueWidth) CalcPanelSize(GUIStyle panelStyle, List<Property> properties)
 		{
 			panelStyle ??= GUI.skin.box;
 
@@ -287,7 +287,7 @@ namespace AG.Core.UI
 				maxValueWidth = Mathf.Max(maxValueWidth, property.valueSize.x);
 			}
 
-			Vector2 size = new Vector2(maxLabelWidth + maxValueWidth + panelStyle.padding.horizontal, properties.Length * maxRowHeight + panelStyle.padding.vertical);
+			Vector2 size = new Vector2(maxLabelWidth + maxValueWidth + panelStyle.padding.horizontal, properties.Count * maxRowHeight + panelStyle.padding.vertical);
 			return (size, maxLabelWidth, maxValueWidth);
 		}
 
@@ -364,7 +364,7 @@ namespace AG.Core.UI
 			return guiPoint;
 		}
 
-		public static void DrawDebugPanel(Property[] properties, Transform target, PanelPlacement panelPlacement, float margin = 0f, Action onClose = null)
+		public static void DrawDebugPanel(List<Property> properties, Transform target, PanelPlacement panelPlacement, float margin = 0f, Action onClose = null)
 		{
 			GUIStyle panelStyle = GuiStylesCatalog.DebugPanelStyle;
 
@@ -374,7 +374,7 @@ namespace AG.Core.UI
 			DrawDebugPanel(properties, panelPosition, panelSize, panelStyle, labelWidth, valueWidth, onClose);
 		}
 
-		public static void DrawDebugPanel(Property[] properties, RectTransform target, PanelPlacement panelPlacement, float margin = 0f, Action onClose = null)
+		public static void DrawDebugPanel(List<Property> properties, RectTransform target, PanelPlacement panelPlacement, float margin = 0f, Action onClose = null)
 		{
 			GUIStyle panelStyle = GuiStylesCatalog.DebugPanelStyle;
 
@@ -384,7 +384,7 @@ namespace AG.Core.UI
 			DrawDebugPanel(properties, panelPosition, panelSize, panelStyle, labelWidth, valueWidth, onClose);
 		}
 
-		private static void DrawDebugPanel(Property[] properties, Vector3 panelPosition, Vector2 panelSize, GUIStyle style, float labelWidth, float valueWidth, Action onClose)
+		private static void DrawDebugPanel(List<Property> properties, Vector3 panelPosition, Vector2 panelSize, GUIStyle style, float labelWidth, float valueWidth, Action onClose)
 		{
 			style ??= GUI.skin.box;
 
@@ -393,7 +393,7 @@ namespace AG.Core.UI
 
 			GUI.Box(rect, GUIContent.none, style);
 
-			for (int i = 0; i < properties.Length; i++)
+			for (int i = 0; i < properties.Count; i++)
 			{
 				DrawTextField(i, properties[i], rect, style, labelWidth, valueWidth);
 			}

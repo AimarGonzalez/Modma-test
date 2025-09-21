@@ -6,6 +6,7 @@ using SharedLib.ComponentCache;
 using SharedLib.Physics;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace AG.Gameplay.Actions
 {
@@ -14,8 +15,6 @@ namespace AG.Gameplay.Actions
 		//----- Inspector fields -------------------
 
 		[Title("Attack settings")]
-		[SerializeField]
-		private float _speed = 1f;
 
 		[SerializeField]
 		private float _damage;
@@ -23,17 +22,21 @@ namespace AG.Gameplay.Actions
 		[SerializeField]
 		private LayerMask _damagedLayers;
 
+		[SerializeField]
+		private ColliderListener _colliderListener;
+		
 		[SerializeField, InlineEditor]
-		private MMF_Player _feedbacks;
+		private MMF_Player _feedback;
+		
+		[SerializeField]
+		private float _feedbackSpeedMultiplier = 1f;
 
 		//----- Components ----------------
-
-		private ColliderListener _colliderListener;
+		
 		private Character _character;
 
 		protected override void Awake()
 		{
-			_colliderListener = Root.Get<ColliderListener>();
 			_character = Root.Get<Character>();
 		}
 
@@ -43,22 +46,22 @@ namespace AG.Gameplay.Actions
 		{
 			Subscribe();
 
-			_feedbacks.DurationMultiplier = 1 / Mathf.Max(_speed, 0.001f);
-			_feedbacks.Initialization();
+			_feedback.DurationMultiplier = 1 / Mathf.Max(_feedbackSpeedMultiplier, 0.001f);
+			_feedback.Initialization();
 
-			_feedbacks.PlayFeedbacks();
+			_feedback.PlayFeedbacks();
 		}
 
 		private void Subscribe()
 		{
 			_colliderListener.OnTriggerEnterEvent += OnTriggerEnter;
-			_feedbacks.Events.OnComplete.AddListener(OnFeedbacksComplete);
+			_feedback.Events.OnComplete.AddListener(OnFeedbacksComplete);
 		}
 
 		private void Unsubscribe()
 		{
 			_colliderListener.OnTriggerEnterEvent -= OnTriggerEnter;
-			_feedbacks.Events.OnComplete.RemoveListener(OnFeedbacksComplete);
+			_feedback.Events.OnComplete.RemoveListener(OnFeedbacksComplete);
 		}
 
 		private void OnTriggerEnter(Collider other)
@@ -90,7 +93,7 @@ namespace AG.Gameplay.Actions
 
 		protected override void DoInterruptAction()
 		{
-			_feedbacks.StopFeedbacks();
+			_feedback.StopFeedbacks();
 			DoOnActionFinished();
 		}
 	}
