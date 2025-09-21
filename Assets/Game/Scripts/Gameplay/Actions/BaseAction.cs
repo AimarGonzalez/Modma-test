@@ -31,7 +31,7 @@ namespace AG.Gameplay.Actions
 		private Animator _animator;
 
 		[ShowInInspector, PropertyOrder(-1), HideInEditorMode]
-		[GUIColor("$" + nameof(StatusColor))]
+		[GUIColor("@" + nameof(StatusColor))]
 		private ActionStatus _status;
 
 		private Color StatusColor => _status switch

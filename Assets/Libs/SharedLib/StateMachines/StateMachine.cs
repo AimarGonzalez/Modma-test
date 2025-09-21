@@ -55,7 +55,7 @@ namespace SharedLib.StateMachines
 			OnStateTransition?.Invoke(_previousState?.StateId, nextState.StateId);
 		}
 
-		private void Update()
+		public void Update()
 		{
 			if (_currentState == null)
 			{

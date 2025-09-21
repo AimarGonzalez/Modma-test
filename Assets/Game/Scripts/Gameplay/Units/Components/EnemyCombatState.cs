@@ -37,7 +37,7 @@ namespace AG.Gameplay.Units.Components
 
 		//-------------- Private fields --------------
 
-		[ShowInInspector, ReadOnly]
+		[ShowInInspector, HideInEditorMode, PropertyOrder(-1)]
 		private CombatState _combatState;
 
 		private bool IsBlockedByActions => _flags.IsAnyFlagActive(_blockingFlags);

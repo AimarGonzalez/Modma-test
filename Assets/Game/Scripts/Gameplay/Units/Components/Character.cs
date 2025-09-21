@@ -8,7 +8,6 @@ using SharedLib.ComponentCache;
 using SharedLib.Physics;
 using SharedLib.StateMachines;
 using Sirenix.OdinInspector;
-using Sirenix.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -59,12 +58,13 @@ namespace AG.Gameplay.Characters
 		private MMF_Player _spawnningFeedbacks;
 
 		[BoxGroup("Instance")]
-		[ShowInInspector]
+		[ShowInInspector, HideInEditorMode]
 		private float _health;
 
 		[BoxGroup("Instance")]
+		[ShowInInspector, HideInEditorMode]
 		private float _maxHealth;
-
+		
 		// ------------- DEGUG BOX -------------
 
 		[SerializeField]
@@ -110,6 +110,9 @@ namespace AG.Gameplay.Characters
 
 		public float MaxHealth => _maxHealth;
 		public CharacterStatsSO CharacterStats => _characterStats;
+		
+		[BoxGroup("Instance")]
+		[ShowInInspector, HideInEditorMode]
 		public StateId StateId => _stateMachine.CurrentStateId;
 
 		// ------------- Private fields -------------
@@ -138,41 +141,14 @@ namespace AG.Gameplay.Characters
 			}
 		}
 
-		private void OnDestroy()
-		{
-			(this as IPooledComponent).OnReturnToPool();
-		}
-
 		// -------- Poolable ---------------------------------------
 		void IPooledComponent.OnBeforeGetFromPool()
 		{
 		}
+
 		void IPooledComponent.OnAfterGetFromPool()
 		{
 			Subscribe();
-		}
-
-		[Button("Spawn", ButtonSizes.Large), ResponsiveButtonGroup("Actions"), PropertyOrder(DebugUI.Order)]
-		public void Spawn()
-		{
-			SetState(_characterStates.SpawningState);
-		}
-
-		[Button("Cinematic", ButtonSizes.Large), ResponsiveButtonGroup("Actions"), PropertyOrder(DebugUI.Order)]
-		public void Cinematic()
-		{
-			SetState(_characterStates.CinematicState);
-		}
-
-		[Button("Fight", ButtonSizes.Large), PropertyOrder(DebugUI.Order)]
-		public void Fight()
-		{
-			SetState(_characterStates.CombatState);
-		}
-
-		public void SetState(StateId id)
-		{
-			_stateMachine.SetState(id);
 		}
 
 		void IPooledComponent.OnReturnToPool()
@@ -182,6 +158,14 @@ namespace AG.Gameplay.Characters
 		void IPooledComponent.OnDestroyFromPool()
 		{
 		}
+		
+		// ------- Unity events -------------------
+
+		private void Update()
+		{
+			_stateMachine.Update();
+		}
+		
 		// ----------------------------------------------------------
 
 		private void Subscribe()
@@ -207,6 +191,31 @@ namespace AG.Gameplay.Characters
 		private void OnMouseDown()
 		{
 			_showDebugPanel = !_showDebugPanel;
+		}
+		
+		// ------------ States management ---------
+		
+		public void SetState(StateId id)
+		{
+			_stateMachine.SetState(id);
+		}
+
+		[Button("Spawn", ButtonSizes.Large), ResponsiveButtonGroup("Actions"), PropertyOrder(DebugUI.Order)]
+		public void Spawn()
+		{
+			SetState(_characterStates.SpawningState);
+		}
+
+		[Button("Cinematic", ButtonSizes.Large), ResponsiveButtonGroup("Actions"), PropertyOrder(DebugUI.Order)]
+		public void Cinematic()
+		{
+			SetState(_characterStates.CinematicState);
+		}
+
+		[Button("Fight", ButtonSizes.Large), PropertyOrder(DebugUI.Order)]
+		public void Fight()
+		{
+			SetState(_characterStates.CombatState);
 		}
 
 		protected virtual void OnStateFinishedWithoutTransition(StateId finishedState)

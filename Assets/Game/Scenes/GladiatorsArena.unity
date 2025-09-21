@@ -4090,10 +4090,10 @@ MonoBehaviour:
   - 10
   _timeScaleIndex: 4
   _debugControlsSettings:
-    _width: 0.45
-    _height: 0.16
+    _width: 0.25
+    _height: 0.06
     _margin: 0.01
-    _labelWidth: 0.14
+    _labelWidth: 0.04
     _labelMargin: 0.01
 --- !u!1 &1235970153
 GameObject:
