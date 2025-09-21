@@ -3,6 +3,7 @@ using AG.Gameplay.Characters;
 using AG.Gameplay.Settings;
 using AG.Gameplay.Units;
 using SharedLib.ComponentCache;
+using SharedLib.ExtensionMethods;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
@@ -36,7 +37,7 @@ namespace AG.Gameplay.UI
 
 		// ------------- Private fields -------------
 
-		private int _lastHealth;
+		private float _lastHealth;
 
 		private void Awake()
 		{
@@ -74,7 +75,7 @@ namespace AG.Gameplay.UI
 				return;
 			}
 
-			if (_character.Health != _lastHealth)
+			if (!_character.Health.IsAlmostEqual(_lastHealth))
 			{
 				UpdateFillRatio();
 				PlayHighlightEffect();

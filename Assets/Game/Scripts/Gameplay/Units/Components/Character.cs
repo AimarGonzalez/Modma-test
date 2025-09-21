@@ -5,6 +5,7 @@ using AG.Gameplay.Units;
 using AG.Gameplay.Units.Data;
 using Modma.Game.Scripts.Gameplay.Units.Components;
 using SharedLib.ComponentCache;
+using SharedLib.Physics;
 using Sirenix.OdinInspector;
 using System.Diagnostics;
 using UnityEngine;
@@ -29,10 +30,10 @@ namespace AG.Gameplay.Characters
 
 		[BoxGroup("Instance")]
 		[ShowInInspector]
-		private int _health;
+		private float _health;
 
 		[BoxGroup("Instance")]
-		private int _maxHealth;
+		private float _maxHealth;
 
 		// ------------- DEGUG BOX -------------
 
@@ -55,14 +56,18 @@ namespace AG.Gameplay.Characters
 
 		[Inject]
 		private IObjectResolver _objectResolver;
+		
+		// ------------- Components --------------------
+		
+		private ColliderListener _colliderListener;
 
 		// ------------- Public properties -------------
 
 		public Team Team => _team;
 		public bool IsPlayer => _team == Team.Player;
 		public bool IsEnemy => _team == Team.Enemy;
-		public int Health => _health;
-		public int MaxHealth => _maxHealth;
+		public float Health => _health;
+		public float MaxHealth => _maxHealth;
 		public CharacterStatsSO CharacterStats => _characterStats;
 
 
@@ -83,6 +88,8 @@ namespace AG.Gameplay.Characters
 				//ForceAwakeSubComponents();
 			}
 #endif
+			
+			_colliderListener = Root.Get<ColliderListener>();
 		}
 
 		private void OnDestroy()
@@ -93,7 +100,6 @@ namespace AG.Gameplay.Characters
 		// -------- Poolable ---------------------------------------
 		void IPooledComponent.OnBeforeGetFromPool()
 		{
-			Reset();
 		}
 		void IPooledComponent.OnAfterGetFromPool()
 		{
@@ -102,28 +108,20 @@ namespace AG.Gameplay.Characters
 		void IPooledComponent.OnReturnToPool()
 		{
 			Unsubscribe();
-			NotifyCharacterRemoved();
 		}
 		void IPooledComponent.OnDestroyFromPool()
 		{
 		}
 		// ----------------------------------------------------------
 
-		public void Reset()
-		{
-		}
-
-		public void NotifyCharacterRemoved()
-		{
-			_arenaEvents.TriggerCharacterRemoved(this);
-		}
-
 		private void Subscribe()
 		{
+			_colliderListener.OnMouseDownEvent += OnMouseDown;
 		}
 
 		private void Unsubscribe()
 		{
+			_colliderListener.OnMouseDownEvent -= OnMouseDown;
 		}
 
 		public void SetState(CharacterState newState)
@@ -134,6 +132,11 @@ namespace AG.Gameplay.Characters
 		private void OnMouseDown()
 		{
 			_showDebugPanel = !_showDebugPanel;
+		}
+		
+		public void TakeDamage(float damage)
+		{
+			_health -= damage;
 		}
 
 #if UNITY_EDITOR

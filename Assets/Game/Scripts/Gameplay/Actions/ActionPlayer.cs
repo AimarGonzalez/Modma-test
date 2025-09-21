@@ -22,10 +22,17 @@ namespace AG.Gameplay.Actions
 		private List<BaseAction> _runningActions = new();
 		private List<BaseAction> _finishedActions = new();
 
+		private Dictionary<ActionId, BaseAction> _actionMap = new();
+
 		protected void Awake()
 		{
 			_animator = Root.Get<Animator>();
 			_flags = Root.Get<Flags>();
+
+			foreach (BaseAction action in Root.GetAll<BaseAction>())
+			{
+				_actionMap[action.ActionId] = action;
+			}
 		}
 
 		void Update()
@@ -47,8 +54,14 @@ namespace AG.Gameplay.Actions
 			_finishedActions.Clear();
 		}
 
-		public void PlayAction(BaseAction action, object parameters = null)
+		public void PlayAction(ActionId actionId, object parameters = null)
 		{
+			if (!_actionMap.TryGetValue(actionId, out BaseAction action))
+			{
+				Debug.LogError($"Action {actionId} not found");
+				return;
+			}
+
 			if (!CheckCanPlayAction(action))
 			{
 				return;

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace AG.Gameplay.Units
+namespace SharedLib.Physics
 {
 	public class Collider2DListener : MonoBehaviour
 	{

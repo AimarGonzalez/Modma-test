@@ -17,6 +17,7 @@ namespace AG.Gameplay.Actions
 
 	public abstract class BaseAction : SubComponent
 	{
+		[SerializeField] private ActionId _actionId;
 		[SerializeField] private List<FlagSO> _flags;
 
 		// ------------ Private fields -----------------
@@ -41,6 +42,7 @@ namespace AG.Gameplay.Actions
 
 		// ----------- Public properties ----------------
 
+		public ActionId ActionId => _actionId;
 		public Animator Animator => _animator;
 		public List<FlagSO> Flags => _flags;
 
@@ -111,10 +113,10 @@ namespace AG.Gameplay.Actions
 
 		//------------- DEBUG UTILITIES -----------------------
 
-		[Button("Start"), FoldoutGroup("Debug/Buttons"), PropertyOrder(1000)]
+		[Button("Start", ButtonSizes.Large), PropertyOrder(1000)]
 		private void DebugStartAction()
 		{
-			_actionPlayer.PlayAction(this);
+			_actionPlayer.PlayAction(_actionId);
 		}
 	}
 }
