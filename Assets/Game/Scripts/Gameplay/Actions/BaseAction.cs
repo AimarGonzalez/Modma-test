@@ -25,8 +25,8 @@ namespace AG.Gameplay.Actions
 
 		private string _typeName;
 		private Action _onFinishedCallback;
-
 		private ActionPlayer _actionPlayer;
+
 		[ShowInInspector, ReadOnly, FoldoutGroup("Debug"), PropertyOrder(999)]
 		private Animator _animator;
 
@@ -65,6 +65,7 @@ namespace AG.Gameplay.Actions
 		private void CacheComponents()
 		{
 			_animator ??= Root.Get<Animator>();
+			_actionPlayer ??= Root.Get<ActionPlayer>();
 		}
 
 		public void StartAction(object parameters, Action onFinished)
