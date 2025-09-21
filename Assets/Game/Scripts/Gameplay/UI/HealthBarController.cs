@@ -44,6 +44,16 @@ namespace AG.Gameplay.UI
 			_character = Root.Get<Character>();
 		}
 
+		private void OnEnable()
+		{
+			_character.OnHealthChanged += OnHealthChanged;
+		}
+		
+		private void OnDisable()
+		{
+			_character.OnHealthChanged -= OnHealthChanged;
+		}
+
 		private void Start()
 		{
 			UpdateView();
@@ -70,16 +80,23 @@ namespace AG.Gameplay.UI
 
 		private void Update()
 		{
-			if (_character == null)
-			{
-				return;
-			}
 
 			if (!_character.Health.IsAlmostEqual(_lastHealth))
 			{
 				UpdateFillRatio();
 				PlayHighlightEffect();
 			}
+		}
+
+		private void OnHealthChanged(float prevHealth, float newHealth)
+		{
+			if (!_character.Health.IsAlmostEqual(_lastHealth))
+			{
+				return;
+			}
+
+			UpdateFillRatio();
+			PlayHighlightEffect();
 		}
 
 		private void UpdateColor()

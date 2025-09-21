@@ -1,3 +1,4 @@
+using SharedLib.ExtensionMethods;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -118,7 +119,7 @@ namespace SharedLib.ComponentCache
 
 				// If the object being retrieved is not a list since it there is only once instance,
 				// and the user asked for a list, create a list here with just the single entry inside.
-				return new List<T> {(T)entry};
+				return ((T)entry).AsEnumerable();
 			}
 
 			if (required)

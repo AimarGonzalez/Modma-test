@@ -5,7 +5,7 @@ namespace SharedLib.ExtensionMethods
 {
 	public static class IEnumerableExtensionMethods
 	{
-		public static IEnumerable <T> SingleItemAsEnumerable<T>(this T item)
+		public static IEnumerable <T> AsEnumerable<T>(this T item)
 		{
 			yield return item; 
 		}

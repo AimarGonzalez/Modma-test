@@ -3,11 +3,14 @@ using AG.Core.UI;
 using AG.Gameplay.Systems;
 using AG.Gameplay.Units;
 using AG.Gameplay.Units.Data;
-using Modma.Game.Scripts.Gameplay.Units.Components;
+using MoreMountains.Feedbacks;
 using SharedLib.ComponentCache;
 using SharedLib.Physics;
+using SharedLib.StateMachines;
 using Sirenix.OdinInspector;
+using System;
 using System.Diagnostics;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 using VContainer;
@@ -15,18 +18,43 @@ using VContainer.Unity;
 
 namespace AG.Gameplay.Characters
 {
-	// Add ExecuteInEditMode so OnGUI draws the debug panel in the editor
 	[DisallowMultipleComponent]
-	[DebuggerDisplay("name: {name}, state: {_state}, team: {_team}, health: {_health}/{_maxHealth}")]
+	[DebuggerDisplay("name: {name}, state: {StateId}, team: {_team}, health: {_health}/{_maxHealth}")]
 	public class Character : SubComponent, IPooledComponent
 	{
+		[Serializable]
+		public struct CharacterStates
+		{
+			[SerializeField]
+			public StateId SpawningState;
+
+			[SerializeField]
+			public StateId CinematicState;
+
+			[SerializeField]
+			public StateId CombatState;
+		}
+
+		// ------------- Events -------------
+		public event Action<StateId, StateId> OnStateChanged;
+		public event Action<float, float> OnHealthChanged;
+		public event Action<Character, float> OnHitReceived;
+
+
+		// ------------- Inspector fields -------------	
+
 		[SerializeField]
 		private Team _team;
+
 		[SerializeField]
-		private CharacterState _state;
+		private CharacterStates _characterStates;
+
 		[FormerlySerializedAs("_stats")]
 		[SerializeField, Required, InlineEditor]
 		private CharacterStatsSO _characterStats;
+
+		[SerializeField, InlineEditor]
+		private MMF_Player _spawnningFeedbacks;
 
 		[BoxGroup("Instance")]
 		[ShowInInspector]
@@ -39,7 +67,7 @@ namespace AG.Gameplay.Characters
 
 		[SerializeField]
 		[BoxGroup("Debug Panel"), PropertyOrder(9999)]
-		private bool _showDebugPanel = false;
+		private bool _showDebugPanel = true;
 
 		[SerializeField]
 		[BoxGroup("Debug Panel"), PropertyOrder(9999)]
@@ -47,7 +75,7 @@ namespace AG.Gameplay.Characters
 
 		[SerializeField]
 		[BoxGroup("Debug Panel"), PropertyOrder(9999)]
-		private float _panelMargin = 0f;
+		private float _panelMargin;
 
 		// ------------- Dependencies -------------
 
@@ -56,9 +84,9 @@ namespace AG.Gameplay.Characters
 
 		[Inject]
 		private IObjectResolver _objectResolver;
-		
+
 		// ------------- Components --------------------
-		
+
 		private ColliderListener _colliderListener;
 
 		// ------------- Public properties -------------
@@ -66,9 +94,24 @@ namespace AG.Gameplay.Characters
 		public Team Team => _team;
 		public bool IsPlayer => _team == Team.Player;
 		public bool IsEnemy => _team == Team.Enemy;
-		public float Health => _health;
+		public float Health
+		{
+			get => _health;
+			set
+			{
+				float previousHealth = _health;
+				_health = value;
+				OnHealthChanged?.Invoke(previousHealth, _health);
+			}
+		}
+
 		public float MaxHealth => _maxHealth;
 		public CharacterStatsSO CharacterStats => _characterStats;
+		public StateId StateId => _stateMachine.CurrentStateId;
+
+		// ------------- Private fields -------------
+
+		private StateMachine _stateMachine;
 
 
 		protected void Awake()
@@ -78,18 +121,17 @@ namespace AG.Gameplay.Characters
 			_maxHealth = _characterStats.MaxHealth;
 
 #if UNITY_EDITOR
-			// VContainer injection for prefabs added from the editor.
-			AutoInject();
+			// VContainer injection for prefabs dropped to the scene from the project window
+			PlayModeAutoInject();
 #endif
 
-#if UNITY_EDITOR
-			if (!Application.isPlaying)
-			{
-				//ForceAwakeSubComponents();
-			}
-#endif
-			
 			_colliderListener = Root.Get<ColliderListener>();
+
+			IState[] states = Root.GetAll<IState>().ToArray();
+			foreach (IState state in states)
+			{
+				_stateMachine.AddState(state);
+			}
 		}
 
 		private void OnDestroy()
@@ -105,6 +147,25 @@ namespace AG.Gameplay.Characters
 		{
 			Subscribe();
 		}
+
+		[Button("Spawn", ButtonSizes.Large), PropertyOrder(DebugUI.Order)]
+		public void Spawn()
+		{
+			_stateMachine.SetState(_characterStates.SpawningState);
+		}
+
+		[Button("Cinematic", ButtonSizes.Large), PropertyOrder(DebugUI.Order)]
+		public void Cinematic()
+		{
+			_stateMachine.SetState(_characterStates.CinematicState);
+		}
+
+		[Button("Fight", ButtonSizes.Large)]
+		public void Fight()
+		{
+			_stateMachine.SetState(_characterStates.CombatState);
+		}
+
 		void IPooledComponent.OnReturnToPool()
 		{
 			Unsubscribe();
@@ -117,31 +178,43 @@ namespace AG.Gameplay.Characters
 		private void Subscribe()
 		{
 			_colliderListener.OnMouseDownEvent += OnMouseDown;
+			_stateMachine.OnStateFinishedWithoutTransition += OnStateFinishedWithoutTransition;
+			_stateMachine.OnStateTransition += OnStateTransition;
 		}
 
 		private void Unsubscribe()
 		{
 			_colliderListener.OnMouseDownEvent -= OnMouseDown;
-		}
-
-		public void SetState(CharacterState newState)
-		{
-			_state = newState;
+			_stateMachine.OnStateFinishedWithoutTransition -= OnStateFinishedWithoutTransition;
+			_stateMachine.OnStateTransition -= OnStateTransition;
 		}
 
 		private void OnMouseDown()
 		{
 			_showDebugPanel = !_showDebugPanel;
 		}
-		
-		public void TakeDamage(float damage)
+
+		protected virtual void OnStateFinishedWithoutTransition(StateId finishedState)
 		{
-			_health -= damage;
+			if (finishedState == _characterStates.SpawningState || finishedState == _characterStates.CinematicState)
+			{
+				_stateMachine.SetState(_characterStates.CombatState);
+			}
+		}
+
+		private void OnStateTransition(StateId prevState, StateId newState)
+		{
+			OnStateChanged?.Invoke(prevState, newState);
+		}
+
+		public void Hit(Character source, float damage)
+		{
+			OnHitReceived?.Invoke(source, damage);
 		}
 
 #if UNITY_EDITOR
 		// VContainer injection for prefabs dropped to the scene from the project window
-		private void AutoInject()
+		private void PlayModeAutoInject()
 		{
 			// Inject only in playMode
 			if (!Application.isPlaying)
@@ -157,13 +230,6 @@ namespace AG.Gameplay.Characters
 			_objectResolver.InjectGameObject(gameObject);
 		}
 #endif
-
-		void OnDrawGizmos()
-		{
-			// Handles.BeginGUI();
-			// DrawDebugGUI();
-			// Handles.EndGUI();
-		}
 
 		void OnGUI()
 		{

@@ -2,6 +2,7 @@
 using AG.Core.Pool;
 using SharedLib.ComponentCache;
 using Sirenix.OdinInspector;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
@@ -23,6 +24,7 @@ namespace AG.Gameplay.Actions
 		// ------------ Private fields -----------------
 
 		private string _typeName;
+		private Action _onFinishedCallback;
 
 		private ActionPlayer _actionPlayer;
 		[ShowInInspector, ReadOnly, FoldoutGroup("Debug"), PropertyOrder(999)]
@@ -65,13 +67,16 @@ namespace AG.Gameplay.Actions
 			_animator ??= Root.Get<Animator>();
 		}
 
-		public void StartAction(object parameters)
+		public void StartAction(object parameters, Action onFinished)
 		{
 			if (Status == ActionStatus.Running)
 			{
 				Debug.LogError($"Action {_typeName} is already playing");
+				onFinished?.Invoke();
 				return;
 			}
+
+			_onFinishedCallback = onFinished;
 
 			//Debug.Log($"Start {_typeName}");
 			Status = ActionStatus.Running;
@@ -97,6 +102,7 @@ namespace AG.Gameplay.Actions
 			DoOnActionFinished();
 
 			Status = ActionStatus.None;
+			_onFinishedCallback?.Invoke();
 		}
 
 		public void InterruptAction()
@@ -104,6 +110,7 @@ namespace AG.Gameplay.Actions
 			DoInterruptAction();
 
 			Status = ActionStatus.None;
+			_onFinishedCallback?.Invoke();
 		}
 
 		protected abstract void DoStartAction(object parameters);
@@ -116,7 +123,7 @@ namespace AG.Gameplay.Actions
 		[Button("Start", ButtonSizes.Large), PropertyOrder(1000)]
 		private void DebugStartAction()
 		{
-			_actionPlayer.PlayAction(_actionId);
+			_actionPlayer.TryPlayAction(_actionId);
 		}
 	}
 }

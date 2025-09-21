@@ -1,5 +1,6 @@
 ﻿using AG.Core.Pool;
 using SharedLib.ComponentCache;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -54,24 +55,26 @@ namespace AG.Gameplay.Actions
 			_finishedActions.Clear();
 		}
 
-		public void PlayAction(ActionId actionId, object parameters = null)
+		public bool TryPlayAction(ActionId actionId, object parameters = null, Action onFinished = null)
 		{
 			if (!_actionMap.TryGetValue(actionId, out BaseAction action))
 			{
 				Debug.LogError($"Action {actionId} not found");
-				return;
+				return false;
 			}
 
 			if (!CheckCanPlayAction(action))
 			{
-				return;
+				return false;
 			}
 
-			action.StartAction(parameters);
+			action.StartAction(parameters, onFinished);
 
 			_flags.RaiseFlags(action.Flags);
 
 			_runningActions.Add(action);
+
+			return false;
 		}
 
 		private void ProcessActionFinished(BaseAction action)

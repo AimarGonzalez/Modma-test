@@ -28,10 +28,12 @@ namespace AG.Gameplay.Actions
 		//----- Components ----------------
 
 		private ColliderListener _colliderListener;
+		private Character _character;
 
 		protected override void Awake()
 		{
 			_colliderListener = Root.Get<ColliderListener>();
+			_character = Root.Get<Character>();
 		}
 
 		//------------- Action methods -------------------
@@ -64,11 +66,10 @@ namespace AG.Gameplay.Actions
 			{
 				return;
 			}
-			
+
 			Debug.Log("OnTriggerEnter");
-			RootComponent otherRoot = other.GetComponent<Body>().Root;
-			Character character = otherRoot.Get<Character>();
-			character.TakeDamage(_damage);
+			Character targetCharacter = other.GetRoot().Get<Character>();
+			targetCharacter.Hit(_character, _damage);
 		}
 
 		private void OnFeedbacksComplete()
