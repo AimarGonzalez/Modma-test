@@ -1062,10 +1062,10 @@ MonoBehaviour:
   DebugActive: 0
   InScriptDrivenPause: 0
   FeedbacksList:
-  - rid: 8731366335324356873
-  - rid: 8731366335324356874
-  - rid: 8731366335324356875
-  - rid: 8731366335324356876
+  - rid: 8731366364805857579
+  - rid: 8731366364805857580
+  - rid: 8731366364805857581
+  - rid: 8731366364805857582
   KeepPlayModeChanges: 0
   PerformanceMode: 0
   RestoreInitialValuesOnDisable: 0
@@ -1074,11 +1074,11 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 8731366335324356873
+    - rid: 8731366364805857579
       type: {class: MMF_SquashAndStretch, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 1
-        UniqueID: -2041866099
+        UniqueID: -493838313
         Label: Squash and Stretch
         OriginalLabel: Squash and Stretch
         ChannelMode: 0
@@ -1095,7 +1095,7 @@ MonoBehaviour:
           NumberOfRepeats: 0
           RepeatForever: 0
           DelayBetweenRepeats: 1
-          PlayCount: 25
+          PlayCount: 1
           LimitPlayCount: 0
           MaxPlayCount: 3
           SetPlayCountToZeroOnReset: 0
@@ -1191,95 +1191,13 @@ MonoBehaviour:
         AllowAdditivePlays: 0
         DetermineScaleOnPlay: 0
         DestinationScale: 1
-    - rid: 8731366335324356874
+    - rid: 8731366364805857580
       type: {class: MMF_Pause, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 1
-        UniqueID: 1066725327
+        UniqueID: -113550938
         Label: Pause
         OriginalLabel: Pause
-        ChannelMode: 0
-        Channel: 0
-        MMChannelDefinition: {fileID: 0}
-        Chance: 100
-        Timing:
-          TimescaleMode: 0
-          ExcludeFromHoldingPauses: 0
-          ContributeToTotalDuration: 1
-          InitialDelay: 0
-          CooldownDuration: 0
-          InterruptsOnStop: 1
-          NumberOfRepeats: 0
-          RepeatForever: 0
-          DelayBetweenRepeats: 1
-          PlayCount: 0
-          LimitPlayCount: 0
-          MaxPlayCount: 3
-          SetPlayCountToZeroOnReset: 0
-          MMFeedbacksDirectionCondition: 0
-          PlayDirection: 0
-          ConstantIntensity: 0
-          UseIntensityInterval: 0
-          IntensityIntervalMin: 0
-          IntensityIntervalMax: 0
-          Sequence: {fileID: 0}
-          TrackID: 0
-          Quantized: 0
-          TargetBPM: 120
-        AutomatedTargetAcquisition:
-          Mode: 0
-          ChildIndex: 0
-        RandomizeOutput: 0
-        RandomMultiplier: {x: 0.8, y: 1}
-        RandomizeDuration: 0
-        RandomDurationMultiplier: {x: 0.5, y: 2}
-        UseRange: 0
-        RangeDistance: 5
-        UseRangeFalloff: 0
-        RangeFalloff:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 0
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        RemapRangeFalloff: {x: 0, y: 1}
-        AutomaticShakerSetupButton:
-          ButtonText: 
-        Owner: {fileID: 330459980}
-        DebugActive: 0
-        PauseDuration: 0
-        RandomizePauseDuration: 0
-        MinPauseDuration: 1
-        MaxPauseDuration: 3
-        RandomizeOnEachPlay: 1
-        ScriptDriven: 0
-        AutoResume: 0
-        AutoResumeAfter: 0.25
-    - rid: 8731366335324356875
-      type: {class: MMF_Position, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
-      data:
-        Active: 1
-        UniqueID: -1169655412
-        Label: Position
-        OriginalLabel: Position
         ChannelMode: 0
         Channel: 0
         MMChannelDefinition: {fileID: 0}
@@ -1347,12 +1265,94 @@ MonoBehaviour:
           ButtonText: 
         Owner: {fileID: 330459980}
         DebugActive: 0
+        PauseDuration: 0
+        RandomizePauseDuration: 0
+        MinPauseDuration: 1
+        MaxPauseDuration: 3
+        RandomizeOnEachPlay: 1
+        ScriptDriven: 0
+        AutoResume: 0
+        AutoResumeAfter: 0.25
+    - rid: 8731366364805857581
+      type: {class: MMF_Position, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
+      data:
+        Active: 1
+        UniqueID: -523921082
+        Label: Position
+        OriginalLabel: Position
+        ChannelMode: 0
+        Channel: 0
+        MMChannelDefinition: {fileID: 0}
+        Chance: 100
+        Timing:
+          TimescaleMode: 0
+          ExcludeFromHoldingPauses: 0
+          ContributeToTotalDuration: 1
+          InitialDelay: 0
+          CooldownDuration: 0
+          InterruptsOnStop: 1
+          NumberOfRepeats: 0
+          RepeatForever: 0
+          DelayBetweenRepeats: 1
+          PlayCount: 3
+          LimitPlayCount: 0
+          MaxPlayCount: 3
+          SetPlayCountToZeroOnReset: 0
+          MMFeedbacksDirectionCondition: 0
+          PlayDirection: 0
+          ConstantIntensity: 0
+          UseIntensityInterval: 0
+          IntensityIntervalMin: 0
+          IntensityIntervalMax: 0
+          Sequence: {fileID: 0}
+          TrackID: 0
+          Quantized: 0
+          TargetBPM: 120
+        AutomatedTargetAcquisition:
+          Mode: 0
+          ChildIndex: 0
+        RandomizeOutput: 0
+        RandomMultiplier: {x: 0.8, y: 1}
+        RandomizeDuration: 0
+        RandomDurationMultiplier: {x: 0.5, y: 2}
+        UseRange: 0
+        RangeDistance: 5
+        UseRangeFalloff: 0
+        RangeFalloff:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        RemapRangeFalloff: {x: 0, y: 1}
+        AutomaticShakerSetupButton:
+          ButtonText: 
+        Owner: {fileID: 330459980}
+        DebugActive: 0
         AnimatePositionTarget: {fileID: 1627963433}
         Mode: 0
         Space: 0
         RandomizeRemap: 0
         MovementMode: 0
-        AnimatePositionDuration: 0.2
+        AnimatePositionDuration: 0.5
         AnimatePositionSpeed: 0.2
         AnimatePositionTween:
           MMTweenDefinitionType: 1
@@ -1363,8 +1363,8 @@ MonoBehaviour:
             - serializedVersion: 3
               time: 0
               value: 0
-              inSlope: 0
-              outSlope: 0
+              inSlope: 2
+              outSlope: 2
               tangentMode: 0
               weightedMode: 0
               inWeight: 0
@@ -1545,7 +1545,7 @@ MonoBehaviour:
         InitialPosition: {x: 0, y: 0, z: 0}
         DestinationPosition: {x: 1, y: 1, z: 1}
         InitialPositionTransform: {fileID: 0}
-        DestinationPositionTransform: {fileID: 0}
+        DestinationPositionTransform: {fileID: 560149634}
         AnimatePositionCurveX:
           serializedVersion: 2
           m_Curve: []
@@ -1570,11 +1570,11 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-    - rid: 8731366335324356876
+    - rid: 8731366364805857582
       type: {class: MMF_Rotation, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 1
-        UniqueID: -1968315230
+        UniqueID: 1649829616
         Label: Rotation
         OriginalLabel: Rotation
         ChannelMode: 0
@@ -1591,7 +1591,7 @@ MonoBehaviour:
           NumberOfRepeats: 0
           RepeatForever: 0
           DelayBetweenRepeats: 1
-          PlayCount: 2
+          PlayCount: 4
           LimitPlayCount: 0
           MaxPlayCount: 3
           SetPlayCountToZeroOnReset: 0
@@ -1648,10 +1648,10 @@ MonoBehaviour:
         Mode: 0
         RotationSpace: 1
         MovementMode: 0
-        AnimateRotationDuration: 0.2
+        AnimateRotationDuration: 0.5
         AnimatePositionSpeed: 1
         RemapCurveZero: 0
-        RemapCurveOne: 3600
+        RemapCurveOne: 1080
         AnimateX: 1
         AnimateRotationTweenX:
           MMTweenDefinitionType: 1
@@ -3123,8 +3123,8 @@ MonoBehaviour:
   DebugActive: 0
   InScriptDrivenPause: 0
   FeedbacksList:
-  - rid: 8731366335324356875
-  - rid: 8731366335324356876
+  - rid: 8731366364805857573
+  - rid: 8731366364805857574
   KeepPlayModeChanges: 0
   PerformanceMode: 0
   RestoreInitialValuesOnDisable: 0
@@ -3133,11 +3133,11 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 8731366335324356875
+    - rid: 8731366364805857573
       type: {class: MMF_Position, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 1
-        UniqueID: -1169655412
+        UniqueID: -1281767129
         Label: Position
         OriginalLabel: Position
         ChannelMode: 0
@@ -3212,7 +3212,7 @@ MonoBehaviour:
         Space: 0
         RandomizeRemap: 0
         MovementMode: 0
-        AnimatePositionDuration: 0.2
+        AnimatePositionDuration: 0.5
         AnimatePositionSpeed: 1
         AnimatePositionTween:
           MMTweenDefinitionType: 1
@@ -3430,11 +3430,11 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-    - rid: 8731366335324356876
+    - rid: 8731366364805857574
       type: {class: MMF_Rotation, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 1
-        UniqueID: -1968315230
+        UniqueID: 334781685
         Label: Rotation
         OriginalLabel: Rotation
         ChannelMode: 0
@@ -3451,7 +3451,7 @@ MonoBehaviour:
           NumberOfRepeats: 0
           RepeatForever: 0
           DelayBetweenRepeats: 1
-          PlayCount: 2
+          PlayCount: 1
           LimitPlayCount: 0
           MaxPlayCount: 3
           SetPlayCountToZeroOnReset: 0
@@ -3508,10 +3508,10 @@ MonoBehaviour:
         Mode: 0
         RotationSpace: 1
         MovementMode: 0
-        AnimateRotationDuration: 0.2
+        AnimateRotationDuration: 0.5
         AnimatePositionSpeed: 1
         RemapCurveZero: 0
-        RemapCurveOne: 3600
+        RemapCurveOne: 10
         AnimateX: 0
         AnimateRotationTweenX:
           MMTweenDefinitionType: 1
