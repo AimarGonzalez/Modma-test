@@ -3640,7 +3640,7 @@ MonoBehaviour:
     - rid: 8731366364805857642
       type: {class: MMF_Rotation, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
-        Active: 1
+        Active: 0
         UniqueID: 1127261228
         Label: SideToSide - Rotation
         OriginalLabel: Rotation
@@ -4022,7 +4022,7 @@ MonoBehaviour:
     - rid: 8731366364805857643
       type: {class: MMF_Position, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
-        Active: 1
+        Active: 0
         UniqueID: 956541669
         Label: SideToSide - Position
         OriginalLabel: Position
@@ -4436,7 +4436,7 @@ MonoBehaviour:
     - rid: 8731366364805857644
       type: {class: MMF_Position, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
-        Active: 1
+        Active: 0
         UniqueID: -825208901
         Label: SideToSide - elevation
         OriginalLabel: Position

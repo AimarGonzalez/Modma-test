@@ -48,8 +48,8 @@ namespace AG.Core.Pool
 		{
 			if (!CreatedOnPool)
 			{
-				OnBeforeGetFromPool();
-				OnAfterGetFromPool();
+				TriggerBeforeGetFromPool();
+				TriggerAfterGetFromPool();
 			}	
 		}
 

@@ -1,9 +1,10 @@
+using AG.Core.Pool;
 using AG.Gameplay.Combat;
 using UnityEngine;
 
 namespace AG.Gameplay.Systems.Arena
 {
-	public class ReparentToMovementTargetsContainer : MonoBehaviour
+	public class ReparentToMovementTargetsContainer : MonoBehaviour, IPooledComponent
 	{
 		// ------------ Dependencies ----------------
 		private ArenaWorld _arenaWorld;
@@ -20,16 +21,24 @@ namespace AG.Gameplay.Systems.Arena
 			_originalParent = transform.parent;
 		}
 
-		private void OnEnable()
+		public void OnBeforeGetFromPool()
+		{
+		}
+
+		public void OnAfterGetFromPool()
 		{
 			transform.SetParent(_movementTargetsContainer.transform);
 		}
 
-		private void OnDisable()
+		public void OnReturnToPool()
 		{
 			transform.SetParent(_originalParent);
 			transform.localPosition = Vector3.zero;
 			transform.localRotation = Quaternion.identity;
+		}
+
+		public void OnDestroyFromPool()
+		{
 		}
 	}
 }
