@@ -29,6 +29,56 @@
             "globalId": "GlobalObjectId_V1-2-db2144cc3907f0d45adb8313e14fc6b2-2627208817264435569-0",
             "source": "builtin",
             "value": "d_Animator Icon"
+        },
+        {
+            "globalId": "GlobalObjectId_V1-2-1fe6a3502df358943b4b88dc903f5fda-2507101469890017649-34411502048403450",
+            "source": "builtin",
+            "value": "d_NavMeshAgent Icon"
+        },
+        {
+            "globalId": "GlobalObjectId_V1-2-1fe6a3502df358943b4b88dc903f5fda-2627208817264435569-34411502048403450",
+            "source": "builtin",
+            "value": "d_character_Mode@4x"
+        },
+        {
+            "globalId": "GlobalObjectId_V1-2-1fe6a3502df358943b4b88dc903f5fda-3157883769437838117-34411502048403450",
+            "source": "builtin",
+            "value": "d_CapsuleCollider Icon"
+        },
+        {
+            "globalId": "GlobalObjectId_V1-2-1fe6a3502df358943b4b88dc903f5fda-1371156961333905380-34411502048403450",
+            "source": "builtin",
+            "value": "d_AISparkle Icon"
+        },
+        {
+            "globalId": "GlobalObjectId_V1-2-1fe6a3502df358943b4b88dc903f5fda-317038325405559271-34411502048403450",
+            "source": "builtin",
+            "value": "d_iconemptygravatar"
+        },
+        {
+            "globalId": "GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-1404299454778234910-738429516526013980",
+            "source": "builtin",
+            "value": "d_AISparkle Icon"
+        },
+        {
+            "globalId": "GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-3146133340568421599-738429516526013980",
+            "source": "builtin",
+            "value": "d_CapsuleCollider Icon"
+        },
+        {
+            "globalId": "GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-2499852475271423627-738429516526013980",
+            "source": "builtin",
+            "value": "d_NavMeshAgent Icon"
+        },
+        {
+            "globalId": "GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-296139959842371101-738429516526013980",
+            "source": "builtin",
+            "value": "d_account@2x"
+        },
+        {
+            "globalId": "GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-2598569751262953099-738429516526013980",
+            "source": "builtin",
+            "value": "d_character_Mode@4x"
         }
     ]
 }
