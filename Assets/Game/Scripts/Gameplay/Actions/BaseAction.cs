@@ -122,8 +122,10 @@ namespace AG.Gameplay.Actions
 		//------------- DEBUG UTILITIES -----------------------
 
 		[Button("Start", ButtonSizes.Large), PropertyOrder(1000)]
+		[HideInEditorMode]
 		private void DebugStartAction()
 		{
+			_actionPlayer ??= Root.Get<ActionPlayer>();
 			_actionPlayer.TryPlayAction(_actionId);
 		}
 	}
