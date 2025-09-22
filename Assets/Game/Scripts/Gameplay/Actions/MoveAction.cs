@@ -17,8 +17,6 @@ namespace AG.Gameplay.Actions
 		[SerializeField, InlineEditor, Required]
 		private MMF_Player _feedback;
 
-		[SerializeField, Min(0.001f)]
-		private float _feedbackSpeedMultiplier = 1f;
 
 		[SerializeField, Required]
 		private Transform _moveTarget;
@@ -26,13 +24,15 @@ namespace AG.Gameplay.Actions
 		[SerializeField, Required]
 		private MeshRenderer _walkableArea;
 
+		[SerializeField, Min(0.001f)]
+		[FoldoutGroup("Advanced")]
+		private float _feedbackSpeedMultiplier = 1f;
+
 		//----- Components ----------------
 
-		private Transform _rootTransform;
 
 		protected override void Awake()
 		{
-			_rootTransform = Root.transform;
 		}
 
 		//------------- Action methods -------------------
@@ -43,7 +43,7 @@ namespace AG.Gameplay.Actions
 
 			_moveTarget.position = GetNewPosition();
 
-			_rootTransform.LookAt(_moveTarget.position);
+			RootTransform.LookAt(_moveTarget.position);
 
 			PlayFeedbacks();
 		}
@@ -52,6 +52,7 @@ namespace AG.Gameplay.Actions
 		{
 			_feedback.DurationMultiplier = 1 / Mathf.Max(_feedbackSpeedMultiplier, 0.001f);
 			_feedback.Initialization();
+			
 			_feedback.PlayFeedbacks();
 		}
 
@@ -88,17 +89,15 @@ namespace AG.Gameplay.Actions
 
 		private Vector3 GetNewPosition()
 		{
-			//New position is a random position inside the NavMesh
-			//Only positions a mimimum distance of _desiredDistance are valid
-			//Take the direction to that position, and set the target in that direction to ditance _desiredDistance
+			//New position is a random position inside the walkable area
 			Vector3 randomPosition;
 
-			randomPosition.y = _rootTransform.position.y;
+			randomPosition.y = RootTransform.position.y;
 			randomPosition.z = Random.Range(_walkableArea.bounds.min.z, _walkableArea.bounds.max.z);
 			randomPosition.x = Random.Range(_walkableArea.bounds.min.x, _walkableArea.bounds.max.x);
 
-			Vector3 direction = (randomPosition - _rootTransform.position).normalized;
-			randomPosition = _rootTransform.position + direction * _distance;
+			Vector3 direction = (randomPosition - RootTransform.position).normalized;
+			randomPosition = RootTransform.position + direction * _distance;
 
 			return randomPosition;
 		}

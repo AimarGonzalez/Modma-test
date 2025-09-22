@@ -1,12 +1,11 @@
 using AG.Gameplay.Characters;
-using AG.Gameplay.Characters.BodyLocations;
+using AG.Gameplay.Combat;
 using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
 using SharedLib.ComponentCache;
 using SharedLib.Physics;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace AG.Gameplay.Actions
 {
@@ -15,6 +14,8 @@ namespace AG.Gameplay.Actions
 		//----- Inspector fields -------------------
 
 		[Title("Attack settings")]
+		[SerializeField]
+		private float _distance = 2.5f;
 
 		[SerializeField]
 		private float _damage;
@@ -24,21 +25,32 @@ namespace AG.Gameplay.Actions
 
 		[SerializeField]
 		private ColliderListener _colliderListener;
-		
+
 		[SerializeField, InlineEditor]
 		private MMF_Player _feedback;
-		
-		[SerializeField]
+
+		[SerializeField, Required]
+		private Transform _attackTarget;
+
+		[SerializeField, Min(0.001f)]
+		[FoldoutGroup("Advanced")]
 		private float _feedbackSpeedMultiplier = 1f;
 
+
 		//----- Components ----------------
-		
+
 		private Character _character;
+
+		//----- Dependencies ----------------
+		private ArenaWorld _arenaWorld;
 
 		protected override void Awake()
 		{
 			_character = Root.Get<Character>();
+
+			_arenaWorld = FindFirstObjectByType<ArenaWorld>();
 		}
+
 
 		//------------- Action methods -------------------
 
@@ -46,6 +58,15 @@ namespace AG.Gameplay.Actions
 		{
 			Subscribe();
 
+			_attackTarget.position = GetNewPosition();
+
+			RootTransform.LookAt(_attackTarget.position);
+
+			PlayFeedbacks();
+		}
+
+		private void PlayFeedbacks()
+		{
 			_feedback.DurationMultiplier = 1 / Mathf.Max(_feedbackSpeedMultiplier, 0.001f);
 			_feedback.Initialization();
 
@@ -95,6 +116,15 @@ namespace AG.Gameplay.Actions
 		{
 			_feedback.StopFeedbacks();
 			DoOnActionFinished();
+		}
+
+		private Vector3 GetNewPosition()
+		{
+			//New position is in the direction of the Player
+			Vector3 direction = (_arenaWorld.Player.RootTransform.position - RootTransform.position).normalized;
+			Vector3 targetPosition = RootTransform.position + direction * _distance;
+
+			return targetPosition;
 		}
 	}
 }

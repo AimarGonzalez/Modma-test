@@ -5,6 +5,7 @@ namespace SharedLib.ComponentCache
 	public abstract class SubComponent : MonoBehaviour
 	{
 		private RootComponent _root;
+		private Transform _rootTransform;
 
 		public RootComponent Root
 		{
@@ -17,6 +18,15 @@ namespace SharedLib.ComponentCache
 				}
 
 				return _root;
+			}
+		}
+
+		public Transform RootTransform
+		{
+			get
+			{
+				_rootTransform ??= Root.transform;
+				return _rootTransform;
 			}
 		}
 	}

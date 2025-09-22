@@ -32,26 +32,15 @@ namespace AG.Gameplay.Combat
 		//------ Public properties ----------------
 		public Transform MovementTargetsContainer => _movementTargetsContainer;
 		public Transform ProjectilesContainer => _projectilesContainer;
+		public Character Player => _player;
 
 		private void Awake()
 		{
 			_arenaTransform = FindFirstObjectByType<ArenaTransform>().transform;
 
 			FetchEntities();
-
-			//_arenaEvents.OnSceneCharactersInitialized += HandleSceneCharactersInitialized;
 		}
 
-
-		private void OnDestroy()
-		{
-			//_arenaEvents.OnSceneCharactersInitialized -= HandleSceneCharactersInitialized;
-		}
-
-		private void HandleSceneCharactersInitialized()
-		{
-			//FetchEntities();
-		}
 		private void FetchEntities()
 		{
 			Character[] characters = _arenaTransform.GetComponentsInChildren<Character>();
