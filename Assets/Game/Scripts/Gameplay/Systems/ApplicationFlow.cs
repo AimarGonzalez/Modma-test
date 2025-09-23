@@ -141,13 +141,11 @@ namespace AG.Gameplay.Combat
 
 			GUILayout.BeginHorizontal();
 
-			/*
 			GUI.enabled = !HasActiveBattle;
-			if (GUILayout.Button("Start"))
+			if (GUILayout.Button("Resume"))
 			{
-				StartBattle().RunAsync();
+				ResumeBattle();
 			}
-			*/
 
 			GUI.enabled = HasActiveBattle;
 			if (GUILayout.Button("Pause"))
