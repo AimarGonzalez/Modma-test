@@ -1,31 +1,29 @@
 using AG.Gameplay.Combat;
 using AG.Gameplay.Systems;
 using AG.Gameplay.Characters.MonoBehaviours.Components;
-using UnityEngine;
-using UnityEngine.UI;
 using VContainer;
 
 
 namespace AG.Gameplay.UI
 {
-	public class GameStateEnumBasedUI : EnumBasedUI<ApplicationFlow.State>
+	public class GameStateEnumBasedUI : EnumBasedUI<AppState>
 	{
 		[Inject]
 		private ApplicationEvents _appEvents;
 
 		private void Awake()
 		{
-			_appEvents.OnGameStateChanged += OnGameStateChanged;
+			_appEvents.OnAppStateChanged += AppStateChanged;
 		}
 
 		private void OnDestroy()
 		{
-			_appEvents.OnGameStateChanged -= OnGameStateChanged;
+			_appEvents.OnAppStateChanged -= AppStateChanged;
 		}
 
-		private void OnGameStateChanged(ApplicationFlow.State oldState, ApplicationFlow.State newState)
+		private void AppStateChanged(AppState oldAppState, AppState newAppState)
 		{
-			base.OnStateChanged(oldState, newState);
+			base.OnStateChanged(oldAppState, newAppState);
 		}
 	}
 }

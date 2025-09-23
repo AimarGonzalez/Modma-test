@@ -1,91 +1,118 @@
 using AG.Core.UI;
 using AG.Gameplay.Systems;
+using Modma.Game.Scripts.Gameplay.Systems;
+using MoreMountains.Feedbacks;
+using SharedLib.ExtensionMethods;
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using VContainer;
 
 
 namespace AG.Gameplay.Combat
 {
+	[Flags]
+	public enum AppState
+	{
+		Welcome = 1 << 0,
+		BattleIntro = 1 << 1,
+		Battle = 1 << 2,
+		BattlePaused = 1 << 3,
+		Any = Welcome | BattleIntro | Battle | BattlePaused
+	}
+
 	public class ApplicationFlow : MonoBehaviour, IGUIDrawer
 	{
-		[Inject]
-		private ArenaWorld _arenaWorld;
+		[Inject] private ArenaWorld _arenaWorld;
+		[Inject] private ApplicationEvents _appEvents;
+		[Inject] private ApplicationTransitions _appTransitions;
 
-		[Inject]
-		private ApplicationEvents _appEvents;
+		// ------------- Private fields -------------
 
-		[Flags]
-		public enum State
-		{
-			Welcome = 1 << 0,
-			BattleIntro = 1 << 1,
-			Battle = 1 << 2,
-			BattlePaused = 1 << 3,
-			Any = Welcome | BattleIntro | Battle | BattlePaused
-		}
-
-		private State _state;
+		private AppState _appState;
 
 		private GameplayFlow _gameplay;
 
-		public bool HasActiveBattle => _state == State.Battle;
+		// ------------- Public properties -------------
+
+		public bool HasActiveBattle => _appState == AppState.Battle;
 
 		private void Start()
 		{
-			InitializeBattle();
-		}
-
-		private void InitializeBattle()
-		{
-
 			_gameplay = new GameplayFlow();
-
-			ResetBattle();
+			_appEvents.TriggerBattleCreated(_gameplay);
+			
+			SetupNewBattle();
 		}
 
-		public void StartBattle()
+		private void SetupNewBattle()
+		{
+			_gameplay.SetupNewBattle();
+		}
+
+		public async Task StartBattle()
 		{
 			_gameplay.StartBattle();
-
-			SetState(State.Battle);
-			_appEvents.TriggerBattleStarted(_gameplay);
+			
+			//SetState(AppState.BattleIntro).RunAsync();
+			
+			SetState(AppState.Battle).RunAsync();
 		}
 
 		public void PauseBattle()
 		{
 			_gameplay.PauseBattle();
-			
-			SetState(State.BattlePaused);
-			_appEvents.TriggerBattlePaused(_gameplay);
+
+			SetState(AppState.BattlePaused).RunAsync();
 		}
 
-		public void ResetBattle()
+		public void RestartBattle()
 		{
-			_gameplay.ResetBattle();
-
-			SetState(State.BattleIntro);
-			_appEvents.TriggerBattleCreated(_gameplay);
+			SetupNewBattle();
 		}
 
 		public void Update()
 		{
-			if (_state == State.Battle)
+			if (_appState == AppState.Battle)
 			{
 				_gameplay.Update();
 			}
 		}
 
-		private void SetState(State newState)
+		private async Task SetState(AppState newAppState)
 		{
-			if (_state == newState)
+			if (_appState == newAppState)
 			{
 				return;
 			}
 
-			State oldState = _state;
-			_state = newState;
-			_appEvents.TriggerGameStateChanged(oldState, newState);
+			AppState oldAppState = _appState;
+			_appState = newAppState;
+
+			await _appTransitions.PlayExitStateTransition(oldAppState);
+			await _appTransitions.PlayEnterStateTransition(newAppState);
+
+			TriggerStateChangedEvents(oldAppState, newAppState);
+		}
+		
+		private void TriggerStateChangedEvents(AppState oldAppState, AppState newAppState)
+		{
+			_appEvents.TriggerAppStateChanged(oldAppState, newAppState);
+			
+			switch (oldAppState)
+			{
+				case AppState.Battle:
+					_appEvents.TriggerBattleEnded(_gameplay);
+					break;
+			}
+
+			switch (newAppState)
+			{
+				case AppState.Battle:
+					_appEvents.TriggerBattleStarted(_gameplay);
+					break;
+			}
 		}
 
 		public void DrawGUI()
@@ -111,10 +138,17 @@ namespace AG.Gameplay.Combat
 			GUI.enabled = _gameplay != null;
 			if (GUILayout.Button("Reset"))
 			{
-				ResetBattle();
+				RestartBattle();
 			}
 
 			GUILayout.EndHorizontal();
+		}
+
+		// ------------- Input from UI ----------------
+
+		public void OnPlayButtonClicked()
+		{
+			StartBattle();
 		}
 	}
 }

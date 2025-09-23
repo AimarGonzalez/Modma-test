@@ -29,7 +29,7 @@ namespace AG.Gameplay.Combat
 			_currentTime += Time.deltaTime;
 		}
 
-		public void ResetBattle()
+		public void SetupNewBattle()
 		{
 			_currentTime = 0f;
 			_isBattleActive = false;
@@ -43,7 +43,6 @@ namespace AG.Gameplay.Combat
 		public void PauseBattle()
 		{
 			_isBattleActive = false;
-			// TODO: Implement battle end logic (determine winner, show results, etc.)
 		}
 	}
 }

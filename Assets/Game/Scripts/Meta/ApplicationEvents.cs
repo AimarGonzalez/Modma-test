@@ -5,12 +5,12 @@ namespace AG.Gameplay.Systems
 {
 	public class ApplicationEvents
 	{
+		public event Action<AppState, AppState> OnAppStateChanged;
 
 		public event Action<GameplayFlow> OnBattleCreated;
 		public event Action<GameplayFlow> OnBattleStarted;
 		public event Action<GameplayFlow> OnBattleEnded;
 
-		public event Action<ApplicationFlow.State, ApplicationFlow.State> OnGameStateChanged;
 
 		public void TriggerBattleCreated(GameplayFlow gameplayFlow)
 		{
@@ -22,14 +22,14 @@ namespace AG.Gameplay.Systems
 			OnBattleStarted?.Invoke(gameplayFlow);
 		}
 
-		public void TriggerBattlePaused(GameplayFlow gameplayFlow)
+		public void TriggerBattleEnded(GameplayFlow gameplayFlow)
 		{
 			OnBattleEnded?.Invoke(gameplayFlow);
 		}
 
-		public void TriggerGameStateChanged(ApplicationFlow.State oldState, ApplicationFlow.State newState)
+		public void TriggerAppStateChanged(AppState oldAppState, AppState newAppState)
 		{
-			OnGameStateChanged?.Invoke(oldState, newState);
+			OnAppStateChanged?.Invoke(oldAppState, newAppState);
 		}
 
 	}

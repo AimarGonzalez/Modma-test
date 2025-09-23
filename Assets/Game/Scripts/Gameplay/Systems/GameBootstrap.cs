@@ -3,6 +3,7 @@ using AG.Core.Pool;
 using AG.Gameplay.Combat;
 using AG.Gameplay.Settings;
 using AG.Gameplay.UI;
+using Modma.Game.Scripts.Gameplay.Systems;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -23,6 +24,7 @@ namespace AG.Gameplay.Systems
 			{
 				components.AddInHierarchy<TimeController>();
 				components.AddInHierarchy<ApplicationFlow>();
+				components.AddInHierarchy<ApplicationTransitions>();
 				components.AddInHierarchy<ArenaWorld>();
 				components.AddInHierarchy<CheatsStyleProvider>();
 				components.AddInHierarchy<GameObjectPoolService>();
