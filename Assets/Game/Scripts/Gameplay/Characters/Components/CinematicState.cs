@@ -10,9 +10,13 @@ namespace AG.Gameplay.Characters.Components
 		// ------------- Components -------------
 		private PlayerAnimations _playerAnimations;
 
+		private void Awake()
+		{
+			_playerAnimations = Root.Get<PlayerAnimations>();
+		}
+
 		public override void OnEnterState()
 		{
-
 			_playerAnimations.PlayIdle();
 		}
 

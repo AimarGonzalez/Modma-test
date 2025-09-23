@@ -67,6 +67,7 @@ namespace AG.Gameplay.Characters.Components
 
 			_inputController = Root.Get<PlayerInputController>();
 			_playerMovement = Root.Get<PlayerMovement>();
+			_playerAnimations = Root.Get<PlayerAnimations>();
 		}
 
 		public override void OnEnterState()
