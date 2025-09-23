@@ -34,24 +34,24 @@ namespace AG.Gameplay.Characters.Components
 
 		// ------------- Private fields -------------
 
-		[ShowInInspector, ReadOnly, BoxGroup(DebugUI.Group), PropertyOrder(DebugUI.Order)]
+		[ShowInInspector, ReadOnly, FoldoutGroup(DebugUI.Group), PropertyOrder(DebugUI.Order)]
 		private CombatState _state;
 
-		[ShowInInspector, ReadOnly, BoxGroup(DebugUI.Group), PropertyOrder(DebugUI.Order)]
+		[ShowInInspector, ReadOnly, FoldoutGroup(DebugUI.Group), PropertyOrder(DebugUI.Order)]
 		private float _attackSpeed;
-		[ShowInInspector, ReadOnly, BoxGroup(DebugUI.Group), PropertyOrder(DebugUI.Order)]
+		[ShowInInspector, ReadOnly, FoldoutGroup(DebugUI.Group), PropertyOrder(DebugUI.Order)]
 		private Timer _rangedAttackTimer;
-		[ShowInInspector, ReadOnly, BoxGroup(DebugUI.Group), PropertyOrder(DebugUI.Order)]
+		[ShowInInspector, ReadOnly, FoldoutGroup(DebugUI.Group), PropertyOrder(DebugUI.Order)]
 		private Timer _dashAttackTimer;
-		[ShowInInspector, ReadOnly, BoxGroup(DebugUI.Group), PropertyOrder(DebugUI.Order)]
+		[ShowInInspector, ReadOnly, FoldoutGroup(DebugUI.Group), PropertyOrder(DebugUI.Order)]
 		private Character _target;
 
 		// ------------- Public properties -------------
 		public bool HasTarget => _target != null;
 
-		[ShowInInspector, ReadOnly, BoxGroup(DebugUI.Group), PropertyOrder(DebugUI.Order)]
+		[ShowInInspector, ReadOnly, FoldoutGroup(DebugUI.Group), PropertyOrder(DebugUI.Order)]
 		public float RangedAttackCooldown => _rangedAttackTimer?.TimeLeft ?? 0f;
-		[ShowInInspector, ReadOnly, BoxGroup(DebugUI.Group), PropertyOrder(DebugUI.Order)]
+		[ShowInInspector, ReadOnly, FoldoutGroup(DebugUI.Group), PropertyOrder(DebugUI.Order)]
 		public float DashAttackCooldown => _dashAttackTimer?.TimeLeft ?? 0f;
 
 		// ------------- Components -------------
