@@ -7,6 +7,7 @@ namespace AG.Gameplay.PlayerInput
 	{
 		public float Vertical;
 		public float Horizontal;
+		public bool IsMoving;
 		public float Angle;
 		public Quaternion Rotation;
 
@@ -16,5 +17,6 @@ namespace AG.Gameplay.PlayerInput
 	public struct InputData
 	{
 		public Movement Movement;
+		public bool IsMoving => Movement.IsMoving;
 	}
 }

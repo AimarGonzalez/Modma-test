@@ -9,7 +9,6 @@ namespace AG.Gameplay.PlayerInput
 	public class PlayerInputController : SubComponent
 	{
 		[SerializeField] bool _constantSpeed = true;
-		[SerializeField] private float _rotationLerp = 15f;
 
 		[Inject]
 		[ReadOnly, ShowInInspector] private Joystick _joystick;
@@ -55,6 +54,7 @@ namespace AG.Gameplay.PlayerInput
 				_inputData.Movement.Horizontal = movX;
 				_inputData.Movement.Angle = angle;
 				_inputData.Movement.Rotation = rotation;
+				_inputData.Movement.IsMoving = true;
 			}
 			else
 			{

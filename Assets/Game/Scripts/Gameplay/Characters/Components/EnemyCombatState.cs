@@ -13,7 +13,6 @@ namespace AG.Gameplay.Characters.Components
 	{
 		public enum CombatState
 		{
-			Idle,
 			Moving,
 			Attacking
 		}
@@ -69,9 +68,6 @@ namespace AG.Gameplay.Characters.Components
 
 			switch (_combatState)
 			{
-				case CombatState.Idle:
-					SetSubState(CombatState.Moving);
-					break;
 				case CombatState.Moving:
 					Move();
 					break;
