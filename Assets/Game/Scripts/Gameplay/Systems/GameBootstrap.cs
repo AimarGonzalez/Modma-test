@@ -18,6 +18,7 @@ namespace AG.Gameplay.Systems
 			Debug.Log("Boostrap");
 			builder.Register<ApplicationEvents>(Lifetime.Singleton);
 			builder.RegisterEntryPoint<ArenaEvents>(Lifetime.Scoped).AsSelf();
+			builder.Register<GameplayFlow>(Lifetime.Scoped);
 
 			// Register MonoBehaviours
 			builder.UseComponents(components =>

@@ -15,7 +15,7 @@ namespace Modma.Game.Scripts.Gameplay.Systems
 
 		// ------------- Inspector fields -------------
 
-		private MMF_Player _appStartSetupUI;
+		[SerializeField] private MMF_Player _appStartSetupUI;
 		[SerializeField] private ApplicationTransitionDictionary _enterStateTransitions = new();
 		[SerializeField] private ApplicationTransitionDictionary _exitStateTransitions = new();
 

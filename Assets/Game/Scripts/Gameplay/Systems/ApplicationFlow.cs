@@ -29,13 +29,13 @@ namespace AG.Gameplay.Combat
 		[Inject] private ApplicationEvents _appEvents;
 		[Inject] private ApplicationView _appView;
 		[Inject] private TimeController _timeController;
+		[Inject] private GameplayFlow _gameplayFlow;
 
 
 		// ------------- Private fields -------------
 		[ShowInInspector, ReadOnly]
 		private AppState _appState = AppState.Welcome;
 
-		private GameplayFlow _gameplay;
 
 		// ------------- Public properties -------------
 
@@ -43,8 +43,7 @@ namespace AG.Gameplay.Combat
 
 		private void Start()
 		{
-			_gameplay = new GameplayFlow();
-			_appEvents.TriggerBattleCreated(_gameplay);
+			_appEvents.TriggerBattleCreated(_gameplayFlow);
 
 			_appView.SetupUIAtGameStart();
 			SetupNewBattle();
@@ -52,7 +51,7 @@ namespace AG.Gameplay.Combat
 
 		private void SetupNewBattle()
 		{
-			_gameplay.SetupNewBattle();
+			_gameplayFlow.SetupNewBattle();
 		}
 
 		private async Task StartBattle()
@@ -66,12 +65,12 @@ namespace AG.Gameplay.Combat
 
 			SetState(AppState.Battle);
 
-			_gameplay.StartBattle();
+			_gameplayFlow.StartBattle();
 		}
 
 		private void PauseBattle()
 		{
-			_gameplay.PauseBattle();
+			_gameplayFlow.PauseBattle();
 
 			_timeController.Pause(true);
 
@@ -80,7 +79,7 @@ namespace AG.Gameplay.Combat
 
 		private void ResumeBattle()
 		{
-			_gameplay.ResumeBattle();
+			_gameplayFlow.ResumeBattle();
 
 			_timeController.Pause(false);
 
@@ -97,7 +96,7 @@ namespace AG.Gameplay.Combat
 		{
 			if (_appState == AppState.Battle)
 			{
-				_gameplay.Update();
+				_gameplayFlow.Update();
 			}
 		}
 
@@ -123,14 +122,14 @@ namespace AG.Gameplay.Combat
 			switch (oldAppState)
 			{
 				case AppState.Battle:
-					_appEvents.TriggerBattleEnded(_gameplay);
+					_appEvents.TriggerBattleEnded(_gameplayFlow);
 					break;
 			}
 
 			switch (newAppState)
 			{
 				case AppState.Battle:
-					_appEvents.TriggerBattleStarted(_gameplay);
+					_appEvents.TriggerBattleStarted(_gameplayFlow);
 					break;
 			}
 		}
@@ -138,7 +137,7 @@ namespace AG.Gameplay.Combat
 		void IGUIDrawer.DrawGUI()
 		{
 			GUILayoutUtils.Label("Battle");
-			GUILayoutUtils.Label($"Timer: {_gameplay.Timer}");
+			GUILayoutUtils.Label($"Timer: {_gameplayFlow.Timer}");
 
 			GUILayout.BeginHorizontal();
 
@@ -156,7 +155,7 @@ namespace AG.Gameplay.Combat
 				PauseBattle();
 			}
 
-			GUI.enabled = _gameplay != null;
+			GUI.enabled = _gameplayFlow != null;
 			if (GUILayout.Button("Reset"))
 			{
 				RestartApp();
