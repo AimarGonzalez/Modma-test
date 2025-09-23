@@ -1,6 +1,6 @@
 using AG.Gameplay.Combat;
 using AG.Gameplay.Systems;
-using AG.Gameplay.Units.MonoBehaviours.Components;
+using AG.Gameplay.Characters.MonoBehaviours.Components;
 using UnityEngine;
 using UnityEngine.UI;
 using VContainer;

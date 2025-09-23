@@ -1,7 +1,6 @@
 using AG.Core.UI;
 using AG.Gameplay.Characters;
 using AG.Gameplay.Settings;
-using AG.Gameplay.Units;
 using SharedLib.ComponentCache;
 using SharedLib.ExtensionMethods;
 using Sirenix.OdinInspector;

@@ -3,7 +3,7 @@ using SharedLib.StateMachines;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace AG.Gameplay.Units.Components
+namespace AG.Gameplay.Characters.Components
 {
 	public class SpawningState : StateSubComponent
 	{

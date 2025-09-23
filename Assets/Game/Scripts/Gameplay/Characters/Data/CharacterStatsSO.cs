@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace AG.Gameplay.Units.Data
+namespace AG.Gameplay.Characters.Data
 {
 	[CreateAssetMenu(fileName = "CharacterStats", menuName = "AG/Character/CharacterStats")]
 	public class CharacterStatsSO : ScriptableObject

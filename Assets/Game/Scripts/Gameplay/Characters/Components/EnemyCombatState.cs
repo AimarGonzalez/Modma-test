@@ -6,7 +6,7 @@ using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AG.Gameplay.Units.Components
+namespace AG.Gameplay.Characters.Components
 {
 
 	public class EnemyCombatState : StateSubComponent, IDebugPanelDrawer

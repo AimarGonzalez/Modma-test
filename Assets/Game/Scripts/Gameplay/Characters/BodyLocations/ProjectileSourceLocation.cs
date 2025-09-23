@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace AG.Gameplay.Units.MonoBehaviours.BodyLocations
+namespace AG.Gameplay.Characters.MonoBehaviours.BodyLocations
 {
 	public class ProjectileSourceLocation : MonoBehaviour
 	{

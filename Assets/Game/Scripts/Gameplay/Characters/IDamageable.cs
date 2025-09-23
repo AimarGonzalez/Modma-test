@@ -1,4 +1,4 @@
-namespace AG.Gameplay.Units
+namespace AG.Gameplay.Characters
 {
 	// TODO: Rename IDamageable to IHealthBarSource
 	public interface IDamageable

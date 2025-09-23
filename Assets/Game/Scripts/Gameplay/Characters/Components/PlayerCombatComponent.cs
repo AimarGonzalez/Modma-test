@@ -1,5 +1,5 @@
 ﻿using AG.Gameplay.Systems;
-using AG.Gameplay.Units;
+using AG.Gameplay.Characters;
 using SharedLib.ComponentCache;
 using SharedLib.Utils;
 using Sirenix.OdinInspector;

@@ -1,7 +1,7 @@
 using AG.Gameplay.Characters;
 using UnityEngine;
 
-namespace AG.Gameplay.Units.Data
+namespace AG.Gameplay.Characters.Data
 {
 	public class CharacterDefinitionSO : ScriptableObject
 	{

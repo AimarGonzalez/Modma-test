@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AG.Gameplay.Units.MonoBehaviours.Components
+namespace AG.Gameplay.Characters.MonoBehaviours.Components
 {
 	public class EnumBasedUI<TState> : MonoBehaviour where TState : struct, Enum
 	{

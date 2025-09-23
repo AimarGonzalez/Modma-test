@@ -1,5 +1,5 @@
 
-namespace AG.Gameplay.Units
+namespace AG.Gameplay.Characters
 {
 	public enum Team
 	{
