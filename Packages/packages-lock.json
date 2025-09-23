@@ -8,6 +8,14 @@
         "com.unity.modules.animation": "1.0.0"
       }
     },
+    "com.kybernetik.inspector-gadgets": {
+      "version": "file:com.kybernetik.inspector-gadgets",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.modules.imgui": "1.0.0"
+      }
+    },
     "com.unity.2d.animation": {
       "version": "12.0.2",
       "depth": 1,
