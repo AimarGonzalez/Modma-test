@@ -42,6 +42,11 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 
     private Vector2 input = Vector2.zero;
 
+    protected void Awake()
+    {
+        backgroundStartAnchoredPosition = background.anchoredPosition;
+    }
+
     protected virtual void Start()
     {
         HandleRange = handleRange;
@@ -51,14 +56,14 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         if (canvas == null)
             Debug.LogError("The Joystick is not placed inside a canvas");
 
+        baseRect.pivot = Vector2.zero;
+
         Vector2 center = new Vector2(0.5f, 0.5f);
         background.pivot = center;
         handle.anchorMin = center;
         handle.anchorMax = center;
         handle.pivot = center;
         handle.anchoredPosition = Vector2.zero;
-
-        backgroundStartAnchoredPosition = background.anchoredPosition;
     }
 
     public virtual void OnPointerDown(PointerEventData eventData)
