@@ -5,12 +5,12 @@ using UnityEngine;
 public class DynamicJoystickEditor : JoystickEditor
 {
 	private SerializedProperty moveThreshold;
-	private SerializedProperty hideWhenNotActive;
+	private SerializedProperty hideWhenActive;
 	protected override void OnEnable()
 	{
 		base.OnEnable();
 		moveThreshold = serializedObject.FindProperty("moveThreshold");
-		hideWhenNotActive = serializedObject.FindProperty("_hideWhenNotActive");
+		hideWhenActive = serializedObject.FindProperty("_hideWhenActive");
 	}
 
 	public override void OnInspectorGUI()
@@ -33,6 +33,6 @@ public class DynamicJoystickEditor : JoystickEditor
 	{
 		base.DrawValues();
 		EditorGUILayout.PropertyField(moveThreshold, new GUIContent("Move Threshold", "The distance away from the center input has to be before the joystick begins to move."));
-		EditorGUILayout.PropertyField(hideWhenNotActive, new GUIContent("Hide When Not Active", "Whether the joystick should be hidden when not active."));
+		EditorGUILayout.PropertyField(hideWhenActive, new GUIContent("Hide When Not Active", "Whether the joystick should be hidden when not active."));
 	}
 }

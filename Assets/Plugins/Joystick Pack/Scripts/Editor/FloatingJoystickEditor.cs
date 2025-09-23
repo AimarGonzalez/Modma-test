@@ -6,11 +6,10 @@ using UnityEditor;
 [CustomEditor(typeof(FloatingJoystick))]
 public class FloatingJoystickEditor : JoystickEditor
 {
-	private SerializedProperty hideWhenNotActive;
+	private SerializedProperty hideWhenActive;
 	protected override void OnEnable()
 	{
 		base.OnEnable();
-		hideWhenNotActive = serializedObject.FindProperty("_hideWhenNotActive");
 	}
 	public override void OnInspectorGUI()
 	{
@@ -30,6 +29,5 @@ public class FloatingJoystickEditor : JoystickEditor
 	protected override void DrawValues()
 	{
 		base.DrawValues();
-		EditorGUILayout.PropertyField(hideWhenNotActive, new GUIContent("Hide When Not Active", "Whether the joystick should be hidden when not active."));
 	}
 }

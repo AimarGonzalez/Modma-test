@@ -8,31 +8,26 @@ public class DynamicJoystick : Joystick
 	public float MoveThreshold { get { return moveThreshold; } set { moveThreshold = Mathf.Abs(value); } }
 
 	[SerializeField] private float moveThreshold = 1;
-	[SerializeField] private bool _hideWhenNotActive = true;
+	[SerializeField] private bool _hideWhenActive = true;
 	protected override void Start()
 	{
 		MoveThreshold = moveThreshold;
 		base.Start();
-
-		if (_hideWhenNotActive)
-		{
-			background.gameObject.SetActive(false);
-		}
 	}
 
 	public override void OnPointerDown(PointerEventData eventData)
 	{
 		background.anchoredPosition = ScreenPointToAnchoredPosition(eventData.position);
-		background.gameObject.SetActive(true);
+		if (_hideWhenActive)
+		{
+			background.gameObject.SetActive(false);
+		}
 		base.OnPointerDown(eventData);
 	}
 
 	public override void OnPointerUp(PointerEventData eventData)
 	{
-		if (_hideWhenNotActive)
-		{
-			background.gameObject.SetActive(false);
-		}
+		background.gameObject.SetActive(true);
 		base.OnPointerUp(eventData);
 	}
 
