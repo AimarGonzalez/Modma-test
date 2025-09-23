@@ -147,9 +147,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2627208817264435569, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5536649548641710952}
-    - targetCorrespondingSourceObject: {fileID: 3157883769437838117, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 2995204380731801449, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8624901899801208580}
+      addedObject: {fileID: 813891008698395049}
   m_SourcePrefab: {fileID: 100100000, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}
 --- !u!1 &32998090406456292 stripped
 GameObject:
@@ -222,18 +222,18 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
---- !u!1 &1140410607673217456 stripped
+--- !u!1 &977731277213218300 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 3157883769437838117, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2995204380731801449, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}
   m_PrefabInstance: {fileID: 2594218423443737237}
   m_PrefabAsset: {fileID: 0}
---- !u!143 &8624901899801208580
+--- !u!143 &813891008698395049
 CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1140410607673217456}
+  m_GameObject: {fileID: 977731277213218300}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

@@ -203,7 +203,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8989221608996234748}
   - component: {fileID: 727374299940379663}
-  - component: {fileID: 6446834464510959268}
   - component: {fileID: 6204741301423171300}
   m_Layer: 6
   m_Name: MovementCollider
@@ -241,29 +240,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 4509236013009656752}
   _mode: 1
---- !u!136 &6446834464510959268
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2995204380731801449}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6204741301423171300
 MonoBehaviour:
   m_ObjectHideFlags: 0
