@@ -2,7 +2,6 @@
 using MoreMountains.Feedbacks;
 using SharedLib.Utils;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -11,9 +10,7 @@ namespace Modma.Game.Scripts.Gameplay.Systems
 	public class ApplicationTransitions : MonoBehaviour
 	{
 		[Serializable]
-		private class ApplicationTransitionDictionary : UnitySerializedDictionary<AppState, MMF_Player>
-		{
-		}
+		private class ApplicationTransitionDictionary : UnitySerializedDictionary<AppState, MMF_Player> { }
 
 		// ------------- Inspector fields -------------
 

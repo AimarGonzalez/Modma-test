@@ -1,14 +1,13 @@
 using AG.Core.UI;
 using AG.Gameplay.Systems;
+using JetBrains.Annotations;
 using Modma.Game.Scripts.Gameplay.Systems;
-using MoreMountains.Feedbacks;
 using SharedLib.ExtensionMethods;
+using Sirenix.OdinInspector;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using VContainer;
-
 
 namespace AG.Gameplay.Combat
 {
@@ -29,8 +28,8 @@ namespace AG.Gameplay.Combat
 		[Inject] private ApplicationTransitions _appTransitions;
 
 		// ------------- Private fields -------------
-
-		private AppState _appState;
+		[ShowInInspector, ReadOnly]
+		private AppState _appState = AppState.Welcome;
 
 		private GameplayFlow _gameplay;
 
@@ -51,24 +50,32 @@ namespace AG.Gameplay.Combat
 			_gameplay.SetupNewBattle();
 		}
 
-		public async Task StartBattle()
+		private async Task StartBattle()
 		{
+			//await SetState(AppState.BattleIntro).RunAsync();
+			
+			await SetState(AppState.Battle);
+			
 			_gameplay.StartBattle();
-			
-			//SetState(AppState.BattleIntro).RunAsync();
-			
-			SetState(AppState.Battle).RunAsync();
 		}
 
-		public void PauseBattle()
+		private void PauseBattle()
 		{
 			_gameplay.PauseBattle();
 
 			SetState(AppState.BattlePaused).RunAsync();
 		}
-
-		public void RestartBattle()
+		
+		private void ResumeBattle()
 		{
+			_gameplay.ResumeBattle();
+
+			SetState(AppState.Battle).RunAsync();
+		}
+
+		private async Task RestartApp()
+		{
+			await SetState(AppState.Welcome);
 			SetupNewBattle();
 		}
 
@@ -115,7 +122,7 @@ namespace AG.Gameplay.Combat
 			}
 		}
 
-		public void DrawGUI()
+		void IGUIDrawer.DrawGUI()
 		{
 			GUILayoutUtils.Label("Battle");
 			GUILayoutUtils.Label($"Timer: {_gameplay.Timer}");
@@ -126,7 +133,7 @@ namespace AG.Gameplay.Combat
 			GUI.enabled = !HasActiveBattle;
 			if (GUILayout.Button("Start"))
 			{
-				StartBattle();
+				StartBattle().RunAsync();
 			}
 
 			GUI.enabled = HasActiveBattle;
@@ -138,17 +145,36 @@ namespace AG.Gameplay.Combat
 			GUI.enabled = _gameplay != null;
 			if (GUILayout.Button("Reset"))
 			{
-				RestartBattle();
+				RestartApp().RunAsync();
 			}
 
 			GUILayout.EndHorizontal();
 		}
 
-		// ------------- Input from UI ----------------
+		// ------------- Input from UI (UnityEvents) ----------------
 
-		public void OnPlayButtonClicked()
+		[UsedImplicitly]
+		public void UI_OnStartBattleButton()
 		{
-			StartBattle();
+			StartBattle().RunAsync();
+		}
+		
+		[UsedImplicitly]
+		public void UI_OnPauseButton()
+		{
+			PauseBattle();
+		}
+		
+		[UsedImplicitly]
+		public void UI_OnResumeButton()
+		{
+			ResumeBattle();
+		}
+		
+		[UsedImplicitly]
+		public void UI_OnRestartAppButon()
+		{
+			RestartApp().RunAsync();
 		}
 	}
 }

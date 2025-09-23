@@ -44,5 +44,10 @@ namespace AG.Gameplay.Combat
 		{
 			_isBattleActive = false;
 		}
+		
+		public void ResumeBattle()
+		{
+			_isBattleActive = true;
+		}
 	}
 }
