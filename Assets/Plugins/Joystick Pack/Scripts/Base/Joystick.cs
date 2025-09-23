@@ -1,10 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
+    public event Action<PointerEventData> OnJoystickReleased;
+
     public float Horizontal { get { return (snapX) ? SnapFloat(input.x, AxisOptions.Horizontal) : input.x; } }
     public float Vertical { get { return (snapY) ? SnapFloat(input.y, AxisOptions.Vertical) : input.y; } }
     public Vector2 Direction { get { return new Vector2(Horizontal, Vertical); } }
@@ -34,6 +35,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     [SerializeField] protected RectTransform background = null;
     [SerializeField] private RectTransform handle = null;
     private RectTransform baseRect = null;
+    private Vector2 backgroundStartAnchoredPosition;
 
     private Canvas canvas;
     private Camera cam;
@@ -55,6 +57,8 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         handle.anchorMax = center;
         handle.pivot = center;
         handle.anchoredPosition = Vector2.zero;
+
+        backgroundStartAnchoredPosition = background.anchoredPosition;
     }
 
     public virtual void OnPointerDown(PointerEventData eventData)
@@ -132,7 +136,10 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     public virtual void OnPointerUp(PointerEventData eventData)
     {
         input = Vector2.zero;
+        background.anchoredPosition = backgroundStartAnchoredPosition;
         handle.anchoredPosition = Vector2.zero;
+
+        OnJoystickReleased?.Invoke(eventData);
     }
 
     protected Vector2 ScreenPointToAnchoredPosition(Vector2 screenPosition)
@@ -140,8 +147,11 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         Vector2 localPoint = Vector2.zero;
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(baseRect, screenPosition, cam, out localPoint))
         {
-            Vector2 pivotOffset = baseRect.pivot * baseRect.sizeDelta;
-            return localPoint - (background.anchorMax * baseRect.sizeDelta) + pivotOffset;
+            // AG: Removed cause sizeDelta doesn't return the object dimensions if anchors are separated. Use rect.size instead; 
+            //Vector2 pivotOffset = baseRect.pivot * baseRect.sizeDelta;
+            //return localPoint - (background.anchorMax * baseRect.sizeDelta) + pivotOffset;
+
+            return localPoint - background.anchorMax * baseRect.rect.size;
         }
         return Vector2.zero;
     }
