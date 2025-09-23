@@ -1,0 +1,18 @@
+{
+    "name": "JoystickPack-reference",
+    "rootNamespace": "",
+    "references": [
+        "GUID:bbb383c1986a4da4e9e303f5513bfb6f"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
