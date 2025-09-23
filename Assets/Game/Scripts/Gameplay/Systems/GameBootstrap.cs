@@ -2,6 +2,7 @@ using AG.Core;
 using AG.Core.Pool;
 using AG.Gameplay.Combat;
 using AG.Gameplay.Settings;
+using AG.Gameplay.UI;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -26,6 +27,7 @@ namespace AG.Gameplay.Systems
 				components.AddInHierarchy<CheatsStyleProvider>();
 				components.AddInHierarchy<GameObjectPoolService>();
 				components.AddInHierarchy<GameSettings>();
+				components.AddInHierarchy<UIProvider>();
 			});
 		}
 	}

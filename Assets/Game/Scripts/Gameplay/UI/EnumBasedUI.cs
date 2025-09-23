@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace AG.Gameplay.Units.MonoBehaviours.Components
 {
-	public class UIView<TState> : MonoBehaviour where TState : struct, Enum
+	public class EnumBasedUI<TState> : MonoBehaviour where TState : struct, Enum
 	{
 		[Flags]
 		private enum UIActionType

@@ -8,7 +8,7 @@ using VContainer;
 
 namespace AG.Gameplay.UI
 {
-	public class GameStateUIView : UIView<ApplicationFlow.State>
+	public class GameStateEnumBasedUI : EnumBasedUI<ApplicationFlow.State>
 	{
 		[Inject]
 		private ApplicationEvents _appEvents;
