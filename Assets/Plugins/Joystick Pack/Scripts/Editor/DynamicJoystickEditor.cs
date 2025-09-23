@@ -1,35 +1,38 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEditor;
 using UnityEngine;
-using UnityEditor;
 
 [CustomEditor(typeof(DynamicJoystick))]
 public class DynamicJoystickEditor : JoystickEditor
 {
-    private SerializedProperty moveThreshold;
+	private SerializedProperty moveThreshold;
+	private SerializedProperty hideWhenNotActive;
+	protected override void OnEnable()
+	{
+		base.OnEnable();
+		moveThreshold = serializedObject.FindProperty("moveThreshold");
+		hideWhenNotActive = serializedObject.FindProperty("_hideWhenNotActive");
+	}
 
-    protected override void OnEnable()
-    {
-        base.OnEnable();
-        moveThreshold = serializedObject.FindProperty("moveThreshold");
-    }
+	public override void OnInspectorGUI()
+	{
+		base.OnInspectorGUI();
+		/* AG: Disable automatic setup of joystick when inspector is loaded.
+		if (background != null)
+		{
 
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
+		    RectTransform backgroundRect = (RectTransform)background.objectReferenceValue;
+		    backgroundRect.anchorMax = Vector2.zero;
+		    backgroundRect.anchorMin = Vector2.zero;
+		    backgroundRect.pivot = center;
 
-        if (background != null)
-        {
-            RectTransform backgroundRect = (RectTransform)background.objectReferenceValue;
-            backgroundRect.anchorMax = Vector2.zero;
-            backgroundRect.anchorMin = Vector2.zero;
-            backgroundRect.pivot = center;
-        }
-    }
+		}
+		*/
+	}
 
-    protected override void DrawValues()
-    {
-        base.DrawValues();
-        EditorGUILayout.PropertyField(moveThreshold, new GUIContent("Move Threshold", "The distance away from the center input has to be before the joystick begins to move."));
-    }
+	protected override void DrawValues()
+	{
+		base.DrawValues();
+		EditorGUILayout.PropertyField(moveThreshold, new GUIContent("Move Threshold", "The distance away from the center input has to be before the joystick begins to move."));
+		EditorGUILayout.PropertyField(hideWhenNotActive, new GUIContent("Hide When Not Active", "Whether the joystick should be hidden when not active."));
+	}
 }
