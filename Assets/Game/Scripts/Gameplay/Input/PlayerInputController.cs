@@ -1,3 +1,4 @@
+using AG.Gameplay.UI;
 using SharedLib.ComponentCache;
 using Sirenix.OdinInspector;
 using System;
@@ -10,12 +11,24 @@ namespace AG.Gameplay.PlayerInput
 	{
 		[SerializeField] bool _constantSpeed = true;
 
+		// ------------- Dependencies -------------
 		[Inject]
-		[ReadOnly, ShowInInspector] private Joystick _joystick;
+		private UIProvider _uiProvider;
+		
+		private Joystick _joystick;
+
+		// ------------- Private fields -------------
 
 		private InputData _inputData;
 
+		// ------------- Public properties -------------
+
 		public InputData InputData => _inputData;
+
+		private void Awake()
+		{
+			_joystick = _uiProvider.Joystick;
+		}
 
 		private void Update()
 		{
