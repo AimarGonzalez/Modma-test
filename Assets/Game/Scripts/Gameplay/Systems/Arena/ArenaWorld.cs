@@ -33,6 +33,7 @@ namespace AG.Gameplay.Combat
 		public Transform MovementTargetsContainer => _movementTargetsContainer;
 		public Transform ProjectilesContainer => _projectilesContainer;
 		public Character Player => _player;
+		public List<Character> Enemies => _enemies;
 
 		private void Awake()
 		{

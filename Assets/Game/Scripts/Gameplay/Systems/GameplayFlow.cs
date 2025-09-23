@@ -1,3 +1,4 @@
+using AG.Core.Pool;
 using AG.Core.UI;
 using System;
 using UnityEngine;
@@ -9,9 +10,16 @@ namespace AG.Gameplay.Combat
 	// IMPROVE: Split between BattleTools and Battle
 	public class GameplayFlow
 	{
+
+		// ------------- Dependencies -------------
+
+		[Inject] private ArenaWorld _world;
+
+		// ------------- Private fields -------------
 		private float _currentTime;
 		private bool _isBattleActive;
 
+		// ------------- Public properties -------------
 		public bool IsBattleActive => _isBattleActive;
 		public float Timer => _currentTime;
 
@@ -31,6 +39,9 @@ namespace AG.Gameplay.Combat
 
 		public void SetupNewBattle()
 		{
+			// Reset in case scene is not in a correct state
+			ResetBattle();
+			
 			_currentTime = 0f;
 			_isBattleActive = false;
 		}
@@ -38,6 +49,8 @@ namespace AG.Gameplay.Combat
 		public void StartBattle()
 		{
 			_isBattleActive = true;
+			
+			_world.Player.Fight();
 		}
 
 		public void PauseBattle()
@@ -48,6 +61,25 @@ namespace AG.Gameplay.Combat
 		public void ResumeBattle()
 		{
 			_isBattleActive = true;
+		}
+
+		public void ResetBattle()
+		{
+			_isBattleActive = false;
+			
+			//Dispose enemies
+			foreach (IPooledComponent enemy in _world.Enemies)
+			{
+				enemy.OnReturnToPool();
+			}
+			
+			//Reset player
+			_world.Player.RootTransform.localPosition = Vector3.zero;
+			_world.Player.RootTransform.localRotation = Quaternion.identity;
+			_world.Player.Cinematic();
+
+			//Reset timer
+			_currentTime = 0f;
 		}
 	}
 }

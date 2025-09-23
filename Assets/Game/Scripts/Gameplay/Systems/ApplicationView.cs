@@ -1,5 +1,6 @@
 ﻿using AG.Gameplay.Combat;
 using MoreMountains.Feedbacks;
+using SharedLib.ExtensionMethods;
 using SharedLib.Utils;
 using System;
 using System.Threading.Tasks;
@@ -7,17 +8,45 @@ using UnityEngine;
 
 namespace Modma.Game.Scripts.Gameplay.Systems
 {
-	public class ApplicationTransitions : MonoBehaviour
+	public class ApplicationView : MonoBehaviour
 	{
 		[Serializable]
 		private class ApplicationTransitionDictionary : UnitySerializedDictionary<AppState, MMF_Player> { }
 
 		// ------------- Inspector fields -------------
 
+		private MMF_Player _appStartSetupUI;
 		[SerializeField] private ApplicationTransitionDictionary _enterStateTransitions = new();
 		[SerializeField] private ApplicationTransitionDictionary _exitStateTransitions = new();
 
-		public async Task PlayEnterStateTransition(AppState newState)
+		// ------------- Private fields -------------
+
+		private bool _playingTransition = false;
+
+		// ------------- Public properties -------------
+		public bool IsPlayingTransition => _playingTransition;
+
+		public void SetupUIAtGameStart()
+		{
+			_appStartSetupUI.PlayFeedbacks();
+		}
+
+		public async Task PlayViewTransition(AppState oldState, AppState newState)
+		{
+			_playingTransition = true;
+
+			Task[] paralelTasks =
+			{
+				PlayEnterStateTransition(newState),
+				PlayExitStateTransition(oldState)
+			};
+
+			await Task.WhenAll(paralelTasks);
+
+			_playingTransition = false;
+		}
+
+		private async Task PlayEnterStateTransition(AppState newState)
 		{
 			if (_enterStateTransitions.TryGetValue(newState, out var enterTransition))
 			{
@@ -29,7 +58,7 @@ namespace Modma.Game.Scripts.Gameplay.Systems
 			}
 		}
 
-		public async Task PlayExitStateTransition(AppState oldState)
+		private async Task PlayExitStateTransition(AppState oldState)
 		{
 			if (_exitStateTransitions.TryGetValue(oldState, out var exitTransition))
 			{

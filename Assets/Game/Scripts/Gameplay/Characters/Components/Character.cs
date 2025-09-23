@@ -1,7 +1,6 @@
 ﻿using AG.Core.Pool;
 using AG.Core.UI;
 using AG.Gameplay.Systems;
-using AG.Gameplay.Characters;
 using AG.Gameplay.Characters.Data;
 using MoreMountains.Feedbacks;
 using SharedLib.ComponentCache;

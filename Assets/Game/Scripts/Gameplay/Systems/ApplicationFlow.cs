@@ -1,3 +1,4 @@
+using AG.Core;
 using AG.Core.UI;
 using AG.Gameplay.Systems;
 using JetBrains.Annotations;
@@ -23,9 +24,12 @@ namespace AG.Gameplay.Combat
 
 	public class ApplicationFlow : MonoBehaviour, IGUIDrawer
 	{
+		// ------------- Dependencies -------------
 		[Inject] private ArenaWorld _arenaWorld;
 		[Inject] private ApplicationEvents _appEvents;
-		[Inject] private ApplicationTransitions _appTransitions;
+		[Inject] private ApplicationView _appView;
+		[Inject] private TimeController _timeController;
+
 
 		// ------------- Private fields -------------
 		[ShowInInspector, ReadOnly]
@@ -41,7 +45,8 @@ namespace AG.Gameplay.Combat
 		{
 			_gameplay = new GameplayFlow();
 			_appEvents.TriggerBattleCreated(_gameplay);
-			
+
+			_appView.SetupUIAtGameStart();
 			SetupNewBattle();
 		}
 
@@ -52,10 +57,15 @@ namespace AG.Gameplay.Combat
 
 		private async Task StartBattle()
 		{
-			//await SetState(AppState.BattleIntro).RunAsync();
+			//SetState(AppState.BattleIntro).RunAsync();
 			
-			await SetState(AppState.Battle);
-			
+			// await Play intro
+			// - show banner with GOAL (2s)
+			// - spawn some enemies
+			await Task.Yield();
+
+			SetState(AppState.Battle);
+
 			_gameplay.StartBattle();
 		}
 
@@ -63,19 +73,23 @@ namespace AG.Gameplay.Combat
 		{
 			_gameplay.PauseBattle();
 
-			SetState(AppState.BattlePaused).RunAsync();
+			_timeController.Pause(true);
+
+			SetState(AppState.BattlePaused);
 		}
-		
+
 		private void ResumeBattle()
 		{
 			_gameplay.ResumeBattle();
 
-			SetState(AppState.Battle).RunAsync();
+			_timeController.Pause(false);
+
+			SetState(AppState.Battle);
 		}
 
-		private async Task RestartApp()
+		private void RestartApp()
 		{
-			await SetState(AppState.Welcome);
+			SetState(AppState.Welcome);
 			SetupNewBattle();
 		}
 
@@ -87,7 +101,7 @@ namespace AG.Gameplay.Combat
 			}
 		}
 
-		private async Task SetState(AppState newAppState)
+		private void SetState(AppState newAppState)
 		{
 			if (_appState == newAppState)
 			{
@@ -97,16 +111,15 @@ namespace AG.Gameplay.Combat
 			AppState oldAppState = _appState;
 			_appState = newAppState;
 
-			await _appTransitions.PlayExitStateTransition(oldAppState);
-			await _appTransitions.PlayEnterStateTransition(newAppState);
+			_appView.PlayViewTransition(oldAppState, newAppState).RunAsync();
 
 			TriggerStateChangedEvents(oldAppState, newAppState);
 		}
-		
+
 		private void TriggerStateChangedEvents(AppState oldAppState, AppState newAppState)
 		{
 			_appEvents.TriggerAppStateChanged(oldAppState, newAppState);
-			
+
 			switch (oldAppState)
 			{
 				case AppState.Battle:
@@ -129,12 +142,13 @@ namespace AG.Gameplay.Combat
 
 			GUILayout.BeginHorizontal();
 
-
+			/*
 			GUI.enabled = !HasActiveBattle;
 			if (GUILayout.Button("Start"))
 			{
 				StartBattle().RunAsync();
 			}
+			*/
 
 			GUI.enabled = HasActiveBattle;
 			if (GUILayout.Button("Pause"))
@@ -145,7 +159,7 @@ namespace AG.Gameplay.Combat
 			GUI.enabled = _gameplay != null;
 			if (GUILayout.Button("Reset"))
 			{
-				RestartApp().RunAsync();
+				RestartApp();
 			}
 
 			GUILayout.EndHorizontal();
@@ -158,23 +172,23 @@ namespace AG.Gameplay.Combat
 		{
 			StartBattle().RunAsync();
 		}
-		
+
 		[UsedImplicitly]
 		public void UI_OnPauseButton()
 		{
 			PauseBattle();
 		}
-		
+
 		[UsedImplicitly]
 		public void UI_OnResumeButton()
 		{
 			ResumeBattle();
 		}
-		
+
 		[UsedImplicitly]
 		public void UI_OnRestartAppButon()
 		{
-			RestartApp().RunAsync();
+			RestartApp();
 		}
 	}
 }

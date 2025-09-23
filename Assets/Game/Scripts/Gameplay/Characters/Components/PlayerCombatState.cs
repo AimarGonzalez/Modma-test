@@ -1,10 +1,7 @@
 ﻿using AG.Core.UI;
 using AG.Gameplay.Actions;
-using AG.Gameplay.Systems;
-using AG.Gameplay.Characters;
 using AG.Gameplay.PlayerInput;
-using Animancer;
-using SharedLib.ComponentCache;
+using AG.Gameplay.Systems;
 using SharedLib.StateMachines;
 using SharedLib.Utils;
 using Sirenix.OdinInspector;
@@ -57,7 +54,6 @@ namespace AG.Gameplay.Characters.Components
 		// ------------- Components -------------
 		private PlayerInputController _inputController;
 		private PlayerMovement _playerMovement;
-		private AnimancerComponent _animancer;
 		private PlayerAnimations _playerAnimations;
 
 
@@ -71,7 +67,6 @@ namespace AG.Gameplay.Characters.Components
 
 			_inputController = Root.Get<PlayerInputController>();
 			_playerMovement = Root.Get<PlayerMovement>();
-			_animancer = Root.Get<AnimancerComponent>();
 		}
 
 		public override void OnEnterState()
@@ -113,12 +108,12 @@ namespace AG.Gameplay.Characters.Components
 		{
 			if (_inputController.InputData.IsMoving)
 			{
-				_animancer.Play(_playerAnimations.MoveAnimation);
+				_playerAnimations.PlayMove();
 				_playerMovement.Move(_inputController.InputData);
 			}
 			else
 			{
-				_animancer.Play(_playerAnimations.IdleAnimation);
+				_playerAnimations.PlayIdle();
 			}
 		}
 

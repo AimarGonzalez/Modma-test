@@ -44,13 +44,6 @@ namespace AG.Core
 		[Inject]
 		private CheatsStyleProvider _cheatsStyleProvider;
 
-		/* ROLLBACK: disabled new Input System Package in favour of the old Input Manager
-		private InputAction _increaseAction;
-		private InputAction _decreaseAction;
-		private InputAction _pauseTime;
-		private InputAction _resetTimeScale;
-		*/
-
 		private GUIStyle _labelStyle;
 		private GUIStyle LabelStyle => _labelStyle ??= new GUIStyle(GUI.skin.label)
 		{
@@ -59,94 +52,10 @@ namespace AG.Core
 			clipping = TextClipping.Overflow,
 		};
 
-
-		private void Awake()
-		{
-			/*
-			_increaseAction = InputSystem.actions.FindAction("TimeScale.Increase");
-			_decreaseAction = InputSystem.actions.FindAction("TimeScale.Decrease");
-			_pauseTime = InputSystem.actions.FindAction("TimeScale.Pause");
-			_resetTimeScale = InputSystem.actions.FindAction("TimeScale.Reset");
-			*/
-		}
-
-		private void OnEnable()
-		{
-			/*
-			if (_increaseAction != null)
-			{
-				_increaseAction.performed += OnIncreaseTimeScaleKey;
-			}
-
-			if (_decreaseAction != null)
-			{
-				_decreaseAction.performed += OnDecreaseTimeScaleKey;
-			}
-
-			if (_pauseTime != null)
-			{
-				_pauseTime.performed += OnPauseTimeKey;
-			}
-
-			if (_resetTimeScale != null)
-			{
-				_resetTimeScale.performed += OnResetTimeScaleKey;
-			}
-			*/
-		}
-
-		private void OnDisable()
-		{
-			/*
-			if (_increaseAction != null)
-			{
-				_increaseAction.performed -= OnIncreaseTimeScaleKey;
-			}
-
-			if (_decreaseAction != null)
-			{
-				_decreaseAction.performed -= OnDecreaseTimeScaleKey;
-			}
-
-			if (_pauseTime != null)
-			{
-				_pauseTime.performed -= OnPauseTimeKey;
-			}
-
-			if (_resetTimeScale != null)
-			{
-				_resetTimeScale.performed -= OnResetTimeScaleKey;
-			}
-			*/
-		}
-
 		private void Start()
 		{
 			ApplyTimeScale();
 		}
-
-		/* ROLLBACK: disabled new Input System Package in favour of the old Input Manager
-		private void OnIncreaseTimeScaleKey(InputAction.CallbackContext context)
-		{
-			IncreaseTimeScale();
-		}
-
-		private void OnDecreaseTimeScaleKey(InputAction.CallbackContext context)
-		{
-			DecreaseTimeScale();
-		}
-
-		private void OnPauseTimeKey(InputAction.CallbackContext obj)
-		{
-			TogglePause();
-		}
-
-		private void OnResetTimeScaleKey(InputAction.CallbackContext obj)
-		{
-			_timeScale = 1f;
-			ApplyTimeScale();
-		}
-		*/
 
 		private void DecreaseTimeScale()
 		{
@@ -164,10 +73,16 @@ namespace AG.Core
 			ApplyTimeScale();
 		}
 
-		private void TogglePause()
+		public void TogglePause()
 		{
 			_paused = !_paused;
 
+			ApplyTimeScale();
+		}
+
+		public void Pause(bool pause)
+		{
+			_paused = pause;
 			ApplyTimeScale();
 		}
 

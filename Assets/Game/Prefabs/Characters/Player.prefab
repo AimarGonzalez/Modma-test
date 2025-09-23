@@ -72,7 +72,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 317038325405559271, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}
       propertyPath: m_Name
-      value: Player Variant
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4509236013009656752, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -114,6 +114,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8761528232437228569, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}
+      propertyPath: _characterStates.CombatState
+      value: 
+      objectReference: {fileID: 11400000, guid: 36187a2c5524c4644a1da2831f362a96, type: 2}
+    - target: {fileID: 8761528232437228569, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}
+      propertyPath: _characterStates.CinematicState
+      value: 
+      objectReference: {fileID: 11400000, guid: a4bea5adc3c1f50448de5b12e584349a, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -121,6 +129,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8448993472509920353}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 317038325405559271, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7903800821909058215}
     - targetCorrespondingSourceObject: {fileID: 317038325405559271, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1702845426841847825}
@@ -251,6 +262,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 317038325405559271, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}
   m_PrefabInstance: {fileID: 2594218423443737237}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7903800821909058215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2334794542258643826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ccaea00ee7cfb7468416becd81b69da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Modma::AG.Gameplay.Characters.Components.CinematicState
+  _stateId: {fileID: 11400000, guid: a4bea5adc3c1f50448de5b12e584349a, type: 2}
 --- !u!114 &1702845426841847825
 MonoBehaviour:
   m_ObjectHideFlags: 0

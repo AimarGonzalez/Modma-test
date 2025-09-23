@@ -24,7 +24,7 @@ namespace AG.Gameplay.Systems
 			{
 				components.AddInHierarchy<TimeController>();
 				components.AddInHierarchy<ApplicationFlow>();
-				components.AddInHierarchy<ApplicationTransitions>();
+				components.AddInHierarchy<ApplicationView>();
 				components.AddInHierarchy<ArenaWorld>();
 				components.AddInHierarchy<CheatsStyleProvider>();
 				components.AddInHierarchy<GameObjectPoolService>();
