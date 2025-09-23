@@ -1,7 +1,7 @@
 {
     "LayoutMode": 2,
     "TreeMode": 1,
-    "EnableGameObjectMainIcon": true,
+    "EnableGameObjectMainIcon": false,
     "EnableGameObjectComponentIcons": true,
     "EnableHierarchyTree": true,
     "EnableGameObjectTag": true,
@@ -9,6 +9,7 @@
     "EnableHierarchyRows": true,
     "EnableHierarchyLines": true,
     "EnableHierarchyButtons": true,
+    "EnableHeaderUtilities": true,
     "EnableMajorShortcuts": true,
     "DisableHierarchyDesignerDuringPlayMode": false,
     "ExcludeFolderProperties": true,
