@@ -15,6 +15,7 @@ namespace AG.Gameplay.Combat
 	[Flags]
 	public enum AppState
 	{
+		None = 0,
 		Welcome = 1 << 0,
 		BattleIntro = 1 << 1,
 		Battle = 1 << 2,
@@ -34,19 +35,16 @@ namespace AG.Gameplay.Combat
 
 		// ------------- Private fields -------------
 		[ShowInInspector, ReadOnly]
-		private AppState _appState = AppState.Welcome;
-
-
+		private AppState _appState = AppState.None;
 		// ------------- Public properties -------------
 
 		public bool HasActiveBattle => _appState == AppState.Battle;
 
 		private void Start()
 		{
-			_appEvents.TriggerBattleCreated(_gameplayFlow);
-
 			_appView.SetupUIAtGameStart();
-			SetupNewBattle();
+			
+			SetState(AppState.Welcome);
 		}
 
 		private void SetupNewBattle()
@@ -56,40 +54,30 @@ namespace AG.Gameplay.Combat
 
 		private async Task StartBattle()
 		{
-			//SetState(AppState.BattleIntro).RunAsync();
 			
-			// await Play intro
+			SetState(AppState.BattleIntro); // Not implemented
+			
+			// await intro
 			// - show banner with GOAL (2s)
 			// - spawn some enemies
 			await Task.Yield();
 
 			SetState(AppState.Battle);
-
-			_gameplayFlow.StartBattle();
 		}
 
 		private void PauseBattle()
 		{
-			_gameplayFlow.PauseBattle();
-
-			_timeController.Pause(true);
-
 			SetState(AppState.BattlePaused);
 		}
 
 		private void ResumeBattle()
 		{
-			_gameplayFlow.ResumeBattle();
-
-			_timeController.Pause(false);
-
 			SetState(AppState.Battle);
 		}
 
 		private void RestartApp()
 		{
 			SetState(AppState.Welcome);
-			SetupNewBattle();
 		}
 
 		public void Update()
@@ -110,28 +98,51 @@ namespace AG.Gameplay.Combat
 			AppState oldAppState = _appState;
 			_appState = newAppState;
 
-			_appView.PlayViewTransition(oldAppState, newAppState).RunAsync();
-
-			TriggerStateChangedEvents(oldAppState, newAppState);
+			ProcessTransition(oldAppState, newAppState);
 		}
 
-		private void TriggerStateChangedEvents(AppState oldAppState, AppState newAppState)
+		private void ProcessTransition(AppState oldAppState, AppState newAppState)
 		{
 			_appEvents.TriggerAppStateChanged(oldAppState, newAppState);
 
 			switch (oldAppState)
 			{
 				case AppState.Battle:
-					_appEvents.TriggerBattleEnded(_gameplayFlow);
+					break;
+				
+				case AppState.BattlePaused:
+					_timeController.Pause(false);
 					break;
 			}
 
 			switch (newAppState)
 			{
+				case AppState.Welcome:
+					SetupNewBattle();
+					break;
+				
+				case AppState.BattleIntro:
+					//TODO
+					break;
+				
 				case AppState.Battle:
-					_appEvents.TriggerBattleStarted(_gameplayFlow);
+					if (oldAppState == AppState.BattleIntro)
+					{
+						_gameplayFlow.StartBattle();
+					}
+					else
+					{
+						_gameplayFlow.ResumeBattle();
+					}
+					break;
+				
+				case AppState.BattlePaused:
+					_timeController.Pause(true);
+					_gameplayFlow.PauseBattle();
 					break;
 			}
+			
+			_appView.PlayViewTransition(oldAppState, newAppState).RunAsync();
 		}
 
 		void IGUIDrawer.DrawGUI()
