@@ -33,7 +33,7 @@ namespace AG.Gameplay.Characters.Components
 			UpdateRotation(inputData.Movement.Angle);
 		}
 
-		public void LookAt(Transform target)
+		public void LookAt(Character target)
 		{
 			if(target == null)
 			{
@@ -41,7 +41,7 @@ namespace AG.Gameplay.Characters.Components
 			}
 			
 			// Direction
-			Vector3 direction = target.FlatDirection(RootTransform);
+			Vector3 direction = RootTransform.FlatDirection(target.RootTransform);
 			Quaternion targetRotation =  Quaternion.LookRotation(direction);
 			RootTransform.rotation = Quaternion.Slerp(RootTransform.rotation, targetRotation, _rotationSpeedAttacking * Time.deltaTime);
 		}
