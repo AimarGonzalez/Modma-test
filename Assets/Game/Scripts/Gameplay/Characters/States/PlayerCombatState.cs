@@ -132,13 +132,19 @@ namespace AG.Gameplay.Characters.Components
 		{
 			_playerMovement.LookAt(_target.RootTransform);
 			
-			if (_rangedAttackCooldown.IsRunning)
+			if (_attackActionStatus != null)
 			{
 				return;
 			}
-				
+			
+			if (_rangedAttackCooldown.IsRunning)
+			{
+				_playerAnimations.PlayAimingIdle();
+				return;
+			}
+
 			_attackActionStatus = _actionPlayer.TryPlayAction(_attackActionId, onFinished: OnAttackFinished);
-			if (_attackActionStatus != null)
+			if (_attackActionStatus != null && _attackActionStatus.Status == ActionStatus.Running)
 			{
 				_rangedAttackCooldown.Restart();
 			}

@@ -9,11 +9,11 @@ namespace AG.Gameplay.Characters.Components
 	{
 		// --------- Inspector fields ---------
 		
-		[SerializeField, InlineEditor] private TransitionAsset _idleAnimation;
-		[SerializeField, InlineEditor] private TransitionAsset _aimingIdle;
-		[SerializeField, InlineEditor] private TransitionAsset _moveAnimation;
-		[SerializeField, InlineEditor] private TransitionAsset _rangedAttackAnimation;
-		[SerializeField, InlineEditor] private TransitionAsset _dashAttackAnimation;
+		[SerializeField] private TransitionAsset _idleAnimation;
+		[SerializeField] private TransitionAsset _aimingIdle;
+		[SerializeField] private TransitionAsset _moveAnimation;
+		[SerializeField] private TransitionAsset _rangedAttackAnimation;
+		[SerializeField] private TransitionAsset _dashAttackAnimation;
 
 
 		// --------- Private fields ---------

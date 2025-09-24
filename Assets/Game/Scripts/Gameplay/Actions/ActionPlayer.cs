@@ -1,4 +1,5 @@
 ﻿using AG.Core.Pool;
+using AG.Core.UI;
 using SharedLib.ComponentCache;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using UnityEngine;
 
 namespace AG.Gameplay.Actions
 {
-	public class ActionPlayer : SubComponent, IPooledComponent
+	public class ActionPlayer : SubComponent, IPooledComponent, IDebugPanelDrawer
 	{
 
 		//--------------------------------
@@ -54,7 +55,7 @@ namespace AG.Gameplay.Actions
 			_runningActions.RemoveAll(action => _finishedActions.Contains(action));
 			_finishedActions.Clear();
 		}
-		
+
 
 		public IActionStatus TryPlayAction(ActionId actionId, Action<ActionStatus> onFinished = null)
 		{
@@ -130,7 +131,7 @@ namespace AG.Gameplay.Actions
 		public void StopActions(ActionId actionId)
 		{
 			bool found = false;
-			for(int i = _runningActions.Count -1; i >= 0; i--)
+			for (int i = _runningActions.Count - 1; i >= 0; i--)
 			{
 				BaseAction action = _runningActions[i];
 				if (action.ActionId == actionId)
@@ -165,6 +166,15 @@ namespace AG.Gameplay.Actions
 
 		public void OnDestroyFromPool()
 		{
+		}
+		
+		public void AddDebugProperties(List<GUIUtils.Property> properties)
+		{
+			properties.Add(new GUIUtils.Property("Running Actions", _runningActions.Count));
+			foreach (BaseAction action in _runningActions)
+			{
+				properties.Add(new GUIUtils.Property($"  {action.ActionId}", action.Status));
+			}
 		}
 	}
 }

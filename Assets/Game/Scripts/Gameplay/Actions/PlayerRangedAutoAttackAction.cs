@@ -25,7 +25,7 @@ namespace AG.Gameplay.Actions
 
 		protected override void DoStartAction(object parameters)
 		{
-			AnimancerState state = _playerAnimations.PlayRangedAttack();
+			_playerAnimations.PlayRangedAttack();
 
 			Subscribe();
 		}

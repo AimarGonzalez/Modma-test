@@ -32,4 +32,4 @@ MonoBehaviour:
           - {fileID: 11400000, guid: b197215870c317a4294ac4c39d8f59c8, type: 2}
           - {fileID: 11400000, guid: 21a14755879e9514f9aa4f04eda026c9, type: 2}
         _Clip: {fileID: 7400000, guid: 93ddf52b463d88c4e87b53ccfbcb3b38, type: 2}
-        _NormalizedStartTime: 0
+        _NormalizedStartTime: 0.2

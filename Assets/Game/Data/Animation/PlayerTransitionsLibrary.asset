@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: PlayerTransitionsLibrary
   m_EditorClassIdentifier: Kybernetik.Animancer::Animancer.TransitionLibraries.TransitionLibraryAsset
   _Definition:
-    _Transitions: []
+    _Transitions:
+    - {fileID: 11400000, guid: 50c81abb400827246b86184d5ed15c0e, type: 2}
+    - {fileID: 11400000, guid: b2e370aa6e8b0004aa0c373df108e75b, type: 2}
+    - {fileID: 11400000, guid: 14dada44f16c8ae4194f7a398040690f, type: 2}
+    - {fileID: 11400000, guid: 19fdc3ec9d3d5b54382931231247b303, type: 2}
+    - {fileID: 11400000, guid: ffb2d0ef7dc986d469da264b3d1c36a9, type: 2}
     _Modifiers: []
     _Aliases: []
     _AliasAllTransitions: 0
