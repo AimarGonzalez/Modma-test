@@ -5,6 +5,7 @@ using Sirenix.Utilities;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using VContainer;
 
 namespace AG.Core
@@ -21,17 +22,19 @@ namespace AG.Core
 		private int _timeScaleIndex = 3;
 
 		[Serializable]
-		private class DebugControlsSettings
+		private class GUISettings
 		{
 			[SerializeField] private float _width = 0.45f;
 			[SerializeField] private float _height = 0.16f;
-			[SerializeField] private float _margin = 0.01f;
+			[SerializeField] private float _marginRight = 0.015f;
+			[SerializeField] private float _marginTop = 0.001f;
 			[SerializeField] private float _labelWidth = 0.14f;
 			[SerializeField] private float _labelMargin = 0.01f;
 
-			public float Width => (_width - _margin) * Screen.width;
-			public float Height => (_height - _margin) * Screen.width;
-			public float Margin => _margin * Screen.width;
+			public float Width => _width * Screen.width;
+			public float Height => _height * Screen.height;
+			public float MarginTop => _marginTop * Screen.height;
+			public float MarginRight => _marginRight * Screen.width;
 
 			public float LabeFullWidth => _labelWidth * Screen.width;
 
@@ -47,8 +50,8 @@ namespace AG.Core
 
 		// ------------------ Private fields ------------------
 
-		[SerializeField]
-		private DebugControlsSettings _debugControlsSettings;
+		[FormerlySerializedAs("_debugControlsSettings")] [SerializeField]
+		private GUISettings _guiSettings;
 
 		private GUIStyle _labelStyle;
 		private GUIStyle LabelStyle => _labelStyle ??= new GUIStyle(GUI.skin.label)
@@ -114,13 +117,14 @@ namespace AG.Core
 
 			_cheatsStyleProvider.PushButtonStyle();
 
-			float debugControlsWidth = _debugControlsSettings.Width;
-			float debugControlsHeight = _debugControlsSettings.Height;
-			float debugControlsMargin = _debugControlsSettings.Margin;
-			float debugControlsX = Screen.width - _debugControlsSettings.Width - _debugControlsSettings.Margin;
-			float debugControlsY = debugControlsMargin;
+			float debugControlsWidth = _guiSettings.Width;
+			float debugControlsHeight = _guiSettings.Height;
+			float debugControlsMarginTop = _guiSettings.MarginTop;
+			float debugControlsMarginRight = _guiSettings.MarginRight;
+			float debugControlsX = Screen.width - debugControlsWidth - debugControlsMarginRight;
+			float debugControlsY = debugControlsMarginTop;
 
-			float buttonWidth = (debugControlsWidth - _debugControlsSettings.LabeFullWidth - _debugControlsSettings.LabelMargin) * 0.5f;
+			float buttonWidth = (debugControlsWidth - _guiSettings.LabeFullWidth - _guiSettings.LabelMargin) * 0.5f;
 
 			GUILayout.BeginArea(new Rect(debugControlsX, debugControlsY, debugControlsWidth, debugControlsHeight), GUI.skin.box);
 			GUILayout.BeginHorizontal();
@@ -132,7 +136,7 @@ namespace AG.Core
 				}
 
 				GUI.enabled = true;
-				LabelStyle.fontSize = GUIUtils.CalcAutoFontSize($"x{_timeScale:0.0#}", _debugControlsSettings.LabelWidth);
+				LabelStyle.fontSize = GUIUtils.CalcAutoFontSize($"x{_timeScale:0.0#}", _guiSettings.LabelWidth);
 				GUILayout.Label($"x{_timeScale:0.##}", LabelStyle, GUILayoutOptions.ExpandHeight());
 
 				GUI.enabled = _timeScaleIndex < _timeScales.Count - 1;
@@ -147,4 +151,4 @@ namespace AG.Core
 			_cheatsStyleProvider.PopButtonStyle();
 		}
 	}
-}
+} 

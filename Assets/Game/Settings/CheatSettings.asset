@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8833ce51524247f7a294aabd22bdb26a, type: 3}
   m_Name: CheatSettings
   m_EditorClassIdentifier: Modma::AG.Core.CheatSettingsSO
-  _showCheatsMenu: 0
-  _showTimeControls: 2
+  _showCheatsMenu: 1
+  _showTimeControls: 1
