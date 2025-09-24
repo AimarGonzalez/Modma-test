@@ -33,6 +33,17 @@ namespace Modma.Game.Scripts.Gameplay.Projectiles
 		private LayerMask _projectileTargetLayer;
 		private LayerMask _wallsLayer;
 
+		public void OnEnable()
+		{
+			FetchDependencies();	
+		}
+
+		private void FetchDependencies()
+		{
+			_pooledGameObject = Root.Get<PooledGameObject>();
+			_collisionListener = Root.Get<ColliderListener>();
+		}
+
 		public void Initialize(Character source, Vector3 direction, AttackStatsSO projectileStats)
 		{
 			_source = source;
@@ -40,15 +51,11 @@ namespace Modma.Game.Scripts.Gameplay.Projectiles
 			_direction.y = 0;
 			_direction.Normalize();
 			_projectileStats = projectileStats;
-
+			
+			//Get collision layers
 			_projectileTargetLayer = _gameSettings.CombatSettingsSO.GetProjectileTargetLayer(_source.Team);
 			_wallsLayer = _gameSettings.CombatSettingsSO.WallsLayer;
-
-			_pooledGameObject = Root.Get<PooledGameObject>();
-		}
-
-		public void OnEnable()
-		{
+			
 			//Set direction
 			RootTransform.rotation = Quaternion.LookRotation(_direction);
 
@@ -63,7 +70,7 @@ namespace Modma.Game.Scripts.Gameplay.Projectiles
 
 		private void Update()
 		{
-			RootTransform.position += _direction * _speed * Time.deltaTime;
+			RootTransform.position += _direction * (_speed * Time.deltaTime);
 		}
 
 		private void OnTriggerEnter(Collider other)

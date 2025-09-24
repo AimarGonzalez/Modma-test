@@ -41,7 +41,6 @@ namespace AG.Core.Pool
 
 		protected virtual void Awake()
 		{
-			_subComponents = GetComponentsInChildren<IPooledComponent>(includeInactive: true);
 		}
 		
 		protected virtual void Start()
@@ -55,6 +54,8 @@ namespace AG.Core.Pool
 
 		public virtual void TriggerBeforeGetFromPool()
 		{
+			_subComponents = GetComponentsInChildren<IPooledComponent>(includeInactive: true);
+			
 			OnBeforeGetFromPool();
 			foreach (IPooledComponent component in _subComponents)
 			{

@@ -5933,7 +5933,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8391779453370933548, guid: 3f3cdd463c2263c44b1cfc1aa04575d9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.53847
+      value: -3.26
       objectReference: {fileID: 0}
     - target: {fileID: 8391779453370933548, guid: 3f3cdd463c2263c44b1cfc1aa04575d9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6154,7 +6154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 450378eb888240bb85fd828f01cedfb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Modma::Modma.Game.Scripts.Gameplay.Projectiles.ProjectileFactory
-  _projectilesContainer: {fileID: 1996895704}
 --- !u!1 &1147261308
 GameObject:
   m_ObjectHideFlags: 0
@@ -7716,7 +7715,7 @@ MonoBehaviour:
   _flags: []
   _shootEvent: {fileID: 11400000, guid: b197215870c317a4294ac4c39d8f59c8, type: 2}
   _shootEndEvent: {fileID: 11400000, guid: 21a14755879e9514f9aa4f04eda026c9, type: 2}
-  _projectileStats: {fileID: 0}
+  _projectileStats: {fileID: 11400000, guid: fde7ada85d6e6cb47a22af11f7c1cc89, type: 2}
 --- !u!114 &1565303724
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8022716001041687234}
   - component: {fileID: 2176900082506439344}
+  - component: {fileID: 8130070969179015953}
   - component: {fileID: 902458755006132524}
   m_Layer: 0
   m_Name: projectile_lollipop
@@ -32,6 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1319854226434738873}
+  - {fileID: 2279999913954199457}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2176900082506439344
@@ -47,6 +49,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Modma::AG.Core.Pool.PooledGameObject
   _logMissingPool: 1
+--- !u!114 &8130070969179015953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2899531994943343621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd8b822b66a1240f2835402f751058f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: SharedLib::SharedLib.ComponentCache.RootComponent
 --- !u!114 &902458755006132524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,6 +73,100 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46a959dbaad04b27825f7fa1c4824010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Modma::Modma.Game.Scripts.Gameplay.Projectiles.ProjectileController
+--- !u!1 &4996685276694923517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2279999913954199457}
+  - component: {fileID: 2652764450791266319}
+  - component: {fileID: 1526800061691965592}
+  - component: {fileID: 3469058293205259050}
+  m_Layer: 0
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2279999913954199457
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4996685276694923517}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.39497444}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8022716001041687234}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &2652764450791266319
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4996685276694923517}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.11
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1526800061691965592
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4996685276694923517}
+  serializedVersion: 5
+  m_Mass: 0.1
+  m_LinearDamping: 0
+  m_AngularDamping: 0
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!114 &3469058293205259050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4996685276694923517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c2f83eb2476f342a1589e282a8cd86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: SharedLib::SharedLib.Physics.ColliderListener
 --- !u!1001 &3096916781887073078
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73,15 +181,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4083468583896867215, guid: 829ff58b373518c4daa7e467ad84ac29, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.50622
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4083468583896867215, guid: 829ff58b373518c4daa7e467ad84ac29, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.74595
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4083468583896867215, guid: 829ff58b373518c4daa7e467ad84ac29, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.27328
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4083468583896867215, guid: 829ff58b373518c4daa7e467ad84ac29, type: 3}
       propertyPath: m_LocalRotation.w

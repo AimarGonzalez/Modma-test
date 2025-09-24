@@ -52,9 +52,14 @@ namespace AG.Core.Pool
 			}
 			else
 			{
+				bool wasActive = prefab.activeSelf;
+				prefab.SetActive(false);
+				
 				_numInstancedObjects++;
 				instance = _vcontainer.Instantiate(prefab);
 				instance.name = $"{prefab.name}-{_numInstancedObjects}";
+
+				prefab.SetActive(wasActive);
 			}
 			
 			PooledGameObject pooledGameObject = instance.GetComponent<PooledGameObject>();

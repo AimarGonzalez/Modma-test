@@ -183,7 +183,7 @@ namespace AG.Gameplay.Actions
 			properties.Add(new GUIUtils.Property("Running Actions", _runningActions.Count));
 			foreach (BaseAction action in _runningActions)
 			{
-				properties.Add(new GUIUtils.Property($"  {action.ActionId}", action.Status));
+				properties.Add(new GUIUtils.Property($"  {action.ActionId.name}", action.Status));
 			}
 		}
 	}
