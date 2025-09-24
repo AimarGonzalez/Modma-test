@@ -14,8 +14,8 @@ namespace SharedLib.Utils
 		/// Sets the asset dirty and saves it, this forces Unity to serialize the selected asset(s).
 		/// Useful if you want to get rid of [FormerlySerializedAs] attributes
 		/// </summary>
-		[MenuItem("/Assets/Force reserialize", false, 1001)]
-		[MenuItem("AG/Tools/Force reserialize selected assets", false, 1001)]
+		[MenuItem("/Assets/Force reserialize", false, 1000)]
+		[MenuItem("AG/Tools/Force reserialize selected assets", false, 1000)]
 		public static void ReserializeSelectedAssets()
 		{
 			foreach (Object obj in Selection.objects)
@@ -81,7 +81,7 @@ namespace SharedLib.Utils
 		}
 		*/
 
-		[MenuItem("AG/Tools/Re-serialize all assets", false, 1000)]
+		[MenuItem("AG/Tools/Re-serialize all assets", false, 1001)]
 		public static void ForceReserializeAllAssets()
 		{
 			//Show a confirmation dialog, than
