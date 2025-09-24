@@ -554,5 +554,5 @@ Shader "Custom/CharacterShader"
     }
 
     FallBack "Hidden/Universal Render Pipeline/FallbackError"
-    CustomEditor "ForestRoyale.Shaders.CharacterShaderGUI"
+    CustomEditor "AG.Shaders.CharacterShaderGUI"
 }

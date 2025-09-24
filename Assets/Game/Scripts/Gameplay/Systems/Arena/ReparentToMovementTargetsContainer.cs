@@ -1,12 +1,14 @@
 using AG.Core.Pool;
 using AG.Gameplay.Combat;
 using UnityEngine;
+using VContainer;
 
 namespace AG.Gameplay.Systems.Arena
 {
 	public class ReparentToMovementTargetsContainer : MonoBehaviour, IPooledComponent
 	{
 		// ------------ Dependencies ----------------
+		[Inject]
 		private ArenaWorld _arenaWorld;
 
 		// ------------ Private fields ----------------
@@ -15,7 +17,6 @@ namespace AG.Gameplay.Systems.Arena
 
 		private void Awake()
 		{
-			_arenaWorld = FindFirstObjectByType<ArenaWorld>();
 			_movementTargetsContainer = _arenaWorld.MovementTargetsContainer;
 
 			_originalParent = transform.parent;
