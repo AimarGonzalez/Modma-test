@@ -13,10 +13,12 @@ namespace AG.Core
 			Always
 		}
 
-		[SerializeField] private ShowMode _showCheatsMenu = ShowMode.Always;
-		[SerializeField] private ShowMode _showTimeControls = ShowMode.Always;
+		[SerializeField] private ShowMode _showCheatsMenu = ShowMode.OnlyInEditor;
+		[SerializeField] private ShowMode _showTimeControls = ShowMode.OnlyInEditor;
+		[SerializeField] private ShowMode _showCharacterDebugPanel = ShowMode.OnlyInEditor;
 
 		public bool ShowCheatsMenu => _showCheatsMenu == ShowMode.Always || (_showCheatsMenu == ShowMode.OnlyInEditor && Application.isEditor);
 		public bool ShowTimeControls => _showTimeControls == ShowMode.Always || (_showTimeControls == ShowMode.OnlyInEditor && Application.isEditor);
+		public bool ShowCharacterDebugPanel => _showCharacterDebugPanel == ShowMode.Always || (_showCharacterDebugPanel == ShowMode.OnlyInEditor && Application.isEditor);
 	}
 }

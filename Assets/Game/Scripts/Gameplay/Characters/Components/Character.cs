@@ -2,6 +2,7 @@
 using AG.Core.UI;
 using AG.Gameplay.Systems;
 using AG.Gameplay.Characters.Data;
+using AG.Gameplay.Settings;
 using MoreMountains.Feedbacks;
 using SharedLib.ComponentCache;
 using SharedLib.Physics;
@@ -80,11 +81,9 @@ namespace AG.Gameplay.Characters
 
 		// ------------- Dependencies -------------
 
-		[Inject]
-		private ArenaEvents _arenaEvents;
-
-		[Inject]
-		private IObjectResolver _objectResolver;
+		[Inject] private ArenaEvents _arenaEvents;
+		[Inject] private IObjectResolver _objectResolver;
+		[Inject] private GameSettings _gameSettings;
 
 		// ------------- Components --------------------
 
@@ -261,6 +260,11 @@ namespace AG.Gameplay.Characters
 
 		private void DrawDebugGUI()
 		{
+			if (!_gameSettings.CheatSettings.ShowCharacterDebugPanel)
+			{
+				return;
+			}
+			
 			if (!_showDebugPanel)
 			{
 				return;
