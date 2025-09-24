@@ -15,6 +15,15 @@ namespace AG.Core
 			Finished,
 		}
 
+		public enum Mode
+		{
+			OnDisable, // Root particle system system has OnEnd: Disable
+			WaitForParticlesEnd // Requires placing a WaitParticleEnd component on the desired particle systems
+		}
+
+		[SerializeField]
+		private Mode _mode;
+
 		private ParticleSystem[] _particleSystems;
 
 		private State _state;
@@ -28,10 +37,12 @@ namespace AG.Core
 		protected override void Awake()
 		{
 			base.Awake();
-			
-			_particleSystems = GetComponentsInChildren<ParticleSystem>(includeInactive: true);
 
-			SetupWaitForParticles();
+			if (_mode == Mode.WaitForParticlesEnd)
+			{
+				_particleSystems = GetComponentsInChildren<ParticleSystem>(includeInactive: true);
+				SetupWaitForParticles();
+			}
 		}
 
 		private void SetupWaitForParticles()
@@ -91,6 +102,14 @@ namespace AG.Core
 			if (HaveAllParticlesFinished)
 			{
 				_state = State.Finished;
+				ReleaseToPool();
+			}
+		}
+
+		private void OnDisable()
+		{
+			if (_mode == Mode.OnDisable)
+			{
 				ReleaseToPool();
 			}
 		}

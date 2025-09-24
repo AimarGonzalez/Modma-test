@@ -15,7 +15,7 @@ namespace AG.Gameplay.Cards.CardStats
 		[Tooltip("Type of attack")]
 		[SerializeField]
 		private AttackType _attackType;
-
+		
 		[Tooltip("Base damage per attack")]
 		[SerializeField]
 		private float _damage;

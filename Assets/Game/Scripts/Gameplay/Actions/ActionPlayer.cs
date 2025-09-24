@@ -56,13 +56,17 @@ namespace AG.Gameplay.Actions
 			_finishedActions.Clear();
 		}
 
-
 		public IActionStatus TryPlayAction(ActionId actionId, Action<ActionStatus> onFinished = null)
 		{
-			return TryPlayAction(actionId, null, onFinished);
+			return PlayAction(actionId, null, onFinished, true);
 		}
 
-		public IActionStatus TryPlayAction(ActionId actionId, object parameters, Action<ActionStatus> onFinished = null)
+		public IActionStatus PlayAction(ActionId actionId, Action<ActionStatus> onFinished = null, bool failSilently = false)
+		{
+			return PlayAction(actionId, null, onFinished);
+		}
+
+		public IActionStatus PlayAction(ActionId actionId, object parameters, Action<ActionStatus> onFinished = null, bool failSilently = false)
 		{
 			if (!_actionMap.TryGetValue(actionId, out BaseAction action))
 			{
@@ -71,7 +75,7 @@ namespace AG.Gameplay.Actions
 				return null;
 			}
 
-			if (!CheckCanPlayAction(action))
+			if (!CheckCanPlayAction(action, failSilently))
 			{
 				return null;
 			}
@@ -98,17 +102,23 @@ namespace AG.Gameplay.Actions
 			_flags.LowerFlags(action.Flags);
 		}
 
-		private bool CheckCanPlayAction(BaseAction action)
+		private bool CheckCanPlayAction(BaseAction action, bool failSilently)
 		{
 			if (action.Status == ActionStatus.Running)
 			{
-				Debug.LogError($"Action {action.GetType().Name} is already playing");
+				if (!failSilently)
+				{
+					Debug.LogError($"Action {action.GetType().Name} is already playing");
+				}
 				return false;
 			}
 
 			if (action.Status == ActionStatus.Finished)
 			{
-				Debug.LogError($"Action {action.GetType().Name} is already finished");
+				if (!failSilently)
+				{
+					Debug.LogError($"Action {action.GetType().Name} is already finished");
+				}
 				return false;
 			}
 
@@ -167,7 +177,7 @@ namespace AG.Gameplay.Actions
 		public void OnDestroyFromPool()
 		{
 		}
-		
+
 		public void AddDebugProperties(List<GUIUtils.Property> properties)
 		{
 			properties.Add(new GUIUtils.Property("Running Actions", _runningActions.Count));

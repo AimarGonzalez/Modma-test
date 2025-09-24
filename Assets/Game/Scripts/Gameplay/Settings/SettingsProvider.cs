@@ -10,13 +10,13 @@ namespace AG.Gameplay.Settings
 		private UISettings _uiSettings;
 
 		[SerializeField]
-		private CombatSettings _combatSettings;
+		private CombatSettingsSO _combatSettingsSO;
 
 		[SerializeField]
 		private CheatSettingsSO _cheatSettings;
 
 		public UISettings UISettings => _uiSettings;
-		public CombatSettings CombatSettings => _combatSettings;
+		public CombatSettingsSO CombatSettingsSO => _combatSettingsSO;
 		public CheatSettingsSO CheatSettings => _cheatSettings;
 	}
 }

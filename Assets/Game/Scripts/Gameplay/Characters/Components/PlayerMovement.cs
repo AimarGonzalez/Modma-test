@@ -2,6 +2,7 @@
 
 using AG.Gameplay.PlayerInput;
 using SharedLib.ComponentCache;
+using SharedLib.ExtensionMethods;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -40,10 +41,7 @@ namespace AG.Gameplay.Characters.Components
 			}
 			
 			// Direction
-			Vector3 direction = target.position - RootTransform.position;
-			direction.y = 0;
-			direction.Normalize();
-			
+			Vector3 direction = target.FlatDirection(RootTransform);
 			Quaternion targetRotation =  Quaternion.LookRotation(direction);
 			RootTransform.rotation = Quaternion.Slerp(RootTransform.rotation, targetRotation, _rotationSpeedAttacking * Time.deltaTime);
 		}

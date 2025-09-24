@@ -1,6 +1,11 @@
+using AG.Gameplay.Characters;
 using AG.Gameplay.Characters.Components;
 using Animancer;
+using AG.Gameplay.Cards.CardStats;
+using Modma.Game.Scripts.Gameplay.Projectiles;
+using SharedLib.ExtensionMethods;
 using UnityEngine;
+using VContainer;
 
 namespace AG.Gameplay.Actions
 {
@@ -10,21 +15,31 @@ namespace AG.Gameplay.Actions
 		// ------------- Inspector fields -------------
 		[SerializeField] private StringAsset _shootEvent;
 		[SerializeField] private StringAsset _shootEndEvent;
+		[SerializeField] private AttackStatsSO _projectileStats;
 
 		// ------------- Components -------------
 		private AnimancerComponent _animancer;
 		private PlayerAnimations _playerAnimations;
+		private Character _character;
+
+		// ------------- Dependencies -------------
+		[Inject] private ProjectileFactory _projectileFactory;
 
 		// ------------- Private fields -------------
+
+		private Character _attackTarget;
 
 		protected override void Awake()
 		{
 			_playerAnimations = Root.Get<PlayerAnimations>();
 			_animancer = Root.Get<AnimancerComponent>();
+			_character = Root.Get<Character>();
 		}
 
 		protected override void DoStartAction(object parameters)
 		{
+			_attackTarget = (Character)parameters;
+
 			_playerAnimations.PlayRangedAttack();
 
 			Subscribe();
@@ -44,7 +59,10 @@ namespace AG.Gameplay.Actions
 
 		private void OnShoot()
 		{
-			//Root.Get<ArenaEvents>().TriggerProjectileFired(Root.Get<Character>(), Root.Get<Character>());
+			Vector3 direction = _character.RootTransform.FlatDirection(_attackTarget.RootTransform);
+			
+			ProjectileController projectile = _projectileFactory.BuildProjectile(_character, _projectileStats.ProjectilePrefab);
+			projectile.Initialize(_character, direction, _projectileStats);
 
 			//TODO
 			// - do damage
