@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e231aa5d2715c1a4082f1426f50804c9, type: 3}
       propertyPath: m_Name
-      value: teddy_bear
+      value: teddy_bear_naked
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -329,6 +329,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a4927d01ff3f43f4ebddfd9a1420485b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3db93cf6ccc817444863b642163e97f4, type: 2}
     - target: {fileID: 919132149155446097, guid: a4927d01ff3f43f4ebddfd9a1420485b, type: 3}
       propertyPath: m_Name
       value: gummy_bear_hand.r
@@ -407,6 +411,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a4927d01ff3f43f4ebddfd9a1420485b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3db93cf6ccc817444863b642163e97f4, type: 2}
     - target: {fileID: 919132149155446097, guid: a4927d01ff3f43f4ebddfd9a1420485b, type: 3}
       propertyPath: m_Name
       value: gummy_bear_chest
@@ -563,6 +571,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a4927d01ff3f43f4ebddfd9a1420485b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3db93cf6ccc817444863b642163e97f4, type: 2}
     - target: {fileID: 919132149155446097, guid: a4927d01ff3f43f4ebddfd9a1420485b, type: 3}
       propertyPath: m_Name
       value: gummy_bear_foot.r
@@ -703,6 +715,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a4927d01ff3f43f4ebddfd9a1420485b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3db93cf6ccc817444863b642163e97f4, type: 2}
     - target: {fileID: 919132149155446097, guid: a4927d01ff3f43f4ebddfd9a1420485b, type: 3}
       propertyPath: m_Name
       value: gummy_bear_foot.l
@@ -781,6 +797,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a4927d01ff3f43f4ebddfd9a1420485b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3db93cf6ccc817444863b642163e97f4, type: 2}
     - target: {fileID: 919132149155446097, guid: a4927d01ff3f43f4ebddfd9a1420485b, type: 3}
       propertyPath: m_Name
       value: gummy_bear_hand.l
@@ -859,6 +879,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8502d07407580974f9a745c0268c3f32, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3db93cf6ccc817444863b642163e97f4, type: 2}
     - target: {fileID: 919132149155446097, guid: 8502d07407580974f9a745c0268c3f32, type: 3}
       propertyPath: m_Name
       value: gummy_bear_head
