@@ -519,7 +519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Kybernetik.Animancer::Animancer.AnimancerComponent
   _Animator: {fileID: 2567322374499311131}
-  _Transitions: {fileID: 0}
+  _Transitions: {fileID: 11400000, guid: 0de9e6fd1512f1e4f985cd9d3e17a164, type: 2}
   _ActionOnDisable: 0
 --- !u!114 &5536649548641710952
 MonoBehaviour:
@@ -533,45 +533,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9c50467a0f7a74ba0da595951bed67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Modma::AG.Gameplay.Characters.Components.PlayerAnimations
-  _idleAnimation:
-    _FadeDuration: 0.1
-    _Speed: 1
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Clip: {fileID: 7400000, guid: 004d53bb4e686d9488172a262b5ca69f, type: 2}
-    _NormalizedStartTime: NaN
-  _moveAnimation:
-    _FadeDuration: 0.1
-    _Speed: 2
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Clip: {fileID: 7400000, guid: 753c7cc42c5e8b5458b2d274552558ec, type: 2}
-    _NormalizedStartTime: NaN
-  _rangedAttackAnimation:
-    _FadeDuration: 0.1
-    _Speed: 1
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Clip: {fileID: 7400000, guid: 93ddf52b463d88c4e87b53ccfbcb3b38, type: 2}
-    _NormalizedStartTime: 0
-  _dashAttackAnimation:
-    _FadeDuration: 0.1
-    _Speed: 1
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Clip: {fileID: 7400000, guid: 3ea1c772978b4c7449a3a0667dd5514a, type: 2}
-    _NormalizedStartTime: 0
-  references:
-    version: 2
-    RefIds: []
+  _idleAnimation: {fileID: 11400000, guid: 50c81abb400827246b86184d5ed15c0e, type: 2}
+  _aimingIdle: {fileID: 11400000, guid: b2e370aa6e8b0004aa0c373df108e75b, type: 2}
+  _moveAnimation: {fileID: 11400000, guid: 14dada44f16c8ae4194f7a398040690f, type: 2}
+  _rangedAttackAnimation: {fileID: 11400000, guid: 19fdc3ec9d3d5b54382931231247b303, type: 2}
+  _dashAttackAnimation: {fileID: 11400000, guid: ffb2d0ef7dc986d469da264b3d1c36a9, type: 2}
 --- !u!1 &977731277213218300 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2995204380731801449, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}
@@ -646,6 +612,8 @@ MonoBehaviour:
   _attackActionId: {fileID: 11400000, guid: 9439c1673f515b944863d260151dec89, type: 2}
   _blockInputFlags:
   - {fileID: 11400000, guid: 2c6a9431b5c372745bebd7375df62776, type: 2}
+  _rangedAttackStats: {fileID: 0}
+  _dashAttackStats: {fileID: 0}
 --- !u!114 &4853378647464053541
 MonoBehaviour:
   m_ObjectHideFlags: 0

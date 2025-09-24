@@ -11,20 +11,24 @@ namespace AG.Gameplay.Actions
 {
 	public enum ActionStatus
 	{
-		[LabelText(SdfIconType.StopFill, IconColor = "red")] None,
+		[LabelText(SdfIconType.StopFill, IconColor = "white")] None,
+		[LabelText(SdfIconType.StopFill, IconColor = "red")] FailedToStart,
 		[LabelText(SdfIconType.PlayFill, IconColor = "green")] Running,
-		[LabelText(SdfIconType.CheckCircle, IconColor = "green")] Finished
+		[LabelText(SdfIconType.CheckCircle, IconColor = "purple")] Finished,
+		[LabelText(SdfIconType.StopFill, IconColor = "cyan")] Interrupted
 	}
 
-	public abstract class BaseAction : SubComponent
+	public abstract class BaseAction : SubComponent, IActionStatus
 	{
+		public event Action<ActionStatus> OnActionFinishedEvent;
+
+		// ------------- Inspector fields -------------
 		[SerializeField] private ActionId _actionId;
 		[SerializeField] private List<FlagSO> _flags;
 
 		// ------------ Private fields -----------------
 
 		private string _typeName;
-		private Action _onFinishedCallback;
 		private ActionPlayer _actionPlayer;
 
 		[ShowInInspector, ReadOnly, FoldoutGroup("Debug"), PropertyOrder(999)]
@@ -68,16 +72,17 @@ namespace AG.Gameplay.Actions
 			_actionPlayer ??= Root.Get<ActionPlayer>();
 		}
 
-		public void StartAction(object parameters, Action onFinished)
+		public void StartAction(object parameters, Action<ActionStatus> onFinished)
 		{
 			if (Status == ActionStatus.Running)
 			{
 				Debug.LogError($"Action {_typeName} is already playing");
-				onFinished?.Invoke();
+				onFinished?.Invoke(ActionStatus.FailedToStart);
 				return;
 			}
 
-			_onFinishedCallback = onFinished;
+			OnActionFinishedEvent = null;
+			OnActionFinishedEvent = onFinished;
 
 			//Debug.Log($"Start {_typeName}");
 			Status = ActionStatus.Running;
@@ -98,24 +103,28 @@ namespace AG.Gameplay.Actions
 		[FoldoutGroup("Debug/Buttons"), PropertyOrder(1001)]
 		public void OnActionFinished()
 		{
-			//Debug.Log($"Action finished: {_typeName}");
-
 			DoOnActionFinished();
 
+			Status = ActionStatus.Finished;
+			OnActionFinishedEvent?.Invoke(Status);
+			OnActionFinishedEvent = null;
+
 			Status = ActionStatus.None;
-			_onFinishedCallback?.Invoke();
 		}
 
 		public void InterruptAction()
 		{
 			DoInterruptAction();
 
+			Status = ActionStatus.Interrupted;
+			OnActionFinishedEvent?.Invoke(Status);
+			OnActionFinishedEvent = null;
+
 			Status = ActionStatus.None;
-			_onFinishedCallback?.Invoke();
 		}
 
 		protected abstract void DoStartAction(object parameters);
-		protected abstract ActionStatus DoUpdateAction();
+		protected virtual ActionStatus DoUpdateAction() { return Status; }
 		protected abstract void DoOnActionFinished();
 		protected abstract void DoInterruptAction();
 

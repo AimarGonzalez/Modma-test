@@ -28,10 +28,6 @@ namespace AG.Gameplay.Cards.CardStats
 		[SerializeField]
 		private float _attackRange;
 
-		[Tooltip("Range of sight")]
-		[SerializeField]
-		private float _sightRange;
-
 		[Tooltip("Area damage radius (0 for single target)")]
 		[SerializeField]
 		private float _areaDamageRadius;
@@ -39,16 +35,19 @@ namespace AG.Gameplay.Cards.CardStats
 		[Tooltip("Speed of projectile")]
 		[SerializeField, ShowIf(nameof(IsRanged))]
 		private float _projectileSpeed = 1000f;
-
+		
+		[Tooltip("Prefab of projectile")]
+		[SerializeField, ShowIf(nameof(IsRanged))]
+		private GameObject _projectilePrefab;
 
 		// Public getters for properties
 		public AttackType AttackType => _attackType;
 		public float Damage => _damage;
 		public float AttackRange => _attackRange;
 		public float AreaDamageRadius => _areaDamageRadius;
-		public float SightRange => _sightRange;
 		public float Cooldown => _attackSpeed;
 		public float ProjectileSpeed => _projectileSpeed;
+		public GameObject ProjectilePrefab => _projectilePrefab;
 
 		// ------------------------------
 		public bool IsRanged => _attackType == AttackType.Ranged;

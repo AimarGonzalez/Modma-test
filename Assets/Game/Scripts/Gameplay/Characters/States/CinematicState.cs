@@ -17,7 +17,7 @@ namespace AG.Gameplay.Characters.Components
 
 		public override void OnEnterState()
 		{
-			_playerAnimations.PlayIdle();
+			_playerAnimations.PlayAimingIdle();
 		}
 
 		public override void OnExitState()

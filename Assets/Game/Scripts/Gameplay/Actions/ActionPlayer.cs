@@ -54,18 +54,25 @@ namespace AG.Gameplay.Actions
 			_runningActions.RemoveAll(action => _finishedActions.Contains(action));
 			_finishedActions.Clear();
 		}
+		
 
-		public bool TryPlayAction(ActionId actionId, object parameters = null, Action onFinished = null)
+		public IActionStatus TryPlayAction(ActionId actionId, Action<ActionStatus> onFinished = null)
+		{
+			return TryPlayAction(actionId, null, onFinished);
+		}
+
+		public IActionStatus TryPlayAction(ActionId actionId, object parameters, Action<ActionStatus> onFinished = null)
 		{
 			if (!_actionMap.TryGetValue(actionId, out BaseAction action))
 			{
 				Debug.LogError($"Action {actionId} not found");
-				return false;
+				onFinished?.Invoke(ActionStatus.FailedToStart);
+				return null;
 			}
 
 			if (!CheckCanPlayAction(action))
 			{
-				return false;
+				return null;
 			}
 
 			action.StartAction(parameters, onFinished);
@@ -74,7 +81,7 @@ namespace AG.Gameplay.Actions
 
 			_runningActions.Add(action);
 
-			return false;
+			return action;
 		}
 
 		private void ProcessActionFinished(BaseAction action)
@@ -105,6 +112,39 @@ namespace AG.Gameplay.Actions
 			}
 
 			return true;
+		}
+
+		public void StopAction(IActionStatus actionStatus)
+		{
+			if (actionStatus is BaseAction action)
+			{
+				action.InterruptAction();
+				_runningActions.Remove(action);
+			}
+			else
+			{
+				Debug.LogError($"Action {actionStatus.GetType().Name} is not a BaseAction");
+			}
+		}
+
+		public void StopActions(ActionId actionId)
+		{
+			bool found = false;
+			for(int i = _runningActions.Count -1; i >= 0; i--)
+			{
+				BaseAction action = _runningActions[i];
+				if (action.ActionId == actionId)
+				{
+					action.InterruptAction();
+					_runningActions.RemoveAt(i);
+					found = true;
+				}
+			}
+
+			if (!found)
+			{
+				Debug.LogError($"Action {actionId} not found");
+			}
 		}
 
 		public void OnBeforeGetFromPool()

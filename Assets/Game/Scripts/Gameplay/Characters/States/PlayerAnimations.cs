@@ -1,5 +1,6 @@
 using Animancer;
 using SharedLib.ComponentCache;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace AG.Gameplay.Characters.Components
@@ -7,17 +8,13 @@ namespace AG.Gameplay.Characters.Components
 	public class PlayerAnimations : SubComponent
 	{
 		// --------- Inspector fields ---------
-		[SerializeField] private ClipTransition _idleAnimation;
-		[SerializeField] private ClipTransition _moveAnimation;
-		[SerializeField] private ClipTransition _rangedAttackAnimation;
-		[SerializeField] private ClipTransition _dashAttackAnimation;
+		
+		[SerializeField, InlineEditor] private TransitionAsset _idleAnimation;
+		[SerializeField, InlineEditor] private TransitionAsset _aimingIdle;
+		[SerializeField, InlineEditor] private TransitionAsset _moveAnimation;
+		[SerializeField, InlineEditor] private TransitionAsset _rangedAttackAnimation;
+		[SerializeField, InlineEditor] private TransitionAsset _dashAttackAnimation;
 
-
-		// --------- Public properties ---------
-		public ClipTransition IdleAnimation => _idleAnimation;
-		public ClipTransition MoveAnimation => _moveAnimation;
-		public ClipTransition RangedAttackAnimation => _rangedAttackAnimation;
-		public ClipTransition DashAttackAnimation => _dashAttackAnimation;
 
 		// --------- Private fields ---------
 		private AnimancerComponent _animancer;
@@ -26,25 +23,30 @@ namespace AG.Gameplay.Characters.Components
 		{
 			_animancer = Root.Get<AnimancerComponent>();
 		}
-
-		public void PlayIdle()
+		
+		public AnimancerState PlayIdle()
 		{
-			_animancer.Play(_idleAnimation);
+			return _animancer.Play(_aimingIdle);
 		}
 
-		public void PlayMove()
+		public AnimancerState PlayAimingIdle()
 		{
-			_animancer.Play(_moveAnimation);
+			return _animancer.Play(_aimingIdle);
 		}
 
-		public void PlayRangedAttack()
+		public AnimancerState PlayMove()
 		{
-			_animancer.Play(_rangedAttackAnimation);
+			return _animancer.Play(_moveAnimation);
 		}
 
-		public void PlayDashAttack()
+		public AnimancerState PlayRangedAttack()
 		{
-			_animancer.Play(_dashAttackAnimation);
+			return _animancer.Play(_rangedAttackAnimation);
+		}
+
+		public AnimancerState PlayDashAttack()
+		{
+			return _animancer.Play(_dashAttackAnimation);
 		}
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using AG.Core.UI;
 using AG.Gameplay.Actions;
+using AG.Gameplay.Cards.CardStats;
 using AG.Gameplay.Combat;
 using AG.Gameplay.PlayerInput;
 using AG.Gameplay.Systems;
@@ -25,14 +26,22 @@ namespace AG.Gameplay.Characters.Components
 		// ------------- Events -------------
 		public event Action<Character> OnTargetChanged;
 
+		// ------------- Components -------------
+		private ActionPlayer _actionPlayer;
+
 		// ------------- Inspector fields -------------
 
 		[SerializeField]
 		private ActionId _attackActionId;
 
-		[FormerlySerializedAs("_blockingFlags")]
 		[SerializeField]
 		private FlagSO[] _blockInputFlags;
+
+		[SerializeField]
+		private AttackStatsSO _rangedAttackStats;
+		
+		[SerializeField]
+		private AttackStatsSO _dashAttackStats;
 
 
 		// ------------- Private fields -------------
@@ -41,21 +50,18 @@ namespace AG.Gameplay.Characters.Components
 		private CombatState _state;
 
 		[ShowInInspector, ReadOnly, FoldoutGroup(DebugUI.Group), PropertyOrder(DebugUI.Order)]
-		private float _attackSpeed;
+		private Timer _rangedAttackCooldown;
+		
 		[ShowInInspector, ReadOnly, FoldoutGroup(DebugUI.Group), PropertyOrder(DebugUI.Order)]
-		private Timer _rangedAttackTimer;
-		[ShowInInspector, ReadOnly, FoldoutGroup(DebugUI.Group), PropertyOrder(DebugUI.Order)]
-		private Timer _dashAttackTimer;
+		private Timer _dashAttackCooldown;
+		
 		[ShowInInspector, ReadOnly, FoldoutGroup(DebugUI.Group), PropertyOrder(DebugUI.Order)]
 		private Character _target;
 
+		private IActionStatus _attackActionStatus;
+
 		// ------------- Public properties -------------
 		public bool HasTarget => _target != null;
-
-		[ShowInInspector, ReadOnly, FoldoutGroup(DebugUI.Group), PropertyOrder(DebugUI.Order)]
-		public float RangedAttackCooldown => _rangedAttackTimer?.TimeLeft ?? 0f;
-		[ShowInInspector, ReadOnly, FoldoutGroup(DebugUI.Group), PropertyOrder(DebugUI.Order)]
-		public float DashAttackCooldown => _dashAttackTimer?.TimeLeft ?? 0f;
 
 		// ------------- Components -------------
 		private PlayerInputController _inputController;
@@ -68,12 +74,13 @@ namespace AG.Gameplay.Characters.Components
 
 		protected void Awake()
 		{
-			_rangedAttackTimer = new Timer();
-			_dashAttackTimer = new Timer();
+			_rangedAttackCooldown = new Timer(_rangedAttackStats.Cooldown);
+			_dashAttackCooldown = new Timer(_dashAttackStats.Cooldown);
 
 			_inputController = Root.Get<PlayerInputController>();
 			_playerMovement = Root.Get<PlayerMovement>();
 			_playerAnimations = Root.Get<PlayerAnimations>();
+			_actionPlayer = Root.Get<ActionPlayer>();
 		}
 
 		public override void OnEnterState()
@@ -95,17 +102,24 @@ namespace AG.Gameplay.Characters.Components
 
 		public override IState.Status UpdateState()
 		{
-			_rangedAttackTimer.Elapsed(Time.deltaTime);
-			_dashAttackTimer.Elapsed(Time.deltaTime);
+			_rangedAttackCooldown.Elapsed(Time.deltaTime);
+			_dashAttackCooldown.Elapsed(Time.deltaTime);
 
 			UpdateTarget();
 
 			switch (_state)
 			{
 				case CombatState.AutoAttacking:
-					UpdateAutoAttack();
+					if (_inputController.InputData.IsMoving)
+					{
+						Move();
+					}
+					else
+					{
+						AutoAttack();
+					}
 					break;
-				
+
 				case CombatState.SpecialAttack:
 					// wait
 					break;
@@ -114,41 +128,36 @@ namespace AG.Gameplay.Characters.Components
 			return IState.Status.Running;
 		}
 
-		private void UpdateAutoAttack()
+		private void AutoAttack()
 		{
-			if (_inputController.InputData.IsMoving)
+			_playerMovement.LookAt(_target.RootTransform);
+			
+			if (_rangedAttackCooldown.IsRunning)
 			{
-				_playerAnimations.PlayMove();
-				_playerMovement.Move(_inputController.InputData);
+				return;
 			}
-			else
+				
+			_attackActionStatus = _actionPlayer.TryPlayAction(_attackActionId, onFinished: OnAttackFinished);
+			if (_attackActionStatus != null)
 			{
-				_playerAnimations.PlayIdle();
+				_rangedAttackCooldown.Restart();
 			}
 		}
 
-		public void Attack()
+		private void Move()
 		{
+			_playerAnimations.PlayMove();
+			_playerMovement.Move(_inputController.InputData);
+
+			if (_attackActionStatus != null)
+			{
+				_actionPlayer.StopAction(_attackActionStatus);
+			}
 		}
 
-		private void OnAnimationHitEvent()
+		private void OnAttackFinished(ActionStatus _)
 		{
-			// TODO: Move to Action so we can differentiate between mele and ranged actions. 
-			/*
-			if (Character.CombatStats.IsMelee)
-			{
-				_arenaEvents.TriggerCharacterAttacked(Character, _target);
-			}
-			else
-			{
-				_arenaEvents.TriggerProjectileFired(Character, _target);
-			}
-			*/
-		}
-
-		private void StartCooldown()
-		{
-			Debug.LogError("Cooldown not implemented");
+			_attackActionStatus = null;
 		}
 
 		void IDebugPanelDrawer.AddDebugProperties(List<GUIUtils.Property> properties)

@@ -89,7 +89,7 @@ namespace AG.Gameplay.Characters.Components
 			_actionPlayer.TryPlayAction(_moveActionId, onFinished: OnMoveFinished);
 		}
 
-		private void OnMoveFinished()
+		private void OnMoveFinished(ActionStatus _)
 		{
 			SetSubState(CombatState.Attacking);
 		}
@@ -99,7 +99,7 @@ namespace AG.Gameplay.Characters.Components
 			_actionPlayer.TryPlayAction(_attackActionId, onFinished: OnAttackFinished);
 		}
 
-		private void OnAttackFinished()
+		private void OnAttackFinished(ActionStatus _)
 		{
 			SetSubState(CombatState.Moving);
 		}
