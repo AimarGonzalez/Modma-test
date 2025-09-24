@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &22915982 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1663441723788948125, guid: 765c224e0c67ae04b94c78f36ef48996, type: 3}
+  m_PrefabInstance: {fileID: 2420518986246355946}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &27918268
 GameObject:
   m_ObjectHideFlags: 0
@@ -6105,6 +6110,51 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3395295625856557164, guid: fc61986e67072954387eecc42cbab559, type: 3}
   m_PrefabInstance: {fileID: 1105735247}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1114163131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1114163132}
+  - component: {fileID: 1114163133}
+  m_Layer: 0
+  m_Name: ProjectilesFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1114163132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114163131}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1369798546}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1114163133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114163131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 450378eb888240bb85fd828f01cedfb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Modma::Modma.Game.Scripts.Gameplay.Projectiles.ProjectileFactory
+  _projectilesContainer: {fileID: 1996895704}
 --- !u!1 &1147261308
 GameObject:
   m_ObjectHideFlags: 0
@@ -6822,6 +6872,50 @@ Transform:
   - {fileID: 504927648}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1341617264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1341617265}
+  - component: {fileID: 1341617266}
+  m_Layer: 0
+  m_Name: ProjectileSourceLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1341617265
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341617264}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.262, z: 0.465}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 22915982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1341617266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341617264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7c11110a2d4475ab87f16daa867e630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Modma::AG.Gameplay.Characters.MonoBehaviours.BodyLocations.ProjectileSourceLocation
 --- !u!1 &1353528246
 GameObject:
   m_ObjectHideFlags: 0
@@ -6931,7 +7025,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uiSettings: {fileID: 11400000, guid: 779cc2c22bde3e34fa9f35d05b7afe7f, type: 2}
-  _combatSettings: {fileID: 11400000, guid: d46d24961d620634db92efc95b7459eb, type: 2}
+  _combatSettingsSO: {fileID: 11400000, guid: d46d24961d620634db92efc95b7459eb, type: 2}
   _cheatSettings: {fileID: 11400000, guid: 073d2772ea02aea42a792f2f085d6d68, type: 2}
 --- !u!1 &1369798545
 GameObject:
@@ -6964,6 +7058,7 @@ Transform:
   m_Children:
   - {fileID: 623425192}
   - {fileID: 2018556032}
+  - {fileID: 1114163132}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1370965872
@@ -7621,6 +7716,7 @@ MonoBehaviour:
   _flags: []
   _shootEvent: {fileID: 11400000, guid: b197215870c317a4294ac4c39d8f59c8, type: 2}
   _shootEndEvent: {fileID: 11400000, guid: 21a14755879e9514f9aa4f04eda026c9, type: 2}
+  _projectileStats: {fileID: 0}
 --- !u!114 &1565303724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9418,7 +9514,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1663441723788948125, guid: 765c224e0c67ae04b94c78f36ef48996, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1341617265}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2334794542258643826, guid: 765c224e0c67ae04b94c78f36ef48996, type: 3}
       insertIndex: -1

@@ -10,7 +10,6 @@ using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using VContainer;
 
 namespace AG.Gameplay.Characters.Components
@@ -39,7 +38,7 @@ namespace AG.Gameplay.Characters.Components
 
 		[SerializeField]
 		private AttackStatsSO _rangedAttackStats;
-		
+
 		[SerializeField]
 		private AttackStatsSO _dashAttackStats;
 
@@ -51,10 +50,10 @@ namespace AG.Gameplay.Characters.Components
 
 		[ShowInInspector, ReadOnly, FoldoutGroup(DebugUI.Group), PropertyOrder(DebugUI.Order)]
 		private Timer _rangedAttackCooldown;
-		
+
 		[ShowInInspector, ReadOnly, FoldoutGroup(DebugUI.Group), PropertyOrder(DebugUI.Order)]
 		private Timer _dashAttackCooldown;
-		
+
 		[ShowInInspector, ReadOnly, FoldoutGroup(DebugUI.Group), PropertyOrder(DebugUI.Order)]
 		private Character _target;
 
@@ -130,20 +129,20 @@ namespace AG.Gameplay.Characters.Components
 
 		private void AutoAttack()
 		{
-			_playerMovement.LookAt(_target.RootTransform);
-			
+			_playerMovement.LookAt(_target);
+
 			if (_attackActionStatus != null)
 			{
 				return;
 			}
-			
+
 			if (_rangedAttackCooldown.IsRunning)
 			{
 				_playerAnimations.PlayAimingIdle();
 				return;
 			}
 
-			_attackActionStatus = _actionPlayer.TryPlayAction(_attackActionId, onFinished: OnAttackFinished);
+			_attackActionStatus = _actionPlayer.PlayAction(_attackActionId, _target, onFinished: OnAttackFinished);
 			if (_attackActionStatus != null && _attackActionStatus.Status == ActionStatus.Running)
 			{
 				_rangedAttackCooldown.Restart();

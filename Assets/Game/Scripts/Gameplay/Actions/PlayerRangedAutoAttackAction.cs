@@ -3,6 +3,7 @@ using AG.Gameplay.Characters.Components;
 using Animancer;
 using AG.Gameplay.Cards.CardStats;
 using Modma.Game.Scripts.Gameplay.Projectiles;
+using NUnit.Framework;
 using SharedLib.ExtensionMethods;
 using UnityEngine;
 using VContainer;
@@ -38,7 +39,8 @@ namespace AG.Gameplay.Actions
 
 		protected override void DoStartAction(object parameters)
 		{
-			_attackTarget = (Character)parameters;
+			_attackTarget = parameters as Character;
+			Debug.Assert(_attackTarget != null, "received null action parameters");
 
 			_playerAnimations.PlayRangedAttack();
 

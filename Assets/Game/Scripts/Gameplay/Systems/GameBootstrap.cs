@@ -3,6 +3,7 @@ using AG.Core.Pool;
 using AG.Gameplay.Combat;
 using AG.Gameplay.Settings;
 using AG.Gameplay.UI;
+using Modma.Game.Scripts.Gameplay.Projectiles;
 using Modma.Game.Scripts.Gameplay.Systems;
 using UnityEngine;
 using VContainer;
@@ -33,6 +34,7 @@ namespace AG.Gameplay.Systems
 				components.AddInHierarchy<ArenaWorld>();
 				components.AddInHierarchy<GameObjectPoolService>();
 				components.AddInHierarchy<UIProvider>();
+				components.AddInHierarchy<ProjectileFactory>();
 			});
 		}
 	}
