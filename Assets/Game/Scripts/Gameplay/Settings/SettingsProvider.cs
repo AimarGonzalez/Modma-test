@@ -1,3 +1,4 @@
+using AG.Core;
 using UnityEngine;
 
 namespace AG.Gameplay.Settings
@@ -11,7 +12,11 @@ namespace AG.Gameplay.Settings
 		[SerializeField]
 		private CombatSettings _combatSettings;
 
+		[SerializeField]
+		private CheatSettingsSO _cheatSettings;
+
 		public UISettings UISettings => _uiSettings;
 		public CombatSettings CombatSettings => _combatSettings;
+		public CheatSettingsSO CheatSettings => _cheatSettings;
 	}
 }

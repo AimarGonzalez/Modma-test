@@ -1,11 +1,11 @@
 using AG.Core.UI;
 using AG.Gameplay.Combat;
+using AG.Gameplay.Settings;
 using UnityEngine;
 using VContainer;
 
 namespace AG.Core
 {
-	[ExecuteInEditMode]
 	public class CheatsMenu : MonoBehaviour
 	{
 		// ------------------
@@ -15,13 +15,18 @@ namespace AG.Core
 
 		// ------------------
 
-		[Inject]
-		private ApplicationFlow _battleCheats;
+		[Inject] private ApplicationFlow _battleCheats;
+		[Inject] private GameSettings _gameSettings;
 
 		private CheatsStyleProvider CheatsStyleProvider => GetComponent<CheatsStyleProvider>();
 
 		private void OnGUI()
 		{
+			if (!_gameSettings.CheatSettings.ShowCheatsMenu)
+			{
+				return;
+			}
+			
 			if (_showDebugPanel)
 			{
 				DrawCheatPanel();
@@ -61,7 +66,7 @@ namespace AG.Core
 		{
 			CheatsStyleProvider.PushButtonStyle();
 			
-			Vector2 buttonSize = new Vector2(Screen.width * 0.45f, Screen.height * 0.1f);
+			Vector2 buttonSize = new Vector2(Screen.width * 0.35f, Screen.height * 0.06f);
 			float margin = 10;
 			GUILayout.BeginArea(new Rect(margin, margin, buttonSize.x - margin, buttonSize.y - margin), GUI.skin.box);
 			GUILayout.BeginVertical();

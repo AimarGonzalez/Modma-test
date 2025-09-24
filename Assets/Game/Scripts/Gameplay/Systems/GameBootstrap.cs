@@ -24,12 +24,14 @@ namespace AG.Gameplay.Systems
 			builder.UseComponents(components =>
 			{
 				components.AddInHierarchy<TimeController>();
+				components.AddInHierarchy<CheatsMenu>();
+				components.AddInHierarchy<CheatsStyleProvider>();
+				
 				components.AddInHierarchy<ApplicationFlow>();
 				components.AddInHierarchy<ApplicationView>();
-				components.AddInHierarchy<ArenaWorld>();
-				components.AddInHierarchy<CheatsStyleProvider>();
-				components.AddInHierarchy<GameObjectPoolService>();
 				components.AddInHierarchy<GameSettings>();
+				components.AddInHierarchy<ArenaWorld>();
+				components.AddInHierarchy<GameObjectPoolService>();
 				components.AddInHierarchy<UIProvider>();
 			});
 		}

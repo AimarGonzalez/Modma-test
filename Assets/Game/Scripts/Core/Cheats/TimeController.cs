@@ -1,4 +1,5 @@
 using AG.Core.UI;
+using AG.Gameplay.Settings;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using System;
@@ -8,7 +9,7 @@ using VContainer;
 
 namespace AG.Core
 {
-	public class TimeController : MonoBehaviour, IGUIDrawer
+	public class TimeController : MonoBehaviour
 	{
 		[SerializeField] private float _timeScale = 1f;
 		[ShowInInspector, ReadOnly] private bool _paused = false;
@@ -38,11 +39,16 @@ namespace AG.Core
 			public float LabelMargin => _labelMargin * Screen.width;
 		}
 
+		// ------------------ Dependencies ------------------
+
+		[Inject] private CheatsStyleProvider _cheatsStyleProvider;
+
+		[Inject] private GameSettings _gameSettings;
+
+		// ------------------ Private fields ------------------
+
 		[SerializeField]
 		private DebugControlsSettings _debugControlsSettings;
-
-		[Inject]
-		private CheatsStyleProvider _cheatsStyleProvider;
 
 		private GUIStyle _labelStyle;
 		private GUIStyle LabelStyle => _labelStyle ??= new GUIStyle(GUI.skin.label)
@@ -101,6 +107,11 @@ namespace AG.Core
 
 		private void OnGUI()
 		{
+			if (!_gameSettings.CheatSettings.ShowTimeControls)
+			{
+				return;
+			}
+
 			_cheatsStyleProvider.PushButtonStyle();
 
 			float debugControlsWidth = _debugControlsSettings.Width;
@@ -134,40 +145,6 @@ namespace AG.Core
 			GUILayout.EndArea();
 
 			_cheatsStyleProvider.PopButtonStyle();
-		}
-
-
-		void IGUIDrawer.DrawGUI()
-		{
-			/*
-			// Show slider in logarithmic space
-			_timeScale = GUILayoutUtils.LogSlider("Time Scale", _timeScale, 0.01f, 100f);
-
-			GUILayout.BeginHorizontal();
-			{
-				if (GUILayout.Button("-", GUILayoutOptions.ExpandWidth()))
-				{
-					DecreaseTimeScale();
-				}
-
-				GUILayout.TextField(_timeScale.ToString("F2"));
-
-				if (GUILayout.Button("+", GUILayoutOptions.ExpandWidth()))
-				{
-					IncreaseTimeScale();
-				}
-			}
-			GUILayout.EndHorizontal();
-
-
-
-			GUIUtils.PushBackgroundColor(_paused ? Color.red : Color.white);
-			if (GUILayout.Button(_paused ? "Resume" : "Pause", GUILayoutOptions.ExpandWidth()))
-			{
-				TogglePause();
-			}
-			GUIUtils.PopBackgroundColor();
-			*/
 		}
 	}
 }

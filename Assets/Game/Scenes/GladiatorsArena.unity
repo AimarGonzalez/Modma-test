@@ -2188,7 +2188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8948961942402484082, guid: 0cb8df8be3fcb7841bd8e78f98f403e5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -75
+      value: -150
       objectReference: {fileID: 0}
     - target: {fileID: 8948961942402484082, guid: 0cb8df8be3fcb7841bd8e78f98f403e5, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2240,7 +2240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8948961942402484085, guid: 0cb8df8be3fcb7841bd8e78f98f403e5, type: 3}
       propertyPath: m_Name
-      value: button-Pause
+      value: PauseButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5727,8 +5727,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _skin: {fileID: 11400000, guid: fb5d2b8f0e92ba54285e18c47e63f7d3, type: 2}
-  _panelFontSize: 70
-  _buttonFontSize: 70
+  _panelFontSize: 40
+  _buttonFontSize: 40
   _cheatPanelSettings:
   - _aspectRatio:
       Width: 4
@@ -6371,7 +6371,7 @@ MonoBehaviour:
   _debugControlsSettings:
     _width: 0.25
     _height: 0.06
-    _margin: 0.01
+    _margin: 0.1
     _labelWidth: 0.04
     _labelMargin: 0.01
 --- !u!1 &1245372973
@@ -6868,6 +6868,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiSettings: {fileID: 11400000, guid: 779cc2c22bde3e34fa9f35d05b7afe7f, type: 2}
   _combatSettings: {fileID: 11400000, guid: d46d24961d620634db92efc95b7459eb, type: 2}
+  _cheatSettings: {fileID: 11400000, guid: 073d2772ea02aea42a792f2f085d6d68, type: 2}
 --- !u!1 &1369798545
 GameObject:
   m_ObjectHideFlags: 0
