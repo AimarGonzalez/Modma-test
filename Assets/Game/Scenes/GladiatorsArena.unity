@@ -9224,7 +9224,7 @@ MonoBehaviour:
   background: {fileID: 8135886327249777255}
   handle: {fileID: 8135886328014156045}
   moveThreshold: 1
-  _hideWhenActive: 0
+  _hideWhenActive: 1
 --- !u!114 &8135886327249777252
 MonoBehaviour:
   m_ObjectHideFlags: 0
