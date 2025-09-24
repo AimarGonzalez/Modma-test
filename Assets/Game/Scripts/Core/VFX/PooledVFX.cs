@@ -29,7 +29,7 @@ namespace AG.Core
 		{
 			base.Awake();
 			
-			_particleSystems = GetComponentsInChildren<ParticleSystem>();
+			_particleSystems = GetComponentsInChildren<ParticleSystem>(includeInactive: true);
 
 			SetupWaitForParticles();
 		}

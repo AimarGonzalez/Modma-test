@@ -1,10 +1,12 @@
 ﻿using AG.Core.UI;
 using AG.Gameplay.Actions;
+using AG.Gameplay.Combat;
 using AG.Gameplay.PlayerInput;
 using AG.Gameplay.Systems;
 using SharedLib.StateMachines;
 using SharedLib.Utils;
 using Sirenix.OdinInspector;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -16,16 +18,20 @@ namespace AG.Gameplay.Characters.Components
 	{
 		public enum CombatState
 		{
-			Moving,
-			Attacking
+			AutoAttacking,
+			SpecialAttack
 		}
+
+		// ------------- Events -------------
+		public event Action<Character> OnTargetChanged;
 
 		// ------------- Inspector fields -------------
 
 		[SerializeField]
 		private ActionId _attackActionId;
 
-		[FormerlySerializedAs("_blockingFlags")] [SerializeField]
+		[FormerlySerializedAs("_blockingFlags")]
+		[SerializeField]
 		private FlagSO[] _blockInputFlags;
 
 
@@ -56,9 +62,9 @@ namespace AG.Gameplay.Characters.Components
 		private PlayerMovement _playerMovement;
 		private PlayerAnimations _playerAnimations;
 
-
-		[Inject]
-		private ArenaEvents _arenaEvents;
+		// ------------- Dependencies -------------
+		[Inject] private ArenaWorld _world;
+		[Inject] private ArenaEvents _arenaEvents;
 
 		protected void Awake()
 		{
@@ -92,12 +98,15 @@ namespace AG.Gameplay.Characters.Components
 			_rangedAttackTimer.Elapsed(Time.deltaTime);
 			_dashAttackTimer.Elapsed(Time.deltaTime);
 
+			UpdateTarget();
+
 			switch (_state)
 			{
-				case CombatState.Moving:
-					UpdateMovement();
+				case CombatState.AutoAttacking:
+					UpdateAutoAttack();
 					break;
-				case CombatState.Attacking:
+				
+				case CombatState.SpecialAttack:
 					// wait
 					break;
 			}
@@ -105,7 +114,7 @@ namespace AG.Gameplay.Characters.Components
 			return IState.Status.Running;
 		}
 
-		private void UpdateMovement()
+		private void UpdateAutoAttack()
 		{
 			if (_inputController.InputData.IsMoving)
 			{
@@ -145,6 +154,23 @@ namespace AG.Gameplay.Characters.Components
 		void IDebugPanelDrawer.AddDebugProperties(List<GUIUtils.Property> properties)
 		{
 			properties.Add(new GUIUtils.Property("Combat state", _state.ToString()));
+		}
+
+		private void UpdateTarget()
+		{
+			Character closestEnemy = _world.GetClosestEnemy(RootTransform.position);
+			SetTarget(closestEnemy);
+		}
+
+		private void SetTarget(Character target)
+		{
+			if (_target == target)
+			{
+
+			}
+
+			_target = target;
+			OnTargetChanged?.Invoke(_target);
 		}
 	}
 }

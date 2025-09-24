@@ -41,7 +41,7 @@ namespace AG.Core.Pool
 
 		protected virtual void Awake()
 		{
-			_subComponents = GetComponentsInChildren<IPooledComponent>();
+			_subComponents = GetComponentsInChildren<IPooledComponent>(includeInactive: true);
 		}
 		
 		protected virtual void Start()

@@ -5850,6 +5850,11 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &1022730100 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2334794542258643826, guid: 765c224e0c67ae04b94c78f36ef48996, type: 3}
+  m_PrefabInstance: {fileID: 2420518986246355946}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1043605366
 GameObject:
   m_ObjectHideFlags: 0
@@ -8955,11 +8960,46 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1915302706813440293, guid: 765c224e0c67ae04b94c78f36ef48996, type: 3}
   m_PrefabInstance: {fileID: 2420518986246355946}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1891322694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022730100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86552a153e652c24bbe48783657fb7d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Modma::AG.Gameplay.Characters.Components.TargetMarker
+  _targetMarker: {fileID: 1929108975}
 --- !u!4 &1913929966 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8391779453370933548, guid: 3f3cdd463c2263c44b1cfc1aa04575d9, type: 3}
   m_PrefabInstance: {fileID: 5821550733722036842}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1929108974 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9169367241251099038, guid: 765c224e0c67ae04b94c78f36ef48996, type: 3}
+  m_PrefabInstance: {fileID: 2420518986246355946}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1929108975 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 422664432442019939, guid: 765c224e0c67ae04b94c78f36ef48996, type: 3}
+  m_PrefabInstance: {fileID: 2420518986246355946}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1929108976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929108974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6acb0eafd16148b40968c07973caa22d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Modma::AG.Gameplay.Systems.Arena.ReparentToMovementTargetsContainer
 --- !u!1 &1964693515
 GameObject:
   m_ObjectHideFlags: 0
@@ -9166,8 +9206,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227844d2a623ebf4fae840487164139a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _charactersContainer: {fileID: 1533818356}
   _movementTargetsContainer: {fileID: 1677704839}
-  _projectilesContainer: {fileID: 0}
+  _projectilesContainer: {fileID: 1996895704}
 --- !u!1001 &2420518986246355946
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9240,13 +9281,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: JoystickFollower
       objectReference: {fileID: 0}
+    - target: {fileID: 9082364485053456091, guid: 765c224e0c67ae04b94c78f36ef48996, type: 3}
+      propertyPath: m_Name
+      value: gummy_bear
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2334794542258643826, guid: 765c224e0c67ae04b94c78f36ef48996, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1891322694}
     - targetCorrespondingSourceObject: {fileID: 977731277213218300, guid: 765c224e0c67ae04b94c78f36ef48996, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1622617577}
+    - targetCorrespondingSourceObject: {fileID: 9169367241251099038, guid: 765c224e0c67ae04b94c78f36ef48996, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1929108976}
   m_SourcePrefab: {fileID: 100100000, guid: 765c224e0c67ae04b94c78f36ef48996, type: 3}
 --- !u!1001 &5821550733722036842
 PrefabInstance:

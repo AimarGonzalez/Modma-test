@@ -6,6 +6,7 @@ using SharedLib.ComponentCache;
 using SharedLib.Physics;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using VContainer;
 
 namespace AG.Gameplay.Actions
 {
@@ -42,13 +43,11 @@ namespace AG.Gameplay.Actions
 		private Character _character;
 
 		//----- Dependencies ----------------
-		private ArenaWorld _arenaWorld;
+		[Inject] private ArenaWorld _arenaWorld;
 
 		protected override void Awake()
 		{
 			_character = Root.Get<Character>();
-
-			_arenaWorld = FindFirstObjectByType<ArenaWorld>();
 		}
 
 

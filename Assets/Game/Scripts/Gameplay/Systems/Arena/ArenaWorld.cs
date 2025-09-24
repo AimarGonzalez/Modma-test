@@ -14,6 +14,9 @@ namespace AG.Gameplay.Combat
 
 		//----- Inspector fields ----------------
 		[SerializeField, Required]
+		private Transform _charactersContainer;
+		
+		[SerializeField, Required]
 		private Transform _movementTargetsContainer;
 
 		[SerializeField, Required]
@@ -21,32 +24,34 @@ namespace AG.Gameplay.Combat
 
 		//----- Dependencies ----------------
 
-		private Character _player;
-		private List<Character> _enemies = new();
-
-		[Inject]
-		private ArenaEvents _arenaEvents;
-
-		private Transform _arenaTransform;
+		[Inject] private ArenaEvents _arenaEvents;
 
 		//------ Public properties ----------------
 		public Transform MovementTargetsContainer => _movementTargetsContainer;
 		public Transform ProjectilesContainer => _projectilesContainer;
 		public Character Player => _player;
 		public List<Character> Enemies => _enemies;
+		
+		// -------- Private fields
+		private Character _player;
+		private List<Character> _enemies = new();
+		
 
 		private void Awake()
 		{
-			_arenaTransform = FindFirstObjectByType<ArenaTransform>().transform;
-
 			FetchEntities();
 		}
 
 		private void FetchEntities()
 		{
-			Character[] characters = _arenaTransform.GetComponentsInChildren<Character>();
+			Character[] characters = _charactersContainer.GetComponentsInChildren<Character>(includeInactive: true);
 			_player = characters.FirstOrDefault(character => character.IsPlayer);
 			_enemies = characters.Where(character => character.IsEnemy).ToList();
+		}
+
+		public Character GetClosestEnemy(Vector3 position)
+		{
+			return _enemies.OrderBy(enemy => Vector3.Distance(enemy.RootTransform.position, position)).FirstOrDefault();
 		}
 	}
 }

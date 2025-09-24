@@ -17,13 +17,18 @@ namespace AG.Gameplay.Systems.Arena
 
 		private void Awake()
 		{
-			_movementTargetsContainer = _arenaWorld.MovementTargetsContainer;
+			FetchDependencies();
+		}
 
-			_originalParent = transform.parent;
+		private void FetchDependencies()
+		{
+			_movementTargetsContainer ??= _arenaWorld.MovementTargetsContainer;
+			_originalParent ??= transform.parent;
 		}
 
 		public void OnBeforeGetFromPool()
 		{
+			FetchDependencies();
 		}
 
 		public void OnAfterGetFromPool()

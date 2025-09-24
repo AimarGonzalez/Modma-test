@@ -2,7 +2,7 @@
 
 namespace AG.Gameplay.Combat
 {
-	public class ArenaTransform : MonoBehaviour
+	public class ArenaRoot : MonoBehaviour
 	{
 		
 	}
