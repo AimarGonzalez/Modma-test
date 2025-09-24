@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using System;
 
 namespace SharedLib.Utils
@@ -22,6 +23,7 @@ namespace SharedLib.Utils
 		/// <summary>
 		/// The Time we're counting down
 		/// </summary>
+		[ShowInInspector]
 		private float _targetTime = 0.0f;
 
 		/// <summary>
@@ -32,6 +34,7 @@ namespace SharedLib.Utils
 		/// <summary>
 		/// Flag to track if we're running or not
 		/// </summary>
+		[ShowInInspector]
 		private State _state = State.Stopped;
 
 		/// <summary>
@@ -43,6 +46,16 @@ namespace SharedLib.Utils
 		
 		public float TimeLeft => _timeLeft;
 
+
+		public Timer()
+		{
+		}
+
+		public Timer(float targetTime)
+		{
+			_targetTime = targetTime;
+		}
+		
 		/// <summary>
 		/// Start the Timer, counting down from the past timed parameter
 		/// </summary>
