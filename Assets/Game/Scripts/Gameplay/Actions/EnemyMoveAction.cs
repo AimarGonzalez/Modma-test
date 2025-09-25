@@ -30,10 +30,10 @@ namespace AG.Gameplay.Actions
 		//----- Dependencies ----------------
 		[Inject] private GameplayWorld _gameplayWorld;
 
-
-
+		private Vector3 _cachedScale;
 		protected override void Awake()
 		{
+			_cachedScale = _feedbacksRoot.localScale;
 		}
 
 		//------------- Action methods -------------------
@@ -86,7 +86,7 @@ namespace AG.Gameplay.Actions
 		{
 			_feedback.StopFeedbacks();
 			_feedbacksRoot.localRotation = Quaternion.identity;
-			_feedbacksRoot.localScale = Vector3.one;
+			_feedbacksRoot.localScale = _cachedScale;
 			
 			DoOnActionFinished();
 		}
