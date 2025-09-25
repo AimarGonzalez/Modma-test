@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d5b7b8f852a40f5bc0d2e22cf407ecd, type: 3}
+  m_Name: Level_01
+  m_EditorClassIdentifier: Modma::Modma.Game.Scripts.Gameplay.Levels.LevelDefinitionSO
+  Waves:
+  - CharacterDefinitions:
+    - {fileID: 11400000, guid: 57cb3c026046dde4694a3ceabb746802, type: 2}
+    - {fileID: 11400000, guid: 57cb3c026046dde4694a3ceabb746802, type: 2}
+  - CharacterDefinitions:
+    - {fileID: 11400000, guid: 57cb3c026046dde4694a3ceabb746802, type: 2}
+    - {fileID: 11400000, guid: 57cb3c026046dde4694a3ceabb746802, type: 2}
+    - {fileID: 11400000, guid: 57cb3c026046dde4694a3ceabb746802, type: 2}
+    - {fileID: 11400000, guid: 57cb3c026046dde4694a3ceabb746802, type: 2}
+  - CharacterDefinitions:
+    - {fileID: 11400000, guid: 57cb3c026046dde4694a3ceabb746802, type: 2}
+    - {fileID: 11400000, guid: 57cb3c026046dde4694a3ceabb746802, type: 2}
+    - {fileID: 11400000, guid: 57cb3c026046dde4694a3ceabb746802, type: 2}
+  - CharacterDefinitions:
+    - {fileID: 11400000, guid: 57cb3c026046dde4694a3ceabb746802, type: 2}
+    - {fileID: 11400000, guid: 57cb3c026046dde4694a3ceabb746802, type: 2}
+    - {fileID: 11400000, guid: 57cb3c026046dde4694a3ceabb746802, type: 2}
+    - {fileID: 11400000, guid: 57cb3c026046dde4694a3ceabb746802, type: 2}
+    - {fileID: 11400000, guid: 57cb3c026046dde4694a3ceabb746802, type: 2}
+    - {fileID: 11400000, guid: 57cb3c026046dde4694a3ceabb746802, type: 2}

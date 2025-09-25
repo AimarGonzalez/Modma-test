@@ -24,7 +24,7 @@ namespace AG.Gameplay.Characters.Components
 			_animancer = Root.Get<AnimancerComponent>();
 		}
 		
-		public AnimancerState PlayIdle()
+		public AnimancerState PlayRelaxedIdle()
 		{
 			return _animancer.Play(_aimingIdle);
 		}

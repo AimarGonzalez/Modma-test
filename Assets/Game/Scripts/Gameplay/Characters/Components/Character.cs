@@ -21,7 +21,7 @@ namespace AG.Gameplay.Characters
 {
 	[DisallowMultipleComponent]
 	[DebuggerDisplay("name: {name}, state: {StateId}, team: {_team}, health: {_health}/{_maxHealth}")]
-	public class Character : SubComponent, IPooledComponent
+	public class Character : SubComponent
 	{
 		[Serializable]
 		public struct CharacterStates
@@ -140,21 +140,15 @@ namespace AG.Gameplay.Characters
 		}
 
 		// -------- Poolable ---------------------------------------
-		void IPooledComponent.OnBeforeGetFromPool()
-		{
-		}
 
-		void IPooledComponent.OnAfterGetFromPool()
+		protected virtual void OnEnable()
 		{
 			Subscribe();
 		}
 
-		void IPooledComponent.OnReturnToPool()
+		protected virtual void OnDisable()
 		{
 			Unsubscribe();
-		}
-		void IPooledComponent.OnDestroyFromPool()
-		{
 		}
 
 		public void ReleaseToPool()

@@ -3,8 +3,9 @@ using AG.Core.Pool;
 using AG.Gameplay.Combat;
 using AG.Gameplay.Settings;
 using AG.Gameplay.UI;
-using Modma.Game.Scripts.Gameplay.Projectiles;
-using Modma.Game.Scripts.Gameplay.Systems;
+using AG.Gameplay.Projectiles;
+using AG.Gameplay.Systems;
+using AG.Gameplay.Levels;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -27,7 +28,7 @@ namespace AG.Gameplay.Systems
 				components.AddInHierarchy<TimeController>();
 				components.AddInHierarchy<CheatsMenu>();
 				components.AddInHierarchy<CheatsStyleProvider>();
-				
+
 				components.AddInHierarchy<ApplicationFlow>();
 				components.AddInHierarchy<ApplicationView>();
 				components.AddInHierarchy<GameSettings>();
@@ -35,6 +36,8 @@ namespace AG.Gameplay.Systems
 				components.AddInHierarchy<GameObjectPoolService>();
 				components.AddInHierarchy<UIProvider>();
 				components.AddInHierarchy<ProjectileFactory>();
+				components.AddInHierarchy<CharactersFactory>();
+				components.AddInHierarchy<LevelController>();
 			});
 		}
 	}

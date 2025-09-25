@@ -3,7 +3,7 @@ using AG.Gameplay.Combat;
 using UnityEngine;
 using VContainer;
 
-namespace Modma.Game.Scripts.Gameplay.Projectiles
+namespace AG.Gameplay.Projectiles
 {
 	public class ProjectileFactory : MonoBehaviour
 	{

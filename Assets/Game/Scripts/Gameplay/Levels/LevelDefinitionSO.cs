@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-namespace Modma.Game.Scripts.Gameplay.Levels
+namespace AG.Gameplay.Levels
 {
 	[CreateAssetMenu(fileName = "LevelDefinition", menuName = "AG/LevelDefinition")]
 	public class LevelDefinitionSO : ScriptableObject

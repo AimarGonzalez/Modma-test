@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace AG.Gameplay.Characters.Data
 {
+	[CreateAssetMenu(fileName = "CharacterDefinition", menuName = "AG/Character/Character Definition")]
 	public class CharacterDefinitionSO : ScriptableObject
 	{
 		[SerializeField]

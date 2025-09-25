@@ -8,7 +8,7 @@ using SharedLib.ComponentCache;
 using SharedLib.Physics;
 using UnityEngine;
 using VContainer;
-namespace Modma.Game.Scripts.Gameplay.Projectiles
+namespace AG.Gameplay.Projectiles
 {
 	public class ProjectileController : SubComponent
 	{

@@ -6,7 +6,7 @@ using System;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Modma.Game.Scripts.Gameplay.Systems
+namespace AG.Gameplay.Systems
 {
 	public class ApplicationView : MonoBehaviour
 	{

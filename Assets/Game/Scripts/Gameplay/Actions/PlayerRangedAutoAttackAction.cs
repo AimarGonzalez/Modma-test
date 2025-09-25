@@ -3,7 +3,7 @@ using AG.Gameplay.Characters.Components;
 using Animancer;
 using AG.Gameplay.Cards.CardStats;
 using AG.Gameplay.Characters.MonoBehaviours.BodyLocations;
-using Modma.Game.Scripts.Gameplay.Projectiles;
+using AG.Gameplay.Projectiles;
 using NUnit.Framework;
 using SharedLib.ExtensionMethods;
 using UnityEngine;

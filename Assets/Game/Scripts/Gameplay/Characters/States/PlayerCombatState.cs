@@ -129,6 +129,12 @@ namespace AG.Gameplay.Characters.Components
 
 		private void AutoAttack()
 		{
+			if (!_target)
+			{
+				_playerAnimations.PlayRelaxedIdle();
+				return;
+			}
+			
 			_playerMovement.LookAt(_target);
 
 			if (_attackActionStatus != null)

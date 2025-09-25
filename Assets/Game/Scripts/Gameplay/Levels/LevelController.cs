@@ -2,13 +2,13 @@
 using AG.Gameplay.Combat;
 using AG.Gameplay.Systems;
 using AG.Gameplay.Characters.Data;
-using Modma.Game.Scripts.Gameplay.Projectiles;
+using AG.Gameplay.Projectiles;
 using SharedLib.ExtensionMethods;
 using System.Collections.Generic;
 using UnityEngine;
 using VContainer;
 
-namespace Modma.Game.Scripts.Gameplay.Levels
+namespace AG.Gameplay.Levels
 {
 	public class LevelController : MonoBehaviour
 	{

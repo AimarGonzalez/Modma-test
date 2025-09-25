@@ -2,7 +2,7 @@ using AG.Core;
 using AG.Core.UI;
 using AG.Gameplay.Systems;
 using JetBrains.Annotations;
-using Modma.Game.Scripts.Gameplay.Systems;
+using AG.Gameplay.Levels;
 using SharedLib.ExtensionMethods;
 using Sirenix.OdinInspector;
 using System;
@@ -31,6 +31,7 @@ namespace AG.Gameplay.Combat
 		[Inject] private ApplicationView _appView;
 		[Inject] private TimeController _timeController;
 		[Inject] private GameplayFlow _gameplayFlow;
+		[Inject] private LevelController _levelController;
 
 
 		// ------------- Private fields -------------
@@ -128,6 +129,7 @@ namespace AG.Gameplay.Combat
 				case AppState.Battle:
 					if (oldAppState == AppState.BattleIntro)
 					{
+						_levelController.StartLevel();
 						_gameplayFlow.StartBattle();
 					}
 					else

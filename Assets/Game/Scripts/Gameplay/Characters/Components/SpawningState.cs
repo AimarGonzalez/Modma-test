@@ -18,6 +18,12 @@ namespace AG.Gameplay.Characters.Components
 
 		public override void OnEnterState()
 		{
+			if (!_spawnningFeedbacks)
+			{
+				Debug.LogWarning("Missing feedbacks when spawning enemies");
+				return;
+			}
+			
 			_spawnningFeedbacks.PlayFeedbacks();
 
 			_spawnningFeedbacks.Events.OnComplete.AddListener(OnSpawnningFeedbacksComplete);
