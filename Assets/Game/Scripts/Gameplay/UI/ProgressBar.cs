@@ -21,7 +21,7 @@ namespace AG.Gameplay.UI
 		[SerializeField] private float _lerpTime = 0.2f;
 		
 		[Tooltip("Minimum value change to trigger a view update")]
-		[SerializeField] private float _minimumChange = 0.2f;
+		[SerializeField] private float _minimumChange = 0.01f;
 
 		private float _value;
 		private bool _valueChanged;

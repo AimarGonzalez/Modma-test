@@ -455,6 +455,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5599276715979564005, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}
+      propertyPath: _minimumChange
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 8761528232437228569, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}
       propertyPath: _characterStates.CombatState
       value: 

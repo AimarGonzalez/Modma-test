@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1417689176759685871}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.32872534}
+  m_LocalPosition: {x: 0, y: 0, z: 0.43270928}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -90,7 +90,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.06733969
+        value: 0.09033468
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -298,6 +298,18 @@ PrefabInstance:
     - target: {fileID: 3738187415824874293, guid: 829ff58b373518c4daa7e467ad84ac29, type: 3}
       propertyPath: m_Name
       value: Swirl lollipop C
+      objectReference: {fileID: 0}
+    - target: {fileID: 4083468583896867215, guid: 829ff58b373518c4daa7e467ad84ac29, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4083468583896867215, guid: 829ff58b373518c4daa7e467ad84ac29, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4083468583896867215, guid: 829ff58b373518c4daa7e467ad84ac29, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 4083468583896867215, guid: 829ff58b373518c4daa7e467ad84ac29, type: 3}
       propertyPath: m_LocalPosition.x
