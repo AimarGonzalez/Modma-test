@@ -100,7 +100,7 @@ namespace Modma.Game.Scripts.Gameplay.Projectiles
 			if (IsTargetCharacter(other))
 			{
 				// Play hit vfx
-				Debug.Log(" >> Projectile hit character");
+				//Debug.Log(" >> Projectile hit character");
 				Character targetCharacter = other.GetRoot().Get<Character>();
 				targetCharacter.Hit(_source, _projectileStats.Damage);
 

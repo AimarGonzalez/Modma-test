@@ -37,6 +37,12 @@ namespace AG.Core.Pool
 			PooledGameObject instance = Get(prefab, parent, active: true, position, rotation, inWorldSpace);
 			return instance.GetComponentInChildren<T>(includeInactive: true);
 		}
+		
+		public T Get<T>(GameObject prefab, Transform parent, bool active, Vector3 position, Quaternion rotation, bool inWorldSpace) where T : MonoBehaviour
+		{
+			PooledGameObject instance = Get(prefab, parent, active, position, rotation, inWorldSpace);
+			return instance.GetComponentInChildren<T>(includeInactive: true);
+		}
 
 		public PooledGameObject Get(GameObject prefab)
 		{

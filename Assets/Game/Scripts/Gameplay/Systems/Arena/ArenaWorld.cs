@@ -15,12 +15,15 @@ namespace AG.Gameplay.Combat
 		//----- Inspector fields ----------------
 		[SerializeField, Required]
 		private Transform _charactersContainer;
-		
+
 		[SerializeField, Required]
 		private Transform _movementTargetsContainer;
 
 		[SerializeField, Required]
 		private Transform _projectilesContainer;
+
+		[SerializeField, Required]
+		private Transform _spawnPointsContainer;
 
 		//----- Dependencies ----------------
 
@@ -31,15 +34,26 @@ namespace AG.Gameplay.Combat
 		public Transform ProjectilesContainer => _projectilesContainer;
 		public Character Player => _player;
 		public List<Character> Enemies => _enemies;
-		
+
 		// -------- Private fields
 		private Character _player;
 		private List<Character> _enemies = new();
-		
+		private Dictionary<int, Transform[]> _spawnPointsCatalog = new();
+
 
 		private void Awake()
 		{
 			FetchEntities();
+
+			CreateSpawnPointsCatalog();
+		}
+
+		private void CreateSpawnPointsCatalog()
+		{
+			foreach (Transform spawnPointSet in _spawnPointsContainer)
+			{
+				_spawnPointsCatalog[spawnPointSet.childCount] = spawnPointSet.GetComponentsInChildren<Transform>(includeInactive: true);
+			}
 		}
 
 		private void FetchEntities()
@@ -52,6 +66,16 @@ namespace AG.Gameplay.Combat
 		public Character GetClosestEnemy(Vector3 position)
 		{
 			return _enemies.OrderBy(enemy => Vector3.Distance(enemy.RootTransform.position, position)).FirstOrDefault();
+		}
+
+		public Transform[] GetSpawnPoints(int numSpawnPoints)
+		{
+			if(_spawnPointsCatalog.TryGetValue(numSpawnPoints, out Transform[] spawnPoints))
+			{
+				return spawnPoints;
+			}
+
+			return null;
 		}
 	}
 }

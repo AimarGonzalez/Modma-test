@@ -1,11 +1,12 @@
 ﻿using AG.Core.Pool;
+using AG.Gameplay.Characters;
 using AG.Gameplay.Combat;
 using UnityEngine;
 using VContainer;
 
 namespace Modma.Game.Scripts.Gameplay.Projectiles
 {
-	public class ProjectileFactory : MonoBehaviour
+	public class CharactersFactory : MonoBehaviour
 	{
 
 		// ------------ Dependencies ----------------
@@ -15,16 +16,17 @@ namespace Modma.Game.Scripts.Gameplay.Projectiles
 		
 		// ------------ Private fields ----------------
 
-		public ProjectileController BuildProjectile(Transform sourceAnchor, GameObject prefab)
+		public Character BuildCharacter(GameObject prefab, Vector3 position, Quaternion rotation, bool active = true)
 		{
-			ProjectileController projectile = _poolService.Get<ProjectileController>(
+			Character character = _poolService.Get<Character>(
 				prefab,
 				_arenaWorld.ProjectilesContainer,
-				sourceAnchor.position,
-				Quaternion.identity,
+				active,
+				position,
+				rotation,
 				inWorldSpace: true
 			);
-			return projectile;
+			return character;
 		}
 	}
 }

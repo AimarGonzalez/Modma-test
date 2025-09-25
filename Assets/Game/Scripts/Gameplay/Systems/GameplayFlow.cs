@@ -1,6 +1,5 @@
 using AG.Core.Pool;
-using AG.Core.UI;
-using System;
+using AG.Gameplay.Characters;
 using UnityEngine;
 using VContainer;
 
@@ -41,7 +40,7 @@ namespace AG.Gameplay.Combat
 		{
 			// Reset in case scene is not in a correct state
 			ResetBattle();
-			
+
 			_currentTime = 0f;
 			_isBattleActive = false;
 		}
@@ -49,15 +48,20 @@ namespace AG.Gameplay.Combat
 		public void StartBattle()
 		{
 			_isBattleActive = true;
-			
+
 			_world.Player.Fight();
+
+			foreach (Character enemy in _world.Enemies)
+			{
+				enemy.Fight();
+			}
 		}
 
 		public void PauseBattle()
 		{
 			_isBattleActive = false;
 		}
-		
+
 		public void ResumeBattle()
 		{
 			_isBattleActive = true;
@@ -66,13 +70,13 @@ namespace AG.Gameplay.Combat
 		public void ResetBattle()
 		{
 			_isBattleActive = false;
-			
+
 			//Dispose enemies
-			foreach (IPooledComponent enemy in _world.Enemies)
+			foreach (Character enemy in _world.Enemies)
 			{
-				enemy.OnReturnToPool();
+				enemy.ReleaseToPool();
 			}
-			
+
 			//Reset player
 			_world.Player.RootTransform.localPosition = Vector3.zero;
 			_world.Player.RootTransform.localRotation = Quaternion.identity;

@@ -119,6 +119,119 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &59239
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 59240}
+  m_Layer: 0
+  m_Name: 6 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &59240
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59239}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1584199155}
+  - {fileID: 29568769}
+  - {fileID: 805476787}
+  - {fileID: 867017700}
+  - {fileID: 1109633633}
+  - {fileID: 796115043}
+  m_Father: {fileID: 114676231}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &14421215
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 14421216}
+  - component: {fileID: 14421217}
+  m_Layer: 0
+  m_Name: 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &14421216
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14421215}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.7404585}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 575346090}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &14421217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14421215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.028106213, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
 --- !u!4 &22915982 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1663441723788948125, guid: 765c224e0c67ae04b94c78f36ef48996, type: 3}
@@ -260,6 +373,158 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 27918268}
   m_CullTransparentMesh: 1
+--- !u!1 &29568768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 29568769}
+  - component: {fileID: 29568770}
+  m_Layer: 0
+  m_Name: 1 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &29568769
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29568768}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.4732826, y: 0, z: 1.618321}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 59240}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &29568770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29568768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.15045428, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
+--- !u!1 &42923134
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 42923135}
+  - component: {fileID: 42923136}
+  m_Layer: 0
+  m_Name: 1 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &42923135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42923134}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.1478195, y: 0, z: 2.184196}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 103603712}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &42923136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42923134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.028106213, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
 --- !u!1 &45926023
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,6 +671,82 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &67870963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 67870964}
+  - component: {fileID: 67870965}
+  m_Layer: 0
+  m_Name: 1 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &67870964
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67870963}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.9847364, y: 0, z: -1.3740449}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 575346090}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &67870965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67870963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.028106213, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
 --- !u!1 &72347814
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,6 +801,82 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &80651817
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 80651818}
+  - component: {fileID: 80651819}
+  m_Layer: 0
+  m_Name: 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &80651818
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80651817}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.045805, y: 0, z: 1.4351151}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1319739557}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &80651819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80651817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.15045428, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
 --- !u!4 &84201288 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8391779453370933548, guid: 3f3cdd463c2263c44b1cfc1aa04575d9, type: 3}
@@ -1294,6 +1711,157 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
+--- !u!1 &95555696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 95555697}
+  - component: {fileID: 95555698}
+  m_Layer: 0
+  m_Name: 1 (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &95555697
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95555696}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.6743343, y: 0, z: -1.8369691}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 103603712}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &95555698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95555696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.028106213, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
+--- !u!1 &103603711
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 103603712}
+  m_Layer: 0
+  m_Name: 5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &103603712
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103603711}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2132168755}
+  - {fileID: 42923135}
+  - {fileID: 95555697}
+  - {fileID: 1019781503}
+  - {fileID: 611000797}
+  m_Father: {fileID: 114676231}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &114676230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 114676231}
+  m_Layer: 0
+  m_Name: SpawnPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &114676231
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114676230}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1094530231}
+  - {fileID: 218047210}
+  - {fileID: 575346090}
+  - {fileID: 454501442}
+  - {fileID: 103603712}
+  - {fileID: 59240}
+  - {fileID: 1319739557}
+  - {fileID: 1260413218}
+  m_Father: {fileID: 1964693516}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &160608992
 Mesh:
   m_ObjectHideFlags: 0
@@ -1824,6 +2392,343 @@ MonoBehaviour:
         StateOnSkip: 1
         SetStateOnPlayerComplete: 1
         StateOnPlayerComplete: 1
+--- !u!1 &212607550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 212607551}
+  - component: {fileID: 212607552}
+  m_Layer: 0
+  m_Name: 1 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &212607551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212607550}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.4732826, y: 0, z: 1.618321}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1319739557}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &212607552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212607550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.15045428, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
+--- !u!1 &218047209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 218047210}
+  m_Layer: 0
+  m_Name: 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &218047210
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218047209}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1822781783}
+  - {fileID: 896549684}
+  m_Father: {fileID: 114676231}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &258857665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 258857666}
+  - component: {fileID: 258857667}
+  m_Layer: 0
+  m_Name: 1 (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &258857666
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258857665}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.1374083, y: 0, z: -1.5877855}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1319739557}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &258857667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258857665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.15045428, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
+--- !u!1 &278464886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 278464887}
+  - component: {fileID: 278464888}
+  m_Layer: 0
+  m_Name: 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &278464887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278464886}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.0447025, y: 0, z: 2.5898097}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1260413218}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &278464888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278464886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.15045428, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
+--- !u!1 &327711962
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 327711963}
+  - component: {fileID: 327711964}
+  m_Layer: 0
+  m_Name: 1 (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &327711963
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327711962}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.2900763, y: 0, z: -1.8625944}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 454501442}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &327711964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327711962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.028106213, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -2633,6 +3538,41 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1048739628031952385, guid: b1fa35733e2a1a7478dd87d86b876a5f, type: 3}
   m_PrefabInstance: {fileID: 446776653}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &454501441
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 454501442}
+  m_Layer: 0
+  m_Name: 4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &454501442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454501441}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1269432131}
+  - {fileID: 722078970}
+  - {fileID: 1724925906}
+  - {fileID: 327711963}
+  m_Father: {fileID: 114676231}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &459956988
 GameObject:
   m_ObjectHideFlags: 0
@@ -5103,11 +6043,273 @@ MonoBehaviour:
         RemapOne: 1
         InstantAlpha: 1
         DestinationAlpha: 0
+--- !u!1 &575346089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 575346090}
+  m_Layer: 0
+  m_Name: 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &575346090
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575346089}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 14421216}
+  - {fileID: 67870964}
+  - {fileID: 2140997182}
+  m_Father: {fileID: 114676231}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &583300738 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8948961942402484085, guid: 0cb8df8be3fcb7841bd8e78f98f403e5, type: 3}
   m_PrefabInstance: {fileID: 379607338}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &600317510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 600317511}
+  - component: {fileID: 600317512}
+  m_Layer: 0
+  m_Name: 1 (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &600317511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600317510}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.3184471, y: 0, z: -0.1794064}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1319739557}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &600317512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600317510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.15045428, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
+--- !u!1 &609589245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 609589246}
+  - component: {fileID: 609589247}
+  m_Layer: 0
+  m_Name: 1 (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &609589246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609589245}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.0305343, y: 0, z: -0.122136354}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1319739557}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &609589247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609589245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.15045428, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
+--- !u!1 &611000796
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 611000797}
+  - component: {fileID: 611000798}
+  m_Layer: 0
+  m_Name: 1 (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &611000797
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611000796}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.44527483, y: 0, z: 0.27454543}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 103603712}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &611000798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611000796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.028106213, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
 --- !u!1 &623425191
 GameObject:
   m_ObjectHideFlags: 0
@@ -5153,6 +6355,82 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugPanel: 0
+--- !u!1 &722078969
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 722078970}
+  - component: {fileID: 722078971}
+  m_Layer: 0
+  m_Name: 1 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &722078970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722078969}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.4732826, y: 0, z: 1.618321}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 454501442}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &722078971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722078969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.028106213, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
 --- !u!1 &743043772
 GameObject:
   m_ObjectHideFlags: 0
@@ -5207,6 +6485,234 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &795300082
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 795300083}
+  - component: {fileID: 795300084}
+  m_Layer: 0
+  m_Name: 1 (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &795300083
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795300082}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.5550449, y: 0, z: -0.1003468}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1260413218}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &795300084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795300082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.15045428, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
+--- !u!1 &796115042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 796115043}
+  - component: {fileID: 796115044}
+  m_Layer: 0
+  m_Name: 1 (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &796115043
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796115042}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.4885473, y: 0, z: -0.061068773}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 59240}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &796115044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796115042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.15045428, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
+--- !u!1 &805476786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 805476787}
+  - component: {fileID: 805476788}
+  m_Layer: 0
+  m_Name: 1 (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &805476787
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805476786}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.1374083, y: 0, z: -1.5877855}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 59240}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &805476788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805476786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.15045428, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
 --- !u!1 &818579713
 GameObject:
   m_ObjectHideFlags: 0
@@ -5500,6 +7006,82 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &867017699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 867017700}
+  - component: {fileID: 867017701}
+  m_Layer: 0
+  m_Name: 1 (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &867017700
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867017699}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.6620744, y: 0, z: -2.007758}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 59240}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &867017701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867017699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.15045428, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
 --- !u!1 &885556951
 GameObject:
   m_ObjectHideFlags: 0
@@ -5575,6 +7157,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885556951}
   m_CullTransparentMesh: 1
+--- !u!1 &896549683
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 896549684}
+  - component: {fileID: 896549685}
+  m_Layer: 0
+  m_Name: 1 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &896549684
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896549683}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.137401, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 218047210}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &896549685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896549683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.028106213, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
 --- !u!1 &910884317
 GameObject:
   m_ObjectHideFlags: 0
@@ -5762,6 +7420,82 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &966991378
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 966991379}
+  - component: {fileID: 966991380}
+  m_Layer: 0
+  m_Name: 1 (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &966991379
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966991378}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.4885473, y: 0, z: -0.061068773}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1260413218}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &966991380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966991378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.15045428, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
 --- !u!43 &998492518
 Mesh:
   m_ObjectHideFlags: 0
@@ -5940,6 +7674,82 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &1019781502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1019781503}
+  - component: {fileID: 1019781504}
+  m_Layer: 0
+  m_Name: 1 (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1019781503
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019781502}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.0231824, y: 0, z: -1.9188888}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 103603712}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1019781504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019781502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.028106213, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
 --- !u!1 &1022730100 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2334794542258643826, guid: 765c224e0c67ae04b94c78f36ef48996, type: 3}
@@ -6056,6 +7866,38 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f3cdd463c2263c44b1cfc1aa04575d9, type: 3}
+--- !u!1 &1094530230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1094530231}
+  m_Layer: 0
+  m_Name: 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1094530231
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094530230}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1994627203}
+  m_Father: {fileID: 114676231}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1105735247
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6190,6 +8032,82 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3395295625856557164, guid: fc61986e67072954387eecc42cbab559, type: 3}
   m_PrefabInstance: {fileID: 1105735247}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1109633632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1109633633}
+  - component: {fileID: 1109633634}
+  m_Layer: 0
+  m_Name: 1 (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1109633633
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109633632}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.0305343, y: 0, z: -0.122136354}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 59240}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1109633634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109633632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.15045428, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
 --- !u!1 &1114163131
 GameObject:
   m_ObjectHideFlags: 0
@@ -6896,6 +8814,159 @@ MonoBehaviour:
         StateOnSkip: 1
         SetStateOnPlayerComplete: 1
         StateOnPlayerComplete: 1
+--- !u!1 &1260413217
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1260413218}
+  m_Layer: 0
+  m_Name: 8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1260413218
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260413217}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 278464887}
+  - {fileID: 2005207464}
+  - {fileID: 1459080934}
+  - {fileID: 2015656157}
+  - {fileID: 1834042693}
+  - {fileID: 966991379}
+  - {fileID: 2115636474}
+  - {fileID: 795300083}
+  m_Father: {fileID: 114676231}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1269432130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1269432131}
+  - component: {fileID: 1269432132}
+  m_Layer: 0
+  m_Name: 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1269432131
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269432130}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.045805, y: 0, z: 1.4351151}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 454501442}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1269432132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269432130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.028106213, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
+--- !u!1 &1319739556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1319739557}
+  m_Layer: 0
+  m_Name: 7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1319739557
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319739556}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 80651818}
+  - {fileID: 212607551}
+  - {fileID: 258857666}
+  - {fileID: 1823789888}
+  - {fileID: 609589246}
+  - {fileID: 2095051690}
+  - {fileID: 600317511}
+  m_Father: {fileID: 114676231}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1321664586
 GameObject:
   m_ObjectHideFlags: 0
@@ -7474,6 +9545,82 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!1 &1459080933
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1459080934}
+  - component: {fileID: 1459080935}
+  m_Layer: 0
+  m_Name: 1 (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1459080934
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459080933}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.181107, y: 0, z: -2.2960422}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1260413218}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1459080935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459080933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.15045428, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
 --- !u!1 &1483322244
 GameObject:
   m_ObjectHideFlags: 0
@@ -7876,6 +10023,82 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc8b75148484ffdbf2f5b1af4cde0f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Modma::AG.Gameplay.Actions.ActionPlayer
+--- !u!1 &1584199154
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1584199155}
+  - component: {fileID: 1584199156}
+  m_Layer: 0
+  m_Name: 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1584199155
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584199154}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.045805, y: 0, z: 1.4351151}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 59240}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1584199156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584199154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.15045428, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
 --- !u!1 &1590220249
 GameObject:
   m_ObjectHideFlags: 0
@@ -8539,6 +10762,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1721012471}
   m_CullTransparentMesh: 1
+--- !u!1 &1724925905
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1724925906}
+  - component: {fileID: 1724925907}
+  m_Layer: 0
+  m_Name: 1 (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1724925906
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724925905}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.1374083, y: 0, z: -1.5877855}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 454501442}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1724925907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724925905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.028106213, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
 --- !u!1 &1753428631
 GameObject:
   m_ObjectHideFlags: 0
@@ -9155,6 +11454,158 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1964693516}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1822781782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1822781783}
+  - component: {fileID: 1822781784}
+  m_Layer: 0
+  m_Name: 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1822781783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822781782}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.1984735, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 218047210}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1822781784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822781782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.028106213, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
+--- !u!1 &1823789887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1823789888}
+  - component: {fileID: 1823789889}
+  m_Layer: 0
+  m_Name: 1 (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1823789888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823789887}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.6620744, y: 0, z: -2.007758}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1319739557}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1823789889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823789887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.15045428, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
 --- !u!1 &1827292322
 GameObject:
   m_ObjectHideFlags: 0
@@ -9209,6 +11660,82 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1834042692
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1834042693}
+  - component: {fileID: 1834042694}
+  m_Layer: 0
+  m_Name: 1 (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1834042693
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834042692}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.581145, y: 0, z: 0.09850097}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1260413218}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1834042694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834042692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.15045428, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
 --- !u!1 &1869925625
 GameObject:
   m_ObjectHideFlags: 0
@@ -9358,6 +11885,7 @@ Transform:
   m_Children:
   - {fileID: 1807076597}
   - {fileID: 1889394861}
+  - {fileID: 114676231}
   m_Father: {fileID: 1043605367}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1964693517
@@ -9457,6 +11985,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980705349}
   m_CullTransparentMesh: 1
+--- !u!1 &1994627202
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1994627203}
+  - component: {fileID: 1994627204}
+  m_Layer: 0
+  m_Name: 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1994627203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994627202}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.1984735, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1094530231}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1994627204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994627202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.028106213, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
 --- !u!1 &1996895703
 GameObject:
   m_ObjectHideFlags: 0
@@ -9488,6 +12092,158 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1043605367}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2005207463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2005207464}
+  - component: {fileID: 2005207465}
+  m_Layer: 0
+  m_Name: 1 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2005207464
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005207463}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.5885255, y: 0, z: 2.6570487}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1260413218}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2005207465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005207463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.15045428, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
+--- !u!1 &2015656156
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2015656157}
+  - component: {fileID: 2015656158}
+  m_Layer: 0
+  m_Name: 1 (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2015656157
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015656156}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.5661044, y: 0, z: -2.058336}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1260413218}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2015656158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015656156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.15045428, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
 --- !u!1 &2018556031
 GameObject:
   m_ObjectHideFlags: 0
@@ -9535,6 +12291,311 @@ MonoBehaviour:
   _charactersContainer: {fileID: 1533818356}
   _movementTargetsContainer: {fileID: 1677704839}
   _projectilesContainer: {fileID: 1996895704}
+  _spawnPointsContainer: {fileID: 114676231}
+--- !u!1 &2095051689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2095051690}
+  - component: {fileID: 2095051691}
+  m_Layer: 0
+  m_Name: 1 (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2095051690
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095051689}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.4885473, y: 0, z: -0.061068773}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1319739557}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2095051691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095051689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.15045428, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
+--- !u!1 &2115636473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2115636474}
+  - component: {fileID: 2115636475}
+  m_Layer: 0
+  m_Name: 1 (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2115636474
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115636473}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7799864, y: 0, z: -0.13135552}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1260413218}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2115636475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115636473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.15045428, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
+--- !u!1 &2132168754
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2132168755}
+  - component: {fileID: 2132168756}
+  m_Layer: 0
+  m_Name: 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2132168755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132168754}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.6716478, y: 0, z: 2.2262652}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 103603712}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2132168756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132168754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.028106213, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
+--- !u!1 &2140997181
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2140997182}
+  - component: {fileID: 2140997183}
+  m_Layer: 0
+  m_Name: 1 (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2140997182
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140997181}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.3511486, y: 0, z: -1.3740461}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 575346090}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2140997183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140997181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca21bfff9408f44bf12916ef8f4363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMGizmo
+  DisplayGizmo: 1
+  GizmoType: 2
+  DisplayMode: 1
+  GizmoColor: {r: 0, g: 0.028106213, b: 1, a: 1}
+  PositionMode: 0
+  PositionTexture: {fileID: 0}
+  TextureSize: {x: 50, y: 50}
+  PositionSize: 0.5
+  ColliderRenderType: 0
+  ViewDistance: 1000
+  GizmoOffset: {x: 0, y: 0, z: 0}
+  LockX: 0
+  LockedX: 0
+  LockY: 0
+  LockedY: 0
+  LockZ: 0
+  LockedZ: 0
+  DisplayText: 0
+  TextMode: 0
+  TextToDisplay: Some Text
+  TextOffset: {x: 0, y: 0.5, z: 0}
+  TextFontStyle: 0
+  TextSize: 12
+  TextColor: {r: 1, g: 0.76862746, b: 0, a: 1}
+  TextBackgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+  TextPadding: {x: 5, y: 0, z: 5, w: 0}
+  TextMaxDistance: 14
+  TargetProperty:
+    TargetObject: {fileID: 0}
+    TargetComponent: {fileID: 0}
+    TargetScriptableObject: {fileID: 0}
+    TargetPropertyName: 
 --- !u!1001 &2420518986246355946
 PrefabInstance:
   m_ObjectHideFlags: 0

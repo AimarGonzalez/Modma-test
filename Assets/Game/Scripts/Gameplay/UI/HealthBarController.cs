@@ -15,10 +15,8 @@ namespace AG.Gameplay.UI
 {
 	public class HealthBarController : SubComponent, IPooledComponent
 	{
-		
-		
 		[Header("UI References")]
-		[SerializeField, Required] private TextMeshProUGUI _text;
+		[SerializeField] private TextMeshProUGUI _text;
 		[Tooltip("The UI Image component that represents the health bar fill")]
 		[SerializeField, Required] private Image _healthBarFill;
 
@@ -120,7 +118,10 @@ namespace AG.Gameplay.UI
 
 		private void UpdateFillRatio()
 		{
-			_text.text = _character.Health.ToString("F0");
+			if (_text)
+			{
+				_text.text = _character.Health.ToString("F0");
+			}
 			_progressBar.Value = _character.Health / _character.MaxHealth;
 		}
 

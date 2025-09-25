@@ -1,0 +1,93 @@
+﻿using AG.Gameplay.Characters;
+using AG.Gameplay.Combat;
+using AG.Gameplay.Systems;
+using AG.Gameplay.Characters.Data;
+using Modma.Game.Scripts.Gameplay.Projectiles;
+using SharedLib.ExtensionMethods;
+using System.Collections.Generic;
+using UnityEngine;
+using VContainer;
+
+namespace Modma.Game.Scripts.Gameplay.Levels
+{
+	public class LevelController : MonoBehaviour
+	{
+		[SerializeField]
+		private LevelDefinitionSO _levelDefinition;
+
+		[SerializeField]
+		private float _spawnInterval = 0.3f;
+
+		[Inject] private ArenaWorld _arenaWorld;
+		[Inject] private ApplicationEvents _applicationEvents;
+		[Inject] private CharactersFactory _charactersFactory;
+
+		// ------------- Private fields -------------
+		private int _currentWaveIndex = 0;
+
+		public void StartLevel()
+		{
+			SpawnNextWave();
+		}
+
+
+		private void SpawnNextWave()
+		{
+			Transform[] spawnPointSet = GetNextSpawnPointSet();
+			if (spawnPointSet == null)
+			{
+				LevelFinished();
+			}
+			else
+			{
+				StartWave(spawnPointSet).RunAsync();
+			}
+		}
+
+		public Transform[] GetNextSpawnPointSet()
+		{
+			Transform[] spawnPointSet = null;
+			while (_currentWaveIndex < _levelDefinition.Waves.Length)
+			{
+				LevelDefinitionSO.Wave wave = _levelDefinition.Waves[_currentWaveIndex];
+				spawnPointSet = _arenaWorld.GetSpawnPoints(wave.CharacterDefinitions.Length);
+				if (spawnPointSet != null)
+				{
+					return spawnPointSet;
+				}
+				else
+				{
+					_currentWaveIndex++;
+				}
+			}
+
+			return spawnPointSet;
+		}
+
+		private async Awaitable StartWave(Transform[] spawnPointSet)
+		{
+			List<Character> newCharacters = new();
+			LevelDefinitionSO.Wave wave = _levelDefinition.Waves[_currentWaveIndex];
+			for (int i = 0; i < wave.CharacterDefinitions.Length; i++)
+			{
+				CharacterDefinitionSO characterDefinition = wave.CharacterDefinitions[i];
+				Transform spawnPoint = spawnPointSet[i];
+				Character character = _charactersFactory.BuildCharacter(characterDefinition.Prefab, spawnPoint.position, spawnPoint.rotation, active: false);
+				newCharacters.Add(character);
+			}
+
+			// Spawn characters in sequence, spaced x seconds apart using awaiters
+			foreach (Character character in newCharacters)
+			{
+				await Awaitable.WaitForSecondsAsync(_spawnInterval);
+				character.gameObject.SetActive(true);
+				character.Spawn();
+			}
+		}
+
+		private void LevelFinished()
+		{
+			_applicationEvents.TriggerLevelFinished();
+		}
+	}
+}

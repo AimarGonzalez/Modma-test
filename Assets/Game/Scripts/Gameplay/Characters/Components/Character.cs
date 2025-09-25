@@ -156,6 +156,11 @@ namespace AG.Gameplay.Characters
 		void IPooledComponent.OnDestroyFromPool()
 		{
 		}
+
+		public void ReleaseToPool()
+		{
+			Root.Get<PooledGameObject>().ReleaseToPool();
+		}
 		
 		// ------- Unity events -------------------
 
