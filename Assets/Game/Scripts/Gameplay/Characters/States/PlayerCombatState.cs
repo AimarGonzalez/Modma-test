@@ -68,7 +68,7 @@ namespace AG.Gameplay.Characters.Components
 		private PlayerAnimations _playerAnimations;
 
 		// ------------- Dependencies -------------
-		[Inject] private ArenaWorld _world;
+		[Inject] private GameplayWorld _world;
 		[Inject] private ArenaEvents _arenaEvents;
 
 		protected void Awake()

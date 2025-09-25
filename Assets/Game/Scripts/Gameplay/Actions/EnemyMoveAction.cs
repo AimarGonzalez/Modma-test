@@ -1,12 +1,12 @@
+using AG.Gameplay.Combat;
 using MoreMountains.Feedbacks;
 using Sirenix.OdinInspector;
-using Unity.AI.Navigation;
 using UnityEngine;
-using UnityEngine.AI;
+using VContainer;
 
 namespace AG.Gameplay.Actions
 {
-	public class MoveAction : BaseAction
+	public class EnemyMoveAction : BaseAction
 	{
 		//----- Inspector fields -------------------
 
@@ -17,18 +17,15 @@ namespace AG.Gameplay.Actions
 		[SerializeField, InlineEditor, Required]
 		private MMF_Player _feedback;
 
-
 		[SerializeField, Required]
 		private Transform _moveTarget;
-
-		[SerializeField, Required]
-		private MeshRenderer _walkableArea;
 
 		[SerializeField, Min(0.001f)]
 		[FoldoutGroup("Advanced")]
 		private float _feedbackSpeedMultiplier = 1f;
 
-		//----- Components ----------------
+		//----- Dependencies ----------------
+		[Inject] private GameplayWorld _gameplayWorld;
 
 
 		protected override void Awake()
@@ -91,10 +88,11 @@ namespace AG.Gameplay.Actions
 		{
 			//New position is a random position inside the walkable area
 			Vector3 randomPosition;
+			MeshRenderer walkableArea = _gameplayWorld.WalkableArea;
 
 			randomPosition.y = RootTransform.position.y;
-			randomPosition.z = Random.Range(_walkableArea.bounds.min.z, _walkableArea.bounds.max.z);
-			randomPosition.x = Random.Range(_walkableArea.bounds.min.x, _walkableArea.bounds.max.x);
+			randomPosition.z = Random.Range(walkableArea.bounds.min.z, walkableArea.bounds.max.z);
+			randomPosition.x = Random.Range(walkableArea.bounds.min.x, walkableArea.bounds.max.x);
 
 			Vector3 direction = (randomPosition - RootTransform.position).normalized;
 			randomPosition = RootTransform.position + direction * _distance;

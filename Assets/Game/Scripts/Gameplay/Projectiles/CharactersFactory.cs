@@ -12,7 +12,7 @@ namespace Modma.Game.Scripts.Gameplay.Projectiles
 		// ------------ Dependencies ----------------
 
 		[Inject] private GameObjectPoolService _poolService;
-		[Inject] private ArenaWorld _arenaWorld;
+		[Inject] private GameplayWorld _gameplayWorld;
 		
 		// ------------ Private fields ----------------
 
@@ -20,7 +20,7 @@ namespace Modma.Game.Scripts.Gameplay.Projectiles
 		{
 			Character character = _poolService.Get<Character>(
 				prefab,
-				_arenaWorld.ProjectilesContainer,
+				_gameplayWorld.ProjectilesContainer,
 				active,
 				position,
 				rotation,

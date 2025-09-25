@@ -31,7 +31,7 @@ namespace AG.Gameplay.Systems
 				components.AddInHierarchy<ApplicationFlow>();
 				components.AddInHierarchy<ApplicationView>();
 				components.AddInHierarchy<GameSettings>();
-				components.AddInHierarchy<ArenaWorld>();
+				components.AddInHierarchy<GameplayWorld>();
 				components.AddInHierarchy<GameObjectPoolService>();
 				components.AddInHierarchy<UIProvider>();
 				components.AddInHierarchy<ProjectileFactory>();

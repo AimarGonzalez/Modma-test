@@ -14,7 +14,7 @@ namespace Modma.Game.Scripts.Gameplay.Projectiles
 	{
 
 		//----- Dependencies ----------------
-		[Inject] private ArenaWorld _arenaWorld;
+		[Inject] private GameplayWorld _gameplayWorld;
 		[Inject] private GameSettings _gameSettings;
 
 

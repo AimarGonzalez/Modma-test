@@ -9,7 +9,7 @@ using VContainer;
 namespace AG.Gameplay.Combat
 {
 	[DefaultExecutionOrder(-4000)]
-	public class ArenaWorld : MonoBehaviour
+	public class GameplayWorld : MonoBehaviour
 	{
 
 		//----- Inspector fields ----------------
@@ -24,6 +24,9 @@ namespace AG.Gameplay.Combat
 
 		[SerializeField, Required]
 		private Transform _spawnPointsContainer;
+		
+		[SerializeField, Required]
+		private MeshRenderer _walkableArea;
 
 		//----- Dependencies ----------------
 
@@ -34,6 +37,7 @@ namespace AG.Gameplay.Combat
 		public Transform ProjectilesContainer => _projectilesContainer;
 		public Character Player => _player;
 		public List<Character> Enemies => _enemies;
+		public MeshRenderer WalkableArea => _walkableArea;
 
 		// -------- Private fields
 		private Character _player;

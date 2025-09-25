@@ -12,7 +12,7 @@ namespace AG.Gameplay.Combat
 
 		// ------------- Dependencies -------------
 
-		[Inject] private ArenaWorld _world;
+		[Inject] private GameplayWorld _world;
 
 		// ------------- Private fields -------------
 		private float _currentTime;

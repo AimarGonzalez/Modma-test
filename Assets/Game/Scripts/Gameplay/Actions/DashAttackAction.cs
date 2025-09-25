@@ -43,7 +43,7 @@ namespace AG.Gameplay.Actions
 		private Character _character;
 
 		//----- Dependencies ----------------
-		[Inject] private ArenaWorld _arenaWorld;
+		[Inject] private GameplayWorld _gameplayWorld;
 
 		protected override void Awake()
 		{
@@ -120,7 +120,7 @@ namespace AG.Gameplay.Actions
 		private Vector3 GetNewPosition()
 		{
 			//New position is in the direction of the Player
-			Vector3 direction = (_arenaWorld.Player.RootTransform.position - RootTransform.position).normalized;
+			Vector3 direction = (_gameplayWorld.Player.RootTransform.position - RootTransform.position).normalized;
 			Vector3 targetPosition = RootTransform.position + direction * _distance;
 
 			return targetPosition;

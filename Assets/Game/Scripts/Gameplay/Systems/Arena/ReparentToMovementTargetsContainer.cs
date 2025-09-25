@@ -9,7 +9,7 @@ namespace AG.Gameplay.Systems.Arena
 	{
 		// ------------ Dependencies ----------------
 		[Inject]
-		private ArenaWorld _arenaWorld;
+		private GameplayWorld _gameplayWorld;
 
 		// ------------ Private fields ----------------
 		private Transform _movementTargetsContainer;
@@ -22,7 +22,7 @@ namespace AG.Gameplay.Systems.Arena
 
 		private void FetchDependencies()
 		{
-			_movementTargetsContainer ??= _arenaWorld.MovementTargetsContainer;
+			_movementTargetsContainer ??= _gameplayWorld.MovementTargetsContainer;
 			_originalParent ??= transform.parent;
 		}
 

@@ -18,7 +18,7 @@ namespace Modma.Game.Scripts.Gameplay.Levels
 		[SerializeField]
 		private float _spawnInterval = 0.3f;
 
-		[Inject] private ArenaWorld _arenaWorld;
+		[Inject] private GameplayWorld _gameplayWorld;
 		[Inject] private ApplicationEvents _applicationEvents;
 		[Inject] private CharactersFactory _charactersFactory;
 
@@ -50,7 +50,7 @@ namespace Modma.Game.Scripts.Gameplay.Levels
 			while (_currentWaveIndex < _levelDefinition.Waves.Length)
 			{
 				LevelDefinitionSO.Wave wave = _levelDefinition.Waves[_currentWaveIndex];
-				spawnPointSet = _arenaWorld.GetSpawnPoints(wave.CharacterDefinitions.Length);
+				spawnPointSet = _gameplayWorld.GetSpawnPoints(wave.CharacterDefinitions.Length);
 				if (spawnPointSet != null)
 				{
 					return spawnPointSet;

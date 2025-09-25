@@ -26,7 +26,7 @@ namespace AG.Gameplay.Combat
 	public class ApplicationFlow : MonoBehaviour, IGUIDrawer
 	{
 		// ------------- Dependencies -------------
-		[Inject] private ArenaWorld _arenaWorld;
+		[Inject] private GameplayWorld _gameplayWorld;
 		[Inject] private ApplicationEvents _appEvents;
 		[Inject] private ApplicationView _appView;
 		[Inject] private TimeController _timeController;
