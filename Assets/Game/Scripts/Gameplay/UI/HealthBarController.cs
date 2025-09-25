@@ -1,90 +1,77 @@
-using AG.Core.UI;
+using AG.Core.Pool;
 using AG.Gameplay.Characters;
 using AG.Gameplay.Settings;
+using InspectorGadgets.Attributes;
 using SharedLib.ComponentCache;
 using SharedLib.ExtensionMethods;
-using Sirenix.OdinInspector;
+using SharedLib.StateMachines;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using VContainer;
 
-
 namespace AG.Gameplay.UI
 {
-	public class HealthBarController : SubComponent
+	public class HealthBarController : SubComponent, IPooledComponent
 	{
+		
+		
 		[Header("UI References")]
+		[SerializeField, Required] private TextMeshProUGUI _text;
 		[Tooltip("The UI Image component that represents the health bar fill")]
-		[SerializeField] private Image _healthBarFill;
+		[SerializeField, Required] private Image _healthBarFill;
 
 		[Tooltip("The UI Image component that represents the health bar frame")]
-		[SerializeField] private Image _healthBarFrame;
+		[SerializeField, Required] private Image _healthBarFrame;
+		[SerializeField, Required] private List<StateId> _visibleStateIds;
 
-		[BoxGroup(DebugUI.Group), PropertyOrder(DebugUI.Order)]
-		[SerializeField] private Team _team = Team.Player;
-
-		[BoxGroup(DebugUI.Group), PropertyOrder(DebugUI.Order)]
-		[Range(0f, 1f)]
-		[SerializeField] private float _healthRatio = 1f;
+		// ------------- Components -------------
+		private ProgressBar _progressBar;
 
 		// ------------- Dependencies -------------
 
 		[Inject]
 		private GameSettings _gameSettings;
-		private UISettings UISettings => _gameSettings.UISettings;
-		private Character _character;
 
 		// ------------- Private fields -------------
 
+		private UISettings _uiSettings;
+		private Character _character;
 		private float _lastHealth;
 
-		private void Awake()
+
+		public void OnBeforeGetFromPool()
 		{
+			_progressBar = Root.Get<ProgressBar>();
 			_character = Root.Get<Character>();
+			
+			_uiSettings = _gameSettings.UISettings;
 		}
 
-		private void OnEnable()
-		{
-			_character.OnHealthChanged += OnHealthChanged;
-		}
-		
-		private void OnDisable()
-		{
-			_character.OnHealthChanged -= OnHealthChanged;
-		}
-
-		private void Start()
+		public void OnAfterGetFromPool()
 		{
 			UpdateView();
+
+			_character.OnHealthChanged += OnHealthChanged;
+			_character.OnStateChanged += OnStateChanged;
+		}
+
+		public void OnReturnToPool()
+		{
+			_character.OnHealthChanged -= OnHealthChanged;
+			_character.OnStateChanged -= OnStateChanged;
+		}
+
+		public void OnDestroyFromPool()
+		{
 		}
 
 		private void UpdateView()
 		{
 			UpdateColor();
 			UpdateFillRatio();
-		}
-
-		void OnValidate()
-		{
-			// PATCH: Obort. GameSettings.Instance can't be obtained if the scene is not loaded.
-			// TODO: I need a reliable way to load the settings at any moment.
-			if (!gameObject.scene.isLoaded)
-			{
-				return;
-			}
-
-			SetColor(_team);
-			SetFillRatio(_healthRatio);
-		}
-
-		private void Update()
-		{
-
-			if (!_character.Health.IsAlmostEqual(_lastHealth))
-			{
-				UpdateFillRatio();
-				PlayHighlightEffect();
-			}
+			UpdateVisibility();
 		}
 
 		private void OnHealthChanged(float prevHealth, float newHealth)
@@ -95,7 +82,13 @@ namespace AG.Gameplay.UI
 			}
 
 			UpdateFillRatio();
-			PlayHighlightEffect();
+
+			// play vfx
+		}
+		
+		private void OnStateChanged(StateId prevState, StateId newState)
+		{
+			UpdateVisibility();
 		}
 
 		private void UpdateColor()
@@ -113,11 +106,11 @@ namespace AG.Gameplay.UI
 			UISettings.HealthBarColors healthBarColors;
 			if (team == Team.Enemy)
 			{
-				healthBarColors = UISettings.EnemyHealthBarColors;
+				healthBarColors = _uiSettings.EnemyHealthBarColors;
 			}
 			else
 			{
-				healthBarColors = UISettings.AllyHealthBarColors;
+				healthBarColors = _uiSettings.AllyHealthBarColors;
 			}
 
 			_healthBarFrame.color = healthBarColors.FrameColor;
@@ -127,25 +120,13 @@ namespace AG.Gameplay.UI
 
 		private void UpdateFillRatio()
 		{
-			if (_character == null)
-			{
-				return;
-			}
-
-			SetFillRatio(_character.Health / _character.MaxHealth);
-
-			_lastHealth = _character.Health;
+			_text.text = _character.Health.ToString("F0");
+			_progressBar.Value = _character.Health / _character.MaxHealth;
 		}
 
-		private void SetFillRatio(float healthRatio)
+		private void UpdateVisibility()
 		{
-			_healthBarFill.fillAmount = healthRatio;
-		}
-
-
-		private void PlayHighlightEffect()
-		{
-			// TODO: Implement highlight effect
+			gameObject.SetActive(_visibleStateIds.Contains(_character.StateId));
 		}
 	}
 }

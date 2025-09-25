@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: UISettings
   m_EditorClassIdentifier: 
   _allyHealthBarColors:
-    BarColor: {r: 0.34509805, g: 0.70980394, b: 0.8470589, a: 1}
-    FrameColor: {r: 0.16078432, g: 0.30980393, b: 0.61960787, a: 1}
+    BarColor: {r: 0.044615235, g: 0.69182384, b: 0.015228712, a: 1}
+    FrameColor: {r: 0.0012459746, g: 0.13207549, b: 0.009781592, a: 1}
   _enemyHealthBarColors:
-    BarColor: {r: 0.909804, g: 0.227451, b: 0.2784314, a: 1}
-    FrameColor: {r: 0.4039216, g: 0, b: 0, a: 1}
+    BarColor: {r: 0.754717, g: 0, b: 0, a: 1}
+    FrameColor: {r: 0.16981131, g: 0, b: 0, a: 1}
