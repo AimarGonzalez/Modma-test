@@ -2,6 +2,7 @@ using AG.Gameplay.Characters;
 using AG.Gameplay.Characters.Components;
 using Animancer;
 using AG.Gameplay.Cards.CardStats;
+using AG.Gameplay.Characters.MonoBehaviours.BodyLocations;
 using Modma.Game.Scripts.Gameplay.Projectiles;
 using NUnit.Framework;
 using SharedLib.ExtensionMethods;
@@ -22,6 +23,7 @@ namespace AG.Gameplay.Actions
 		private AnimancerComponent _animancer;
 		private PlayerAnimations _playerAnimations;
 		private Character _character;
+		private Transform _projectileSourceLocation;
 
 		// ------------- Dependencies -------------
 		[Inject] private ProjectileFactory _projectileFactory;
@@ -35,6 +37,7 @@ namespace AG.Gameplay.Actions
 			_playerAnimations = Root.Get<PlayerAnimations>();
 			_animancer = Root.Get<AnimancerComponent>();
 			_character = Root.Get<Character>();
+			_projectileSourceLocation = Root.Get<ProjectileSourceLocation>().transform;
 		}
 
 		protected override void DoStartAction(object parameters)
@@ -61,9 +64,9 @@ namespace AG.Gameplay.Actions
 
 		private void OnShoot()
 		{
-			Vector3 direction = _character.RootTransform.FlatDirection(_attackTarget.RootTransform);
 			
-			ProjectileController projectile = _projectileFactory.BuildProjectile(_character, _projectileStats.ProjectilePrefab);
+			ProjectileController projectile = _projectileFactory.BuildProjectile(_projectileSourceLocation, _projectileStats.ProjectilePrefab);
+			Vector3 direction = _projectileSourceLocation.FlatDirection(_attackTarget.RootTransform);
 			projectile.Initialize(_character, direction, _projectileStats);
 
 			//TODO

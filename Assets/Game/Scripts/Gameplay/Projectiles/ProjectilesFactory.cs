@@ -17,9 +17,8 @@ namespace Modma.Game.Scripts.Gameplay.Projectiles
 		
 		// ------------ Private fields ----------------
 
-		public ProjectileController BuildProjectile(Character attacker, GameObject prefab)
+		public ProjectileController BuildProjectile(Transform sourceAnchor, GameObject prefab)
 		{
-			Transform sourceAnchor = attacker.Root.Get<ProjectileSourceLocation>().transform;
 			ProjectileController projectile = _poolService.Get<ProjectileController>(
 				prefab,
 				_arenaWorld.ProjectilesContainer,
