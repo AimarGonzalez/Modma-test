@@ -13,7 +13,7 @@ namespace AG.Gameplay.Characters.Components
 	{
 		// ------------- Inspector fields -------------
 	
-		[SerializeField, Required]
+		[SerializeField]
 		private MMF_Player _spawnningFeedbacks;
 
 		// ------------- Dependencies -------------
