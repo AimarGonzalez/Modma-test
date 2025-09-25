@@ -1,5 +1,6 @@
 using AG.Gameplay.Characters;
 using AG.Gameplay.Systems;
+using SharedLib.ExtensionMethods;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,7 +48,7 @@ namespace AG.Gameplay.Combat
 
 		private void Awake()
 		{
-			FetchEntities();
+			FetchEntitiesFromInitialScene();
 
 			CreateSpawnPointsCatalog();
 		}
@@ -60,16 +61,19 @@ namespace AG.Gameplay.Combat
 			}
 		}
 
-		private void FetchEntities()
+		private void FetchEntitiesFromInitialScene()
 		{
 			Character[] characters = _charactersContainer.GetComponentsInChildren<Character>(includeInactive: true);
 			_player = characters.FirstOrDefault(character => character.IsPlayer);
 			_enemies = characters.Where(character => character.IsEnemy).ToList();
 		}
 
-		public Character GetClosestEnemy(Vector3 position)
+		public Character GetBestAttackTarget(Vector3 position)
 		{
-			return _enemies.OrderBy(enemy => Vector3.Distance(enemy.RootTransform.position, position)).FirstOrDefault();
+			// Return the closest enemy that is in Combat state.
+			return _enemies.Where(enemy => enemy.IsFighting)
+							.OrderBy(enemy => enemy.RootTransform.position.DistanceSquared(position))
+							.FirstOrDefault();
 		}
 
 		public Transform[] GetSpawnPoints(int numSpawnPoints)
@@ -80,6 +84,19 @@ namespace AG.Gameplay.Combat
 			}
 
 			return null;
+		}
+
+		public void RegisterNewCharacter(Character character)
+		{
+			if (character.IsEnemy)
+			{
+				_enemies.Add(character);
+			}
+			else
+			{
+				// Another hero? we don't support that.
+				Debug.LogError($"Character {character.Name()} already exists!");
+			}
 		}
 	}
 }

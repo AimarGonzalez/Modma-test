@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SharedLib.ExtensionMethods;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -37,7 +38,7 @@ namespace SharedLib.StateMachines
 		{
 			if (!_statesMap.TryGetValue(stateId, out IState nextState))
 			{
-				Debug.LogError($"State {stateId} not found");
+				Debug.LogError($"State {stateId.Name()} not found");
 				return;
 			}
 

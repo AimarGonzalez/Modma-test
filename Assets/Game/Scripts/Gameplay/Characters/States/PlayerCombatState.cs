@@ -178,7 +178,7 @@ namespace AG.Gameplay.Characters.Components
 
 		private void UpdateTarget()
 		{
-			Character closestEnemy = _world.GetClosestEnemy(RootTransform.position);
+			Character closestEnemy = _world.GetBestAttackTarget(RootTransform.position);
 			SetTarget(closestEnemy);
 		}
 

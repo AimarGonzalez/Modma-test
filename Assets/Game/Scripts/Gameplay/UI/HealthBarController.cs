@@ -74,7 +74,7 @@ namespace AG.Gameplay.UI
 
 		private void OnHealthChanged(float prevHealth, float newHealth)
 		{
-			if (!_character.Health.IsAlmostEqual(_lastHealth))
+			if (_character.Health.IsAlmostEqual(_lastHealth))
 			{
 				return;
 			}

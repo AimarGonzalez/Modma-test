@@ -12343,7 +12343,7 @@ MonoBehaviour:
   _movementTargetsContainer: {fileID: 1677704839}
   _projectilesContainer: {fileID: 1996895704}
   _spawnPointsContainer: {fileID: 114676231}
-  _walkableArea: {fileID: 0}
+  _walkableArea: {fileID: 1807076594}
 --- !u!1 &2095051689
 GameObject:
   m_ObjectHideFlags: 0
@@ -12767,6 +12767,10 @@ PrefabInstance:
     - target: {fileID: 5130001715249122080, guid: 765c224e0c67ae04b94c78f36ef48996, type: 3}
       propertyPath: m_Name
       value: JoystickFollower
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744052931774475916, guid: 765c224e0c67ae04b94c78f36ef48996, type: 3}
+      propertyPath: _showDebugPanel
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9082364485053456091, guid: 765c224e0c67ae04b94c78f36ef48996, type: 3}
       propertyPath: m_Name

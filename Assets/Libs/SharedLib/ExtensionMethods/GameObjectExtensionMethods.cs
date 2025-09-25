@@ -73,5 +73,15 @@ namespace SharedLib.ExtensionMethods
 			}
 			return gameObject.AddComponent<T>();
 		}
+
+		public static string Name(this Component component)
+		{
+			return component?.gameObject.name ?? "null";
+		}
+
+		public static string Name(this Object obj)
+		{
+			return obj.name ?? "null";
+		}
 	}
 }

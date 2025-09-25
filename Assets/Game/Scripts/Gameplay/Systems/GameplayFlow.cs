@@ -48,13 +48,6 @@ namespace AG.Gameplay.Combat
 		public void StartBattle()
 		{
 			_isBattleActive = true;
-
-			_world.Player.Fight();
-
-			foreach (Character enemy in _world.Enemies)
-			{
-				enemy.Fight();
-			}
 		}
 
 		public void PauseBattle()

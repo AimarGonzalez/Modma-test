@@ -107,7 +107,6 @@ namespace AG.Gameplay.Characters
 		}
 
 		public float MaxHealth => _maxHealth;
-		public CharacterStatsSO CharacterStats => _characterStats;
 		
 		[BoxGroup("Instance")]
 		[ShowInInspector, HideInEditorMode]
@@ -214,6 +213,8 @@ namespace AG.Gameplay.Characters
 		{
 			SetState(_characterStates.CombatState);
 		}
+
+		public bool IsFighting => StateId == _characterStates.CombatState;
 
 		protected virtual void OnStateFinishedWithoutTransition(StateId finishedState)
 		{

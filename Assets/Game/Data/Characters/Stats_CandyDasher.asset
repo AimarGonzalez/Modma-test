@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Stats_CandyDasher
   m_EditorClassIdentifier: 
   _name: JumpingBox
-  _maxHealth: 100
+  _maxHealth: 300
   _movementSpeed: 5

@@ -3161,6 +3161,10 @@ PrefabInstance:
       value: 8731366364805857572
       objectReference: {fileID: 0}
     - target: {fileID: 8785804434831735779, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
+      propertyPath: _showDebugPanel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785804434831735779, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
       propertyPath: _characterStates.CombatState
       value: 
       objectReference: {fileID: 11400000, guid: 36187a2c5524c4644a1da2831f362a96, type: 2}

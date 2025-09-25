@@ -67,6 +67,29 @@ namespace AG.Gameplay.Levels
 		private async Awaitable StartWave(Transform[] spawnPointSet)
 		{
 			List<Character> newCharacters = new();
+			BuildCharacters(spawnPointSet, newCharacters);
+
+			// Play spawn animation
+			foreach (Character character in newCharacters)
+			{
+				await Awaitable.WaitForSecondsAsync(_spawnInterval);
+				character.gameObject.SetActive(true);
+				character.Spawn();
+			}
+			
+			await Awaitable.WaitForSecondsAsync(1);
+			
+			// Set combat state
+			foreach (Character character in newCharacters)
+			{
+				await Awaitable.WaitForSecondsAsync(_spawnInterval);
+				character.gameObject.SetActive(true);
+				character.Fight();
+			}
+		}
+
+		private void BuildCharacters(Transform[] spawnPointSet, List<Character> newCharacters)
+		{
 			LevelDefinitionSO.Wave wave = _levelDefinition.Waves[_currentWaveIndex];
 			for (int i = 0; i < wave.CharacterDefinitions.Length; i++)
 			{
@@ -74,14 +97,6 @@ namespace AG.Gameplay.Levels
 				Transform spawnPoint = spawnPointSet[i];
 				Character character = _charactersFactory.BuildCharacter(characterDefinition.Prefab, spawnPoint.position, spawnPoint.rotation, active: false);
 				newCharacters.Add(character);
-			}
-
-			// Spawn characters in sequence, spaced x seconds apart using awaiters
-			foreach (Character character in newCharacters)
-			{
-				await Awaitable.WaitForSecondsAsync(_spawnInterval);
-				character.gameObject.SetActive(true);
-				character.Spawn();
 			}
 		}
 

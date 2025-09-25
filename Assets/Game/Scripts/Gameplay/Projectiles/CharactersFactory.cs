@@ -26,6 +26,9 @@ namespace AG.Gameplay.Projectiles
 				rotation,
 				inWorldSpace: true
 			);
+			
+			_gameplayWorld.RegisterNewCharacter(character);
+			
 			return character;
 		}
 	}
