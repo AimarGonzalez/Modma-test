@@ -32,6 +32,7 @@ namespace AG.Gameplay.Levels
 		{
 			_arenaEvents.OnCharacterRemoved += OnCharacterRemovedHandler;
 
+			_currentWaveIndex = -1;
 			SpawnNextWave();
 		}
 
