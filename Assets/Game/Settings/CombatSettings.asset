@@ -12,17 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5762265297845dc8288bb0ca10d03b7, type: 3}
   m_Name: CombatSettings
   m_EditorClassIdentifier: 
-  _projectileTargetLayers:
-  - TargetLayer:
-      serializedVersion: 2
-      m_Bits: 1024
-    Team: 0
-  - TargetLayer:
-      serializedVersion: 2
-      m_Bits: 512
-    Team: 1
   _wallsLayer:
     serializedVersion: 2
     m_Bits: 8
+  _characterLayers:
+    serializedVersion: 2
+    m_Bits: 192
+  _projectileDamageLayers:
+  - Team: 0
+    DamageLayer: DamageForEnemy
+  - Team: 1
+    DamageLayer: DamageForPlayer
   _vfxSettings:
     _hitVFX: {fileID: 2538506113845390313, guid: f803f89b9aa766043a6345c90a152ffa, type: 3}

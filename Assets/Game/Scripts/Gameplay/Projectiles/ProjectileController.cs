@@ -21,6 +21,7 @@ namespace Modma.Game.Scripts.Gameplay.Projectiles
 		//----- Components ----------------
 		private PooledGameObject _pooledGameObject;
 		private ColliderListener _collisionListener;
+		private Rigidbody _rigidbody;
 
 
 		//----- Private fields ----------------
@@ -30,18 +31,20 @@ namespace Modma.Game.Scripts.Gameplay.Projectiles
 		private float _speed;
 		private Character _source;
 		private AttackStatsSO _projectileStats;
-		private LayerMask _projectileTargetLayer;
+		private int _projectileTargetLayer;
 		private LayerMask _wallsLayer;
+		private LayerMask _characterLayers;
 
 		public void OnEnable()
 		{
-			FetchDependencies();	
+			FetchDependencies();
 		}
 
 		private void FetchDependencies()
 		{
 			_pooledGameObject = Root.Get<PooledGameObject>();
 			_collisionListener = Root.Get<ColliderListener>();
+			_rigidbody = Root.Get<Rigidbody>();
 		}
 
 		public void Initialize(Character source, Vector3 direction, AttackStatsSO projectileStats)
@@ -50,27 +53,35 @@ namespace Modma.Game.Scripts.Gameplay.Projectiles
 			_direction = direction;
 			_direction.y = 0;
 			_direction.Normalize();
+			
 			_projectileStats = projectileStats;
 			
-			//Get collision layers
-			_projectileTargetLayer = _gameSettings.CombatSettingsSO.GetProjectileTargetLayer(_source.Team);
-			_wallsLayer = _gameSettings.CombatSettingsSO.WallsLayer;
+			_speed = projectileStats.ProjectileSpeed;
 			
+			//Get collision layers
+			_projectileTargetLayer = _gameSettings.CombatSettingsSO.GetProjectileDamageLayer(_source);
+			_wallsLayer = _gameSettings.CombatSettingsSO.WallsLayer;
+			_characterLayers = _gameSettings.CombatSettingsSO.CharacterLayers;
+
 			//Set direction
-			RootTransform.rotation = Quaternion.LookRotation(_direction);
+			_rigidbody.rotation = Quaternion.LookRotation(_direction);
 
 			//Listen to collisions
 			_collisionListener.OnTriggerEnterEvent += OnTriggerEnter;	
+			_collisionListener.OnCollisionEnterEvent += OnTriggerEnter;
+			_collisionListener.gameObject.layer = _projectileTargetLayer; // convert from layer mask to layer
 		}
 
 		public void OnDisable()
 		{
+			_collisionListener.OnCollisionEnterEvent -= OnTriggerEnter;
 			_collisionListener.OnTriggerEnterEvent -= OnTriggerEnter;
 		}
 
 		private void Update()
 		{
-			RootTransform.position += _direction * (_speed * Time.deltaTime);
+			Vector3 newPosition = _rigidbody.position + _direction * (_speed * Time.deltaTime);
+			_rigidbody.MovePosition(newPosition);
 		}
 
 		private void OnTriggerEnter(Collider other)
@@ -104,7 +115,7 @@ namespace Modma.Game.Scripts.Gameplay.Projectiles
 
 		private bool IsTargetCharacter(Collider other)
 		{
-			return _projectileTargetLayer.MMContains(other.gameObject);
+			return _characterLayers.MMContains(other.gameObject);
 		}
 	}
 }

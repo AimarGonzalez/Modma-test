@@ -17,5 +17,5 @@ MonoBehaviour:
   _attackSpeed: 1
   _attackRange: 100
   _areaDamageRadius: 0
-  _projectileSpeed: 500
+  _projectileSpeed: 10
   _projectilePrefab: {fileID: 2899531994943343621, guid: 4d92bceed558ed645940e7ec2ea7fdc0, type: 3}

@@ -10,13 +10,11 @@ namespace AG.Gameplay.Settings
 	[CreateAssetMenu(fileName = "CombatSettings", menuName = "AG/Settings/CombatSettings", order = ToolConstants.SettingsMenuOrder)]
 	public class CombatSettingsSO : ScriptableObject
 	{
-
 		[Serializable]
-		private class TeamTargetLayers
+		private class TeamDamageLayers
 		{
-			public LayerMask TargetLayer;
-
 			public Team Team;
+			public string DamageLayer;
 		}
 
 		[Serializable]
@@ -30,25 +28,31 @@ namespace AG.Gameplay.Settings
 
 		// ----- Inspector fields -----
 
-		[SerializeField]
-		private TeamTargetLayers[] _projectileTargetLayers;
-
-		[SerializeField]
-		private LayerMask _wallsLayer;
-
-		[SerializeField]
-		private VFXSettings _vfxSettings;
+		[SerializeField] private LayerMask _wallsLayer;
+		[SerializeField] private LayerMask _characterLayers;
+		[SerializeField] private TeamDamageLayers[] _projectileDamageLayers;
+		[SerializeField] private VFXSettings _vfxSettings;
 
 
 		// ----- Public getters -----
 		public LayerMask WallsLayer => _wallsLayer;
 
-		public LayerMask GetProjectileTargetLayer(Team team)
-		{
-			return _projectileTargetLayers.FirstOrDefault(x => x.Team == team)?.TargetLayer ?? 0;
-		}
+		public LayerMask CharacterLayers => _characterLayers;
 
+		public LayerMask GetProjectileDamageLayer(Character sourceCharacter)
+		{
+			return GetProjectileDamageLayer(sourceCharacter.Team);
+		}
 		
+		public int GetProjectileDamageLayer(Team sourceTeam)
+		{
+			string damageLayer = _projectileDamageLayers.FirstOrDefault(x => x.Team == sourceTeam)?.DamageLayer ?? string.Empty;
+			if (string.IsNullOrEmpty(damageLayer))
+			{
+				return 0;
+			}
+			return LayerMask.NameToLayer(damageLayer);
+		}
 
 
 		public VFXSettings VFX => _vfxSettings;
