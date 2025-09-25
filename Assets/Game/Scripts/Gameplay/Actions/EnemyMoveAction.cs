@@ -80,7 +80,7 @@ namespace AG.Gameplay.Actions
 
 		protected override void DoInterruptAction()
 		{
-			_feedback.StopFeedbacks();
+			_feedback.SkipToTheEnd();
 			DoOnActionFinished();
 		}
 
