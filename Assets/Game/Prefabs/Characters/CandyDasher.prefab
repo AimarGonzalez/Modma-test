@@ -553,7 +553,7 @@ MonoBehaviour:
   ChannelMode: 0
   Channel: 0
   MMChannelDefinition: {fileID: 0}
-  ShakeDuration: 0.5
+  ShakeDuration: 0.2
   PlayOnAwake: 0
   PermanentShake: 0
   Interruptible: 1
@@ -566,7 +566,7 @@ MonoBehaviour:
   Mode: 0
   TargetTransform: {fileID: 8625327097883169333}
   TargetRectTransform: {fileID: 0}
-  ShakeSpeed: 20
+  ShakeSpeed: 5
   ShakeRange: 0.5
   OscillationOffset: 0
   ShakeMainDirection: {x: 0, y: 1, z: 0}

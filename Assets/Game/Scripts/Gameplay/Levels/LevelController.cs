@@ -24,7 +24,8 @@ namespace AG.Gameplay.Levels
 		[Inject] private CharactersFactory _charactersFactory;
 
 		// ------------- Private fields -------------
-		private int _currentWaveIndex = 0;
+		private int _currentWaveIndex = -1;
+		private LevelDefinitionSO.Wave _currentWave;
 
 		public void StartLevel()
 		{
@@ -49,9 +50,20 @@ namespace AG.Gameplay.Levels
 
 		private void SpawnNextWave()
 		{
-			Transform[] spawnPointSet = GetNextSpawnPointSet();
+			_currentWaveIndex++;
+
+			if (_currentWaveIndex >= _levelDefinition.Waves.Length)
+			{
+				LevelComplete();
+				return;
+			}
+
+			_currentWave = _levelDefinition.Waves[_currentWaveIndex];
+
+			Transform[] spawnPointSet = _gameplayWorld.GetSpawnPoints(_currentWave.CharacterDefinitions.Length);
 			if (spawnPointSet == null)
 			{
+				Debug.LogError($"Layout error: No spawn points found for wave {_currentWaveIndex}. Level Complete.");
 				LevelComplete();
 			}
 			else
@@ -66,30 +78,9 @@ namespace AG.Gameplay.Levels
 			_applicationEvents.TriggerLevelComplete();
 		}
 
-		public Transform[] GetNextSpawnPointSet()
-		{
-			Transform[] spawnPointSet = null;
-			while (_currentWaveIndex < _levelDefinition.Waves.Length)
-			{
-				LevelDefinitionSO.Wave wave = _levelDefinition.Waves[_currentWaveIndex];
-				spawnPointSet = _gameplayWorld.GetSpawnPoints(wave.CharacterDefinitions.Length);
-				if (spawnPointSet != null)
-				{
-					return spawnPointSet;
-				}
-				else
-				{
-					_currentWaveIndex++;
-				}
-			}
-
-			return spawnPointSet;
-		}
-
 		private async Awaitable StartWave(Transform[] spawnPointSet)
 		{
-			List<Character> newCharacters = new();
-			BuildCharacters(spawnPointSet, newCharacters);
+			List<Character> newCharacters = BuildCharacters(spawnPointSet, _currentWave);
 
 			// Play spawn animation
 			foreach (Character character in newCharacters)
@@ -110,9 +101,9 @@ namespace AG.Gameplay.Levels
 			}
 		}
 
-		private void BuildCharacters(Transform[] spawnPointSet, List<Character> newCharacters)
+		private List<Character> BuildCharacters(Transform[] spawnPointSet, LevelDefinitionSO.Wave wave)
 		{
-			LevelDefinitionSO.Wave wave = _levelDefinition.Waves[_currentWaveIndex];
+			List<Character> newCharacters = new();
 			for (int i = 0; i < wave.CharacterDefinitions.Length; i++)
 			{
 				CharacterDefinitionSO characterDefinition = wave.CharacterDefinitions[i];
@@ -120,6 +111,7 @@ namespace AG.Gameplay.Levels
 				Character character = _charactersFactory.BuildCharacter(characterDefinition.Prefab, spawnPoint.position, spawnPoint.rotation, active: false);
 				newCharacters.Add(character);
 			}
+			return newCharacters;
 		}
 
 	}

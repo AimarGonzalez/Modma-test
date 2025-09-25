@@ -98,7 +98,6 @@ namespace AG.Gameplay.Actions
 			}
 
 			action.OnActionFinished();
-
 			_flags.LowerFlags(action.Flags);
 		}
 
@@ -130,6 +129,7 @@ namespace AG.Gameplay.Actions
 			if (actionStatus is BaseAction action)
 			{
 				action.InterruptAction();
+				_flags.LowerFlags(action.Flags);
 				_runningActions.Remove(action);
 			}
 			else
@@ -147,6 +147,7 @@ namespace AG.Gameplay.Actions
 				if (action.ActionId == actionId)
 				{
 					action.InterruptAction();
+					_flags.LowerFlags(action.Flags);
 					_runningActions.RemoveAt(i);
 					found = true;
 				}
@@ -171,6 +172,7 @@ namespace AG.Gameplay.Actions
 			foreach (BaseAction action in _runningActions)
 			{
 				action.InterruptAction();
+				_flags.LowerFlags(action.Flags);
 			}
 		}
 

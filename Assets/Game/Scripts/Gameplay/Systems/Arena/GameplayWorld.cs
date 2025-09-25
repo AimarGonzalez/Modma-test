@@ -25,7 +25,7 @@ namespace AG.Gameplay.Combat
 
 		[SerializeField, Required]
 		private Transform _spawnPointsContainer;
-		
+
 		[SerializeField, Required]
 		private MeshRenderer _walkableArea;
 
@@ -58,7 +58,13 @@ namespace AG.Gameplay.Combat
 		{
 			foreach (Transform spawnPointSet in _spawnPointsContainer)
 			{
-				_spawnPointsCatalog[spawnPointSet.childCount] = spawnPointSet.GetComponentsInChildren<Transform>(includeInactive: true);
+				Transform[] set = new Transform[spawnPointSet.childCount];
+				for (int i = 0; i < spawnPointSet.childCount; i++)
+				{
+					set[i] = spawnPointSet.GetChild(i);
+				}
+
+				_spawnPointsCatalog[spawnPointSet.childCount] = set;
 			}
 		}
 
@@ -79,13 +85,13 @@ namespace AG.Gameplay.Combat
 		{
 			_arenaEvents.OnCharacterRemoved -= OnCharacterRemoved;
 		}
-		
+
 		private void OnCharacterRemoved(Character character)
 		{
 			_enemies.Remove(character);
 		}
-		
-		
+
+
 		// ------ WORLD QUERIES
 
 		public Character GetBestAttackTarget(Vector3 position)
@@ -98,7 +104,7 @@ namespace AG.Gameplay.Combat
 
 		public Transform[] GetSpawnPoints(int numSpawnPoints)
 		{
-			if(_spawnPointsCatalog.TryGetValue(numSpawnPoints, out Transform[] spawnPoints))
+			if (_spawnPointsCatalog.TryGetValue(numSpawnPoints, out Transform[] spawnPoints))
 			{
 				return spawnPoints;
 			}

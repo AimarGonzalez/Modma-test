@@ -121,6 +121,10 @@ namespace AG.Gameplay.Actions
 		{
 			//New position is in the direction of the Player
 			Vector3 direction = (_gameplayWorld.Player.RootTransform.position - RootTransform.position).normalized;
+			if (direction == Vector3.zero)
+			{
+				direction = Vector3.forward;
+			}
 			Vector3 targetPosition = RootTransform.position + direction * _distance;
 
 			return targetPosition;
