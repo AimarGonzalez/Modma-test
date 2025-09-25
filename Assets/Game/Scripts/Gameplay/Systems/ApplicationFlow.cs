@@ -44,9 +44,25 @@ namespace AG.Gameplay.Combat
 
 		private void Start()
 		{
+			Subscribe();
 			_appView.SetupUIAtGameStart();
 
 			SetState(AppState.Welcome);
+		}
+
+		private void OnDestroy()
+		{
+			Unsubscribe();
+		}
+
+		private void Subscribe()
+		{
+			_appEvents.OnLevelFinished += OnLevelFinished;
+		}
+
+		private void Unsubscribe()
+		{
+			_appEvents.OnLevelFinished -= OnLevelFinished;
 		}
 
 		private void SetupNewBattle()
@@ -80,6 +96,11 @@ namespace AG.Gameplay.Combat
 		private void RestartApp()
 		{
 			SetState(AppState.Welcome);
+		}
+
+		private void OnLevelFinished()
+		{
+			SetState(AppState.LevelComplete);
 		}
 
 		public void Update()

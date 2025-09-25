@@ -32,7 +32,7 @@ namespace SharedLib.ExtensionMethods
 			}
 			catch (Exception ex)
 			{
-				Debug.LogError($"Unhandled exception in Awaitable: {ex}");
+				Debug.LogError(ex);
 			}
 		}
 	}

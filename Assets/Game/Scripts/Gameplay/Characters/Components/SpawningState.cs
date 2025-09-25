@@ -1,11 +1,6 @@
-using AG.Gameplay.Combat;
-using AG.Gameplay.Systems;
 using MoreMountains.Feedbacks;
 using SharedLib.StateMachines;
-using Sirenix.OdinInspector;
-using System;
 using UnityEngine;
-using VContainer;
 
 namespace AG.Gameplay.Characters.Components
 {
@@ -16,10 +11,6 @@ namespace AG.Gameplay.Characters.Components
 		[SerializeField]
 		private MMF_Player _spawnningFeedbacks;
 
-		// ------------- Dependencies -------------
-
-		[Inject] private ApplicationEvents _appEvents;
-		
 		// ------------- Private fields -------------
 
 		private IState.Status _status = IState.Status.Running;
@@ -33,8 +24,6 @@ namespace AG.Gameplay.Characters.Components
 
 		public override void OnEnterState()
 		{
-			_appEvents.OnAppStateChanged += OnAppStateChanged;
-
 			if (_spawnningFeedbacks)
 			{
 				_spawnningFeedbacks.PlayFeedbacks();
@@ -49,28 +38,9 @@ namespace AG.Gameplay.Characters.Components
 
 		public override void OnExitState()
 		{
-			_appEvents.OnAppStateChanged += OnAppStateChanged;
-			
 			if (_spawnningFeedbacks)
 			{
 				_spawnningFeedbacks.Events.OnComplete.RemoveListener(OnSpawnningFeedbacksComplete);
-			}
-		}
-		
-		private void OnAppStateChanged(AppState oldAppState, AppState newAppState)
-		{
-			switch (newAppState)
-			{
-				case AppState.Battle:
-					_character.Fight();
-					break;
-				case AppState.None:
-				case AppState.Welcome:
-				case AppState.BattleIntro:
-				case AppState.BattlePaused:
-					break;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(newAppState), newAppState, null);
 			}
 		}
 

@@ -68,6 +68,7 @@ namespace AG.Gameplay.Characters.Components
 		{
 			_character.OnHitReceived += OnHitReceivedHandler;
 			_colliderListener.OnCollisionEnterEvent += OnCollisionEnterHandler;
+			_colliderListener.OnTriggerEnterEvent += OnCollisionEnterHandler;
 		}
 		public override void OnExitState()
 		{
@@ -75,6 +76,7 @@ namespace AG.Gameplay.Characters.Components
 			
 			_character.OnHitReceived -= OnHitReceivedHandler;
 			_colliderListener.OnCollisionEnterEvent -= OnCollisionEnterHandler;
+			_colliderListener.OnTriggerEnterEvent += OnCollisionEnterHandler;
 		}
 
 		public override IState.Status UpdateState()
