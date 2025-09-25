@@ -63,7 +63,8 @@ namespace Modma.Game.Scripts.Gameplay.Projectiles
 			_wallsLayer = _gameSettings.CombatSettingsSO.WallsLayer;
 			_characterLayers = _gameSettings.CombatSettingsSO.CharacterLayers;
 
-			//Set direction
+			//Set direction to both components to avoid 1st frame of desynchronization.
+			RootTransform.rotation = Quaternion.LookRotation(_direction);
 			_rigidbody.rotation = Quaternion.LookRotation(_direction);
 
 			//Listen to collisions
@@ -78,7 +79,7 @@ namespace Modma.Game.Scripts.Gameplay.Projectiles
 			_collisionListener.OnTriggerEnterEvent -= OnTriggerEnter;
 		}
 
-		private void Update()
+		private void FixedUpdate()
 		{
 			Vector3 newPosition = _rigidbody.position + _direction * (_speed * Time.deltaTime);
 			_rigidbody.MovePosition(newPosition);
