@@ -19,7 +19,7 @@ Shader "Custom/CharacterShader"
         _Metallic("Metallic", Range(0.0, 1.0)) = 0.0
         _MetallicGlossMap("Metallic", 2D) = "white" {}
 
-        _SpecColor("Specular", Color) = (0.2, 0.2, 0.2)
+        _SpecColor("Specular", Color) = (0.2, 0.2, 0.2, 1)
         _SpecGlossMap("Specular", 2D) = "white" {}
 
         [ToggleOff] _SpecularHighlights("Specular Highlights", Float) = 1.0
