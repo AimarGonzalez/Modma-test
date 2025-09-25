@@ -6856,6 +6856,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: DashAttack_Feedback
       objectReference: {fileID: 0}
+    - target: {fileID: 7533616896768205711, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
+      propertyPath: m_Radius
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7533616896768205711, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
+      propertyPath: m_Center.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7864463923756692107, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -6966,9 +6974,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 296139959842371101, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7018171722733197299}
-    - targetCorrespondingSourceObject: {fileID: 3020608683424751763, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6580510674940551830}
   m_SourcePrefab: {fileID: 100100000, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
 --- !u!4 &384520419554154182 stripped
 Transform:
@@ -7026,25 +7031,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1156662210048467821, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
   m_PrefabInstance: {fileID: 5376121086385988966}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &7165378959255274997 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3020608683424751763, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
-  m_PrefabInstance: {fileID: 5376121086385988966}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6580510674940551830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7165378959255274997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9749612bc12c431b876372b4189dfa46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Modma::AG.Gameplay.Characters.BodyLocations.Body
-  _radiusOffset: 0
-  _subSetOfMeshRenderers: []
 --- !u!1 &7968038510846041069 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2598569751262953099, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
