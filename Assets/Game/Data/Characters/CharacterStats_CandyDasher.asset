@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ebbac2ac16ed884b8b61dd2c4e4f95e, type: 3}
-  m_Name: Stats_CandyDasher
+  m_Name: CharacterStats_CandyDasher
   m_EditorClassIdentifier: 
   _name: JumpingBox
   _maxHealth: 300
