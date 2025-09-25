@@ -12769,6 +12769,10 @@ PrefabInstance:
       value: JoystickFollower
       objectReference: {fileID: 0}
     - target: {fileID: 6744052931774475916, guid: 765c224e0c67ae04b94c78f36ef48996, type: 3}
+      propertyPath: _characterStats
+      value: 
+      objectReference: {fileID: 11400000, guid: dbf28712ff45e3e44ad1a7fcb69a0ce2, type: 2}
+    - target: {fileID: 6744052931774475916, guid: 765c224e0c67ae04b94c78f36ef48996, type: 3}
       propertyPath: _showDebugPanel
       value: 0
       objectReference: {fileID: 0}
