@@ -1,4 +1,5 @@
 using SharedLib.ComponentCache;
+using System;
 using UnityEngine;
 
 namespace AG.Gameplay.Characters.Components
@@ -33,6 +34,11 @@ namespace AG.Gameplay.Characters.Components
 		private void OnTargetChanged(Character target)
 		{
 			_target = target;
+			UpdateView();
+		}
+
+		private void Update()
+		{
 			UpdateView();
 		}
 

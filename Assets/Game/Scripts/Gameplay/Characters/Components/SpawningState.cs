@@ -76,6 +76,7 @@ namespace AG.Gameplay.Characters.Components
 
 		private void OnSpawnningFeedbacksComplete()
 		{
+			_character.Cinematic();
 			_status = IState.Status.Finished;
 		}
 	}

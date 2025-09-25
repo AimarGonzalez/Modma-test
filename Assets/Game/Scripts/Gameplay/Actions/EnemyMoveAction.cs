@@ -23,9 +23,13 @@ namespace AG.Gameplay.Actions
 		[SerializeField, Min(0.001f)]
 		[FoldoutGroup("Advanced")]
 		private float _feedbackSpeedMultiplier = 1f;
+		
+		[SerializeField]
+		private Transform _feedbacksRoot;
 
 		//----- Dependencies ----------------
 		[Inject] private GameplayWorld _gameplayWorld;
+
 
 
 		protected override void Awake()
@@ -49,7 +53,7 @@ namespace AG.Gameplay.Actions
 		{
 			_feedback.DurationMultiplier = 1 / Mathf.Max(_feedbackSpeedMultiplier, 0.001f);
 			_feedback.Initialization();
-			
+
 			_feedback.PlayFeedbacks();
 		}
 
@@ -80,7 +84,10 @@ namespace AG.Gameplay.Actions
 
 		protected override void DoInterruptAction()
 		{
-			_feedback.SkipToTheEnd();
+			_feedback.StopFeedbacks();
+			_feedbacksRoot.localRotation = Quaternion.identity;
+			_feedbacksRoot.localScale = Vector3.one;
+			
 			DoOnActionFinished();
 		}
 

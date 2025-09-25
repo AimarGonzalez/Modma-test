@@ -3,8 +3,10 @@ using AG.Gameplay.Actions;
 using AG.Gameplay.Cards.CardStats;
 using MoreMountains.Feedbacks;
 using SharedLib.ComponentCache;
+using SharedLib.ExtensionMethods;
 using SharedLib.Physics;
 using SharedLib.StateMachines;
+using SharedLib.Utils;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using UnityEngine;
@@ -69,6 +71,8 @@ namespace AG.Gameplay.Characters.Components
 		}
 		public override void OnExitState()
 		{
+			_actionPlayer.StopAllActions();
+			
 			_character.OnHitReceived -= OnHitReceivedHandler;
 			_colliderListener.OnCollisionEnterEvent -= OnCollisionEnterHandler;
 		}
@@ -120,14 +124,25 @@ namespace AG.Gameplay.Characters.Components
 
 		private void OnHitReceivedHandler(Character source, float damage)
 		{
+			if (_character.Health <= 0)
+			{
+				return;
+			}
+			
 			_character.Health -= damage;
 
 			_hitFeedbacks.PlayFeedbacks();
 
 			if (_character.Health <= 0)
 			{
-				_character.Die();
+				DieAfterFeedbacksFinished().RunAsync();
 			}
+		}
+
+		private async Awaitable DieAfterFeedbacksFinished()
+		{
+			await Awaitables.WaitUntil(() => !_hitFeedbacks.IsPlaying);
+			_character.Die();
 		}
 
 		private void OnCollisionEnterHandler(Collider collider)

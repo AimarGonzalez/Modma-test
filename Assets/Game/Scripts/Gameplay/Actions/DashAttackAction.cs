@@ -37,6 +37,9 @@ namespace AG.Gameplay.Actions
 		[FoldoutGroup("Advanced")]
 		private float _feedbackSpeedMultiplier = 1f;
 
+		[SerializeField]
+		private Transform _feedbacksRoot;
+
 
 		//----- Components ----------------
 
@@ -113,7 +116,11 @@ namespace AG.Gameplay.Actions
 
 		protected override void DoInterruptAction()
 		{
-			_feedback.SkipToTheEnd();
+			_feedback.StopFeedbacks();
+			
+			_feedbacksRoot.localRotation = Quaternion.identity;
+			_feedbacksRoot.localScale = Vector3.one;
+
 			DoOnActionFinished();
 		}
 

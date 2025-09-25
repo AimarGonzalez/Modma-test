@@ -87,6 +87,7 @@ namespace AG.Gameplay.UI
 		private void OnStateChanged(StateId prevState, StateId newState)
 		{
 			UpdateVisibility();
+			UpdateFillRatio();
 		}
 
 		private void UpdateColor()

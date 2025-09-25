@@ -5,6 +5,7 @@ using AG.Gameplay.Characters.Data;
 using AG.Gameplay.Settings;
 using MoreMountains.Feedbacks;
 using SharedLib.ComponentCache;
+using SharedLib.ExtensionMethods;
 using SharedLib.Physics;
 using SharedLib.StateMachines;
 using Sirenix.OdinInspector;
@@ -21,7 +22,7 @@ namespace AG.Gameplay.Characters
 {
 	[DisallowMultipleComponent]
 	[DebuggerDisplay("name: {name}, state: {StateId}, team: {_team}, health: {_health}/{_maxHealth}")]
-	public class Character : SubComponent
+	public class Character : SubComponent, IPooledComponent
 	{
 		[Serializable]
 		public struct CharacterStates
@@ -95,6 +96,7 @@ namespace AG.Gameplay.Characters
 		public Team Team => _team;
 		public bool IsPlayer => _team == Team.Player;
 		public bool IsEnemy => _team == Team.Enemy;
+		public bool IsCurrentStateFinished => _stateMachine.CurrentStateId == null;
 		public float Health
 		{
 			get => _health;
@@ -152,7 +154,7 @@ namespace AG.Gameplay.Characters
 		public void ReleaseToPool()
 		{
 			_arenaEvents.TriggerCharacterRemoved(this);
-			Root.Get<PooledGameObject>().ReleaseToPool();
+				Root.Get<PooledGameObject>().ReleaseToPool();
 		}
 		
 		// ------- Unity events -------------------
@@ -220,13 +222,11 @@ namespace AG.Gameplay.Characters
 		}
 
 		public bool IsFighting => StateId == _characterStates.CombatState;
+		public bool IsInCinematicState => StateId == _characterStates.CinematicState;
 
 		protected virtual void OnStateFinishedWithoutTransition(StateId finishedState)
 		{
-			if (finishedState == _characterStates.SpawningState || finishedState == _characterStates.CinematicState)
-			{
-				_stateMachine.SetState(_characterStates.CombatState);
-			}
+			// Do nothing
 		}
 
 		private void OnStateTransition(StateId prevState, StateId newState)
@@ -301,5 +301,21 @@ namespace AG.Gameplay.Characters
 		}
 		*/
 #endif //UNITY_EDITOR
+		public void OnBeforeGetFromPool()
+		{
+			RootTransform.localScale = Vector3.one;
+		}
+
+		public void OnAfterGetFromPool()
+		{
+		}
+
+		public void OnReturnToPool()
+		{
+		}
+
+		public void OnDestroyFromPool()
+		{
+		}
 	}
 }

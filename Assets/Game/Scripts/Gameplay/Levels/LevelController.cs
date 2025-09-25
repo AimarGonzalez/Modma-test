@@ -4,6 +4,7 @@ using AG.Gameplay.Systems;
 using AG.Gameplay.Characters.Data;
 using AG.Gameplay.Projectiles;
 using SharedLib.ExtensionMethods;
+using SharedLib.Utils;
 using System.Collections.Generic;
 using UnityEngine;
 using VContainer;
@@ -44,8 +45,14 @@ namespace AG.Gameplay.Levels
 
 			if (_gameplayWorld.Enemies.Count == 0)
 			{
-				SpawnNextWave();
+				TransitionToNextWave().RunAsync();
 			}
+		}
+
+		private async Awaitable TransitionToNextWave()
+		{
+			await Awaitable.WaitForSecondsAsync(1);
+			SpawnNextWave();
 		}
 
 		private void SpawnNextWave()
@@ -90,13 +97,14 @@ namespace AG.Gameplay.Levels
 				character.Spawn();
 			}
 
-			await Awaitable.WaitForSecondsAsync(1);
+			await Awaitables.WaitUntil(() => newCharacters.TrueForAll(c => c.IsInCinematicState));
 
+			_gameplayWorld.Player.Fight();
+			
 			// Set combat state
 			foreach (Character character in newCharacters)
 			{
 				await Awaitable.WaitForSecondsAsync(_spawnInterval);
-				character.gameObject.SetActive(true);
 				character.Fight();
 			}
 		}

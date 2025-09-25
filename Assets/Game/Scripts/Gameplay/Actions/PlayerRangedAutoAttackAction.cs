@@ -6,6 +6,7 @@ using AG.Gameplay.Characters.MonoBehaviours.BodyLocations;
 using AG.Gameplay.Projectiles;
 using NUnit.Framework;
 using SharedLib.ExtensionMethods;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using VContainer;
 
@@ -32,6 +33,11 @@ namespace AG.Gameplay.Actions
 
 		private Character _attackTarget;
 
+		private float _timeStart;
+		
+		[ShowInInspector, PropertyOrder(-1)]
+		public float TimeSinceStart => Time.time - _timeStart; // in seconds
+
 		protected override void Awake()
 		{
 			_playerAnimations = Root.Get<PlayerAnimations>();
@@ -42,6 +48,7 @@ namespace AG.Gameplay.Actions
 
 		protected override void DoStartAction(object parameters)
 		{
+			_timeStart = Time.time;
 			_attackTarget = parameters as Character;
 			Debug.Assert(_attackTarget != null, "received null action parameters");
 

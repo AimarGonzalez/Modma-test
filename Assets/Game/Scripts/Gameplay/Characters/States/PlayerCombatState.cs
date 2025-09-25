@@ -94,6 +94,7 @@ namespace AG.Gameplay.Characters.Components
 		}
 		public override void OnExitState()
 		{
+			_actionPlayer.StopAllActions();
 			Unsubscribe();
 		}
 
@@ -194,7 +195,7 @@ namespace AG.Gameplay.Characters.Components
 		{
 			if (_target == target)
 			{
-
+				return;
 			}
 
 			_target = target;

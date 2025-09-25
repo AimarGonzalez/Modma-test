@@ -1,6 +1,4 @@
-﻿using AG.Core;
-using AG.Core.Pool;
-using SharedLib.ComponentCache;
+﻿using SharedLib.ComponentCache;
 using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;

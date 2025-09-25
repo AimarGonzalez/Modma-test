@@ -1,6 +1,7 @@
 ﻿using AG.Core.Pool;
 using AG.Core.UI;
 using SharedLib.ComponentCache;
+using SharedLib.ExtensionMethods;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -93,7 +94,7 @@ namespace AG.Gameplay.Actions
 		{
 			if (action.Status != ActionStatus.Finished)
 			{
-				Debug.LogError($"Action {action.GetType().Name} is not finished");
+				Debug.LogWarning($"[{Root.Name()}] Action {action.GetType().Name} is not finished. It was in {action.Status}");
 				return;
 			}
 
@@ -157,6 +158,18 @@ namespace AG.Gameplay.Actions
 			{
 				Debug.LogError($"Action {actionId} not found");
 			}
+		}
+
+		public void StopAllActions()
+		{
+			foreach (BaseAction action in _runningActions)
+			{
+				action.InterruptAction();
+				_flags.LowerFlags(action.Flags);
+			}
+			
+			_runningActions.Clear();
+			_finishedActions.Clear();
 		}
 
 		public void OnBeforeGetFromPool()
