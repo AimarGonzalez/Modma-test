@@ -65,7 +65,8 @@ namespace AG.Gameplay.Combat
 			_isBattleActive = false;
 
 			//Dispose enemies
-			foreach (Character enemy in _world.Enemies)
+			Character[] iterableEnemies = _world.Enemies.ToArray(); 
+			foreach (Character enemy in iterableEnemies)
 			{
 				enemy.ReleaseToPool();
 			}

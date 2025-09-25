@@ -4,6 +4,7 @@ using AG.Gameplay.Cards.CardStats;
 using AG.Gameplay.Combat;
 using AG.Gameplay.PlayerInput;
 using AG.Gameplay.Systems;
+using MoreMountains.Feedbacks;
 using SharedLib.StateMachines;
 using SharedLib.Utils;
 using Sirenix.OdinInspector;
@@ -27,6 +28,7 @@ namespace AG.Gameplay.Characters.Components
 
 		// ------------- Components -------------
 		private ActionPlayer _actionPlayer;
+		private Character _character;
 
 		// ------------- Inspector fields -------------
 
@@ -41,6 +43,9 @@ namespace AG.Gameplay.Characters.Components
 
 		[SerializeField]
 		private AttackStatsSO _dashAttackStats;
+
+		[SerializeField]
+		private MMF_Player _hitFeedbacks;
 
 
 		// ------------- Private fields -------------
@@ -80,6 +85,7 @@ namespace AG.Gameplay.Characters.Components
 			_playerMovement = Root.Get<PlayerMovement>();
 			_playerAnimations = Root.Get<PlayerAnimations>();
 			_actionPlayer = Root.Get<ActionPlayer>();
+			_character = Root.Get<Character>();
 		}
 
 		public override void OnEnterState()
@@ -93,10 +99,12 @@ namespace AG.Gameplay.Characters.Components
 
 		private void Subscribe()
 		{
+			_character.OnHitReceived += OnHitReceived;
 		}
 
 		private void Unsubscribe()
 		{
+			_character.OnHitReceived -= OnHitReceived;
 		}
 
 		public override IState.Status UpdateState()
@@ -191,6 +199,18 @@ namespace AG.Gameplay.Characters.Components
 
 			_target = target;
 			OnTargetChanged?.Invoke(_target);
+		}
+
+		private void OnHitReceived(Character source, float damage)
+		{
+			_character.Health -= damage;
+
+			_hitFeedbacks.PlayFeedbacks();
+
+			if (_character.Health <= 0)
+			{
+				_character.Die();
+			}
 		}
 	}
 }

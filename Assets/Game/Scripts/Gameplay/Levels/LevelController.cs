@@ -20,6 +20,7 @@ namespace AG.Gameplay.Levels
 
 		[Inject] private GameplayWorld _gameplayWorld;
 		[Inject] private ApplicationEvents _applicationEvents;
+		[Inject] private ArenaEvents _arenaEvents;
 		[Inject] private CharactersFactory _charactersFactory;
 
 		// ------------- Private fields -------------
@@ -27,21 +28,42 @@ namespace AG.Gameplay.Levels
 
 		public void StartLevel()
 		{
+			_arenaEvents.OnCharacterRemoved += OnCharacterRemovedHandler;
+
 			SpawnNextWave();
 		}
 
+		private void OnCharacterRemovedHandler(Character character)
+		{
+			if (character.IsPlayer)
+			{
+				_applicationEvents.TriggerLevelLost();
+				return;
+			}
+
+			if (_gameplayWorld.Enemies.Count == 0)
+			{
+				SpawnNextWave();
+			}
+		}
 
 		private void SpawnNextWave()
 		{
 			Transform[] spawnPointSet = GetNextSpawnPointSet();
 			if (spawnPointSet == null)
 			{
-				LevelFinished();
+				LevelComplete();
 			}
 			else
 			{
 				StartWave(spawnPointSet).RunAsync();
 			}
+		}
+
+		private void LevelComplete()
+		{
+			_arenaEvents.OnCharacterRemoved -= OnCharacterRemovedHandler;
+			_applicationEvents.TriggerLevelComplete();
 		}
 
 		public Transform[] GetNextSpawnPointSet()
@@ -76,9 +98,9 @@ namespace AG.Gameplay.Levels
 				character.gameObject.SetActive(true);
 				character.Spawn();
 			}
-			
+
 			await Awaitable.WaitForSecondsAsync(1);
-			
+
 			// Set combat state
 			foreach (Character character in newCharacters)
 			{
@@ -100,9 +122,5 @@ namespace AG.Gameplay.Levels
 			}
 		}
 
-		private void LevelFinished()
-		{
-			_applicationEvents.TriggerLevelFinished();
-		}
 	}
 }

@@ -1,6 +1,9 @@
 using AG.Core.UI;
 using AG.Gameplay.Actions;
-using AG.Gameplay.Characters;
+using AG.Gameplay.Cards.CardStats;
+using MoreMountains.Feedbacks;
+using SharedLib.ComponentCache;
+using SharedLib.Physics;
 using SharedLib.StateMachines;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
@@ -28,6 +31,15 @@ namespace AG.Gameplay.Characters.Components
 		[SerializeField]
 		private FlagSO[] _blockingFlags;
 
+		[SerializeField]
+		private AttackStatsSO _attackStats;
+
+		[SerializeField]
+		private ColliderListener _colliderListener;
+
+		[SerializeField]
+		private MMF_Player _hitFeedbacks;
+
 		// ------------- Components -------------
 
 		private Character _character;
@@ -53,10 +65,12 @@ namespace AG.Gameplay.Characters.Components
 		public override void OnEnterState()
 		{
 			_character.OnHitReceived += OnHitReceivedHandler;
+			_colliderListener.OnCollisionEnterEvent += OnCollisionEnterHandler;
 		}
 		public override void OnExitState()
 		{
 			_character.OnHitReceived -= OnHitReceivedHandler;
+			_colliderListener.OnCollisionEnterEvent -= OnCollisionEnterHandler;
 		}
 
 		public override IState.Status UpdateState()
@@ -107,7 +121,27 @@ namespace AG.Gameplay.Characters.Components
 		private void OnHitReceivedHandler(Character source, float damage)
 		{
 			_character.Health -= damage;
+
+			_hitFeedbacks.PlayFeedbacks();
+
+			if (_character.Health <= 0)
+			{
+				_character.Die();
+			}
 		}
+
+		private void OnCollisionEnterHandler(Collider collider)
+		{
+			Character target = collider.GetRoot().Get<Character>();
+			if (target.IsPlayer)
+			{
+				_character.Hit(target, _attackStats.Damage);
+			}
+		}
+
+
+
+		// ------------- DEBUG -------------
 
 		public void AddDebugProperties(List<GUIUtils.Property> properties)
 		{

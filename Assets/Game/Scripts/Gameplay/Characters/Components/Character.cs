@@ -34,6 +34,9 @@ namespace AG.Gameplay.Characters
 
 			[SerializeField]
 			public StateId CombatState;
+			
+			[SerializeField]
+			public StateId DeathState;
 		}
 
 		// ------------- Events -------------
@@ -53,9 +56,6 @@ namespace AG.Gameplay.Characters
 		[FormerlySerializedAs("_stats")]
 		[SerializeField, Required, InlineEditor]
 		private CharacterStatsSO _characterStats;
-
-		[SerializeField, InlineEditor]
-		private MMF_Player _spawnningFeedbacks;
 
 		[BoxGroup("Instance")]
 		[ShowInInspector, HideInEditorMode]
@@ -152,6 +152,7 @@ namespace AG.Gameplay.Characters
 
 		public void ReleaseToPool()
 		{
+			_arenaEvents.TriggerCharacterRemoved(this);
 			Root.Get<PooledGameObject>().ReleaseToPool();
 		}
 		
@@ -212,6 +213,11 @@ namespace AG.Gameplay.Characters
 		public void Fight()
 		{
 			SetState(_characterStates.CombatState);
+		}
+
+		public void Die()
+		{
+			SetState(_characterStates.DeathState);
 		}
 
 		public bool IsFighting => StateId == _characterStates.CombatState;

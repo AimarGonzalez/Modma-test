@@ -1,5 +1,227 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2066178040880545680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 536278264218721412}
+  - component: {fileID: 1665949086379083666}
+  - component: {fileID: 4908768258940613671}
+  m_Layer: 7
+  m_Name: Hit_Feedback
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &536278264218721412
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066178040880545680}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6527575693583746571}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1665949086379083666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066178040880545680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da43522623d4704e979466dc7650b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Feedbacks.MMF_Player
+  Feedbacks: []
+  InitializationMode: 2
+  AutoInitialization: 1
+  SafeMode: 3
+  Direction: 0
+  AutoChangeDirectionOnEnd: 0
+  AutoPlayOnStart: 0
+  AutoPlayOnEnable: 0
+  ForceTimescaleMode: 0
+  ForcedTimescaleMode: 1
+  DurationMultiplier: 1
+  TimescaleMultiplier: 1
+  RandomizeDuration: 0
+  RandomDurationMultiplier: {x: 0.5, y: 1.5}
+  DisplayFullDurationDetails: 0
+  PlayerTimescaleMode: 1
+  OnlyPlayIfWithinRange: 0
+  RangeCenter: {fileID: 0}
+  RangeDistance: 5
+  UseRangeFalloff: 0
+  RangeFalloff:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  RemapRangeFalloff: {x: 0, y: 1}
+  IgnoreRangeEvents: 0
+  CooldownDuration: 0
+  InitialDelay: 0
+  CanPlay: 1
+  CanPlayWhileAlreadyPlaying: 1
+  ChanceToPlay: 100
+  FeedbacksIntensity: 1
+  Events:
+    TriggerMMFeedbacksEvents: 0
+    TriggerUnityEvents: 1
+    OnPlay:
+      m_PersistentCalls:
+        m_Calls: []
+    OnPause:
+      m_PersistentCalls:
+        m_Calls: []
+    OnStop:
+      m_PersistentCalls:
+        m_Calls: []
+    OnResume:
+      m_PersistentCalls:
+        m_Calls: []
+    OnChangeDirection:
+      m_PersistentCalls:
+        m_Calls: []
+    OnComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    OnRestoreInitialValues:
+      m_PersistentCalls:
+        m_Calls: []
+    OnSkipToTheEnd:
+      m_PersistentCalls:
+        m_Calls: []
+    OnInitializationComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    OnEnable:
+      m_PersistentCalls:
+        m_Calls: []
+    OnDisable:
+      m_PersistentCalls:
+        m_Calls: []
+  DebugActive: 0
+  InScriptDrivenPause: 0
+  FeedbacksList: []
+  KeepPlayModeChanges: 0
+  PerformanceMode: 0
+  RestoreInitialValuesOnDisable: 0
+  StopFeedbacksOnDisable: 0
+  PlayCount: 0
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &4908768258940613671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066178040880545680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0a82a086afdc494db67a8b50f091d1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Feedbacks.MMPositionShaker
+  ChannelMode: 0
+  Channel: 0
+  MMChannelDefinition: {fileID: 0}
+  ShakeDuration: 0.5
+  PlayOnAwake: 0
+  PermanentShake: 0
+  Interruptible: 1
+  AlwaysResetTargetValuesAfterShake: 0
+  OnlyUseShakerValues: 0
+  CooldownBetweenShakes: 0
+  Shaking: 0
+  ForwardDirection: 1
+  TimescaleMode: 0
+  Mode: 0
+  TargetTransform: {fileID: 8625327097883169333}
+  TargetRectTransform: {fileID: 0}
+  ShakeSpeed: 20
+  ShakeRange: 0.5
+  OscillationOffset: 0
+  ShakeMainDirection: {x: 0, y: 1, z: 0}
+  RandomizeDirection: 0
+  ShakeAltDirection: {x: 0, y: 1, z: 0}
+  RandomizeDirectionOnPlay: 0
+  RandomizeDirectionX: 1
+  RandomizeDirectionY: 1
+  RandomizeDirectionZ: 1
+  AddDirectionalNoise: 1
+  DirectionalNoiseStrengthMin: {x: 0.25, y: 0.25, z: 0.25}
+  DirectionalNoiseStrengthMax: {x: 0.25, y: 0.25, z: 0.25}
+  RandomnessSeed: {x: 0, y: 0, z: 0}
+  RandomizeSeedOnShake: 1
+  UseAttenuation: 1
+  AttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  StartShakingButton: 0
 --- !u!1 &3163377936763650960
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,11 +357,11 @@ MonoBehaviour:
   DebugActive: 0
   InScriptDrivenPause: 0
   FeedbacksList:
-  - rid: 8731366446562279552
-  - rid: 8731366446562279553
-  - rid: 8731366446562279554
-  - rid: 8731366446562279555
-  - rid: 8731366446562279556
+  - rid: 8731366446562279646
+  - rid: 8731366446562279647
+  - rid: 8731366446562279648
+  - rid: 8731366446562279649
+  - rid: 8731366446562279650
   KeepPlayModeChanges: 0
   PerformanceMode: 0
   RestoreInitialValuesOnDisable: 0
@@ -148,11 +370,11 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 8731366446562279552
+    - rid: 8731366446562279646
       type: {class: MMF_Position, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 1
-        UniqueID: -1227728081
+        UniqueID: 616882367
         Label: Forward movement
         OriginalLabel: Position
         ChannelMode: 0
@@ -445,11 +667,11 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-    - rid: 8731366446562279553
+    - rid: 8731366446562279647
       type: {class: MMF_Rotation, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 0
-        UniqueID: 1967663438
+        UniqueID: 110498776
         Label: SideToSide - Rotation
         OriginalLabel: Rotation
         ChannelMode: 0
@@ -827,11 +1049,11 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-    - rid: 8731366446562279554
+    - rid: 8731366446562279648
       type: {class: MMF_Position, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 0
-        UniqueID: 1372488022
+        UniqueID: -352186776
         Label: SideToSide - Position
         OriginalLabel: Position
         ChannelMode: 0
@@ -1241,11 +1463,11 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-    - rid: 8731366446562279555
+    - rid: 8731366446562279649
       type: {class: MMF_Position, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 0
-        UniqueID: -2028602538
+        UniqueID: -1489372189
         Label: SideToSide - elevation
         OriginalLabel: Position
         ChannelMode: 0
@@ -1520,11 +1742,11 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-    - rid: 8731366446562279556
+    - rid: 8731366446562279650
       type: {class: MMF_SquashAndStretch, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 1
-        UniqueID: 195480797
+        UniqueID: 1827240730
         Label: Squash and Stretch
         OriginalLabel: Squash and Stretch
         ChannelMode: 0
@@ -1673,6 +1895,215 @@ MonoBehaviour:
         AllowAdditivePlays: 0
         DetermineScaleOnPlay: 0
         DestinationScale: 2
+--- !u!1 &3768192039313258806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5984602905041567208}
+  - component: {fileID: 762525638179254378}
+  - component: {fileID: 2079071166260829435}
+  m_Layer: 7
+  m_Name: Death_Feedback
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5984602905041567208
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3768192039313258806}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6527575693583746571}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &762525638179254378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3768192039313258806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da43522623d4704e979466dc7650b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Feedbacks.MMF_Player
+  Feedbacks: []
+  InitializationMode: 2
+  AutoInitialization: 1
+  SafeMode: 3
+  Direction: 0
+  AutoChangeDirectionOnEnd: 0
+  AutoPlayOnStart: 0
+  AutoPlayOnEnable: 0
+  ForceTimescaleMode: 0
+  ForcedTimescaleMode: 1
+  DurationMultiplier: 1
+  TimescaleMultiplier: 1
+  RandomizeDuration: 0
+  RandomDurationMultiplier: {x: 0.5, y: 1.5}
+  DisplayFullDurationDetails: 0
+  PlayerTimescaleMode: 1
+  OnlyPlayIfWithinRange: 0
+  RangeCenter: {fileID: 0}
+  RangeDistance: 5
+  UseRangeFalloff: 0
+  RangeFalloff:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  RemapRangeFalloff: {x: 0, y: 1}
+  IgnoreRangeEvents: 0
+  CooldownDuration: 0
+  InitialDelay: 0
+  CanPlay: 1
+  CanPlayWhileAlreadyPlaying: 1
+  ChanceToPlay: 100
+  FeedbacksIntensity: 1
+  Events:
+    TriggerMMFeedbacksEvents: 0
+    TriggerUnityEvents: 1
+    OnPlay:
+      m_PersistentCalls:
+        m_Calls: []
+    OnPause:
+      m_PersistentCalls:
+        m_Calls: []
+    OnStop:
+      m_PersistentCalls:
+        m_Calls: []
+    OnResume:
+      m_PersistentCalls:
+        m_Calls: []
+    OnChangeDirection:
+      m_PersistentCalls:
+        m_Calls: []
+    OnComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    OnRestoreInitialValues:
+      m_PersistentCalls:
+        m_Calls: []
+    OnSkipToTheEnd:
+      m_PersistentCalls:
+        m_Calls: []
+    OnInitializationComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    OnEnable:
+      m_PersistentCalls:
+        m_Calls: []
+    OnDisable:
+      m_PersistentCalls:
+        m_Calls: []
+  DebugActive: 0
+  InScriptDrivenPause: 0
+  FeedbacksList: []
+  KeepPlayModeChanges: 0
+  PerformanceMode: 0
+  RestoreInitialValuesOnDisable: 0
+  StopFeedbacksOnDisable: 0
+  PlayCount: 0
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &2079071166260829435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3768192039313258806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39cb364c2dfacad469e5df86d6ec5e92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Feedbacks.MMBlink
+  Method: 0
+  TargetGameObject: {fileID: 1590630549354709530}
+  TargetRenderer: {fileID: 0}
+  MaterialIndex: 0
+  ShaderPropertyName: _Color
+  OffValue: 0
+  OnValue: 1
+  LerpValue: 1
+  Curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.3
+      value: 1.05
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  UseMaterialPropertyBlocks: 1
+  ExtraRenderers: []
+  ExtraGameObjects: []
+  Blinking: 1
+  ForceStateOnExit: 0
+  StateOnExit: 0
+  TimescaleMode: 0
+  RepeatCount: 0
+  Phases: []
+  DebugToolbar: 0
+  Active: 0
+  CurrentPhaseIndex: 0
 --- !u!1 &6218940563181046591
 GameObject:
   m_ObjectHideFlags: 0
@@ -1907,11 +2338,11 @@ MonoBehaviour:
   DebugActive: 0
   InScriptDrivenPause: 0
   FeedbacksList:
-  - rid: 8731366446562279547
-  - rid: 8731366446562279548
-  - rid: 8731366446562279549
-  - rid: 8731366446562279550
-  - rid: 8731366446562279551
+  - rid: 8731366446562279641
+  - rid: 8731366446562279642
+  - rid: 8731366446562279643
+  - rid: 8731366446562279644
+  - rid: 8731366446562279645
   KeepPlayModeChanges: 0
   PerformanceMode: 0
   RestoreInitialValuesOnDisable: 0
@@ -1920,11 +2351,11 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 8731366446562279547
+    - rid: 8731366446562279641
       type: {class: MMF_SquashAndStretch, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 1
-        UniqueID: -1844821070
+        UniqueID: -62419940
         Label: Squash and Stretch
         OriginalLabel: Squash and Stretch
         ChannelMode: 0
@@ -1996,7 +2427,7 @@ MonoBehaviour:
         DebugActive: 0
         SquashAndStretchTarget: {fileID: 8100431283862634886}
         Mode: 0
-        Axis: 7
+        Axis: 6
         AnimateScaleDuration: 1.5
         RemapCurveZero: 1
         RemapCurveOne: 0.7
@@ -2037,11 +2468,11 @@ MonoBehaviour:
         AllowAdditivePlays: 0
         DetermineScaleOnPlay: 0
         DestinationScale: 1
-    - rid: 8731366446562279548
+    - rid: 8731366446562279642
       type: {class: MMF_Rotation, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 1
-        UniqueID: 1561726949
+        UniqueID: 2069200675
         Label: Rotation
         OriginalLabel: Rotation
         ChannelMode: 0
@@ -2311,11 +2742,11 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-    - rid: 8731366446562279549
+    - rid: 8731366446562279643
       type: {class: MMF_HoldingPause, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 1
-        UniqueID: 1502915202
+        UniqueID: 1550695391
         Label: Holding Pause
         OriginalLabel: Holding Pause
         ChannelMode: 0
@@ -2393,11 +2824,11 @@ MonoBehaviour:
         ScriptDriven: 0
         AutoResume: 0
         AutoResumeAfter: 0.25
-    - rid: 8731366446562279550
+    - rid: 8731366446562279644
       type: {class: MMF_Position, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 1
-        UniqueID: 1765462125
+        UniqueID: -1728594773
         Label: Position
         OriginalLabel: Position
         ChannelMode: 0
@@ -2690,11 +3121,11 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-    - rid: 8731366446562279551
+    - rid: 8731366446562279645
       type: {class: MMF_Rotation, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 1
-        UniqueID: -1060066472
+        UniqueID: -1463488391
         Label: Rotation
         OriginalLabel: Rotation
         ChannelMode: 0
@@ -2954,6 +3385,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8100431283862634886}
     m_Modifications:
+    - target: {fileID: -9016840635794037528, guid: 08652920348360142bbe5ede4229d8e7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 13b7f41de6d3b0543879ae8b8ca1d630, type: 2}
     - target: {fileID: -8679921383154817045, guid: 08652920348360142bbe5ede4229d8e7, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -3010,6 +3445,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: caramel_blue
       objectReference: {fileID: 0}
+    - target: {fileID: 2480691109178438260, guid: 08652920348360142bbe5ede4229d8e7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 13b7f41de6d3b0543879ae8b8ca1d630, type: 2}
     - target: {fileID: 5866666021909216657, guid: 08652920348360142bbe5ede4229d8e7, type: 3}
       propertyPath: m_Controller
       value: 
@@ -3019,6 +3458,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08652920348360142bbe5ede4229d8e7, type: 3}
+--- !u!1 &1590630549354709530 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 08652920348360142bbe5ede4229d8e7, type: 3}
+  m_PrefabInstance: {fileID: 1932721399636508491}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2114684812510648480 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 08652920348360142bbe5ede4229d8e7, type: 3}
@@ -3263,6 +3707,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1156662210048467821, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8198156179174243660}
+    - targetCorrespondingSourceObject: {fileID: 1156662210048467821, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 536278264218721412}
+    - targetCorrespondingSourceObject: {fileID: 1156662210048467821, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5984602905041567208}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 296139959842371101, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
       insertIndex: -1
@@ -3270,6 +3720,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 296139959842371101, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7018171722733197299}
+    - targetCorrespondingSourceObject: {fileID: 296139959842371101, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4055867326497389268}
   m_SourcePrefab: {fileID: 100100000, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
 --- !u!4 &384520419554154182 stripped
 Transform:
@@ -3322,6 +3775,24 @@ MonoBehaviour:
   _attackActionId: {fileID: 11400000, guid: 84321f7283a17eb49b1474b568082b24, type: 2}
   _blockingFlags:
   - {fileID: 11400000, guid: de186457c472144428270ef8fb948635, type: 2}
+  _attackStats: {fileID: 0}
+  _colliderListener: {fileID: 0}
+  _hitFeedbacks: {fileID: 0}
+--- !u!114 &4055867326497389268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5658711486138536827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dac61a8f4bd4a5aa4ed2def2a43c608, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Modma::AG.Gameplay.Characters.Components.EnemyDeathState
+  _stateId: {fileID: 11400000, guid: 6ad4078337a4c4642804e8957ae95238, type: 2}
+  _deathFeedback: {fileID: 0}
+  _deathAnimation: {fileID: 0}
 --- !u!4 &6527575693583746571 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1156662210048467821, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
@@ -3335,5 +3806,10 @@ GameObject:
 --- !u!4 &8100431283862634886 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4247267120064111840, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
+  m_PrefabInstance: {fileID: 5376121086385988966}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8625327097883169333 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4406913999558850387, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
   m_PrefabInstance: {fileID: 5376121086385988966}
   m_PrefabAsset: {fileID: 0}

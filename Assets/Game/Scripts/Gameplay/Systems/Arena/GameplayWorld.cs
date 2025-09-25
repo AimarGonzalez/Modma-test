@@ -68,6 +68,25 @@ namespace AG.Gameplay.Combat
 			_enemies = characters.Where(character => character.IsEnemy).ToList();
 		}
 
+
+		private void OnEnable()
+		{
+			_arenaEvents.OnCharacterRemoved += OnCharacterRemoved;
+		}
+
+		private void OnDisable()
+		{
+			_arenaEvents.OnCharacterRemoved -= OnCharacterRemoved;
+		}
+		
+		private void OnCharacterRemoved(Character character)
+		{
+			_enemies.Remove(character);
+		}
+		
+		
+		// ------ WORLD QUERIES
+
 		public Character GetBestAttackTarget(Vector3 position)
 		{
 			// Return the closest enemy that is in Combat state.

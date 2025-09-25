@@ -20,13 +20,14 @@ namespace AG.Gameplay.Combat
 		BattleIntro = 1 << 1,
 		Battle = 1 << 2,
 		BattlePaused = 1 << 3,
-		Any = Welcome | BattleIntro | Battle | BattlePaused
+		LevelLost = 1 << 4,
+		LevelComplete = 1 << 5,
+		Any = Welcome | BattleIntro | Battle | BattlePaused | LevelLost | LevelComplete
 	}
 
 	public class ApplicationFlow : MonoBehaviour, IGUIDrawer
 	{
 		// ------------- Dependencies -------------
-		[Inject] private GameplayWorld _gameplayWorld;
 		[Inject] private ApplicationEvents _appEvents;
 		[Inject] private ApplicationView _appView;
 		[Inject] private TimeController _timeController;
@@ -44,7 +45,7 @@ namespace AG.Gameplay.Combat
 		private void Start()
 		{
 			_appView.SetupUIAtGameStart();
-			
+
 			SetState(AppState.Welcome);
 		}
 
@@ -55,9 +56,9 @@ namespace AG.Gameplay.Combat
 
 		private async Task StartBattle()
 		{
-			
+
 			SetState(AppState.BattleIntro); // Not implemented
-			
+
 			// await intro
 			// - show banner with GOAL (2s)
 			// - spawn some enemies
@@ -110,7 +111,7 @@ namespace AG.Gameplay.Combat
 			{
 				case AppState.Battle:
 					break;
-				
+
 				case AppState.BattlePaused:
 					_timeController.Pause(false);
 					break;
@@ -121,11 +122,11 @@ namespace AG.Gameplay.Combat
 				case AppState.Welcome:
 					SetupNewBattle();
 					break;
-				
+
 				case AppState.BattleIntro:
 					//TODO
 					break;
-				
+
 				case AppState.Battle:
 					if (oldAppState == AppState.BattleIntro)
 					{
@@ -137,13 +138,21 @@ namespace AG.Gameplay.Combat
 						_gameplayFlow.ResumeBattle();
 					}
 					break;
-				
+
 				case AppState.BattlePaused:
 					_timeController.Pause(true);
 					_gameplayFlow.PauseBattle();
 					break;
+
+				case AppState.LevelLost:
+					//RestartApp();
+					break;
+
+				case AppState.LevelComplete:
+					//RestartApp();
+					break;
 			}
-			
+
 			_appView.PlayViewTransition(oldAppState, newAppState).RunAsync();
 		}
 

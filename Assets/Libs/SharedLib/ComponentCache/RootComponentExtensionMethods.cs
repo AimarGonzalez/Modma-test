@@ -8,5 +8,10 @@ namespace SharedLib.ComponentCache
 		{
 			return component.GetComponentInParent<RootComponent>();
 		}
+		
+		public static RootComponent GetRoot(this GameObject go)
+		{
+			return go.GetComponentInParent<RootComponent>();
+		}
 	}
 }

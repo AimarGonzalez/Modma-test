@@ -5,6 +5,7 @@ using SharedLib.Utils;
 using System;
 using System.Threading.Tasks;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 namespace AG.Gameplay.Systems
 {
@@ -22,6 +23,7 @@ namespace AG.Gameplay.Systems
 		// ------------- Private fields -------------
 
 		private bool _playingTransition = false;
+		private AppState _currentState;
 
 		// ------------- Public properties -------------
 		public bool IsPlayingTransition => _playingTransition;
@@ -34,6 +36,7 @@ namespace AG.Gameplay.Systems
 		public async Task PlayViewTransition(AppState oldState, AppState newState)
 		{
 			_playingTransition = true;
+			_currentState = newState;
 
 			Task[] paralelTasks =
 			{
@@ -68,6 +71,12 @@ namespace AG.Gameplay.Systems
 			{
 				await enterTransition.PlayFeedbacksTask(Vector3.zero, feedbacksIntensity: 1f, forceChangeDirection: true);
 			}
+		}
+
+		[Button(DisplayParameters = true)]
+		private void TestTransition(AppState newState)
+		{
+			PlayViewTransition(_currentState, newState).RunAsync();
 		}
 	}
 }
