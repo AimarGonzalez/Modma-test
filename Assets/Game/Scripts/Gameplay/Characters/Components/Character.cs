@@ -119,10 +119,6 @@ namespace AG.Gameplay.Characters
 
 		protected void Awake()
 		{
-			transform.IsChildOf(transform.parent);
-			_health = _characterStats.MaxHealth;
-			_maxHealth = _characterStats.MaxHealth;
-
 #if UNITY_EDITOR
 			// VContainer injection for prefabs dropped to the scene from the project window
 			PlayModeAutoInject();
@@ -143,6 +139,9 @@ namespace AG.Gameplay.Characters
 		protected virtual void OnEnable()
 		{
 			Subscribe();
+			
+			_health = _characterStats.MaxHealth;
+			_maxHealth = _characterStats.MaxHealth;
 		}
 
 		protected virtual void OnDisable()
