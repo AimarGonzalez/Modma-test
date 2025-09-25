@@ -135,11 +135,11 @@ MonoBehaviour:
   DebugActive: 0
   InScriptDrivenPause: 0
   FeedbacksList:
-  - rid: 8731366364805857647
-  - rid: 8731366364805857648
-  - rid: 8731366364805857649
-  - rid: 8731366364805857650
-  - rid: 8731366364805857651
+  - rid: 8731366446562279552
+  - rid: 8731366446562279553
+  - rid: 8731366446562279554
+  - rid: 8731366446562279555
+  - rid: 8731366446562279556
   KeepPlayModeChanges: 0
   PerformanceMode: 0
   RestoreInitialValuesOnDisable: 0
@@ -148,11 +148,11 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 8731366364805857647
+    - rid: 8731366446562279552
       type: {class: MMF_Position, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 1
-        UniqueID: -1474693692
+        UniqueID: -1227728081
         Label: Forward movement
         OriginalLabel: Position
         ChannelMode: 0
@@ -227,7 +227,7 @@ MonoBehaviour:
         Space: 0
         RandomizeRemap: 0
         MovementMode: 0
-        AnimatePositionDuration: 1
+        AnimatePositionDuration: 2.5
         AnimatePositionSpeed: 1
         AnimatePositionTween:
           MMTweenDefinitionType: 1
@@ -445,11 +445,11 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-    - rid: 8731366364805857648
+    - rid: 8731366446562279553
       type: {class: MMF_Rotation, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 0
-        UniqueID: -883541077
+        UniqueID: 1967663438
         Label: SideToSide - Rotation
         OriginalLabel: Rotation
         ChannelMode: 0
@@ -827,11 +827,11 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-    - rid: 8731366364805857649
+    - rid: 8731366446562279554
       type: {class: MMF_Position, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 0
-        UniqueID: 642973740
+        UniqueID: 1372488022
         Label: SideToSide - Position
         OriginalLabel: Position
         ChannelMode: 0
@@ -1241,11 +1241,11 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-    - rid: 8731366364805857650
+    - rid: 8731366446562279555
       type: {class: MMF_Position, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 0
-        UniqueID: 1450195275
+        UniqueID: -2028602538
         Label: SideToSide - elevation
         OriginalLabel: Position
         ChannelMode: 0
@@ -1520,11 +1520,11 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-    - rid: 8731366364805857651
+    - rid: 8731366446562279556
       type: {class: MMF_SquashAndStretch, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 1
-        UniqueID: -29597385
+        UniqueID: 195480797
         Label: Squash and Stretch
         OriginalLabel: Squash and Stretch
         ChannelMode: 0
@@ -1597,7 +1597,7 @@ MonoBehaviour:
         SquashAndStretchTarget: {fileID: 2114684812510648480}
         Mode: 0
         Axis: 3
-        AnimateScaleDuration: 1
+        AnimateScaleDuration: 2.5
         RemapCurveZero: 1
         RemapCurveOne: 1.1
         Offset: 0
@@ -1907,11 +1907,11 @@ MonoBehaviour:
   DebugActive: 0
   InScriptDrivenPause: 0
   FeedbacksList:
-  - rid: 8731366364805857612
-  - rid: 8731366364805857613
-  - rid: 8731366364805857614
-  - rid: 8731366364805857615
-  - rid: 8731366364805857616
+  - rid: 8731366446562279547
+  - rid: 8731366446562279548
+  - rid: 8731366446562279549
+  - rid: 8731366446562279550
+  - rid: 8731366446562279551
   KeepPlayModeChanges: 0
   PerformanceMode: 0
   RestoreInitialValuesOnDisable: 0
@@ -1920,11 +1920,11 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 8731366364805857612
+    - rid: 8731366446562279547
       type: {class: MMF_SquashAndStretch, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
-        Active: 0
-        UniqueID: 1759981322
+        Active: 1
+        UniqueID: -1844821070
         Label: Squash and Stretch
         OriginalLabel: Squash and Stretch
         ChannelMode: 0
@@ -1941,7 +1941,7 @@ MonoBehaviour:
           NumberOfRepeats: 0
           RepeatForever: 0
           DelayBetweenRepeats: 1
-          PlayCount: 0
+          PlayCount: 1
           LimitPlayCount: 0
           MaxPlayCount: 3
           SetPlayCountToZeroOnReset: 0
@@ -1997,7 +1997,7 @@ MonoBehaviour:
         SquashAndStretchTarget: {fileID: 8100431283862634886}
         Mode: 0
         Axis: 7
-        AnimateScaleDuration: 0.7
+        AnimateScaleDuration: 1.5
         RemapCurveZero: 1
         RemapCurveOne: 0.7
         Offset: 0
@@ -2037,11 +2037,11 @@ MonoBehaviour:
         AllowAdditivePlays: 0
         DetermineScaleOnPlay: 0
         DestinationScale: 1
-    - rid: 8731366364805857613
+    - rid: 8731366446562279548
       type: {class: MMF_Rotation, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
-        Active: 0
-        UniqueID: 1598535263
+        Active: 1
+        UniqueID: 1561726949
         Label: Rotation
         OriginalLabel: Rotation
         ChannelMode: 0
@@ -2058,7 +2058,7 @@ MonoBehaviour:
           NumberOfRepeats: 0
           RepeatForever: 0
           DelayBetweenRepeats: 1
-          PlayCount: 0
+          PlayCount: 1
           LimitPlayCount: 0
           MaxPlayCount: 3
           SetPlayCountToZeroOnReset: 0
@@ -2115,7 +2115,7 @@ MonoBehaviour:
         Mode: 0
         RotationSpace: 1
         MovementMode: 0
-        AnimateRotationDuration: 0.5
+        AnimateRotationDuration: 1.5
         AnimatePositionSpeed: 1
         RemapCurveZero: 0
         RemapCurveOne: -60
@@ -2311,11 +2311,11 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-    - rid: 8731366364805857614
+    - rid: 8731366446562279549
       type: {class: MMF_HoldingPause, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
-        Active: 0
-        UniqueID: 325939453
+        Active: 1
+        UniqueID: 1502915202
         Label: Holding Pause
         OriginalLabel: Holding Pause
         ChannelMode: 0
@@ -2332,7 +2332,7 @@ MonoBehaviour:
           NumberOfRepeats: 0
           RepeatForever: 0
           DelayBetweenRepeats: 1
-          PlayCount: 15
+          PlayCount: 1
           LimitPlayCount: 0
           MaxPlayCount: 3
           SetPlayCountToZeroOnReset: 0
@@ -2393,11 +2393,11 @@ MonoBehaviour:
         ScriptDriven: 0
         AutoResume: 0
         AutoResumeAfter: 0.25
-    - rid: 8731366364805857615
+    - rid: 8731366446562279550
       type: {class: MMF_Position, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 1
-        UniqueID: 477441956
+        UniqueID: 1765462125
         Label: Position
         OriginalLabel: Position
         ChannelMode: 0
@@ -2414,7 +2414,7 @@ MonoBehaviour:
           NumberOfRepeats: 0
           RepeatForever: 0
           DelayBetweenRepeats: 1
-          PlayCount: 3
+          PlayCount: 1
           LimitPlayCount: 0
           MaxPlayCount: 3
           SetPlayCountToZeroOnReset: 0
@@ -2472,7 +2472,7 @@ MonoBehaviour:
         Space: 0
         RandomizeRemap: 0
         MovementMode: 0
-        AnimatePositionDuration: 0.5
+        AnimatePositionDuration: 1
         AnimatePositionSpeed: 0.2
         AnimatePositionTween:
           MMTweenDefinitionType: 1
@@ -2690,11 +2690,11 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-    - rid: 8731366364805857616
+    - rid: 8731366446562279551
       type: {class: MMF_Rotation, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
-        Active: 0
-        UniqueID: 663925942
+        Active: 1
+        UniqueID: -1060066472
         Label: Rotation
         OriginalLabel: Rotation
         ChannelMode: 0
@@ -2711,7 +2711,7 @@ MonoBehaviour:
           NumberOfRepeats: 0
           RepeatForever: 0
           DelayBetweenRepeats: 1
-          PlayCount: 14
+          PlayCount: 0
           LimitPlayCount: 0
           MaxPlayCount: 3
           SetPlayCountToZeroOnReset: 0
@@ -2768,7 +2768,7 @@ MonoBehaviour:
         Mode: 0
         RotationSpace: 1
         MovementMode: 0
-        AnimateRotationDuration: 0.5
+        AnimateRotationDuration: 1
         AnimatePositionSpeed: 1
         RemapCurveZero: 0
         RemapCurveOne: 1080
@@ -3029,6 +3029,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 329919616902195348, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
+      propertyPath: _distance
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 329919616902195348, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
       propertyPath: _feedback
       value: 
       objectReference: {fileID: 8723621178945495447}
@@ -3046,7 +3050,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 816563202671134610, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
       propertyPath: _distance
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 816563202671134610, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
       propertyPath: _feedback
@@ -3094,7 +3098,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4534640315409007690, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.53847
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4534640315409007690, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3102,7 +3106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4534640315409007690, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.18256
+      value: -3.33952
       objectReference: {fileID: 0}
     - target: {fileID: 4534640315409007690, guid: 1fe6a3502df358943b4b88dc903f5fda, type: 3}
       propertyPath: m_LocalRotation.w

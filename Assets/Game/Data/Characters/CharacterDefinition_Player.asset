@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04790521175d2eb4caa7873f05b7c3bd, type: 3}
   m_Name: CharacterDefinition_Player
   m_EditorClassIdentifier: Modma::AG.Gameplay.Characters.Data.CharacterDefinitionSO
-  _prefab: {fileID: 3708330775976107653, guid: 3f3cdd463c2263c44b1cfc1aa04575d9, type: 3}
+  _prefab: {fileID: 6744052931774475916, guid: 765c224e0c67ae04b94c78f36ef48996, type: 3}
