@@ -98,6 +98,11 @@ namespace AG.Core.Pool
 
 		public void ReleaseToPool()
 		{
+			if (!CreatedOnPool)
+			{
+				return;
+			}
+			
 			if (_pool == null)
 			{
 				if (_logMissingPool)
