@@ -36,6 +36,7 @@ namespace AG.Gameplay.Combat
 		//------ Public properties ----------------
 		public Transform MovementTargetsContainer => _movementTargetsContainer;
 		public Transform ProjectilesContainer => _projectilesContainer;
+		public Transform CharactersContainer => _charactersContainer;
 		public Character Player => _player;
 		public List<Character> Enemies => _enemies;
 		public MeshRenderer WalkableArea => _walkableArea;

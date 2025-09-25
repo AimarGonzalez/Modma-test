@@ -20,7 +20,7 @@ namespace AG.Gameplay.Projectiles
 		{
 			Character character = _poolService.Get<Character>(
 				prefab,
-				_gameplayWorld.ProjectilesContainer,
+				_gameplayWorld.CharactersContainer,
 				active,
 				position,
 				rotation,
