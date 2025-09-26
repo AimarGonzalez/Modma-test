@@ -1,6 +1,7 @@
 using AG.Core.UI;
 using AG.Gameplay.Actions;
 using AG.Gameplay.Cards.CardStats;
+using AG.Gameplay.Combat;
 using MoreMountains.Feedbacks;
 using SharedLib.ComponentCache;
 using SharedLib.ExtensionMethods;
@@ -10,6 +11,7 @@ using SharedLib.Utils;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using UnityEngine;
+using VContainer;
 
 namespace AG.Gameplay.Characters.Components
 {
@@ -41,6 +43,7 @@ namespace AG.Gameplay.Characters.Components
 
 		[SerializeField]
 		private MMF_Player _hitFeedbacks;
+		
 
 		// ------------- Components -------------
 
@@ -52,6 +55,9 @@ namespace AG.Gameplay.Characters.Components
 
 		[ShowInInspector, HideInEditorMode, PropertyOrder(-1)]
 		private CombatState _combatState;
+		
+		//--------------- Dependencies -----------
+		[Inject] private GameplayWorld _gameplayArena;
 
 		private bool IsBlockedByActions => _flags.IsAnyFlagActive(_blockingFlags);
 		public CombatState State => _combatState;
@@ -81,6 +87,11 @@ namespace AG.Gameplay.Characters.Components
 
 		public override IState.Status UpdateState()
 		{
+			if (_gameplayArena.Player.IsDead)
+			{
+				return IState.Status.Running;;
+			}
+			
 			if (IsBlockedByActions)
 			{
 				return IState.Status.Running;
@@ -152,7 +163,7 @@ namespace AG.Gameplay.Characters.Components
 			Character target = collider.GetRoot().Get<Character>();
 			if (target.IsPlayer)
 			{
-				_character.Hit(target, _attackStats.Damage);
+				target.Hit(_character, _attackStats.Damage);
 			}
 		}
 
