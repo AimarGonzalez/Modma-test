@@ -13,7 +13,8 @@ namespace AG.Gameplay.Characters.Components
 		private PlayerAnimations _playerAnimation;
 		private Character _character;
 
-		// ------------- Dependencies -------------
+		// ------------- Private fields -------------
+		private AnimancerEvent.Sequence _animationEvents;
 
 		protected void Awake()
 		{
@@ -23,11 +24,14 @@ namespace AG.Gameplay.Characters.Components
 
 		public override void OnEnterState()
 		{
-			_playerAnimation.PlayDeath().Events(this).OnEnd = OnAnimationEnd;
+			_animationEvents = _playerAnimation.PlayDeath().Events(this);
+			_animationEvents.OnEnd = OnAnimationEnd;
 		}
 
 		private void OnAnimationEnd()
 		{
+			_animationEvents.OnEnd = null;
+			
 			// Will trigger ArenaEvent.TriggerCharacterRemoved
 			_character.ReleaseToPool();
 		}
