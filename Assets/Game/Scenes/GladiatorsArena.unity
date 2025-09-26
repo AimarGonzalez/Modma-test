@@ -15605,6 +15605,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1615579197}
     m_Modifications:
+    - target: {fileID: 2041610687823157594, guid: 9ee31e5d6972d4844951934980cc6514, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 255
+      objectReference: {fileID: 0}
     - target: {fileID: 7117766501694809739, guid: 9ee31e5d6972d4844951934980cc6514, type: 3}
       propertyPath: m_Name
       value: CameraRig
@@ -25118,6 +25122,10 @@ PrefabInstance:
     - target: {fileID: 5390759810857729532, guid: 765c224e0c67ae04b94c78f36ef48996, type: 3}
       propertyPath: managedReferences[8731366446562279617].InterpolationCurve.Curve.m_Curve.Array.data[4].weightedMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974504668594845404, guid: 765c224e0c67ae04b94c78f36ef48996, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
