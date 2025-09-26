@@ -15,21 +15,24 @@ namespace AG.Gameplay.Characters.Components
 
 		// ------ Components ------
 
-		private AnimancerComponent _animancer;
+		private PlayerAnimations _playerAnimation;
 		private Character _character;
 
 		// ------------- Dependencies -------------
 
 		protected void Awake()
 		{
-			_animancer = Root.Get<AnimancerComponent>();
+			_playerAnimation = Root.Get<PlayerAnimations>();
 			_character = Root.Get<Character>();
 		}
 
 		public override void OnEnterState()
 		{
-			_animancer.Play(_deathAnimation);
+			_playerAnimation.PlayDeath().Events(this).OnEnd = OnAnimationEnd;
+		}
 
+		private void OnAnimationEnd()
+		{
 			// Will trigger ArenaEvent.TriggerCharacterRemoved
 			_character.ReleaseToPool();
 		}

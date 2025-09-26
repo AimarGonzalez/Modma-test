@@ -14,6 +14,8 @@ namespace AG.Gameplay.Characters.Components
 		[SerializeField] private TransitionAsset _moveAnimation;
 		[SerializeField] private TransitionAsset _rangedAttackAnimation;
 		[SerializeField] private TransitionAsset _dashAttackAnimation;
+		[SerializeField] private TransitionAsset _deathAnimation;
+		
 
 
 		// --------- Private fields ---------
@@ -47,6 +49,11 @@ namespace AG.Gameplay.Characters.Components
 		public AnimancerState PlayDashAttack()
 		{
 			return _animancer.Play(_dashAttackAnimation);
+		}
+
+		public AnimancerState PlayDeath()
+		{
+			return _animancer.Play(_deathAnimation);
 		}
 	}
 }

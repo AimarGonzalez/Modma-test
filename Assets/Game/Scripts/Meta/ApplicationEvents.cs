@@ -7,7 +7,7 @@ namespace AG.Gameplay.Systems
 	{
 		public event Action<AppState, AppState> OnAppStateChanged;
 		public event Action OnLevelFinished;
-		public event Action OnPlayerDeath;
+		public event Action OnLevelLost;
 		public void TriggerAppStateChanged(AppState oldAppState, AppState newAppState)
 		{
 			OnAppStateChanged?.Invoke(oldAppState, newAppState);
@@ -20,7 +20,7 @@ namespace AG.Gameplay.Systems
 
 		public void TriggerLevelLost()
 		{
-			OnPlayerDeath?.Invoke();
+			OnLevelLost?.Invoke();
 		}
 	}
 }

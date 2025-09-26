@@ -58,6 +58,7 @@ namespace AG.Gameplay.Combat
 		private void Subscribe()
 		{
 			_appEvents.OnLevelFinished += OnLevelFinished;
+			_appEvents.OnLevelLost += OnLevelLost;
 		}
 
 		private void Unsubscribe()
@@ -101,6 +102,11 @@ namespace AG.Gameplay.Combat
 		private void OnLevelFinished()
 		{
 			SetState(AppState.LevelComplete);
+		}
+
+		private void OnLevelLost()
+		{
+			SetState(AppState.LevelLost);
 		}
 
 		public void Update()
