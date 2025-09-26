@@ -46,8 +46,7 @@ namespace AG.Gameplay.Characters.Components
 
 		[SerializeField]
 		private MMF_Player _hitFeedbacks;
-
-
+		
 		// ------------- Private fields -------------
 
 		[ShowInInspector, ReadOnly, FoldoutGroup(DebugUI.Group), PropertyOrder(DebugUI.Order)]
@@ -71,6 +70,7 @@ namespace AG.Gameplay.Characters.Components
 		private PlayerInputController _inputController;
 		private PlayerMovement _playerMovement;
 		private PlayerAnimations _playerAnimations;
+		private TargetMarkerController _targetMarkerController;
 
 		// ------------- Dependencies -------------
 		[Inject] private GameplayWorld _world;
@@ -91,10 +91,12 @@ namespace AG.Gameplay.Characters.Components
 		public override void OnEnterState()
 		{
 			Subscribe();
+			_targetMarkerController.Show();
 		}
 		public override void OnExitState()
 		{
 			_actionPlayer.StopAllActions();
+			_targetMarkerController.Hide();
 			Unsubscribe();
 		}
 

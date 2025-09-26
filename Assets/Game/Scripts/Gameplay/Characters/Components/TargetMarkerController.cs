@@ -1,5 +1,4 @@
 using SharedLib.ComponentCache;
-using System;
 using UnityEngine;
 
 namespace AG.Gameplay.Characters.Components
@@ -15,6 +14,7 @@ namespace AG.Gameplay.Characters.Components
 
 		// ------------- Private fields -------------
 		private Character _target;
+		private bool _visible;
 
 		private void Awake()
 		{
@@ -44,7 +44,7 @@ namespace AG.Gameplay.Characters.Components
 
 		private void UpdateView()
 		{
-			if (_target == null)
+			if (!_visible || _target == null || _target.IsDead)
 			{
 				_targetMarker.gameObject.SetActive(false);
 			}
@@ -57,6 +57,16 @@ namespace AG.Gameplay.Characters.Components
 					_targetMarker.position.y, // keep original heigh
 					_target.transform.position.z);
 			}
+		}
+
+		public void Show()
+		{
+			_visible = true;
+		}
+
+		public void Hide()
+		{
+			_visible = false;
 		}
 	}
 }
