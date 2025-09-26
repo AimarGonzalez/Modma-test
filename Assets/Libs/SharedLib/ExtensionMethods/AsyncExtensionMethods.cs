@@ -13,7 +13,7 @@ namespace SharedLib.ExtensionMethods
 			{
 				if (t.IsFaulted)
 				{
-					Debug.LogError(t.Exception);
+					Debug.LogException(t.Exception);
 				}
 			});
 		}
@@ -32,7 +32,7 @@ namespace SharedLib.ExtensionMethods
 			}
 			catch (Exception ex)
 			{
-				Debug.LogError(ex);
+				Debug.LogException(ex);
 			}
 		}
 	}
