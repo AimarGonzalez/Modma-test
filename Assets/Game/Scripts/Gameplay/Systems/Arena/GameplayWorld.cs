@@ -28,6 +28,9 @@ namespace AG.Gameplay.Combat
 
 		[SerializeField, Required]
 		private MeshRenderer _walkableArea;
+		
+		[SerializeField, Required]
+		private Transform _playerSpawnPoint;
 
 		//----- Dependencies ----------------
 
@@ -40,6 +43,7 @@ namespace AG.Gameplay.Combat
 		public Character Player => _player;
 		public List<Character> Enemies => _enemies;
 		public MeshRenderer WalkableArea => _walkableArea;
+		public Transform PlayerSpawnPoint => _playerSpawnPoint;
 
 		// -------- Private fields
 		private Character _player;

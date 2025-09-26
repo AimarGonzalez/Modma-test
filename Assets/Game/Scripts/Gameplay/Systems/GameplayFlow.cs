@@ -75,8 +75,8 @@ namespace AG.Gameplay.Combat
 			}
 
 			//Reset player
-			_world.Player.RootTransform.localPosition = Vector3.zero;
-			_world.Player.RootTransform.localRotation = Quaternion.identity;
+			_world.Player.RootTransform.localPosition =  _world.PlayerSpawnPoint.position;
+			_world.Player.RootTransform.localRotation =  _world.PlayerSpawnPoint.rotation;
 			_world.Player.Reset();
 			_world.Player.Cinematic();
 
