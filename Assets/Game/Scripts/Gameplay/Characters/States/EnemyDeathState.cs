@@ -17,7 +17,7 @@ namespace AG.Gameplay.Characters.Components
 		private MMF_Player _deathFeedback;
 
 		[SerializeField]
-		private TransitionAsset _deathAnimation;
+		private Transform _viewTransform;
 
 		// ------ Components ------
 
@@ -42,7 +42,11 @@ namespace AG.Gameplay.Characters.Components
 			_deathFeedback.Initialization();
 			await _deathFeedback.PlayFeedbacksTask();
 
-			// Will trigger ArenaEvent.TriggerCharacterRemoved
+			// Manually reset position - feedback not reseting as expected
+			_viewTransform.localScale = Vector3.one;
+			_viewTransform.localRotation = Quaternion.identity;
+			_viewTransform.localPosition = Vector3.zero;
+			
 			_character.ReleaseToPool();
 		}
 

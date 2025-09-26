@@ -8,11 +8,6 @@ namespace AG.Gameplay.Characters.Components
 {
 	public class PlayerDeathState : StateSubComponent
 	{
-		// ------------- Inspector fields -------------
-
-		[SerializeField]
-		private TransitionAsset _deathAnimation;
-
 		// ------ Components ------
 
 		private PlayerAnimations _playerAnimation;

@@ -2428,7 +2428,7 @@ MonoBehaviour:
   - rid: 8731366453866135679
   KeepPlayModeChanges: 0
   PerformanceMode: 0
-  RestoreInitialValuesOnDisable: 0
+  RestoreInitialValuesOnDisable: 1
   StopFeedbacksOnDisable: 0
   PlayCount: 0
   references:
@@ -5365,7 +5365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Modma::AG.Gameplay.Characters.Components.EnemyDeathState
   _stateId: {fileID: 11400000, guid: 6ad4078337a4c4642804e8957ae95238, type: 2}
   _deathFeedback: {fileID: 762525638179254378}
-  _deathAnimation: {fileID: 0}
+  _viewTransform: {fileID: 8625327097883169333}
 --- !u!114 &4805260646285390770
 MonoBehaviour:
   m_ObjectHideFlags: 0
