@@ -36,6 +36,13 @@ namespace SharedLib.StateMachines
 
 		public void SetState(StateId stateId)
 		{
+			if (stateId == null)
+			{
+				Reset();
+				return;
+			}
+			
+			
 			if (!_statesMap.TryGetValue(stateId, out IState nextState))
 			{
 				Debug.LogError($"State {stateId.Name()} not found");
@@ -54,6 +61,12 @@ namespace SharedLib.StateMachines
 			_currentState.OnEnterState();
 
 			OnStateTransition?.Invoke(_previousState?.StateId, nextState.StateId);
+		}
+
+		public void Reset()
+		{
+			_currentState?.OnExitState();
+			_currentState = null;
 		}
 
 		public void Update()

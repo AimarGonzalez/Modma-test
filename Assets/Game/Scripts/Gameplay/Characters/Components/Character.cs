@@ -317,6 +317,7 @@ namespace AG.Gameplay.Characters
 
 		public void OnReturnToPool()
 		{
+			_stateMachine.Reset();
 		}
 
 		public void OnDestroyFromPool()
