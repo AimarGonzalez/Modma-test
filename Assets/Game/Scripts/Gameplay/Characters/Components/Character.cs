@@ -141,7 +141,11 @@ namespace AG.Gameplay.Characters
 		protected virtual void OnEnable()
 		{
 			Subscribe();
-			
+			Reset();
+		}
+
+		public void Reset()
+		{
 			_health = _characterStats.MaxHealth;
 			_maxHealth = _characterStats.MaxHealth;
 		}

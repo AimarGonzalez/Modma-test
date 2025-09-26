@@ -49,7 +49,9 @@ namespace AG.Gameplay.UI
 
 		public void OnAfterGetFromPool()
 		{
-			UpdateView();
+			UpdateColor();
+			UpdateFillRatio();
+			UpdateVisibility();
 
 			_character.OnHealthChanged += OnHealthChanged;
 			_character.OnStateChanged += OnStateChanged;
@@ -63,13 +65,6 @@ namespace AG.Gameplay.UI
 
 		public void OnDestroyFromPool()
 		{
-		}
-
-		private void UpdateView()
-		{
-			UpdateColor();
-			UpdateFillRatio();
-			UpdateVisibility();
 		}
 
 		private void OnHealthChanged(float prevHealth, float newHealth)
