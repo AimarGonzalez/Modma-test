@@ -77,6 +77,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7880860992659008881, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}
+      propertyPath: m_Name
+      value: ModelContainer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880860992659008881, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
@@ -141,8 +145,8 @@ MonoBehaviour:
   _distance: 2
   _feedback: {fileID: 0}
   _moveTarget: {fileID: 0}
-  _walkableArea: {fileID: 0}
   _feedbackSpeedMultiplier: 1
+  _feedbacksRoot: {fileID: 0}
 --- !u!114 &329919616902195348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +171,7 @@ MonoBehaviour:
   _feedback: {fileID: 0}
   _attackTarget: {fileID: 0}
   _feedbackSpeedMultiplier: 1
+  _feedbacksRoot: {fileID: 0}
 --- !u!1 &3020608683424751763 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2995204380731801449, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}
