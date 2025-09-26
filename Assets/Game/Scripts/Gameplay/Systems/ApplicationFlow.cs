@@ -2,7 +2,6 @@ using AG.Core;
 using AG.Core.UI;
 using AG.Gameplay.Systems;
 using JetBrains.Annotations;
-using AG.Gameplay.Levels;
 using SharedLib.ExtensionMethods;
 using Sirenix.OdinInspector;
 using System;
@@ -32,8 +31,6 @@ namespace AG.Gameplay.Combat
 		[Inject] private ApplicationView _appView;
 		[Inject] private TimeController _timeController;
 		[Inject] private GameplayFlow _gameplayFlow;
-		[Inject] private LevelController _levelController;
-
 
 		// ------------- Private fields -------------
 		[ShowInInspector, ReadOnly]
@@ -64,11 +61,6 @@ namespace AG.Gameplay.Combat
 		private void Unsubscribe()
 		{
 			_appEvents.OnLevelFinished -= OnLevelFinished;
-		}
-
-		private void SetupNewBattle()
-		{
-			_gameplayFlow.SetupNewBattle();
 		}
 
 		private async Task StartBattle()
@@ -132,8 +124,6 @@ namespace AG.Gameplay.Combat
 
 		private void ProcessTransition(AppState oldAppState, AppState newAppState)
 		{
-			_appEvents.TriggerAppStateChanged(oldAppState, newAppState);
-
 			switch (oldAppState)
 			{
 				case AppState.Battle:
@@ -147,7 +137,7 @@ namespace AG.Gameplay.Combat
 			switch (newAppState)
 			{
 				case AppState.Welcome:
-					SetupNewBattle();
+					_gameplayFlow.SetupNewBattle();
 					break;
 
 				case AppState.BattleIntro:
@@ -157,7 +147,6 @@ namespace AG.Gameplay.Combat
 				case AppState.Battle:
 					if (oldAppState == AppState.BattleIntro)
 					{
-						_levelController.StartLevel();
 						_gameplayFlow.StartBattle();
 					}
 					else
@@ -172,14 +161,12 @@ namespace AG.Gameplay.Combat
 					break;
 
 				case AppState.LevelLost:
-					//RestartApp();
-					break;
-
 				case AppState.LevelComplete:
-					//RestartApp();
+					// Do nothing, wait until input from UI
 					break;
 			}
 
+			_appEvents.TriggerAppStateChanged(oldAppState, newAppState);
 			_appView.PlayViewTransition(oldAppState, newAppState).RunAsync();
 		}
 

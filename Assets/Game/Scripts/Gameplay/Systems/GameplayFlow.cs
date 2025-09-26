@@ -1,5 +1,6 @@
 using AG.Core.Pool;
 using AG.Gameplay.Characters;
+using AG.Gameplay.Levels;
 using UnityEngine;
 using VContainer;
 
@@ -13,6 +14,7 @@ namespace AG.Gameplay.Combat
 		// ------------- Dependencies -------------
 
 		[Inject] private GameplayWorld _world;
+		[Inject] private LevelController _levelController;
 
 		// ------------- Private fields -------------
 		private float _currentTime;
@@ -38,7 +40,7 @@ namespace AG.Gameplay.Combat
 
 		public void SetupNewBattle()
 		{
-			// Reset in case scene is not in a correct state
+			// Reset in case Scene is not in a correct state
 			ResetBattle();
 
 			_currentTime = 0f;
@@ -48,6 +50,7 @@ namespace AG.Gameplay.Combat
 		public void StartBattle()
 		{
 			_isBattleActive = true;
+			_levelController.StartLevel();
 		}
 
 		public void PauseBattle()
