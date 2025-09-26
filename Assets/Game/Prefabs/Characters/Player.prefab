@@ -1243,6 +1243,7 @@ MonoBehaviour:
   _moveAnimation: {fileID: 11400000, guid: 14dada44f16c8ae4194f7a398040690f, type: 2}
   _rangedAttackAnimation: {fileID: 11400000, guid: 19fdc3ec9d3d5b54382931231247b303, type: 2}
   _dashAttackAnimation: {fileID: 11400000, guid: ffb2d0ef7dc986d469da264b3d1c36a9, type: 2}
+  _deathAnimation: {fileID: 11400000, guid: 630de4a1153e7c540a52f84ed26db44c, type: 2}
 --- !u!1 &489626176172864484 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2507101469890017649, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}

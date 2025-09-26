@@ -33,8 +33,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3525289227343918903}
   - {fileID: 4418807468733163689}
+  - {fileID: 3525289227343918903}
   - {fileID: 5744209349025639514}
   - {fileID: 1186429340251258007}
   - {fileID: 2574812601934388197}
@@ -82,8 +82,8 @@ MonoBehaviour:
     SpawningState: {fileID: 0}
     CinematicState: {fileID: 0}
     CombatState: {fileID: 0}
+    DeathState: {fileID: 0}
   _characterStats: {fileID: 11400000, guid: cf802b1e6b9574f43b5c364ad376ebbd, type: 2}
-  _spawnningFeedbacks: {fileID: 0}
   _showDebugPanel: 1
   _panelPosition: 3
   _panelMargin: 0
@@ -171,7 +171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4418807468733163689}
   m_Layer: 6
-  m_Name: Model
+  m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
