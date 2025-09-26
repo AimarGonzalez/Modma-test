@@ -645,18 +645,18 @@ MonoBehaviour:
           ButtonText: 
         Owner: {fileID: 5390759810857729532}
         DebugActive: 0
-        TargetShaker: {fileID: 0}
+        TargetShaker: {fileID: 4588993161569231771}
         Duration: 0.2
         ResetShakerValuesAfterShake: 1
         ResetTargetValuesAfterShake: 1
         ShakeSpeed: 5
-        ShakeRange: 0.5
-        ShakeMainDirection: {x: 0, y: 1, z: 0}
+        ShakeRange: 0.4
+        ShakeMainDirection: {x: 0, y: 0, z: 0}
         RandomizeDirection: 0
         ShakeAltDirection: {x: 0, y: 1, z: 0}
-        RandomizeDirectionOnPlay: 0
+        RandomizeDirectionOnPlay: 1
         RandomizeDirectionX: 1
-        RandomizeDirectionY: 1
+        RandomizeDirectionY: 0
         RandomizeDirectionZ: 1
         AddDirectionalNoise: 1
         DirectionalNoiseStrengthMin: {x: 0.25, y: 0.25, z: 0.25}
@@ -1187,18 +1187,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 317038325405559271, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2763953179473650763}
-    - targetCorrespondingSourceObject: {fileID: 2507101469890017649, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4212512001703203860}
-    - targetCorrespondingSourceObject: {fileID: 2507101469890017649, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 798841841617390986}
     - targetCorrespondingSourceObject: {fileID: 2627208817264435569, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4812680913380078205}
     - targetCorrespondingSourceObject: {fileID: 2627208817264435569, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5536649548641710952}
+    - targetCorrespondingSourceObject: {fileID: 2507101469890017649, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4212512001703203860}
+    - targetCorrespondingSourceObject: {fileID: 2507101469890017649, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 798841841617390986}
     - targetCorrespondingSourceObject: {fileID: 2995204380731801449, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 813891008698395049}
@@ -1435,7 +1435,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Modma::AG.Gameplay.Characters.Components.PlayerDeathState
   _stateId: {fileID: 11400000, guid: 6ad4078337a4c4642804e8957ae95238, type: 2}
-  _deathAnimation: {fileID: 11400000, guid: 630de4a1153e7c540a52f84ed26db44c, type: 2}
 --- !u!4 &3780640889599538690 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1186429340251258007, guid: db2144cc3907f0d45adb8313e14fc6b2, type: 3}

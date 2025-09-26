@@ -374,13 +374,13 @@ MonoBehaviour:
         ResetShakerValuesAfterShake: 1
         ResetTargetValuesAfterShake: 1
         ShakeSpeed: 5
-        ShakeRange: 0.5
-        ShakeMainDirection: {x: 0, y: 1, z: 0}
+        ShakeRange: 0.25
+        ShakeMainDirection: {x: 0, y: 0, z: 0}
         RandomizeDirection: 0
         ShakeAltDirection: {x: 0, y: 1, z: 0}
-        RandomizeDirectionOnPlay: 0
+        RandomizeDirectionOnPlay: 1
         RandomizeDirectionX: 1
-        RandomizeDirectionY: 1
+        RandomizeDirectionY: 0
         RandomizeDirectionZ: 1
         AddDirectionalNoise: 1
         DirectionalNoiseStrengthMin: {x: 0.25, y: 0.25, z: 0.25}
@@ -3752,7 +3752,7 @@ MonoBehaviour:
         Mode: 0
         AnimateScaleTarget: {fileID: 8100431283862634886}
         MovementMode: 0
-        AnimateScaleDuration: 0
+        AnimateScaleDuration: 0.1
         AnimatePositionSpeed: 1
         RemapCurveZero: 0
         RemapCurveOne: 0
