@@ -28,26 +28,15 @@ namespace AG.Gameplay.Levels
 		private int _currentWaveIndex = -1;
 		private LevelDefinitionSO.Wave _currentWave;
 
+		private bool _isLevelRunning;
+
 		public void StartLevel()
 		{
 			_arenaEvents.OnCharacterRemoved += OnCharacterRemovedHandler;
 
+			_isLevelRunning = true;
 			_currentWaveIndex = -1;
 			SpawnNextWave();
-		}
-
-		private void OnCharacterRemovedHandler(Character character)
-		{
-			if (character.IsPlayer)
-			{
-				_applicationEvents.TriggerLevelLost();
-				return;
-			}
-
-			if (_gameplayWorld.Enemies.Count == 0)
-			{
-				TransitionToNextWave().RunAsync();
-			}
 		}
 
 		private async Awaitable TransitionToNextWave()
@@ -123,5 +112,24 @@ namespace AG.Gameplay.Levels
 			return newCharacters;
 		}
 
+		private void OnCharacterRemovedHandler(Character character)
+		{
+			if (!_isLevelRunning)
+			{
+				return;
+			}
+			
+			if (character.IsPlayer)
+			{
+				_applicationEvents.TriggerLevelLost();
+				_isLevelRunning = false;
+				return;
+			}
+
+			if (_gameplayWorld.Enemies.Count == 0)
+			{
+				TransitionToNextWave().RunAsync();
+			}
+		}
 	}
 }
