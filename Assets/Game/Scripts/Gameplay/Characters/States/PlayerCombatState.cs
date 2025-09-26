@@ -86,6 +86,7 @@ namespace AG.Gameplay.Characters.Components
 			_playerAnimations = Root.Get<PlayerAnimations>();
 			_actionPlayer = Root.Get<ActionPlayer>();
 			_character = Root.Get<Character>();
+			_targetMarkerController = Root.Get<TargetMarkerController>();
 		}
 
 		public override void OnEnterState()
