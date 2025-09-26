@@ -22,6 +22,7 @@ namespace AG.Gameplay.Projectiles
 		private PooledGameObject _pooledGameObject;
 		private ColliderListener _collisionListener;
 		private Rigidbody _rigidbody;
+		private TrailRenderer _trailRenderer;
 
 
 		//----- Private fields ----------------
@@ -45,6 +46,7 @@ namespace AG.Gameplay.Projectiles
 			_pooledGameObject = Root.Get<PooledGameObject>();
 			_collisionListener = Root.Get<ColliderListener>();
 			_rigidbody = Root.Get<Rigidbody>();
+			_trailRenderer = Root.Get<TrailRenderer>();
 		}
 
 		public void Initialize(Character source, Vector3 direction, AttackStatsSO projectileStats)
@@ -77,6 +79,8 @@ namespace AG.Gameplay.Projectiles
 		{
 			_collisionListener.OnCollisionEnterEvent -= OnTriggerEnter;
 			_collisionListener.OnTriggerEnterEvent -= OnTriggerEnter;
+			
+			_trailRenderer.Clear();
 		}
 
 		private void FixedUpdate()
