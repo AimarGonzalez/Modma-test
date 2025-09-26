@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace AG.Gameplay.Characters.Components
 {
-	public class SpawningState : StateSubComponent
+	public class EnemySpawnState : StateSubComponent
 	{
 		// ------------- Inspector fields -------------
 	

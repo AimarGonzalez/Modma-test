@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AttackStats_EnemyDashAttack
   m_EditorClassIdentifier: Modma::AG.Gameplay.Cards.CardStats.AttackStatsSO
   _attackType: 0
-  _damage: 63
+  _damage: 0
   _attackSpeed: 2
   _attackRange: 2
   _areaDamageRadius: 0
