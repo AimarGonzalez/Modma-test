@@ -26,6 +26,7 @@ namespace AG.Gameplay.Characters.Components
 		{
 			if (_spawnningFeedbacks)
 			{
+				_spawnningFeedbacks.Initialization();
 				_spawnningFeedbacks.PlayFeedbacks();
 				_spawnningFeedbacks.Events.OnComplete.AddListener(OnSpawnningFeedbacksComplete);
 			}

@@ -39,6 +39,7 @@ namespace AG.Gameplay.Characters.Components
 
 		private async Task PlayDeathFeedback()
 		{
+			_deathFeedback.Initialization();
 			await _deathFeedback.PlayFeedbacksTask();
 
 			// Will trigger ArenaEvent.TriggerCharacterRemoved
