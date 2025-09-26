@@ -2437,7 +2437,7 @@ MonoBehaviour:
     - rid: 8731366453866135678
       type: {class: MMF_Scale, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
-        Active: 0
+        Active: 1
         UniqueID: 1050128249
         Label: Scale
         OriginalLabel: Scale
@@ -3088,7 +3088,7 @@ MonoBehaviour:
     - rid: 8731366453866135680
       type: {class: MMF_Scale, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
-        Active: 0
+        Active: 1
         UniqueID: 1050128249
         Label: Scale
         OriginalLabel: Scale
