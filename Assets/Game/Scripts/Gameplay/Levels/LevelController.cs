@@ -52,6 +52,8 @@ namespace AG.Gameplay.Levels
 		{
 			_currentWaveIndex++;
 
+			_arenaEvents.TriggerWaveChanged(_currentWaveIndex, _levelDefinition.Waves.Length);
+
 			if (_currentWaveIndex >= _levelDefinition.Waves.Length)
 			{
 				LevelComplete();
@@ -87,7 +89,7 @@ namespace AG.Gameplay.Levels
 			await Awaitables.WaitUntil(() => newCharacters.TrueForAll(c => c.IsInCinematicState));
 
 			_gameplayWorld.Player.Fight();
-			
+
 			// Set combat state
 			foreach (Character character in newCharacters)
 			{
@@ -115,7 +117,7 @@ namespace AG.Gameplay.Levels
 			{
 				return;
 			}
-			
+
 			if (character.IsPlayer)
 			{
 				LevelLost();

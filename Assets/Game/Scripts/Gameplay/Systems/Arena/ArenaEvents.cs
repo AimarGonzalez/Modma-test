@@ -7,6 +7,7 @@ namespace AG.Gameplay.Systems
 	{
 		public event Action<Character> OnCharacterCreated;
 		public event Action<Character> OnCharacterRemoved;
+		public event Action<int, int> OnWaveChanged;
 
 		public event Action<Character, Character> OnCharacterAttacked;
 		public event Action<Character, Character> OnProjectileFired;
@@ -35,6 +36,11 @@ namespace AG.Gameplay.Systems
 		public void TriggerProjectileHit(Character attacker, Character target)
 		{
 			OnProjectileHit?.Invoke(attacker, target);
+		}
+		
+		public void TriggerWaveChanged(int wave, int totalWaves)
+		{
+			OnWaveChanged?.Invoke(wave, totalWaves);
 		}
 	}
 }
