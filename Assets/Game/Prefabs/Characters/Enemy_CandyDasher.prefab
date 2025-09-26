@@ -5348,7 +5348,7 @@ MonoBehaviour:
   _attackActionId: {fileID: 11400000, guid: 84321f7283a17eb49b1474b568082b24, type: 2}
   _blockingFlags:
   - {fileID: 11400000, guid: de186457c472144428270ef8fb948635, type: 2}
-  _attackStats: {fileID: 11400000, guid: 6b1d6a91e70655343b9c255e6d9a4d08, type: 2}
+  _attackStats: {fileID: 11400000, guid: d186b51a05ce2f043b8b4e0cc15ea1f3, type: 2}
   _colliderListener: {fileID: 8174764211837125133}
   _hitFeedbacks: {fileID: 1665949086379083666}
 --- !u!114 &4055867326497389268
