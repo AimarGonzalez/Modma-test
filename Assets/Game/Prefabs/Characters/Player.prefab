@@ -505,7 +505,7 @@ MonoBehaviour:
         PropertyName: _DamageIntensity
         PropertyType: 1
         NewColor: {r: 1, g: 0, b: 0, a: 1}
-        NewFloat: 1
+        NewFloat: 0.5
         NewInt: 0
         NewTexture: {fileID: 0}
         NewOffset: {x: 0, y: 0}
