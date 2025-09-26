@@ -28,7 +28,7 @@ namespace Modma
 			if (_joystick.Horizontal != 0 || _joystick.Vertical != 0)
 			{
 				_target.gameObject.SetActive(true);
-				_target.position = RootTransform.position + new Vector3(_joystick.Horizontal * _maxRadius, 0, _joystick.Vertical * _maxRadius);
+				_target.position = RootTransform.position + new Vector3(_joystick.Horizontal * _maxRadius, _target.position.y, _joystick.Vertical * _maxRadius);
 			}
 			else
 			{
