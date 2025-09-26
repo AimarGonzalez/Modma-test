@@ -154,7 +154,7 @@ namespace AG.Gameplay.Characters
 		public void ReleaseToPool()
 		{
 			_arenaEvents.TriggerCharacterRemoved(this);
-				Root.Get<PooledGameObject>().ReleaseToPool();
+			Root.Get<PooledGameObject>().ReleaseToPool();
 		}
 		
 		// ------- Unity events -------------------
@@ -223,6 +223,7 @@ namespace AG.Gameplay.Characters
 
 		public bool IsFighting => StateId == _characterStates.CombatState;
 		public bool IsInCinematicState => StateId == _characterStates.CinematicState;
+		public bool IsDead => StateId == null || StateId == _characterStates.DeathState;
 
 		protected virtual void OnStateFinishedWithoutTransition(StateId finishedState)
 		{
