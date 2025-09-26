@@ -30,10 +30,13 @@ namespace AG.Gameplay.Levels
 
 		private bool _isLevelRunning;
 
-		public void StartLevel()
+		private void Awake()
 		{
 			_arenaEvents.OnCharacterRemoved += OnCharacterRemovedHandler;
+		}
 
+		public void StartLevel()
+		{
 			_isLevelRunning = true;
 			_currentWaveIndex = -1;
 			SpawnNextWave();
@@ -67,12 +70,6 @@ namespace AG.Gameplay.Levels
 			{
 				StartWave(spawnPointSet).RunAsync();
 			}
-		}
-
-		private void LevelComplete()
-		{
-			_arenaEvents.OnCharacterRemoved -= OnCharacterRemovedHandler;
-			_applicationEvents.TriggerLevelComplete();
 		}
 
 		private async Awaitable StartWave(Transform[] spawnPointSet)
@@ -121,8 +118,7 @@ namespace AG.Gameplay.Levels
 			
 			if (character.IsPlayer)
 			{
-				_applicationEvents.TriggerLevelLost();
-				_isLevelRunning = false;
+				LevelLost();
 				return;
 			}
 
@@ -130,6 +126,18 @@ namespace AG.Gameplay.Levels
 			{
 				TransitionToNextWave().RunAsync();
 			}
+		}
+
+		private void LevelLost()
+		{
+			_isLevelRunning = false;
+			_applicationEvents.TriggerLevelLost();
+		}
+
+		private void LevelComplete()
+		{
+			_isLevelRunning = false;
+			_applicationEvents.TriggerLevelComplete();
 		}
 	}
 }

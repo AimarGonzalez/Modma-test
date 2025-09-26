@@ -43,8 +43,8 @@ namespace AG.Gameplay.Combat
 			// Reset in case Scene is not in a correct state
 			ResetBattle();
 
-			_currentTime = 0f;
 			_isBattleActive = false;
+			_currentTime = 0f;
 		}
 
 		public void StartBattle()
