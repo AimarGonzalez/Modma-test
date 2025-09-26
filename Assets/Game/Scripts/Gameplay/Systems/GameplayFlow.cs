@@ -41,6 +41,7 @@ namespace AG.Gameplay.Combat
 		public void SetupNewBattle()
 		{
 			// Reset in case Scene is not in a correct state
+			_levelController.ResetLevel();
 			ResetBattle();
 
 			_isBattleActive = false;

@@ -141,5 +141,11 @@ namespace AG.Gameplay.Levels
 			_isLevelRunning = false;
 			_applicationEvents.TriggerLevelComplete();
 		}
+
+		public void ResetLevel()
+		{
+			_isLevelRunning = false;
+			_currentWaveIndex = -1;
+		}
 	}
 }
